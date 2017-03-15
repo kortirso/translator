@@ -17,6 +17,7 @@ gem 'figaro'
 gem 'foundation-rails'
 gem 'autoprefixer-rails', '6.7.6'
 gem 'slim'
+gem 'carrierwave', '~> 1.0'
 
 group :development do
     gem 'listen', '~> 3.0.5'
