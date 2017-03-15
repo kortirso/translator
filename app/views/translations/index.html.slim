@@ -1,0 +1,9 @@
+= simple_form_for Task.new do |f|
+    .row
+        h5 Выберите направление перевода
+        .columns.small-1= f.input :from, placeholder: 'From', label: false
+        .columns.small-1.end= f.input :to, placeholder: 'To', label: false
+    .row
+        h5 Выберите YML-файл для локализации его на другой язык
+        = f.file_field :yaml, label: 'Выберите файл yml с существующей локализацией'
+        = f.button :submit, class: 'button', value: 'Провести локализацию'
