@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-    mount_uploader :yaml, YamlUploader
+    mount_uploader :file, FileUploader
 
     validates :uid, :status, :to, presence: true
     validates :from, length: { is: 2 }, allow_blank: true
@@ -8,9 +8,13 @@ class Task < ApplicationRecord
 
     after_create :task_processing
 
+    def file_name
+        self.file.file.file
+    end
+
     private
 
     def task_processing
-        TaskProcessingService.new(self).execute
+        TaskProcessingService.execute(self) unless Rails.env.test?
     end
 end

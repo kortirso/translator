@@ -6,6 +6,6 @@ class TasksController < ApplicationController
     private
 
     def task_params
-        params.require(:task).permit(:from, :to, :yaml)
+        params.require(:task).permit(:from, :to, :file)
     end
 end
