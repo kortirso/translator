@@ -44,7 +44,6 @@ module Fileresponders
         end
 
         def get_values_for_translate(params)
-            puts "prepare to translate #{params[:value]}"
             value = create_hash_for_value(params[:keys].shift, translation_service.translate(params[:value]))
             params[:keys].each { |key| value = create_hash_for_value(key, value) }
             value
