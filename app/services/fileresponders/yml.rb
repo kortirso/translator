@@ -17,7 +17,7 @@ module Fileresponders
             return false if !yaml_file.kind_of?(Hash) || yaml_file.keys.count != 1 || yaml_file.values.count != 1
 
             base_locale = yaml_file.keys.first
-            return false if task.from.present? && task.from != base_locale
+            return false if task.from.present? && task.from != base_locale || task.to == base_locale
             task.from = base_locale if task.from.empty?
 
             @base_hash = yaml_file.values.first
@@ -26,11 +26,10 @@ module Fileresponders
 
         def strings_for_translate(parent, hash_for_translate)
             hash_for_translate.each do |key, value|
-                if value.is_a?(Hash)
-                    parent = parent.nil? ? key : "#{parent},#{key}"
-                    strings_for_translate(parent, value)
+                if value.is_a? Hash
+                    strings_for_translate([key] + parent, value)
                 else
-                    translated = get_values_for_translate({keys: "#{parent.nil? ? '' : parent},#{key}".split(',').delete_if{ |p| p.empty? }.reverse, value: value})
+                    translated = get_values_for_translate({keys: [key] + parent, value: value})
                     hash_merging(finish_hash, translated)
                 end
             end
