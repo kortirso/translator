@@ -6,4 +6,8 @@ class Word < ApplicationRecord
     has_many :base_words, through: :reverse_translations, source: :base
 
     validates :text, :locale, presence: true
+
+    def select_translations(locale)
+        result_words.where(locale: locale) + base_words.where(locale: locale)
+    end
 end
