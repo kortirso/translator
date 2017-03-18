@@ -19,6 +19,7 @@ gem 'autoprefixer-rails', '6.7.6'
 gem 'slim'
 gem 'carrierwave', '~> 1.0'
 gem 'simple_form'
+gem 'sidekiq', '>= 4.2.10'
 
 group :development do
     gem 'listen', '~> 3.0.5'
