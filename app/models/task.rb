@@ -12,6 +12,11 @@ class Task < ApplicationRecord
         self.file.file.file
     end
 
+    def complete
+        status = 'done'
+        save
+    end
+
     private
 
     def task_processing

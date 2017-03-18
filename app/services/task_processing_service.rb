@@ -6,8 +6,7 @@ class TaskProcessingService
         file_handler = fileresponder.new(task)
         return false unless file_handler.processing
 
-        file_handler.strings_for_translate([], file_handler.base_hash)
-        file_handler.save_to_file
+        file_handler.translating
     end
 
     private

@@ -24,6 +24,14 @@ module Fileresponders
             true
         end
 
+        def translating
+            strings_for_translate([], base_hash)
+            save_to_file
+            task.complete
+        end
+
+        private
+
         def strings_for_translate(parent, hash_for_translate)
             hash_for_translate.each do |key, value|
                 if value.is_a? Hash
@@ -34,13 +42,6 @@ module Fileresponders
                 end
             end
         end
-
-        def save_to_file(hash_for_save = {})
-            hash_for_save[task.to] = finish_hash
-            File.open("#{Rails.root}/public/uploads/task/file/#{task.id}/#{task.to}.#{task.file_name.split('.').last}", 'w') { |f| f.write hash_for_save.to_yaml }
-        end
-
-        private
 
         def get_values_for_translate(params)
             value = create_hash_for_value(params[:keys].shift, translation_service.translate(params[:value]))
@@ -55,6 +56,11 @@ module Fileresponders
 
         def hash_merging(base_hash, merging_hash)
             base_hash.merge!(merging_hash) { |key, oldval, newval| hash_merging(base_hash[key], merging_hash[key]) }
+        end
+
+        def save_to_file(hash_for_save = {})
+            hash_for_save[task.to] = finish_hash
+            File.open("#{Rails.root}/public/uploads/task/file/#{task.id}/#{task.to}.#{task.file_name.split('.').last}", 'w') { |f| f.write hash_for_save.to_yaml }
         end
     end
 end
