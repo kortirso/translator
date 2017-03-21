@@ -6,6 +6,8 @@ class Task < ApplicationRecord
     validates :to, length: { is: 2 }
     validates :status, inclusion: { in: %w(active done) }
 
+    scope :for_guest, -> (guest_uid) { where uid: guest_uid }
+
     after_create :task_processing
 
     def file_name
@@ -13,7 +15,7 @@ class Task < ApplicationRecord
     end
 
     def complete
-        status = 'done'
+        self.status = 'done'
         save
     end
 

@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
     end
 
     def set_user_session
-        session[:guest] = Digest::MD5.hexdigest(Time.current.to_s)
+        session[:guest] = Digest::MD5.hexdigest(Time.current.to_s) unless session[:guest]
     end
 end

@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+* {
+    font-family: 'Ubuntu';
+}
+
+.block {
+    padding: 15px;
+    box-shadow: 0 10px 10px 2px #dfdfdf;
+    #task_to {
+        width: 100px;
+    }
+    .button, table {
+        margin-bottom: 0;
+    }
+}
