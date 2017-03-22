@@ -1,2 +1,7 @@
+---
 en:
-  hello: Hello
+  index:
+    direction: Select a translation direction
+    file: Select the file for localization
+    localize: To localize
+    current: Your current job

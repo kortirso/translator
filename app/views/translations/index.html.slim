@@ -2,27 +2,27 @@
     .columns.small-12.medium-6
         #new_file_block.block
             = simple_form_for Task.new do |f|
-                p Выберите направление перевода
+                p= t('index.direction')
                 = f.input :to, placeholder: 'To', label: false
-                h5 Выберите файл для локализации его на другой язык
-                = f.file_field :file, label: 'Выберите файл с существующей локализацией'
-                = f.button :submit, class: '', value: 'Провести локализацию'
+                h5= t('index.file')
+                = f.file_field :file, label: false
+                = f.button :submit, class: '', value: t('index.localize')
     .columns.small-12.medium-6
         .block
-            p Выши текущие задания
+            p= t('index.current')
             table
                 thead
                     tr
-                        th #
                         th File
                         th From
                         th To
                         th Status
+                        th Download
                 tbody
                     - @tasks.each do |task|
                         tr id="task_#{task.id}"
-                            td
                             td= task.file_name.split('/').last
                             td= task.from
                             td= task.to
                             td= task.status
+                            td= link_to 'Download', "/uploads/task/file/#{task.id}/#{task.to}.#{task.file_name.split('.').last}", download: "#{task.to}.#{task.file_name.split('.').last}" if task.completed?

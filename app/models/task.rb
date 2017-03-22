@@ -19,6 +19,10 @@ class Task < ApplicationRecord
         save
     end
 
+    def completed?
+        status == 'done'
+    end
+
     private
 
     def task_processing
