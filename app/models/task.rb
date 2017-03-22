@@ -22,6 +22,7 @@ class Task < ApplicationRecord
     private
 
     def task_processing
-        TaskProcessingJob.perform_later(self)
+        TaskProcessingService.execute(self) unless Rails.env.test?
+        #TaskProcessingJob.perform_later(self)
     end
 end

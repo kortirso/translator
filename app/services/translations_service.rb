@@ -11,10 +11,7 @@ class TranslationsService
         return answer if answer
 
         answer = Translations::Yandex.find_translate({from: task.from, to: task.to, word: word})
-        if answer
-            CreatingTranslateService.create({base: {word: word, locale: task.from}, result: {word: answer, locale: task.to}})
-            return answer
-        end
+        return answer if answer
 
         "!#{word}"
     end

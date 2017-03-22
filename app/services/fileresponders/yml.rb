@@ -7,7 +7,6 @@ module Fileresponders
         def initialize(task)
             @task = task
             @finish_hash = {}
-            @translation_service = TranslationsService.new(task)
         end
 
         def processing
@@ -16,9 +15,8 @@ module Fileresponders
             yaml_file = YAML.load_file task.file_name
             return false if !yaml_file.kind_of?(Hash) || yaml_file.keys.count != 1 || yaml_file.values.count != 1
 
-            base_locale = yaml_file.keys.first
-            return false if task.from.present? && task.from != base_locale || task.to == base_locale
-            task.from = base_locale if task.from.empty?
+            task.update(from: yaml_file.keys.first)
+            @translation_service = TranslationsService.new(task)
 
             @base_hash = yaml_file.values.first
             true
@@ -60,7 +58,9 @@ module Fileresponders
 
         def save_to_file(hash_for_save = {})
             hash_for_save[task.to] = finish_hash
-            File.open("#{Rails.root}/public/uploads/task/file/#{task.id}/#{task.to}.#{task.file_name.split('.').last}", 'w') { |f| f.write hash_for_save.to_yaml }
+            upload_dir = "#{Rails.root}/public/uploads/task/file/#{task.id}"
+            Dir.mkdir(upload_dir) unless File.exists?(upload_dir)
+            File.open("#{upload_dir}/#{task.to}.#{task.file_name.split('.').last}", 'w') { |f| f.write hash_for_save.to_yaml }
         end
     end
 end

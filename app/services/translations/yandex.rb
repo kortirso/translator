@@ -8,7 +8,14 @@ module Translations
             req.set_form_data(text: params[:word])
             res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) { |http| http.request(req) }
             return false unless res.code == '200'
-            JSON.parse(res.body)['text'][0]
+            answer = JSON.parse(res.body)['text'][0]
+
+            save_translate(params.merge(answer: answer))
+            answer
+        end
+
+        def self.save_translate(params)
+            CreatingTranslateService.create({base: {word: params[:word], locale: params[:from]}, result: {word: params[:answer], locale: params[:to]}})
         end
     end
 end
