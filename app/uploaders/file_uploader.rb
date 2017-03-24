@@ -6,6 +6,6 @@ class FileUploader < CarrierWave::Uploader::Base
     end
 
     def extension_whitelist
-        %w(yml)
+        %w(yml resx)
     end
 end

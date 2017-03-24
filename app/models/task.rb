@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
     mount_uploader :file, FileUploader
+    mount_uploader :result_file, FileUploader
 
     validates :uid, :status, :to, presence: true
     validates :from, length: { is: 2 }, allow_blank: true
@@ -12,6 +13,10 @@ class Task < ApplicationRecord
 
     def file_name
         self.file.file.file
+    end
+
+    def result_file_name
+        self.result_file.file.file
     end
 
     def complete

@@ -58,9 +58,15 @@ module Fileresponders
 
         def save_to_file(hash_for_save = {})
             hash_for_save[task.to] = finish_hash
-            upload_dir = "#{Rails.root}/public/uploads/task/file/#{task.id}"
-            Dir.mkdir(upload_dir) unless File.exists?(upload_dir)
-            File.open("#{upload_dir}/#{task.to}.#{task.file_name.split('.').last}", 'w') { |f| f.write hash_for_save.to_yaml }
+            File.write(change_file_name, hash_for_save.to_yaml)
+            File.open(change_file_name) { |f| task.result_file = f }
+            task.save
+        end
+
+        def change_file_name
+            file_name_array = task.file_name.split('/')
+            file_name_array[-1] = "#{task.to}.#{file_name_array[-1].split('.')[1]}"
+            file_name_array.join('/')
         end
     end
 end

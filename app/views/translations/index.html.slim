@@ -25,4 +25,4 @@
                             td= task.from
                             td= task.to
                             td= task.status
-                            td= link_to 'Download', "/uploads/task/file/#{task.id}/#{task.to}.#{task.file_name.split('.').last}", download: "#{task.to}.#{task.file_name.split('.').last}" if task.completed?
+                            td= link_to 'Download', task.result_file.to_s, download: task.result_file.to_s.split('/').last if task.completed?

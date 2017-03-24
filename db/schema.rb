@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170317075749) do
+ActiveRecord::Schema.define(version: 20170324090034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "uid",        default: "",       null: false
-    t.string   "status",     default: "active", null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "uid",         default: "",       null: false
+    t.string   "status",      default: "active", null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "file"
-    t.string   "from",       default: "",       null: false
-    t.string   "to",         default: "en",     null: false
+    t.string   "from",        default: "",       null: false
+    t.string   "to",          default: "en",     null: false
+    t.string   "result_file"
   end
 
   create_table "translations", force: :cascade do |t|
