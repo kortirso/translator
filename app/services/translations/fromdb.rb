@@ -17,6 +17,8 @@ module Translations
             # todo: add additional selecting from translations
             word_id = word[0][:id]
             word_translations = Word.find(word_id).select_translations(tr_to)
+            return false if word_translations.empty?
+            
             word_translations.first.text
             #word.select_translations(tr_to).first.text
         end
