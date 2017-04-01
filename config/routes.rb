@@ -9,6 +9,12 @@ Rails.application.routes.draw do
     resources :translations, only: :index
     resources :tasks, only: :create
 
+    namespace :api do
+        namespace :v1 do
+            resources :tasks, only: :index
+        end
+    end
+
     root to: 'translations#index'
 
     match "*path", to: "application#catch_404", via: :all
