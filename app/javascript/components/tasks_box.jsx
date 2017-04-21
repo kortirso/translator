@@ -12,7 +12,7 @@ class TasksBox extends React.Component {
     _fetchTasksList() {
         $.ajax({
             method: 'GET',
-            url: `tasks.json`,
+            url: `api/v1/tasks.json?access_token=${this.props.access_token}`,
             success: (tasks) => {
                 this.setState({tasksList: tasks.tasks});
             }

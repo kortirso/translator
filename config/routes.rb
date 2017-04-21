@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
 
     resources :translations, only: :index
-    resources :tasks, only: [:index, :create]
+    resources :tasks, only: :create
 
     namespace :api do
         namespace :v1 do
