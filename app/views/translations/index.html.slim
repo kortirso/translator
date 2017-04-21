@@ -1,3 +1,4 @@
+= javascript_pack_tag 'tasks_box'
 .row
     .columns.small-12.medium-6
         #new_file_block.block
@@ -9,5 +10,4 @@
                 = f.button :submit, class: '', value: t('index.localize')
     .columns.small-12.medium-6
         .block
-            #tasks_box
-= javascript_pack_tag 'tasks_box'
+            #tasks_box= react_component('TasksBox', user_token: session[:guest])

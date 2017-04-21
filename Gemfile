@@ -13,6 +13,7 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
+gem 'webpacker-react', '~> 0.2.0'
 gem 'foreman'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
