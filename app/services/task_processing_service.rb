@@ -5,6 +5,7 @@ class TaskProcessingService
 
         file_handler = fileresponder.new(task)
         return false unless file_handler.processing
+        return false unless Translations::LangExistService.call(task)
 
         file_handler.translating
     end
