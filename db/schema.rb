@@ -10,36 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324090034) do
+ActiveRecord::Schema.define(version: 20170421181516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
-  create_table "tasks", force: :cascade do |t|
-    t.string   "uid",         default: "",       null: false
-    t.string   "status",      default: "active", null: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "file"
-    t.string   "from",        default: "",       null: false
-    t.string   "to",          default: "en",     null: false
-    t.string   "result_file"
-  end
-
-  create_table "translations", force: :cascade do |t|
-    t.integer  "base_id"
-    t.integer  "result_id"
+  create_table "locales", force: :cascade do |t|
+    t.string "code"
+    t.string "country_code"
+    t.hstore "names"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["base_id"], name: "index_translations_on_base_id", using: :btree
-    t.index ["result_id"], name: "index_translations_on_result_id", using: :btree
   end
 
-  create_table "words", force: :cascade do |t|
-    t.string   "text"
-    t.string   "locale"
+  create_table "tasks", id: :serial, force: :cascade do |t|
+    t.string "uid", default: "", null: false
+    t.string "status", default: "active", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "file"
+    t.string "from", default: "", null: false
+    t.string "to", default: "en", null: false
+    t.string "result_file"
+  end
+
+  create_table "translations", id: :serial, force: :cascade do |t|
+    t.integer "base_id"
+    t.integer "result_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["base_id"], name: "index_translations_on_base_id"
+    t.index ["result_id"], name: "index_translations_on_result_id"
+  end
+
+  create_table "words", id: :serial, force: :cascade do |t|
+    t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "locale_id"
+    t.index ["locale_id"], name: "index_words_on_locale_id"
   end
 
 end

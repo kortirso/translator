@@ -16,7 +16,7 @@ module Fileresponders
             file_name = task.file_name.split('/').last
             task.update(from: file_name.split('.').size == 2 ? 'en' : file_name.split('.')[1].split('-')[0])
             @translation_service = TranslationsService.new(task)
-
+            
             @base_array = xml_file.xpath("//data/value") + xml_file.xpath("//data/comment")
             true
         end

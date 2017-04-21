@@ -4,7 +4,7 @@
         #new_file_block.block
             = simple_form_for Task.new do |f|
                 p= t('index.direction')
-                = f.input :to, placeholder: 'To', label: false
+                = f.select :to, options_for_select(@locale_list), include_blank: false
                 h5= t('index.file')
                 = f.file_field :file, label: false
                 = f.button :submit, class: '', value: t('index.localize')

@@ -5,7 +5,7 @@ module Translations
         def initialize(params)
             @tr_from = params[:from]
             @tr_to = params[:to]
-            @words = ActiveModel::Serializer::CollectionSerializer.new(Word.where(locale: tr_from), each_serializer: WordSerializer).as_json
+            @words = ActiveModel::Serializer::CollectionSerializer.new(Locale.find_by(code: tr_from).words, each_serializer: WordSerializer).as_json
         end
 
         def find_translate(base_word)
