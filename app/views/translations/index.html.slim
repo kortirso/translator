@@ -9,4 +9,4 @@
                 = f.button :submit, class: '', value: t('index.localize')
     .columns.small-12.medium-6
         .block
-            #tasks_box= react_component('TasksBox', access_token: session[:guest])
+            #tasks_box= react_component('TasksBox', access_token: user_signed_in? ? current_user.access_token : session[:guest])

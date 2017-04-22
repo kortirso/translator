@@ -11,8 +11,6 @@ class Task < ApplicationRecord
 
     scope :for_guest, -> (guest_uid) { where uid: guest_uid }
 
-    after_create :task_processing
-
     def file_name
         self.file.file.file
     end
@@ -28,11 +26,5 @@ class Task < ApplicationRecord
 
     def completed?
         status == 'done'
-    end
-
-    private
-
-    def task_processing
-        TaskProcessingJob.perform_later(self)
     end
 end
