@@ -1,12 +1,16 @@
 class TasksController < ApplicationController
     def create
-        Task.create(task_params.merge(uid: session[:guest]))
+        begin
+            Task.create!(task_params.merge(uid: session[:guest]))
+        rescue ActiveRecord::RecordInvalid => invalid
+            puts invalid.record.errors
+        end
         redirect_to translations_path
     end
 
     private
 
     def task_params
-        params.require(:task).permit(:from, :to, :file)
+        params.require(:task).permit(:to, :file)
     end
 end

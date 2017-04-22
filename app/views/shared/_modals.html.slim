@@ -1,0 +1,28 @@
+#login.reveal.tiny data-reveal=''
+    = simple_form_for User.new, as: :user, url: session_path(:user) do |f|
+        .small-12.columns
+            p= t('modals.auth')
+        .small-12.columns
+            = f.input :email, autofocus: true, label: false, placeholder: 'Email'
+        .small-12.columns
+            = f.input :password, autocomplete: 'off', label: false, placeholder: t('modals.pass')
+        .small-12.columns
+            = f.button :submit, t('modals.enter'), class: 'button', id: 'authorization'
+    button.close-button aria-label=('Close modal') data-close='' type='button'
+        span aria-hidden='true' &times;
+#signup.reveal data-reveal=''
+    = simple_form_for User.new, as: :user, url: registration_path(:user) do |f|
+        .small-12.columns
+            p= t('modals.reg')
+        .small-12.columns
+            = f.input :username, required: true, label: false, placeholder: t('modals.username')
+        .small-12.columns
+            = f.input :email, required: true, label: false, placeholder: 'Email'
+        .small-12.columns
+            = f.input :password, required: true, label: false, placeholder: t('modals.pass')
+        .small-12.columns
+            = f.input :password_confirmation, autocomplete: 'off', required: true, label: false, placeholder: t('modals.confirm')
+        .small-12.small-5.small-offset-7.columns
+            =  f.button :submit, t('nav.signup'), class: 'button', id: 'registration'
+    button.close-button aria-label=('Close modal') data-close='' type='button'
+        span aria-hidden='true' &times;

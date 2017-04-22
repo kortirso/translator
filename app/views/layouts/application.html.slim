@@ -4,6 +4,9 @@ html
         title Translator
         = stylesheet_link_tag 'application', media: 'all'
         = javascript_include_tag 'application'
+        = javascript_pack_tag 'tasks_box'
         = csrf_meta_tags
     body
+        = render 'shared/navigation'
+        = render 'shared/modals'
         = yield

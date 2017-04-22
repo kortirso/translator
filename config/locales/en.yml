@@ -1,5 +1,18 @@
 ---
 en:
+  nav:
+    logout: Log Out
+    login: Log In
+    signup: Sign Up
+    menu: Menu
+  modals:
+    auth: Authorization
+    reg: Registration
+    pass: Password
+    username: Nickname
+    confirm: Confirm password
+    enter: Log In
+    minimal: Minimum password length - 6 characters
   index:
     direction: Select a translation direction
     file: Select the file for localization

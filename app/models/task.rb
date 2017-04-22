@@ -2,6 +2,8 @@ class Task < ApplicationRecord
     mount_uploader :file, FileUploader
     mount_uploader :result_file, FileUploader
 
+    belongs_to :user, optional: true
+
     validates :uid, :status, :to, presence: true
     validates :from, length: { is: 2 }, allow_blank: true
     validates :to, length: { is: 2 }

@@ -1,0 +1,14 @@
+nav
+    .title-bar data-responsive-toggle='menu'
+        button.menu-icon type='button' data-toggle='menu'
+        .title-bar-title= t('nav.menu')
+    .top-bar#menu
+        .top-bar-right
+            ul.menu.dropdown.vertical.medium-horizontal data-dropdown-menu=''
+                - if current_user
+                    li= link_to t('nav.logout'), destroy_user_session_path, method: :delete
+                - else
+                    li
+                        a data-open='login'= t('nav.login')
+                    li
+                        a data-open='signup'= t('nav.signup')

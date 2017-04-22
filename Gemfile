@@ -27,6 +27,7 @@ gem 'simple_form'
 gem 'sidekiq', '>= 4.2.10'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'http_accept_language'
+gem 'devise'
 
 group :development do
     gem 'listen', '~> 3.0.5'
