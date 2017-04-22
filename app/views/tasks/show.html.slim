@@ -1,0 +1,13 @@
+#edit_translation
+    .row
+        .columns.small-12
+            = form_tag :translations do
+                = hidden_field_tag 'task_id', @task.id
+                - @translations.each do |translation|
+                    .row.translation
+                        .columns.small-6= text_field_tag "translation[#{translation.id}][base]", translation.base.text, disabled: true
+                        .columns.small-6= text_field_tag "translation[#{translation.id}][result]", translation.result.text
+                        - if translation.base.result_words.size > 1
+                            .columns.small-6.small-offset-6.additional_translations
+                                p= "Возможные переводы: #{translation.base.result_words.pluck(:text).join(', ')}"
+                = submit_tag 'Save', class: 'button'

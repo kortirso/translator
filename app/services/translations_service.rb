@@ -3,7 +3,7 @@ class TranslationsService
 
     def initialize(task)
         @task = task
-        @db_data = Translations::Fromdb.new({from: task.from, to: task.to})
+        @db_data = Translations::Fromdb.new({task: task})
     end
 
     def translate(word)

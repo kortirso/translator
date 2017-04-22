@@ -23,3 +23,18 @@ nav {
         }
     }
 }
+
+#edit_translation {
+    .translation {
+        margin-bottom: 5px;
+        input {
+            margin: 0;
+        }
+        .additional_translations {
+            p {
+                font-size: 12px;
+                margin: 0;
+            }
+        }
+    }
+}

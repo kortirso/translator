@@ -8,7 +8,7 @@ class TasksController < ApplicationController
     end
 
     def show
-
+        @translations = @task.translations.includes(:base, :result).order(id: :asc)
     end
     
     def create
