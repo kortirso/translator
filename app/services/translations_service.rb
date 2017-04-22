@@ -10,7 +10,7 @@ class TranslationsService
         answer = db_data.find_translate(word)
         return answer if answer
 
-        answer = Translations::Yandex.find_translate({from: task.from, to: task.to, word: word})
+        answer = Translations::Yandex.find_translate({task: task, word: word})
         return answer if answer
 
         "!#{word}"
