@@ -32,6 +32,7 @@ class TasksBox extends React.Component {
                     <td>{task.to}</td>
                     <td className={task.status} >{task.status}</td>
                     <td><a download={task.result_short_filename} href={'/uploads/task/result_file/' + task.id + '/' + task.result_short_filename}>Download</a></td>
+                    <td><a href={'/tasks/' + task.id}>Go to translation</a></td>
                 </tr>
             );
         });
@@ -50,6 +51,7 @@ class TasksBox extends React.Component {
                             <th>To</th>
                             <th>Status</th>
                             <th>Download</th>
+                            <th>Translation</th>
                         </tr>
                     </thead>
                     <tbody>

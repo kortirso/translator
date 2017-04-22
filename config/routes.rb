@@ -8,16 +8,15 @@ Rails.application.routes.draw do
     end if Rails.env.production?
     mount Sidekiq::Web => '/sidekiq'
 
-    resources :translations, only: :index
-    resources :tasks, only: :create
+    resources :tasks, only: [:index, :show, :create]
 
     namespace :api do
         namespace :v1 do
-            resources :tasks, only: :index
+            resources :tasks, only: [:index, :show, :create]
         end
     end
 
-    root to: 'translations#index'
+    root to: 'tasks#index'
 
     match "*path", to: "application#catch_404", via: :all
 end
