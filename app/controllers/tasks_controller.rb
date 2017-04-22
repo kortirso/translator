@@ -1,10 +1,8 @@
 class TasksController < ApplicationController
+    skip_before_action :verify_authenticity_token, only: :create
+    
     def create
-        begin
-            Task.create!(task_params.merge(uid: session[:guest]))
-        rescue ActiveRecord::RecordInvalid => invalid
-            puts invalid.record.errors
-        end
+        Task.create(task_params.merge(uid: session[:guest]))
         redirect_to translations_path
     end
 

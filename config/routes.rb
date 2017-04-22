@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-    devise_for :users
+    devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
     
     require 'sidekiq/web'
     Sidekiq::Web.use Rack::Auth::Basic do |username, password|
