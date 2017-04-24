@@ -1,6 +1,6 @@
 require 'securerandom'
 
-class RagistrationsController < Devise::RegistrationsController
+class RegistrationsController < Devise::RegistrationsController
     skip_before_action :verify_authenticity_token, only: :create
     after_action :update_token, only: :create
 
