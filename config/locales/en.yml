@@ -1,6 +1,9 @@
----
 en:
   nav:
+    main: About LangTool
+    tasks: Translating
+    user: Account
+  buttons:
     logout: Log Out
     login: Log In
     signup: Sign Up
@@ -13,8 +16,12 @@ en:
     confirm: Confirm password
     enter: Log In
     minimal: Minimum password length - 6 characters
-  index:
+  tasks:
     direction: Select a translation direction
     file: Select the file for localization
-    localize: To localize
+    localize: Localize
     current: Your current job
+  task:
+    translations: Possible translations
+  user:
+    welcome: Welcome

@@ -1,5 +1,9 @@
 ru:
   nav:
+    main: О переводчике
+    tasks: Перевод
+    user: Аккаунт
+  buttons:
     logout: Выход
     login: Вход
     signup: Регистрация
@@ -12,8 +16,12 @@ ru:
     confirm: Подтверждение пароля
     enter: Вход
     minimal: Минимальная длина пароля - 6 символов
-  index:
+  tasks:
     direction: Выберите направление перевода
     file: Выберите файл для локализации
     localize: Локализовать
     current: Ваши текущие задания
+  task:
+    translations: Возможные переводы
+  user:
+    welcome: Добро пожаловать

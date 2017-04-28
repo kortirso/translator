@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500&subset=cyrillic');
 
 * {
-    font-family: 'Ubuntu';
+    font-family: 'Ubuntu' !important;
     font-size: 16px;
 }
 
@@ -17,7 +17,7 @@ html, body {
 .block {
     padding: 15px;
     box-shadow: 0 5px 10px 2px #dfdfdf;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     #task_to {
         width: 100px;
     }
@@ -66,7 +66,7 @@ nav {
 
 .inside {
     margin-left: 300px;
-    padding: 15px 10px 0;
+    padding: 20px 20px 0;
 }
 
 table {
@@ -74,5 +74,11 @@ table {
         th {
             font-weight: 500;
         }
+    }
+}
+
+.row {
+    .columns {
+        padding: 0;
     }
 }
