@@ -3,7 +3,7 @@ class TranslationsController < ApplicationController
     before_action :find_task
 
     def create
-        TranslationsRebuildService.call({translations: translation_params, task: @task})
+        Translations::RebuildService.call({translations: translation_params, task: @task})
         redirect_to @task
     end
 

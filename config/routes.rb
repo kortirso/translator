@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
     resources :tasks, only: [:index, :show, :create]
     resources :translations, only: :create
+    resources :users, only: [:index, :show]
 
     namespace :api do
         namespace :v1 do

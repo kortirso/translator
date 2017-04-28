@@ -1,0 +1,3 @@
+- provide(:path, 'user')
+p= "Добро пожаловать, #{@user.username}"
+p= link_to t('nav.logout'), destroy_user_session_path, method: :delete

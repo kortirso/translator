@@ -1,6 +1,6 @@
 class TaskProcessingService
     def self.execute(task)
-        fileresponder = FileresponderService.get_fileresponder(task)
+        fileresponder = Fileresponders::ExtensionService.get_fileresponder(task)
         return false unless fileresponder
 
         file_handler = fileresponder.new(task)
