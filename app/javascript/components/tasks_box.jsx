@@ -17,10 +17,28 @@ class TasksBox extends React.Component {
                 this.setState({tasksList: tasks.tasks});
             }
         });
+        this._checkCompleting();
     }
 
     componentWillMount() {
         this._fetchTasksList();
+    }
+
+    componentDidMount() {
+        this._timer = setInterval(() => this._fetchTasksList(), 5000);
+        this.setState({intervalId: this._timer});
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.state.intervalId);
+    }
+
+    _checkCompleting() {
+        let amount = 0;
+        this.state.tasksList.map((task) => {
+            if (task.status != 'done') amount = amount + 1;
+        });
+        if (amount == 0) clearInterval(this.state.intervalId);
     }
 
     _checkDownloading(task) {
