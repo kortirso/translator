@@ -23,6 +23,18 @@ class TasksBox extends React.Component {
         this._fetchTasksList();
     }
 
+    _checkDownloading(task) {
+        let link;
+        if (task.status == 'done') link = <a download={task.result_short_filename} href={'/uploads/task/result_file/' + task.id + '/' + task.result_short_filename}>Download</a>
+        return <td>{link}</td>;
+    }
+
+    _checkTranslation(task) {
+        let link;
+        if (task.status == 'done') link = <a href={'/tasks/' + task.id}>Go to translation</a>
+        return <td>{link}</td>;
+    }
+
     _prepareTasksList() {
         return this.state.tasksList.map((task) => {
             return (
@@ -31,8 +43,8 @@ class TasksBox extends React.Component {
                     <td>{task.from}</td>
                     <td>{task.to}</td>
                     <td className={task.status} >{task.status}</td>
-                    <td><a download={task.result_short_filename} href={'/uploads/task/result_file/' + task.id + '/' + task.result_short_filename}>Download</a></td>
-                    <td><a href={'/tasks/' + task.id}>Go to translation</a></td>
+                    {this._checkDownloading(task)}
+                    {this._checkTranslation(task)}
                 </tr>
             );
         });
