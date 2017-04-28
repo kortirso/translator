@@ -46,6 +46,7 @@ nav {
     width: 300px;
     height: 100%;
     border-right: 1px solid #EEE;
+    position: relative;
     .menu {
         li {
             border-bottom: 1px solid #EEE;
@@ -61,6 +62,13 @@ nav {
                 }
             }
         }
+    }
+    .yandex {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
     }
 }
 

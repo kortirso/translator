@@ -3,6 +3,8 @@ en:
     main: About LangTool
     tasks: Translating
     user: Account
+    yandex: 'Translated by '
+    yandex_link: «Yandex.Translator»
   buttons:
     logout: Log Out
     login: Log In
@@ -12,12 +14,12 @@ en:
     auth: Authorization
     reg: Registration
     pass: Password
-    username: Nickname
+    username: Username
     confirm: Confirm password
     enter: Log In
     minimal: Minimum password length - 6 characters
   tasks:
-    direction: Select a translation direction
+    direction: Select a translation's direction
     file: Select the file for localization
     localize: Localize
     current: Your current job

@@ -3,6 +3,8 @@ ru:
     main: О переводчике
     tasks: Перевод
     user: Аккаунт
+    yandex: 'Переведено сервисом '
+    yandex_link: «Яндекс.Переводчик»
   buttons:
     logout: Выход
     login: Вход
