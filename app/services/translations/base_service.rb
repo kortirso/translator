@@ -9,28 +9,31 @@ module Translations
         end
 
         def translate(word)
-            result = db_data.find_translate(word)
-            return result if result
+            answer = db_data.find_translate(word)
+            return answer if answer
 
-            result = Translations::Sources::Yandex.find_translate({task: task, word: word})
-            if result
-                new_words.push {word: word, result: result}
-                return result
+            answer = Translations::Sources::Yandex.find_translate({task: task, word: word})
+            if answer
+                new_words.push({word: word, answer: answer})
+                return answer
             end
 
             "!#{word}"
         end
 
-        def save_new_words
+        def save_new_words(translations = [])
             locale_from = Locale.find_by(code: task.from)
             locale_to = Locale.find_by(code: task.to)
 
             new_words.each do |new_word|
-                word_1 = Word.find_or_create_by text: new_word[:word].text, locale: locale_from
-                word_2 = Word.create text: new_word[:result].text, locale: locale_to
-                translation = Translation.create base: word_1, result: word_2
-                translation.positions.create task: task
+                word_1 = Word.find_or_create_by text: new_word[:word], locale: locale_from
+                word_2 = Word.create text: new_word[:answer], locale: locale_to
+                translation = Translation.new base: word_1, result: word_2
+                translation.positions.build task: task
+                translations << translation
             end
+
+            Translation.import translations, recursive: true
         end
     end
 end

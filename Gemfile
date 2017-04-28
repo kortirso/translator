@@ -28,6 +28,7 @@ gem 'sidekiq', '>= 4.2.10'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'http_accept_language'
 gem 'devise'
+gem 'activerecord-import'
 
 group :development do
     gem 'listen', '~> 3.0.5'

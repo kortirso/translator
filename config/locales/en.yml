@@ -24,6 +24,7 @@ en:
     localize: Localize
     current: Your current job
   task:
+    title: See the translations of words and phrases from your file
     translations: Possible translations
   user:
     welcome: Welcome

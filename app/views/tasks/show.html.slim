@@ -2,6 +2,7 @@
 #edit_translation
     .row
         .columns.small-12
+            p= t('task.title')
             = form_tag :translations do
                 = hidden_field_tag 'task_id', @task.id
                 - @translations.each do |translation|
