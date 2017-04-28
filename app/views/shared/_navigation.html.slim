@@ -1,4 +1,9 @@
 nav
+    ul.menu.vertical
+        li= link_to 'О переводчике', root_path, class: "#{'active' if yield(:path) == 'root'}"
+        li= link_to 'Перевод', tasks_path, class: "#{'active' if yield(:path) == 'selector'}"
+
+/nav
     .title-bar data-responsive-toggle='menu'
         button.menu-icon type='button' data-toggle='menu'
         .title-bar-title= t('nav.menu')

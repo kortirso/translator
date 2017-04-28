@@ -1,13 +1,14 @@
+- provide(:path, 'selector')
 = javascript_pack_tag 'tasks_box'
 .row
-    .columns.small-12.medium-4
+    .columns.small-12.medium-8.large-6
         #new_file_block.block
             = simple_form_for Task.new do |f|
-                p= t('index.direction')
+                h6= t('index.direction')
                 = f.select :to, options_for_select(@locale_list), include_blank: false
-                h5= t('index.file')
+                h6= t('index.file')
                 = f.file_field :file, label: false
                 = f.button :submit, class: '', value: t('index.localize')
-    .columns.small-12.medium-8
+    .columns.small-12
         .block
             #tasks_box= react_component('TasksBox', access_token: user_signed_in? ? current_user.access_token : session[:guest])

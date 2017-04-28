@@ -17,7 +17,7 @@ Rails.application.routes.draw do
         end
     end
 
-    root to: 'tasks#index'
+    root to: 'welcome#index'
 
     match "*path", to: "application#catch_404", via: :all
 end

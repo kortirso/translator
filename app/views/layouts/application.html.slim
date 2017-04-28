@@ -7,6 +7,7 @@ html
         = csrf_meta_tags
     body
         = render 'shared/navigation'
-        - unless user_signed_in?
+        /- unless user_signed_in?
             = render 'shared/modals'
-        = yield
+        .inside
+            = yield

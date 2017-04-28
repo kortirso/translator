@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
     skip_before_action :verify_authenticity_token, only: :create
-    before_action :check_user_signed, only: :show
     before_action :find_task, only: :show
 
     def index
@@ -24,7 +23,11 @@ class TasksController < ApplicationController
     end
 
     def find_task
-        @task = current_user.tasks.find_by(id: params[:id])
+        if user_signed_in?
+            @task = current_user.tasks.find_by(id: params[:id])
+        else
+            @task = Task.find_by(id: params[:id], uid: session[:guest])
+        end
         render_not_found if @task.nil?
     end
 end
