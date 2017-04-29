@@ -25,6 +25,7 @@ en:
     current: Your current job
   task:
     title: See the translations of words and phrases from your file
+    need_login: Logged users can edit translations
     translations: Possible translations
   user:
     welcome: Welcome
