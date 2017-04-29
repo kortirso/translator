@@ -42,8 +42,9 @@ module Fileresponders
             end
 
             def change_file_name
+                translation_locale = Locale.find_by(code: task.to)
                 file_name_array = task.file_name.split('.')
-                file_name_array[-1] = "#{task.to}-#{task.to.upcase}." + file_name_array[-1]
+                file_name_array[-1] = "#{translation_locale.code}-#{translation_locale.country_code}." + file_name_array[-1]
                 file_name_array.join('.')
             end
         end

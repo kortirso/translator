@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
     skip_before_action :verify_authenticity_token, only: :create
     before_action :find_task, only: :show
+    before_action :check_file, only: :create
 
     def index
-        @locale_list = Locale.all.collect { |loc| loc.code }
+        @locale_list = Locale.get_list
     end
 
     def show
@@ -29,5 +30,9 @@ class TasksController < ApplicationController
             @task = Task.find_by(id: params[:id], uid: session[:guest])
         end
         render_not_found if @task.nil?
+    end
+
+    def check_file
+        redirect_to tasks_path if params[:task][:file].nil?
     end
 end
