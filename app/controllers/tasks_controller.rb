@@ -13,7 +13,6 @@ class TasksController < ApplicationController
     
     def create
         task = Task.create(task_params.merge(uid: session[:guest], user: current_user))
-        TaskProcessingJob.perform_later(task)
         redirect_to tasks_path
     end
 
