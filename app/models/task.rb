@@ -37,6 +37,6 @@ class Task < ApplicationRecord
 
     def task_processing
         #TaskProcessingJob.perform_later(self)
-        TaskProcessingService.execute(task)
+        TaskProcessingService.execute(self)
     end
 end
