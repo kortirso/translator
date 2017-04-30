@@ -6,7 +6,7 @@ Bundler.require(*Rails.groups)
 
 module Translator
     class Application < Rails::Application
-        I18n.available_locales = [:en, :ru]
+        I18n.available_locales = [:en, :ru, :da]
         config.i18n.default_locale = :en
         config.active_record.schema_format = :ruby
         config.generators do |g|

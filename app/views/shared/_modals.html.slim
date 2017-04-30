@@ -23,6 +23,6 @@
         .small-12.columns
             = f.input :password_confirmation, autocomplete: 'off', required: true, label: false, placeholder: t('modals.confirm')
         .small-12.small-5.small-offset-7.columns
-            =  f.button :submit, t('nav.signup'), class: 'button', id: 'registration'
+            =  f.button :submit, t('buttons.signup'), class: 'button', id: 'registration'
     button.close-button aria-label=('Close modal') data-close='' type='button'
         span aria-hidden='true' &times;

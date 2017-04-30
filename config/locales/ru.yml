@@ -5,6 +5,7 @@ ru:
     user: Аккаунт
     yandex: 'Переведено сервисом '
     yandex_link: «Яндекс.Переводчик»
+    change_locale: Переключить язык
   buttons:
     logout: Выход
     login: Вход

@@ -3,7 +3,12 @@ nav
         li= link_to t('nav.main'), root_path, class: "#{'active' if yield(:path) == 'root'}"
         li= link_to t('nav.tasks'), tasks_path, class: "#{'active' if yield(:path) == 'selector'}"
         li= link_to t('nav.user'), user_signed_in? ? current_user : users_path, class: "#{'active' if yield(:path) == 'user'}"
-    .yandex
-        p
-            = t('nav.yandex')
-            = link_to t('nav.yandex_link'), 'http://translate.yandex.ru/'
+    .bottom
+        .locales
+            p= t('nav.change_locale')
+            - %w(en ru da).each do |locale|
+                = link_to image_tag("flags/#{locale}.png"), change_locale(locale)
+        .yandex
+            p
+                = t('nav.yandex')
+                = link_to t('nav.yandex_link'), 'http://translate.yandex.ru/'
