@@ -1,0 +1,31 @@
+da:
+  nav:
+    main: Om LangTool
+    tasks: Oversættelse
+    user: Højde
+    yandex: 'Oversat service '
+    yandex_link: '"Yandex.Oversætter"'
+  buttons:
+    logout: Udgang
+    login: Indgang
+    signup: Tilmelding
+    menu: Menu
+  modals:
+    auth: Tilladelse
+    reg: Tilmelding
+    pass: Password
+    username: Kaldenavn
+    confirm: Bekræft adgangskode
+    enter: Indgang
+    minimal: Mindste password længde - 6 tegn
+  tasks:
+    direction: Vælg en oversættelse retning
+    file: Vælg filen til lokalisering
+    localize: At lokalisere
+    current: Dit nuværende job
+  task:
+    title: Læs oversættelser af ord og sætninger fra din fil
+    need_login: Autoriserede brugere kan redigere oversættelser
+    translations: Mulige oversættelser
+  user:
+    welcome: Velkommen
