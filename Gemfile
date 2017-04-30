@@ -26,7 +26,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'simple_form'
 gem 'sidekiq', '>= 4.2.10'
 gem 'active_model_serializers', '~> 0.10.0'
-gem 'http_accept_language'
+gem 'route_translator'
 gem 'devise'
 gem 'activerecord-import'
 
