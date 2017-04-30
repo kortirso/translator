@@ -10,7 +10,7 @@
                     .row.translation
                         .columns.small-6= text_field_tag "translation[#{translation.id}][base]", translation.base.text, disabled: true
                         .columns.small-6= text_field_tag "translation[#{translation.id}][result]", translation.result.text, disabled: !user_signed_in?
-                        - if translation.base.result_words.size > 1
+                        /- if translation.base.result_words.size > 1
                             .columns.small-6.small-offset-6.additional_translations
                                 p= "#{t('task.translations')}: #{translation.base.result_words.pluck(:text).join(', ')}"
                 = submit_tag 'Save', class: 'button' if user_signed_in?
