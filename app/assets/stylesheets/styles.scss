@@ -63,12 +63,25 @@ nav {
             }
         }
     }
-    .yandex {
+    .bottom {
         position: absolute;
         left: 0;
         bottom: 0;
         width: 100%;
         text-align: center;
+        .locales {
+            margin-bottom: 5px;
+            p {
+                margin: 0;
+            }
+            a {
+                margin-right: 4px;
+                img {
+                    width: 32px;
+                    border: 1px solid #AAA;
+                }
+            }
+        }
     }
 }
 

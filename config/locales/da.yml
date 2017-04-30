@@ -5,6 +5,7 @@ da:
     user: Højde
     yandex: 'Oversat service '
     yandex_link: '"Yandex.Oversætter"'
+    change_locale: Skift sprog
   buttons:
     logout: Udgang
     login: Indgang

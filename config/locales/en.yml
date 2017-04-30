@@ -5,6 +5,7 @@ en:
     user: Account
     yandex: 'Translated by '
     yandex_link: «Yandex.Translator»
+    change_locale: Switch language
   buttons:
     logout: Log Out
     login: Log In
