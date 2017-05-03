@@ -54,4 +54,14 @@ RSpec.describe User, type: :model do
         
         expect(user.errors[:email]).to include('has already been taken')
     end
+
+    describe 'methods' do
+        context '.update_token' do
+            let!(:user) { create :user }
+
+            it 'should create new secret token' do
+                expect { user.update_token }.to change(user, :access_token)
+            end
+        end
+    end
 end
