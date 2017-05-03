@@ -10,4 +10,14 @@ RSpec.describe Locale, type: :model do
 
         expect(locale).to be_valid
     end
+
+    describe 'methods' do
+        context 'self.get_list' do
+            let!(:locale) { create :locale, :en }
+
+            it 'should be array with en name and code' do
+                expect(Locale.get_list).to eq [[locale.names['en'], locale.code]]
+            end
+        end
+    end
 end
