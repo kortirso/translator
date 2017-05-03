@@ -10,7 +10,7 @@ class Task < ApplicationRecord
     validates :uid, :status, :to, presence: true
     validates :from, length: { is: 2 }, allow_blank: true
     validates :to, length: { is: 2 }
-    validates :status, inclusion: { in: %w(active done) }
+    validates :status, inclusion: { in: %w(active done failed) }
 
     scope :for_guest, -> (guest_uid) { where uid: guest_uid }
 
