@@ -11,10 +11,10 @@ module Fileresponders
             end
 
             def processing
-                return false unless File.file? task.file_name
+                return task.failure(101) unless File.file? task.file_name
 
                 yaml_file = YAML.load_file task.file_name
-                return false if !yaml_file.kind_of?(Hash) || yaml_file.keys.count != 1 || yaml_file.values.count != 1
+                return task.failure(110) if !yaml_file.is_a?(Hash) || yaml_file.keys.count != 1 || yaml_file.values.count != 1
 
                 task.update(from: yaml_file.keys.first)
                 @translation_service = Translations::BaseService.new(task)

@@ -25,12 +25,30 @@ class Task < ApplicationRecord
     end
 
     def complete
-        self.status = 'done'
-        save
+        self.update status: 'done'
+    end
+
+    def failure(code)
+        self.update status: 'failed', error: code
+        false
     end
 
     def completed?
         status == 'done'
+    end
+
+    def failed?
+        status == 'failed'
+    end
+
+    def error_message
+        case error
+            when 101 then 'file does not exist'
+            when 102 then 'fileresponder does not exist'
+            when 110 then 'bad YML structure'
+            when 201 then 'direction for translating does not exist'
+            else ''
+        end
     end
 
     private

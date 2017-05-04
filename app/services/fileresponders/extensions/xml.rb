@@ -10,7 +10,7 @@ module Fileresponders
             end
 
             def processing
-                return false unless File.file? task.file_name
+                return task.failure(101) unless File.file? task.file_name
 
                 @xml_file = Nokogiri::XML(File.open(task.file_name))
 

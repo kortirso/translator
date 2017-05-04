@@ -36,9 +36,15 @@ class TasksBox extends React.Component {
     _checkCompleting() {
         let amount = 0;
         this.state.tasksList.map((task) => {
-            if (task.status != 'done') amount = amount + 1;
+            if (task.status == 'active') amount = amount + 1;
         });
         if (amount == 0) clearInterval(this.state.intervalId);
+    }
+
+    _checkStatus(task) {
+        let status = task.status;
+        if (task.status == 'failed') status = <span>Error: {task.error_message}</span>;
+        return <td className={task.status}>{status}</td>
     }
 
     _checkDownloading(task) {
@@ -60,7 +66,7 @@ class TasksBox extends React.Component {
                     <td>{task.short_filename}</td>
                     <td>{task.from}</td>
                     <td>{task.to}</td>
-                    <td className={task.status} >{task.status}</td>
+                    {this._checkStatus(task)}
                     {this._checkDownloading(task)}
                     {this._checkTranslation(task)}
                 </tr>
