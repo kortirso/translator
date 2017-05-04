@@ -1,4 +1,44 @@
 RSpec.describe TasksController, type: :controller do
+    describe 'GET #index' do
+        let!(:locale) { create :locale, :en }
+        before { get :index, params: { locale: 'en' } }
+
+        it 'should collect an array of locales in @locale_list' do
+            expect(assigns(:locale_list)).to match_array([['English', 'en']])
+        end
+
+        it 'should render tasks#index' do
+            expect(response).to render_template :index
+        end
+    end
+
+    describe 'GET #show' do
+        context 'if user is signed in' do
+            sign_in_user
+            let!(:task) { create :task, user: @current_user }
+
+            context 'and try access his task' do
+                before { get :show, params: { id: task.id, locale: 'en' } }
+
+                it 'should collect an array of translations in @translations' do
+                    expect(assigns(:translations)).to match_array([])
+                end
+
+                it 'should render tasks#show' do
+                    expect(response).to render_template :show
+                end
+            end
+
+            context 'and try access not his task' do
+                it 'should render 404' do
+                    get :show, params: { id: 10000, locale: 'en' }
+
+                    expect(response).to render_template 'shared/404'
+                end
+            end
+       end
+    end
+
     describe 'POST #create' do
         context 'with valid attributes' do
             it 'saves the new task in the DB' do
@@ -12,7 +52,7 @@ RSpec.describe TasksController, type: :controller do
             end
 
             it 'redirect_to tasks if there is no file' do
-                post :create, params: { task: { to: '', file: nil }, locale: 'en' }, format: :js
+                post :create, params: { task: { to: 'en', file: nil }, locale: 'en' }, format: :js
 
                 expect(response).to redirect_to tasks_en_path
             end
