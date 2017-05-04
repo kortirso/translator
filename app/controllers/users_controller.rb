@@ -18,6 +18,6 @@ class UsersController < ApplicationController
 
     def find_user
         @user = User.find_by(id: params[:id])
-        render_not_found if @user.nil? || @user != current_user
+        render_not_found if !user_signed_in? || @user.nil? || @user != current_user
     end
 end
