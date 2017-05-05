@@ -1,0 +1,35 @@
+{
+    "en":{
+        "tasks":"Your Current Tasks",
+        "file":"File",
+        "from":"From",
+        "to":"To",
+        "status":"Status",
+        "download":"Download",
+        "translation":"Translation",
+        "goto":"Go to translation",
+        "error":"Error"
+    },
+    "ru": {
+        "tasks":"Ваши текущие задачи",
+        "file":"Файл",
+        "from":"Исходный",
+        "to":"Результат",
+        "status":"Статус",
+        "download":"Скачать",
+        "translation":"Переводы",
+        "goto":"Просмотр",
+        "error":"Ошибка"
+    },
+    "da": {
+        "tasks":"Dine nuværende opgaver",
+        "file":"Fil",
+        "from":"Fra",
+        "to":"Til",
+        "status":"Status",
+        "download":"Hent",
+        "translation":"Oversættelse",
+        "goto":"Gå til oversættelse",
+        "error":"Fejl"
+    }
+}
