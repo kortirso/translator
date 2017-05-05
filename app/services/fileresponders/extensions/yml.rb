@@ -23,6 +23,10 @@ module Fileresponders
                 true
             end
 
+            def check_permissions
+                true
+            end
+
             def translating
                 strings_for_translate([], base_hash)
                 translation_service.save_new_words

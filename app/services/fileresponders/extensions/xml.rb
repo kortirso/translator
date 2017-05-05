@@ -3,6 +3,9 @@ require 'nokogiri'
 module Fileresponders
     module Extensions
         class Xml
+            GUEST_LIMIT = 50
+            USER_LIMIT = 100
+
             attr_reader :task, :xml_file, :base_array, :translation_service
 
             def initialize(task)
@@ -19,6 +22,12 @@ module Fileresponders
                 @translation_service = Translations::BaseService.new(task)
                 
                 @base_array = xml_file.xpath("//data/value") + xml_file.xpath("//data/comment")
+                true
+            end
+
+            def check_permissions
+                return task.failure(301) if task.user.nil? && base_array.size > GUEST_LIMIT
+                return task.failure(302) if task.user.present? && base_array.size > USER_LIMIT
                 true
             end
 
