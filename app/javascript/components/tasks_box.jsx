@@ -1,4 +1,8 @@
 import React from 'react';
+import LocalizedStrings from 'react-localization';
+import I18nData from './i18n_data.json';
+
+let strings = new LocalizedStrings(I18nData);
 
 class TasksBox extends React.Component {
 
@@ -22,6 +26,7 @@ class TasksBox extends React.Component {
 
     componentWillMount() {
         this._fetchTasksList();
+        strings.setLanguage(this.props.locale);
     }
 
     componentDidMount() {
@@ -43,19 +48,21 @@ class TasksBox extends React.Component {
 
     _checkStatus(task) {
         let status = task.status;
-        if (task.status == 'failed') status = <span>Error: {task.error_message}</span>;
+        if (task.status == 'failed') status = <span>{strings.error}: {task.error_message}</span>;
         return <td className={task.status}>{status}</td>
     }
 
     _checkDownloading(task) {
         let link;
-        if (task.status == 'done') link = <a download={task.result_short_filename} href={'/uploads/task/result_file/' + task.id + '/' + task.result_short_filename}>Download</a>
+        if (task.status == 'done') link = <a download={task.result_short_filename} href={'/uploads/task/result_file/' + task.id + '/' + task.result_short_filename}>{strings.download}</a>
         return <td>{link}</td>;
     }
 
     _checkTranslation(task) {
         let link;
-        if (task.status == 'done') link = <a href={'/tasks/' + task.id}>Go to translation</a>
+        let locale = '';
+        if (this.props.locale != 'en') locale = '/' + this.props.locale;
+        if (task.status == 'done') link = <a href={locale + '/tasks/' + task.id}>{strings.goto}</a>
         return <td>{link}</td>;
     }
 
@@ -78,16 +85,16 @@ class TasksBox extends React.Component {
         const tasks = this._prepareTasksList();
         return (
             <div>
-                <p>Your Current Tasks</p>
+                <p>{strings.tasks}</p>
                 <table>
                     <thead>
                         <tr>
-                            <th>File</th>
-                            <th>From</th>
-                            <th>To</th>
-                            <th>Status</th>
-                            <th>Download</th>
-                            <th>Translation</th>
+                            <th>{strings.file}</th>
+                            <th>{strings.from}</th>
+                            <th>{strings.to}</th>
+                            <th>{strings.status}</th>
+                            <th>{strings.download}</th>
+                            <th>{strings.translation}</th>
                         </tr>
                     </thead>
                     <tbody>
