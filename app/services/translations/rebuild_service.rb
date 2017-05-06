@@ -27,6 +27,7 @@ module Translations
                 f.write(temporary_text)
                 task.result_file = f
             end
+            task.status = 'done'
             task.save
         end
     end

@@ -25,6 +25,10 @@ class Task < ApplicationRecord
         self.result_file.file.file
     end
 
+    def activate
+        self.update status: 'active'
+    end
+
     def complete
         self.update status: 'done'
     end
