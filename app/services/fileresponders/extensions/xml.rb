@@ -6,10 +6,11 @@ module Fileresponders
             GUEST_LIMIT = 50
             USER_LIMIT = 100
 
-            attr_reader :task, :xml_file, :base_array, :translation_service
+            attr_reader :task, :words_for_translate, :xml_file, :base_array, :translation_service
 
             def initialize(task)
                 @task = task
+                @words_for_translate = []
             end
 
             def processing
@@ -33,21 +34,25 @@ module Fileresponders
 
             def translating
                 strings_for_translate
-                translation_service.save_new_words
-                save_to_file
-                task.complete
+                save_to_temporary_file
+                Translations::TaskTranslationService.new({task: task}).translate({words_for_translate: words_for_translate})
             end
 
             private
 
             def strings_for_translate
-                base_array.each { |value| value.children = translation_service.translate(value.children.to_s) }
+                base_array.each do |value|
+                    words_for_translate.push value.children.to_s
+                    value.children = "_###{value.children.to_s}##_"
+                end
             end
 
-            def save_to_file
-                File.write(change_file_name, xml_file.to_xml)
-                File.open(change_file_name) { |f| task.result_file = f }
+            def save_to_temporary_file
+                temp_file_name = change_file_name
+                File.write(temp_file_name, xml_file.to_xml)
+                File.open(temp_file_name) { |f| task.temporary_file = f }
                 task.save
+                File.delete(temp_file_name)
             end
 
             def change_file_name

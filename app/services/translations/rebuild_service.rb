@@ -6,6 +6,7 @@ module Translations
                 next if translation.nil?
                 Translations::RebuildService.update_word(translation, value['result'], params[:task])
             end
+            Translations::RebuildService.update_task_file(params[:task])
         end
 
         def self.update_word(translation, new_value, task)
@@ -15,6 +16,18 @@ module Translations
                 new_translation = Translation.create base: translation.base, result: new_word
                 Position.find_by(task: task, translation: translation).update(translation: new_translation)
             end
+        end
+
+        def self.update_task_file(task)
+            temporary_text = File.read(task.temporary_file.file.file)
+
+            task.translations.each { |translation| temporary_text.gsub!("_###{translation.base.text}##_", translation.result.text) }
+
+            File.open(task.result_file_name, 'w') do |f|
+                f.write(temporary_text)
+                task.result_file = f
+            end
+            task.save
         end
     end
 end
