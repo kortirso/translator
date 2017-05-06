@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
     mount_uploader :file, FileUploader
+    mount_uploader :temporary_file, FileUploader
     mount_uploader :result_file, FileUploader
 
     belongs_to :user, optional: true

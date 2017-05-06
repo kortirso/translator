@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504172206) do
+ActiveRecord::Schema.define(version: 20170506024605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170504172206) do
     t.string "result_file"
     t.integer "user_id"
     t.integer "error"
+    t.string "temporary_file"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 

@@ -3,11 +3,12 @@ require 'yaml'
 module Fileresponders
     module Extensions
         class Yml
-            attr_reader :task, :base_hash, :finish_hash, :translation_service
+            attr_reader :task, :base_hash, :finish_hash, :words_for_translate, :translation_service
 
             def initialize(task)
                 @task = task
                 @finish_hash = {}
+                @words_for_translate = []
             end
 
             def processing
@@ -29,8 +30,9 @@ module Fileresponders
 
             def translating
                 strings_for_translate([], base_hash)
+                save_to_temporary_file
+                translate_file
                 translation_service.save_new_words
-                save_to_file
                 task.complete
             end
 
@@ -48,7 +50,8 @@ module Fileresponders
             end
 
             def get_values_for_translate(params)
-                value = create_hash_for_value(params[:keys].shift, translation_service.translate(params[:value]))
+                words_for_translate.push params[:value]
+                value = create_hash_for_value(params[:keys].shift, "_###{params[:value]}##_")
                 params[:keys].each { |key| value = create_hash_for_value(key, value) }
                 value
             end
@@ -62,10 +65,21 @@ module Fileresponders
                 base_hash.merge!(merging_hash) { |key, oldval, newval| hash_merging(base_hash[key], merging_hash[key]) }
             end
 
-            def save_to_file(hash_for_save = {})
+            def save_to_temporary_file(hash_for_save = {})
                 hash_for_save[task.to] = finish_hash
-                File.write(change_file_name, hash_for_save.to_yaml)
-                File.open(change_file_name) { |f| task.result_file = f }
+                temp_file_name = change_file_name
+                File.write(temp_file_name, hash_for_save.to_yaml)
+                File.open(temp_file_name) { |f| task.temporary_file = f }
+                task.save
+            end
+
+            def translate_file
+                temporary_text = File.read(task.temporary_file.file.file)
+                words_for_translate.each { |word| temporary_text.gsub!("_###{word}##_", translation_service.translate(word)) }
+                File.open(change_file_name, 'w') do |f|
+                    f.write(temporary_text)
+                    task.result_file = f
+                end
                 task.save
             end
 
