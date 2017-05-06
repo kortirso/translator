@@ -35,9 +35,7 @@ module Fileresponders
             def translating
                 strings_for_translate
                 save_to_temporary_file
-                translate_file
-                translation_service.save_new_words
-                task.complete
+                Translations::TaskTranslationService.new({task: task}).translate({words_for_translate: words_for_translate})
             end
 
             private
@@ -54,16 +52,7 @@ module Fileresponders
                 File.write(temp_file_name, xml_file.to_xml)
                 File.open(temp_file_name) { |f| task.temporary_file = f }
                 task.save
-            end
-
-            def translate_file
-                temporary_text = File.read(task.temporary_file.file.file)
-                words_for_translate.each { |word| temporary_text.gsub!("_###{word}##_", translation_service.translate(word)) }
-                File.open(change_file_name, 'w') do |f|
-                    f.write(temporary_text)
-                    task.result_file = f
-                end
-                task.save
+                File.delete(temp_file_name)
             end
 
             def change_file_name

@@ -3,7 +3,7 @@ require 'yaml'
 module Fileresponders
     module Extensions
         class Yml
-            attr_reader :task, :base_hash, :finish_hash, :words_for_translate, :translation_service
+            attr_reader :task, :base_hash, :finish_hash, :words_for_translate
 
             def initialize(task)
                 @task = task
@@ -18,7 +18,6 @@ module Fileresponders
                 return task.failure(110) if !yaml_file.is_a?(Hash) || yaml_file.keys.count != 1 || yaml_file.values.count != 1
 
                 task.update(from: yaml_file.keys.first)
-                @translation_service = Translations::BaseService.new(task)
 
                 @base_hash = yaml_file.values.first
                 true
@@ -31,9 +30,7 @@ module Fileresponders
             def translating
                 strings_for_translate([], base_hash)
                 save_to_temporary_file
-                translate_file
-                translation_service.save_new_words
-                task.complete
+                Translations::TaskTranslationService.new({task: task}).translate({words_for_translate: words_for_translate})
             end
 
             private
@@ -71,16 +68,7 @@ module Fileresponders
                 File.write(temp_file_name, hash_for_save.to_yaml)
                 File.open(temp_file_name) { |f| task.temporary_file = f }
                 task.save
-            end
-
-            def translate_file
-                temporary_text = File.read(task.temporary_file.file.file)
-                words_for_translate.each { |word| temporary_text.gsub!("_###{word}##_", translation_service.translate(word)) }
-                File.open(change_file_name, 'w') do |f|
-                    f.write(temporary_text)
-                    task.result_file = f
-                end
-                task.save
+                File.delete(temp_file_name)
             end
 
             def change_file_name
