@@ -25,8 +25,9 @@ class Task < ApplicationRecord
         self.result_file.file.file
     end
 
-    def activate
+    def activate(translation_params)
         self.update status: 'active'
+        TaskUpdatingJob.perform_later(translation_params, self)
     end
 
     def complete

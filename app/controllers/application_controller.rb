@@ -3,7 +3,9 @@ class ApplicationController < ActionController::Base
     
     protect_from_forgery with: :exception
     before_action :configure_permitted_parameters, if: :devise_controller?
+    
     rescue_from ActionController::RoutingError, with: :render_not_found
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
     before_action :set_user_session
 
@@ -26,7 +28,6 @@ class ApplicationController < ActionController::Base
     end
 
     def check_user_signed
-        return true if user_signed_in?
-        render template: 'shared/need_signup'
+        head :ok unless user_signed_in?
     end
 end

@@ -15,9 +15,18 @@ RSpec.describe TasksController, type: :controller do
     describe 'GET #show' do
         context 'if user is signed in' do
             sign_in_user
-            let!(:task) { create :task, :done, user: @current_user }
 
-            context 'and try access his task' do
+            context 'and try access his active task' do
+                let!(:task) { create :task, user: @current_user }
+                before { get :show, params: { id: task.id, locale: 'en' } }
+
+                it 'should render tasks#show' do
+                    expect(response).to render_template 'shared/404'
+                end
+            end
+
+            context 'and try access his done task' do
+                let!(:task) { create :task, :done, user: @current_user }
                 before { get :show, params: { id: task.id, locale: 'en' } }
 
                 it 'should collect an array of translations in @translations' do
