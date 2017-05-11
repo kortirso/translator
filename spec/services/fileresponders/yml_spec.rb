@@ -1,14 +1,14 @@
-RSpec.describe Fileresponders::Extensions::Yml do
+RSpec.describe Fileresponders::Yml do
     describe '#initialize' do
         let!(:task) { create :task }
-        let(:responder) { Fileresponders::Extensions::Yml.new(task) }
+        let(:responder) { Fileresponders::Yml.new(task) }
 
         it 'should assign task to @task' do
             expect(responder.task).to eq task
         end
 
-        it 'should assign {} to @finish_hash' do
-            expect(responder.finish_hash).to eq({})
+        it 'should assign {} to @result' do
+            expect(responder.result).to eq({})
         end
 
         it 'should assign [] to @words_for_translate' do
