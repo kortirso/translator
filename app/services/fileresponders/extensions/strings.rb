@@ -3,6 +3,7 @@ module Fileresponders
         class Strings
             GUEST_LIMIT = 50
             USER_LIMIT = 100
+            LINES_PER_STRING = 3
 
             attr_reader :task, :strings_file, :result_strings, :words_for_translate
 
@@ -21,8 +22,8 @@ module Fileresponders
             end
 
             def check_permissions
-                return task.failure(301) if task.user.nil? && strings_file.lines.size / 3 > GUEST_LIMIT
-                return task.failure(302) if task.user.present? && strings_file.lines.size / 3 > USER_LIMIT
+                return task.failure(301) if task.user.nil? && strings_file.lines.size / LINES_PER_STRING > GUEST_LIMIT
+                return task.failure(302) if task.user.present? && strings_file.lines.size / LINES_PER_STRING > USER_LIMIT
                 true
             end
 
@@ -54,7 +55,7 @@ module Fileresponders
             end
 
             def change_file_name
-                task.file_name
+                "#{Rails.root}/public/uploads/tmp/#{task.file_name.split('/')[-1]}"
             end
         end
     end
