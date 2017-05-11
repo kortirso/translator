@@ -15,7 +15,7 @@ RSpec.describe TasksController, type: :controller do
     describe 'GET #show' do
         context 'if user is signed in' do
             sign_in_user
-            let!(:task) { create :task, user: @current_user }
+            let!(:task) { create :task, :done, user: @current_user }
 
             context 'and try access his task' do
                 before { get :show, params: { id: task.id, locale: 'en' } }
