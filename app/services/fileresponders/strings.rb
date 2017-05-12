@@ -6,7 +6,6 @@ module Fileresponders
 
         def initialize(task)
             super(task)
-            @fileloader = Fileloaders::Strings.new(task)
             @result = []
         end
 

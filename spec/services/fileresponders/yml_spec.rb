@@ -11,6 +11,10 @@ RSpec.describe Fileresponders::Yml do
             expect(responder.result).to eq({})
         end
 
+        it 'should assign Fileloaders::Yml object to @fileloader' do
+            expect(responder.fileloader.class.name).to eq 'Fileloaders::Yml'
+        end
+
         it 'should assign [] to @words_for_translate' do
             expect(responder.words_for_translate).to eq []
         end

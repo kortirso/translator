@@ -11,6 +11,10 @@ RSpec.describe Fileresponders::Xml do
             expect(responder.words_for_translate).to eq []
         end
 
+        it 'should assign Fileloaders::Xml object to @fileloader' do
+            expect(responder.fileloader.class.name).to eq 'Fileloaders::Xml'
+        end
+
         it 'should assing value for const GUEST_LIMIT' do
             expect(responder.class::GUEST_LIMIT).to eq 50
         end

@@ -14,6 +14,9 @@ RSpec.describe Fileresponders::Strings do
         it 'should assign [] to @words_for_translate' do
             expect(responder.words_for_translate).to eq []
         end
+        it 'should assign Fileloaders::Strings object to @fileloader' do
+            expect(responder.fileloader.class.name).to eq 'Fileloaders::Strings'
+        end
 
         it 'should assing value for const GUEST_LIMIT' do
             expect(responder.class::GUEST_LIMIT).to eq 50

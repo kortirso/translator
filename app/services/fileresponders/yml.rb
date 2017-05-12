@@ -4,7 +4,6 @@ module Fileresponders
 
         def initialize(task)
             super(task)
-            @fileloader = Fileloaders::Yml.new(task)
             @result = {}
         end
 

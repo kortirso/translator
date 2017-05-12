@@ -8,6 +8,7 @@ module Fileresponders
         def initialize(task)
             @task = task
             @words_for_translate = []
+            @fileloader = select_fileloader.new(task)
         end
 
         def processing
@@ -20,6 +21,12 @@ module Fileresponders
             strings_for_translate
             fileloader.save(result)
             Translations::TaskTranslationService.new({task: task}).translate({words_for_translate: words_for_translate})
+        end
+
+        private
+
+        def select_fileloader
+            "Fileloaders::#{self.class.name.demodulize.capitalize}".constantize
         end
     end
 end
