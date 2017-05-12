@@ -18,10 +18,12 @@ class Task < ApplicationRecord
     after_create :task_processing
 
     def file_name
+        return '' if self.file.file.nil?
         self.file.file.file
     end
 
     def result_file_name
+        return '' if self.result_file.file.nil?
         self.result_file.file.file
     end
 

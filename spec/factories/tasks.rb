@@ -8,6 +8,14 @@ FactoryGirl.define do
         trait :done do
             status 'done'
         end
+
+        trait :with_yml do
+            file File.open(File.join(Rails.root, 'spec/test_files/ru.yml'))
+        end
+
+        trait :with_wrong_yml do
+            file File.open(File.join(Rails.root, 'spec/test_files/wrong_ru.yml'))
+        end
     end
 
     factory :invalid_task, class: 'Task' do
