@@ -1,7 +1,7 @@
 module Fileresponders
     module Base
-        GUEST_LIMIT = 50
-        USER_LIMIT = 100
+        GUEST_LIMIT = 100
+        USER_LIMIT = 200
 
         attr_reader :task, :words_for_translate, :base_data, :fileloader, :result
 

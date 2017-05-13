@@ -3,8 +3,9 @@ module Fileresponders
         include Fileresponders::Base
 
         def check_permissions
-            return task.failure(301) if task.user.nil? && base_data.size > GUEST_LIMIT
-            return task.failure(302) if task.user.present? && base_data.size > USER_LIMIT
+            for_translate = base_data.xpath("//data/value") + base_data.xpath("//data/comment")
+            return task.failure(301) if task.user.nil? && for_translate.size > GUEST_LIMIT
+            return task.failure(302) if task.user.present? && for_translate.size > USER_LIMIT
             true
         end
 
