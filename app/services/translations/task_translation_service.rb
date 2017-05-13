@@ -8,7 +8,7 @@ module Translations
         end
 
         def translate(args)
-            @words_for_translate = args[:words_for_translate]
+            @words_for_translate = args[:words_for_translate].uniq
             translate_file
             translation_service.save_new_words
             task.complete
