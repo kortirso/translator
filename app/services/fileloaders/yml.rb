@@ -12,21 +12,15 @@ module Fileloaders
             yaml_file.values.first
         end
 
-        def save(hash_for_save = {})
-            hash_for_save[task.to] = finish_hash
-            temp_file_name = change_file_name
-            File.write(temp_file_name, hash_for_save.to_yaml)
-            File.open(temp_file_name) { |f| task.temporary_file = f }
-            task.save
-            File.delete(temp_file_name)
+        def save(result, temp_file_name = change_file_name)
+            File.write(temp_file_name, { task.to => result }.to_yaml)
+            task.save_temporary_file(temp_file_name)
         end
 
         private
 
         def change_file_name
-            file_name_array = task.file_name.split('/')
-            file_name_array[-1] = "#{task.to}.#{file_name_array[-1].split('.')[1]}"
-            file_name_array.join('/')
+            "#{Rails.root}/public/uploads/tmp/#{task.to}.yml"
         end
     end
 end

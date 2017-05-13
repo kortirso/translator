@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ChangeUser" xml:space="preserve">
+    <value>Change User</value>
+  </data>
+  <data name="DocumentNotSaved" xml:space="preserve">
+    <value>Document is not saved</value>
+  </data>
+  <data name="DocumentSettings" xml:space="preserve">
+    <value>Document Settings</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="ProvideUserName" xml:space="preserve">
+    <value>Username</value>
+    <comment>Used in login screen</comment>
+  </data>
+  <data name="WishToSaveDocument" xml:space="preserve">
+    <value>Do you wish to save the document before exiting?</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddHeaderElement" xml:space="preserve">
+    <value>Add header element</value>
+  </data>
+  <data name="AddTextElement" xml:space="preserve">
+    <value>Add text element</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="AddSelectedCells" xml:space="preserve">
+    <value>Add selected cells</value>
+  </data>
+  <data name="ChooseExcelContent" xml:space="preserve">
+    <value>Choose table content from Excel</value>
+  </data>
+  <data name="ChooseImageFromDrive" xml:space="preserve">
+    <value>Choose image from drive</value>
+  </data>
+  <data name="ChooseImageSource" xml:space="preserve">
+    <value>Chose image source</value>
+  </data>
+  <data name="ChoseTypeBelow" xml:space="preserve">
+    <value>Choose type below</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="DocumentSaved" xml:space="preserve">
+    <value>The document is saved</value>
+  </data>
+  <data name="ExcelData" xml:space="preserve">
+    <value>Excel Data</value>
+  </data>
+  <data name="ExitEditing" xml:space="preserve">
+    <value>Exit editing</value>
+  </data>
+  <data name="ExportPdf" xml:space="preserve">
+    <value>Export to PDF</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="Harddrive" xml:space="preserve">
+    <value>Harddrive</value>
+  </data>
+  <data name="Header" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Layout" xml:space="preserve">
+    <value>Layout</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="NoImageSelected" xml:space="preserve">
+    <value>No image selected...</value>
+  </data>
+  <data name="NoUrlGiven" xml:space="preserve">
+    <value>No URL given...</value>
+  </data>
+  <data name="OpenDocument" xml:space="preserve">
+    <value>Open Document</value>
+  </data>
+  <data name="OpenLatest" xml:space="preserve">
+    <value>Open latest</value>
+  </data>
+  <data name="OpenOtherDocument" xml:space="preserve">
+    <value>Open other documents</value>
+  </data>
+  <data name="PageAmount" xml:space="preserve">
+    <value>Page amount</value>
+  </data>
+  <data name="Picture" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="ProvidePathFor" xml:space="preserve">
+    <value>Provide path for .xlsx</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>Save as</value>
+  </data>
+  <data name="Subtitle" xml:space="preserve">
+    <value>Recommendation</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="TheInternet" xml:space="preserve">
+    <value>Internet</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="TableTitleWatermark" xml:space="preserve">
+    <value>Table title here...</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="ChooseImageFromInternet" xml:space="preserve">
+    <value>Choose image from URL</value>
+  </data>
+  <data name="AddLayoutElement" xml:space="preserve">
+    <value>Add Layout Element</value>
+  </data>
+  <data name="ChooseLayoutElement" xml:space="preserve">
+    <value>Choose Layout Element</value>
+  </data>
+  <data name="ChooseLayout" xml:space="preserve">
+    <value>Choose Layout</value>
+  </data>
+  <data name="CreateNewDocument" xml:space="preserve">
+    <value>Create new document</value>
+  </data>
+  <data name="EditDisclaimer" xml:space="preserve">
+    <value>Edit Disclaimer</value>
+  </data>
+  <data name="EditDisclaimerDescription" xml:space="preserve">
+    <value>Choose disclaimer beneath to edit or activate</value>
+  </data>
+  <data name="EditDisclaimers" xml:space="preserve">
+    <value>Add/Edit Disclaimers</value>
+  </data>
+  <data name="NewDisclaimer" xml:space="preserve">
+    <value>New Disclaimer</value>
+  </data>
+  <data name="ChooseBelow" xml:space="preserve">
+    <value>CHOOSE BELOW</value>
+  </data>
+  <data name="AddEditTemplates" xml:space="preserve">
+    <value>Base Templates</value>
+  </data>
+  <data name="AddEditUsers" xml:space="preserve">
+    <value>Add/Edit Users</value>
+  </data>
+  <data name="AccessLevel" xml:space="preserve">
+    <value>Access level</value>
+  </data>
+  <data name="AdminRights" xml:space="preserve">
+    <value>Admin Rights</value>
+  </data>
+  <data name="EditAndActivateDisclaimers" xml:space="preserve">
+    <value>Edit and Activate Disclaimers</value>
+  </data>
+  <data name="ActivateDeactivateDisclaimer" xml:space="preserve">
+    <value>Activate/Deactivate Disclaimer</value>
+  </data>
+  <data name="TemplateConnection" xml:space="preserve">
+    <value>Template Connection</value>
+  </data>
+  <data name="CreateDisclaimer" xml:space="preserve">
+    <value>Create Disclaimer</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="DocumentSetting" xml:space="preserve">
+    <value>Document settings</value>
+  </data>
+  <data name="CancelImport" xml:space="preserve">
+    <value>Cancel Import</value>
+  </data>
+  <data name="ImportTemplate" xml:space="preserve">
+    <value>Import Template</value>
+  </data>
+  <data name="ConfirmTemplate" xml:space="preserve">
+    <value>Confirm Template</value>
+  </data>
+  <data name="DisclaimerNotSaved" xml:space="preserve">
+    <value>Disclaimer is not saved</value>
+  </data>
+  <data name="DisclaimerNotSavedDescription" xml:space="preserve">
+    <value>Do you wish to save changes before exiting?</value>
+  </data>
+  <data name="DisclaimerSettings" xml:space="preserve">
+    <value>Disclaimer Settings</value>
+  </data>
+  <data name="EndEditing" xml:space="preserve">
+    <value>End Editing</value>
+  </data>
+  <data name="SaveAndConfirm" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SavingDisclaimer" xml:space="preserve">
+    <value>Saving Disclaimer</value>
+  </data>
+  <data name="DisclaimerSavedAt" xml:space="preserve">
+    <value>Disclaimer Saved At</value>
+  </data>
+  <data name="DoYouWishToOverwrite" xml:space="preserve">
+    <value>Do you wish to overwrite:</value>
+  </data>
+  <data name="FileAlreadyExist" xml:space="preserve">
+    <value>File Already Exist</value>
+  </data>
+  <data name="AtsFiles" xml:space="preserve">
+    <value>ATS Files</value>
+  </data>
+  <data name="DocumentSavedAt" xml:space="preserve">
+    <value>Document Saved at</value>
+  </data>
+  <data name="SavingDocument" xml:space="preserve">
+    <value>Saving Document</value>
+  </data>
+  <data name="SavedAsPdf" xml:space="preserve">
+    <value>Saved as PDF</value>
+  </data>
+  <data name="SavingPdf" xml:space="preserve">
+    <value>Exporting to PDF</value>
+  </data>
+  <data name="DialogFileInUseDescription" xml:space="preserve">
+    <value>PDF file is in use in another window, close it and try again</value>
+  </data>
+  <data name="DialogFileInUseTitle" xml:space="preserve">
+    <value>Cannot overwrite, file is in use</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="EditerNotUpToDateMsg" xml:space="preserve">
+    <value>Shits wack, stuff not up to date</value>
+  </data>
+  <data name="AddLanguage" xml:space="preserve">
+    <value>Add Language</value>
+    <comment>Used in tab control inside editor for adding a new language</comment>
+  </data>
+  <data name="Templates" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="AdminMenu" xml:space="preserve">
+    <value>Admin Menu</value>
+  </data>
+  <data name="StandardData" xml:space="preserve">
+    <value>Standard Data</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="TemplateTypeHeader" xml:space="preserve">
+    <value>Basic Settings</value>
+    <comment>Template Type Settings Header</comment>
+  </data>
+  <data name="AdminPreambleHeader" xml:space="preserve">
+    <value>Importer skabelon</value>
+    <comment>This is the AdminPreambleView header</comment>
+  </data>
+  <data name="AdminPreambleDescription" xml:space="preserve">
+    <value>Importer onskede skabelon og aktiver den</value>
+    <comment>This is the AdminPreambleView description</comment>
+  </data>
+  <data name="TitleRequired" xml:space="preserve">
+    <value>Title Required</value>
+  </data>
+  <data name="SubtitleRequired" xml:space="preserve">
+    <value>Subtitle Required</value>
+  </data>
+  <data name="ChooseLanguage" xml:space="preserve">
+    <value>Choose a language</value>
+  </data>
+  <data name="ChooseSubject" xml:space="preserve">
+    <value>Choose Subject</value>
+  </data>
+  <data name="MenuTemplateTypes" xml:space="preserve">
+    <value>Template Types</value>
+  </data>
+  <data name="TemplateTypeDescription" xml:space="preserve">
+    <value>Template type description</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="NotActive" xml:space="preserve">
+    <value>Not Active</value>
+  </data>
+  <data name="DisclaimerHeirarchy" xml:space="preserve">
+    <value>Disclaimer heirarchy</value>
+  </data>
+  <data name="DisclaimerHeirarchyDescription" xml:space="preserve">
+    <value>The name sucks for now but will change soon.</value>
+  </data>
+  <data name="DisclaimerHeirarchyHeader" xml:space="preserve">
+    <value>Disclaimer Heriarchy</value>
+  </data>
+  <data name="SelectBaseTemplate" xml:space="preserve">
+    <value>Select Base Template</value>
+  </data>
+  <data name="MenuTopics" xml:space="preserve">
+    <value>Topics</value>
+  </data>
+  <data name="DesignTemplateDescription" xml:space="preserve">
+    <value>Some text explainting design templates</value>
+  </data>
+  <data name="DesignTemplateHeader" xml:space="preserve">
+    <value>Design Templates</value>
+  </data>
+  <data name="DeleteTemplate" xml:space="preserve">
+    <value>Delete Template</value>
+  </data>
+  <data name="ImportDesignTemplate" xml:space="preserve">
+    <value>Import Design Template</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>Name is Required</value>
+  </data>
+</root>

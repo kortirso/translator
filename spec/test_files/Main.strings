@@ -1,0 +1,459 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "0e4-T0-d38"; */
+"0e4-T0-d38.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Sign In"; ObjectID = "0vA-lw-vcy"; */
+"0vA-lw-vcy.title" = "Log ind";
+
+/* Class = "UIBarButtonItem"; title = "Menu"; ObjectID = "114-LO-omV"; */
+"114-LO-omV.title" = "Menu";
+
+/* Class = "UITextField"; placeholder = "Type in a delivery address"; ObjectID = "1Lf-Eu-b8u"; */
+"1Lf-Eu-b8u.placeholder" = "Angiv leveringsadresse";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "1df-0T-UR2"; */
+"1df-0T-UR2.normalTitle" = "Tilmeld";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "1iu-n7-mpN"; */
+"1iu-n7-mpN.text" = "Titel";
+
+/* Class = "UITextField"; placeholder = "Type in a delivery address"; ObjectID = "1oo-wA-lag"; */
+"1oo-wA-lag.placeholder" = "Angiv leveringsadresse";
+
+/* Class = "UILabel"; text = "To complete your order you must pay a deposit with MobilePay."; ObjectID = "27R-R8-01f"; */
+"27R-R8-01f.text" = "For at acceptere ordren skal du betale et gebyr via MobilePay";
+
+/* Class = "UILabel"; text = "Everything at  your doorstep!"; ObjectID = "2HF-Po-LVP"; */
+"2HF-Po-LVP.text" = "Everything at  your doorstep!";
+
+/* Class = "UILabel"; text = "Should the Getter not complete his service we will refund your deposit."; ObjectID = "2Rg-qS-WIs"; */
+"2Rg-qS-WIs.text" = "Pengene refunderes hvis din vare ikke bliver leveret.";
+
+/* Class = "UINavigationItem"; title = "Support"; ObjectID = "4GC-YS-hMv"; */
+"4GC-YS-hMv.title" = "Support";
+
+/* Class = "UINavigationItem"; title = "Menu"; ObjectID = "4Pe-Gg-fX9"; */
+"4Pe-Gg-fX9.title" = "Menu";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "4Ti-gc-qSW"; */
+"4Ti-gc-qSW.text" = "Label";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "4jG-hz-1QQ"; */
+"4jG-hz-1QQ.text" = "Titel";
+
+/* Class = "UITextField"; placeholder = "Title - e.g. McDonald's meal"; ObjectID = "4kI-06-obl"; */
+"4kI-06-obl.placeholder" = "Overskrift - f.eks Cheeseburger fra McDonald";
+
+/* Class = "UINavigationItem"; title = "Requests"; ObjectID = "59e-DL-EPQ"; */
+"59e-DL-EPQ.title" = "Anmodninger";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "5Y7-86-F4c"; */
+"5Y7-86-F4c.normalTitle" = "Knap";
+
+/* Class = "UILabel"; text = "My Getter Orders"; ObjectID = "6ly-Ek-46M"; */
+"6ly-Ek-46M.text" = "Afgivne tilbud";
+
+/* Class = "UIButton"; normalTitle = "No Thanks"; ObjectID = "7Ki-NS-svI"; */
+"7Ki-NS-svI.normalTitle" = "Nej tak";
+
+/* Class = "UILabel"; text = "What's your price?"; ObjectID = "81V-Zr-CPd"; */
+"81V-Zr-CPd.text" = "Din pris inkl. varens pris";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "8Xk-QF-tBc"; */
+"8Xk-QF-tBc.text" = "Title";
+
+/* Class = "UIViewController"; title = "Make Offer"; ObjectID = "96d-E1-IDS"; */
+"96d-E1-IDS.title" = "Afgiv tilbud";
+
+/* Class = "UILabel"; text = "Postal Code"; ObjectID = "9jz-ES-hBU"; */
+"9jz-ES-hBU.text" = "Postnummer";
+
+/* Class = "UITextField"; text = "When can you deliver?"; ObjectID = "A5V-jL-oY3"; */
+"A5V-jL-oY3.text" = "Hvornår kan du levere?";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "AC9-x7-FEH"; */
+"AC9-x7-FEH.text" = "Beskrivelse";
+
+/* Class = "UIBarButtonItem"; title = "Menu"; ObjectID = "ATj-Yg-yYB"; */
+"ATj-Yg-yYB.title" = "Menu";
+
+/* Class = "UITextField"; text = "Name"; ObjectID = "Ap4-6d-PaO"; */
+"Ap4-6d-PaO.text" = "Navn";
+
+/* Class = "UIButton"; normalTitle = "Visit our website for more information"; ObjectID = "Apw-4q-ne2"; */
+"Apw-4q-ne2.normalTitle" = "Besøg vores hjemmeside for mere information";
+
+/* Class = "UILabel"; text = "Fee"; ObjectID = "B8h-aT-zaS"; */
+"B8h-aT-zaS.text" = "Gebyr";
+
+/* Class = "UILabel"; text = "Everything at  your doorstep!"; ObjectID = "Bfc-ug-RUv"; */
+"Bfc-ug-RUv.text" = "Everything at  your doorstep!";
+
+/* Class = "UIButton"; normalTitle = "Skip the intro!"; ObjectID = "Di6-Re-Huy"; */
+"Di6-Re-Huy.normalTitle" = "Skip the intro!";
+
+/* Class = "UILabel"; text = "We will process your request and get back to you as fast as humanly possible!"; ObjectID = "E8P-1A-kx7"; */
+"E8P-1A-kx7.text" = "We will process your request and get back to you as fast as humanly possible!";
+
+/* Class = "UILabel"; text = "Make your offer"; ObjectID = "EPo-jf-55f"; */
+"EPo-jf-55f.text" = "Afgiv tilbud";
+
+/* Class = "UILabel"; text = "Everything at  your doorstep!"; ObjectID = "Esv-aS-okl"; */
+"Esv-aS-okl.text" = "Everything at  your doorstep!";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "Fm1-ZF-tdk"; */
+"Fm1-ZF-tdk.text" = "Addresse";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "G98-Lm-H4X"; */
+"G98-Lm-H4X.text" = "Subtitle";
+
+/* Class = "UITableViewController"; title = "Helpdesk"; ObjectID = "GPz-X4-vCC"; */
+"GPz-X4-vCC.title" = "Support";
+
+/* Class = "UILabel"; text = "Comments"; ObjectID = "HN4-mo-wZ9"; */
+"HN4-mo-wZ9.text" = "Kommentarer";
+
+/* Class = "UINavigationItem"; title = "Sign Up"; ObjectID = "Hjb-gE-mfO"; */
+"Hjb-gE-mfO.title" = "Tilmeld";
+
+/* Class = "UILabel"; text = "Share App & Get!"; ObjectID = "IIE-5I-GOc"; */
+"IIE-5I-GOc.text" = "Share App & Get!";
+
+/* Class = "UITextField"; text = "Choose your categories"; ObjectID = "IWy-a3-Zxk"; */
+"IWy-a3-Zxk.text" = "Choose your categories";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "Idy-cf-BHL"; */
+"Idy-cf-BHL.text" = "Email";
+
+/* Class = "UILabel"; text = "With this payment you automatically accept our"; ObjectID = "Izi-jV-fgW"; */
+"Izi-jV-fgW.text" = "Med denne betaling godkender du automatisk vores betingelser";
+
+/* Class = "UIButton"; normalTitle = "Make an Offer"; ObjectID = "J8W-ZZ-IqX"; */
+"J8W-ZZ-IqX.normalTitle" = "Afgiv tilbud";
+
+/* Class = "UINavigationItem"; title = "Become A Getter"; ObjectID = "Jgk-HP-7pH"; */
+"Jgk-HP-7pH.title" = "Opret dig som Getter";
+
+/* Class = "UIButton"; normalTitle = "Yes Please!"; ObjectID = "K5F-BD-xS0"; */
+"K5F-BD-xS0.normalTitle" = "Ja tak";
+
+/* Class = "UILabel"; text = "Apper name"; ObjectID = "Lhm-R8-RXG"; */
+"Lhm-R8-RXG.text" = "Navn";
+
+/* Class = "UILabel"; text = "What do you need?"; ObjectID = "Li7-gj-ZVC"; */
+"Li7-gj-ZVC.text" = "Hvad skal du bruge?";
+
+/* Class = "UIButton"; normalTitle = "Apper"; ObjectID = "Lkx-Pc-Onm"; */
+"Lkx-Pc-Onm.normalTitle" = "Kunde";
+
+/* Class = "UIButton"; normalTitle = "Getter"; ObjectID = "LrF-t8-ZJo"; */
+"LrF-t8-ZJo.normalTitle" = "Getter";
+
+/* Class = "UIButton"; normalTitle = "Pay deposit of "; ObjectID = "M1r-WU-M17"; */
+"M1r-WU-M17.normalTitle" = "Betal gebyr ";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "MLh-HI-1PY"; */
+"MLh-HI-1PY.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Visit our website for more information"; ObjectID = "MhP-en-V2M"; */
+"MhP-en-V2M.normalTitle" = "Besøg vores hjemmeside for mere information";
+
+/* Class = "UIButton"; normalTitle = "Sign up now!"; ObjectID = "N7V-y8-ria"; */
+"N7V-y8-ria.normalTitle" = "Tilmeld nu!";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "NGk-2Y-A8c"; */
+"NGk-2Y-A8c.text" = "Beskrivelse";
+
+/* Class = "UILabel"; text = "0:00"; ObjectID = "NJ8-aH-Hiy"; */
+"NJ8-aH-Hiy.text" = "0:00";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "NcD-G9-j0V"; */
+"NcD-G9-j0V.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UIViewController"; title = "Checkout"; ObjectID = "OMi-8O-97B"; */
+"OMi-8O-97B.title" = "Betal";
+
+/* Class = "UILabel"; text = "Requester"; ObjectID = "OMp-04-xjP"; */
+"OMp-04-xjP.text" = "Kunde";
+
+/* Class = "UILabel"; text = "Everything at  your doorstep!"; ObjectID = "PAW-Du-eWl"; */
+"PAW-Du-eWl.text" = "Everything at  your doorstep!";
+
+/* Class = "UINavigationItem"; title = "Choose A Category"; ObjectID = "QHn-WO-cOP"; */
+"QHn-WO-cOP.title" = "Vælg kategori";
+
+/* Class = "UIButton"; normalTitle = "Change Photo"; ObjectID = "QeU-iu-lR3"; */
+"QeU-iu-lR3.normalTitle" = "Skift billede";
+
+/* Class = "UILabel"; text = "Currency"; ObjectID = "RBr-ti-GiD"; */
+"RBr-ti-GiD.text" = "Valuta";
+
+/* Class = "UINavigationItem"; title = "My Orders"; ObjectID = "RTU-o1-0OV"; */
+"RTU-o1-0OV.title" = "Mine ordrer";
+
+/* Class = "UILabel"; text = "Desc"; ObjectID = "RX9-8i-iSw"; */
+"RX9-8i-iSw.text" = "Desc";
+
+/* Class = "UILabel"; text = "Everything at  your doorstep!"; ObjectID = "Rd0-B5-AWL"; */
+"Rd0-B5-AWL.text" = "Everything at  your doorstep!";
+
+/* Class = "UITextField"; placeholder = "Title of question or issue"; ObjectID = "S16-jF-MnE"; */
+"S16-jF-MnE.placeholder" = "Overskrift";
+
+/* Class = "UITextField"; text = "Zip Code"; ObjectID = "Sgu-ia-xRL"; */
+"Sgu-ia-xRL.text" = "Postnummer";
+
+/* Class = "UINavigationItem"; title = "About"; ObjectID = "Suq-jl-Upr"; */
+"Suq-jl-Upr.title" = "Om";
+
+/* Class = "UILabel"; text = "About App & Get"; ObjectID = "TQf-5f-IAA"; */
+"TQf-5f-IAA.text" = "Om App & Get";
+
+/* Class = "UIViewController"; title = "Request"; ObjectID = "Ud0-Vb-RoM"; */
+"Ud0-Vb-RoM.title" = "Anmodning";
+
+/* Class = "UILabel"; text = "Your Order"; ObjectID = "Uhh-xP-qan"; */
+"Uhh-xP-qan.text" = "Din ordre";
+
+/* Class = "UILabel"; text = "Category"; ObjectID = "VLu-9a-qhA"; */
+"VLu-9a-qhA.text" = "Kategorï";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "Vov-FE-sRF"; */
+"Vov-FE-sRF.text" = "Addresse";
+
+/* Class = "UILabel"; text = "Full Amount "; ObjectID = "W6z-oo-or5"; */
+"W6z-oo-or5.text" = "Fulde beløb ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "WF4-kB-Izm"; */
+"WF4-kB-Izm.normalTitle" = "Knap";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "WHB-YS-z2f"; */
+"WHB-YS-z2f.normalTitle" = "Knap";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "We5-Bl-tiA"; */
+"We5-Bl-tiA.normalTitle" = "Knap";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Wpw-Wp-wJc"; */
+"Wpw-Wp-wJc.normalTitle" = "Knap";
+
+/* Class = "UIViewController"; title = "Order"; ObjectID = "X9e-GR-lKO"; */
+"X9e-GR-lKO.title" = "Ordre";
+
+/* Class = "UILabel"; text = "Create your Getter profile"; ObjectID = "XPQ-P5-lhc"; */
+"XPQ-P5-lhc.text" = "Opret getter profil";
+
+/* Class = "UILabel"; text = "DKK"; ObjectID = "XUp-9J-NMb"; */
+"XUp-9J-NMb.text" = "DKK";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "XUw-oi-elI"; */
+"XUw-oi-elI.text" = "Titel";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "Y73-HK-P5K"; */
+"Y73-HK-P5K.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Hi "; ObjectID = "YRK-jo-ILK"; */
+"YRK-jo-ILK.text" = "Hej ";
+
+/* Class = "UITextField"; text = "Phone Number"; ObjectID = "YkX-IF-YJz"; */
+"YkX-IF-YJz.text" = "Telefon";
+
+/* Class = "UILabel"; text = "Become A Getter"; ObjectID = "YwX-Uo-vSA"; */
+"YwX-Uo-vSA.text" = "Bliv Getter";
+
+/* Class = "UIButton"; normalTitle = "Send Offer"; ObjectID = "ZXc-0h-hhh"; */
+"ZXc-0h-hhh.normalTitle" = "Send tilbud";
+
+/* Class = "UILabel"; text = "Everything at  your doorstep!"; ObjectID = "aAO-su-Zgh"; */
+"aAO-su-Zgh.text" = "Everything at  your doorstep!";
+
+/* Class = "UINavigationItem"; title = "Terms & Conditions"; ObjectID = "abk-6h-MV8"; */
+"abk-6h-MV8.title" = "Handelsbetingelser";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "adH-fr-gjt"; */
+"adH-fr-gjt.text" = "Kodeord";
+
+/* Class = "UILabel"; text = "Use the app as"; ObjectID = "bTm-qv-8o5"; */
+"bTm-qv-8o5.text" = "Brug app som";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "bxu-2P-VPV"; */
+"bxu-2P-VPV.text" = "Kodeord";
+
+/* Class = "UILabel"; text = "Can we call you to clarify?"; ObjectID = "cCC-or-mbx"; */
+"cCC-or-mbx.text" = "Må vi ringe dig op?";
+
+/* Class = "UILabel"; text = "Received Offers"; ObjectID = "cHh-9j-OPp"; */
+"cHh-9j-OPp.text" = "Modtagne tilbud";
+
+/* Class = "UITextField"; placeholder = "e.g. Home"; ObjectID = "cVW-Mo-tGz"; */
+"cVW-Mo-tGz.placeholder" = "f.eks. Hjem";
+
+/* Class = "UINavigationItem"; title = "Category Title"; ObjectID = "cVg-yp-JiI"; */
+"cVg-yp-JiI.title" = "Categori";
+
+/* Class = "UILabel"; text = "Deliver At"; ObjectID = "cea-Up-3qV"; */
+"cea-Up-3qV.text" = "Leveringstidspunkt";
+
+/* Class = "UILabel"; text = "Share App & Get!"; ObjectID = "d3l-0d-hWd"; */
+"d3l-0d-hWd.text" = "Del App & Get!";
+
+/* Class = "UILabel"; text = "Everything at  your doorstep!"; ObjectID = "dK0-Dr-V9F"; */
+"dK0-Dr-V9F.text" = "Everything at your doorstep!";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "dZW-Jz-ju6"; */
+"dZW-Jz-ju6.text" = "Pris";
+
+/* Class = "UILabel"; text = "Apper name"; ObjectID = "dfZ-GI-Y5q"; */
+"dfZ-GI-Y5q.text" = "Kundenavn";
+
+/* Class = "UIViewController"; title = "Send A New Request"; ObjectID = "dxA-0a-f3q"; */
+"dxA-0a-f3q.title" = "Send anmodning";
+
+/* Class = "UILabel"; text = "Re-type Password"; ObjectID = "e98-qM-r7J"; */
+"e98-qM-r7J.text" = "Gentag kodeord";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "eCQ-Aq-fMh"; */
+"eCQ-Aq-fMh.text" = "Label";
+
+/* Class = "UIViewController"; title = "New Address"; ObjectID = "egj-PA-PS8"; */
+"egj-PA-PS8.title" = "Ny addresse";
+
+/* Class = "UILabel"; text = "Everything at  your doorstep!"; ObjectID = "ehh-hJ-THe"; */
+"ehh-hJ-THe.text" = "Everything at your doorstep!";
+
+/* Class = "UILabel"; text = "other Getters on this request"; ObjectID = "epA-Zc-9Cw"; */
+"epA-Zc-9Cw.text" = "gettere har reageret på denne anmodning";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "ewT-gg-POm"; */
+"ewT-gg-POm.text" = "Titel";
+
+/* Class = "UILabel"; text = "Or, maybe you wanna become a getter?"; ObjectID = "f3a-O9-ZLy"; */
+"f3a-O9-ZLy.text" = "Bliv getter?";
+
+/* Class = "UINavigationItem"; title = "Support"; ObjectID = "fG6-nz-H8M"; */
+"fG6-nz-H8M.title" = "Support";
+
+/* Class = "UIBarButtonItem"; title = "Categories"; ObjectID = "fOQ-Fs-oR9"; */
+"fOQ-Fs-oR9.title" = "Kategorier";
+
+/* Class = "UIButton"; normalTitle = "Ask a Getter"; ObjectID = "g00-IC-X8v"; */
+"g00-IC-X8v.normalTitle" = "Spørg en getter";
+
+/* Class = "UIButton"; disabledTitle = "Logging In..."; ObjectID = "gnM-iL-sEk"; */
+"gnM-iL-sEk.disabledTitle" = "Logger ind...";
+
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "gnM-iL-sEk"; */
+"gnM-iL-sEk.normalTitle" = "Log ind";
+
+/* Class = "UILabel"; text = "Expiry"; ObjectID = "hFH-2q-WyX"; */
+"hFH-2q-WyX.text" = "Udløber";
+
+/* Class = "UILabel"; text = "Terms & Conditions"; ObjectID = "hag-QB-uqb"; */
+"hag-QB-uqb.text" = "Handelsbetingelser";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "hiJ-GZ-cug"; */
+"hiJ-GZ-cug.text" = "Beskrivelse";
+
+/* Class = "UILabel"; text = "Location Name"; ObjectID = "hlV-BD-MJv"; */
+"hlV-BD-MJv.text" = "Navn på lokation";
+
+/* Class = "UILabel"; text = "Everything at  your doorstep!"; ObjectID = "htV-9s-P0S"; */
+"htV-9s-P0S.text" = "Everything at  your doorstep!";
+
+/* Class = "UILabel"; text = "Street Number"; ObjectID = "i3I-FZ-Pax"; */
+"i3I-FZ-Pax.text" = "Gadenummer";
+
+/* Class = "UITextField"; placeholder = "Your phone number"; ObjectID = "ipV-7j-Acq"; */
+"ipV-7j-Acq.placeholder" = "Dit telefonnummer";
+
+/* Class = "UILabel"; text = "As fast as possible"; ObjectID = "jPn-Jy-4a0"; */
+"jPn-Jy-4a0.text" = "Hurtigst muligt";
+
+/* Class = "UILabel"; text = "Delivery date"; ObjectID = "jyI-ar-qFH"; */
+"jyI-ar-qFH.text" = "Leveringstidspunkt";
+
+/* Class = "UIButton"; normalTitle = "Upload a photo"; ObjectID = "kVQ-VQ-bdb"; */
+"kVQ-VQ-bdb.normalTitle" = "Upload foto";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "kfH-XH-W8U"; */
+"kfH-XH-W8U.text" = "Titel";
+
+/* Class = "UILabel"; text = "Deliver At"; ObjectID = "knN-SJ-WfI"; */
+"knN-SJ-WfI.text" = "Leveringstidspunkt";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lOK-n6-0ZS"; */
+"lOK-n6-0ZS.normalTitle" = "Button";
+
+/* Class = "UIBarButtonItem"; title = "Send"; ObjectID = "lbg-Tm-s2G"; */
+"lbg-Tm-s2G.title" = "Send";
+
+/* Class = "UILabel"; text = "Everything at  your doorstep!"; ObjectID = "lq1-j9-Zo7"; */
+"lq1-j9-Zo7.text" = "Everything at  your doorstep!";
+
+/* Class = "UILabel"; text = "Delivery"; ObjectID = "mFC-eE-tGG"; */
+"mFC-eE-tGG.text" = "Levering";
+
+/* Class = "UITextView"; text = "It is easy to become a Getter yourself. Just sign up and choose which area and time intervals you are available.\n\nSigning up only requires a Nem ID, a MobilePay account and about ten minutes of your time."; ObjectID = "mIb-Z9-IFr"; */
+"mIb-Z9-IFr.text" = "Det er nemt at blive getter. Tilmeld dig og vælg kategorier og område du ønsker at levere til.\n\nDu skal have NEMid for at fuldføre.";
+
+/* Class = "UILabel"; text = "Everything at  your doorstep!"; ObjectID = "mnB-Ik-X2E"; */
+"mnB-Ik-X2E.text" = "Everything at  your doorstep!";
+
+/* Class = "UILabel"; text = "Time left"; ObjectID = "nqb-TU-CwY"; */
+"nqb-TU-CwY.text" = "Tid tilbage";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "nqn-pa-ZAU"; */
+"nqn-pa-ZAU.text" = "Beskrivelse";
+
+/* Class = "UILabel"; text = "Email Address"; ObjectID = "pX8-I5-1Pe"; */
+"pX8-I5-1Pe.text" = "Email Addresse";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "qUg-HR-tvx"; */
+"qUg-HR-tvx.text" = "Land";
+
+/* Class = "UILabel"; text = "Street Name"; ObjectID = "qXC-wb-tHl"; */
+"qXC-wb-tHl.text" = "Vejnavn";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "qdf-7P-RG0"; */
+"qdf-7P-RG0.text" = "Titel";
+
+/* Class = "UIViewController"; title = "It's An Offer!"; ObjectID = "rM6-dw-jVd"; */
+"rM6-dw-jVd.title" = "TIlbud!";
+
+/* Class = "UITextField"; text = "Address"; ObjectID = "rSS-wh-qNd"; */
+"rSS-wh-qNd.text" = "Addresse";
+
+/* Class = "UILabel"; text = "Offers"; ObjectID = "ssf-kb-38E"; */
+"ssf-kb-38E.text" = "Tilbud";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "tEs-Z7-Yy1"; */
+"tEs-Z7-Yy1.normalTitle" = "Button";
+
+/* Class = "UITextField"; text = "Pick delivery time"; ObjectID = "tdp-G4-gu5"; */
+"tdp-G4-gu5.text" = "Vælg leveringstidspunkt";
+
+/* Class = "UILabel"; text = "Getter Name"; ObjectID = "tlq-TM-pDw"; */
+"tlq-TM-pDw.text" = "Getter navn";
+
+/* Class = "UIButton"; normalTitle = "Continue As Apper"; ObjectID = "u5D-e7-JGL"; */
+"u5D-e7-JGL.normalTitle" = "Fortsæt som kunde";
+
+/* Class = "UITextView"; text = "Add a comment...To avoid misunderstandings it can be a good idea to specify what you will deliver."; ObjectID = "ums-lg-KKF"; */
+"ums-lg-KKF.text" = "Skriv en kommentar...For at forhindre misforståelser er det en god ide beskrive præcis hvad dit tilbud indeholder.";
+
+/* Class = "UILabel"; text = "You will be able to chat or call the Getter after this step."; ObjectID = "vb1-YW-rpi"; */
+"vb1-YW-rpi.text" = "Du får mulighed for at kontakte getter efter dette.";
+
+/* Class = "UILabel"; text = "City"; ObjectID = "wRm-kt-ZGS"; */
+"wRm-kt-ZGS.text" = "By";
+
+/* Class = "UILabel"; text = "Category Name"; ObjectID = "xuV-M1-lgF"; */
+"xuV-M1-lgF.text" = "Kategori";
+
+/* Class = "UILabel"; text = "A user in your area has made a request!"; ObjectID = "ymc-U8-7ia"; */
+"ymc-U8-7ia.text" = "En bruger i dit område har sendt en anmodning";
+
+/* Class = "UITextField"; text = "City"; ObjectID = "z8r-0y-VLm"; */
+"z8r-0y-VLm.text" = "By";
+
+/* Class = "UILabel"; text = "Delivery date"; ObjectID = "zQS-a9-Onc"; */
+"zQS-a9-Onc.text" = "Leveringsdato";

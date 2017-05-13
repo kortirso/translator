@@ -49,6 +49,12 @@ class Task < ApplicationRecord
         status == 'failed'
     end
 
+    def save_temporary_file(file_name)
+        File.open(file_name) { |f| self.temporary_file = f }
+        self.save
+        File.delete(file_name)
+    end
+
     def error_message
         case error
             when 101 then 'file does not exist'

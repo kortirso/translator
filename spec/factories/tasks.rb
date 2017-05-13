@@ -13,6 +13,14 @@ FactoryGirl.define do
             file File.open(File.join(Rails.root, 'spec/test_files/ru.yml'))
         end
 
+        trait :with_strings do
+            file File.open(File.join(Rails.root, 'spec/test_files/Main.strings'))
+        end
+
+        trait :with_resx do
+            file File.open(File.join(Rails.root, 'spec/test_files/UIStrings.resx'))
+        end
+
         trait :with_wrong_yml do
             file File.open(File.join(Rails.root, 'spec/test_files/wrong_ru.yml'))
         end

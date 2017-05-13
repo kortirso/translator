@@ -11,7 +11,7 @@ module Fileresponders
         private
 
         def strings_for_translate
-            base_data.each do |value|
+            (base_data.xpath("//data/value") + base_data.xpath("//data/comment")).each do |value|
                 words_for_translate.push value.children.to_s
                 value.children = "_###{value.children.to_s}##_"
             end

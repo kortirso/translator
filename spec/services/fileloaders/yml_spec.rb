@@ -46,4 +46,16 @@ RSpec.describe Fileloaders::Yml do
             end
         end
     end
+
+    describe '#save' do
+        let!(:task_with_file) { create :task, :with_yml }
+        let(:loader) { Fileloaders::Yml.new(task_with_file) }
+
+        it 'should execute task.save_temporary_file method' do
+            result = loader.load
+            expect_any_instance_of(Task).to receive(:save_temporary_file)
+
+            loader.save(result)
+        end
+    end
 end

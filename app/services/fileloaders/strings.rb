@@ -8,12 +8,9 @@ module Fileloaders
             File.read task.file_name
         end
 
-        def save(result_strings)
-            temp_file_name = change_file_name
-            File.write(temp_file_name, result_strings.join)
-            File.open(temp_file_name) { |f| task.temporary_file = f }
-            task.save
-            File.delete(temp_file_name)
+        def save(result, temp_file_name = change_file_name)
+            File.write(temp_file_name, result)
+            task.save_temporary_file(temp_file_name)
         end
 
         private
