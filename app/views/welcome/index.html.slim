@@ -1,2 +1,31 @@
 - provide(:path, 'root')
-h1= t('user.welcome')
+#index_page.row
+    .header
+        h1= t('index.header.h1')
+        p= t('index.header.p')
+    .columns.small-12.large-6
+        .index_block.main
+            p= t('index.main.p1')
+            p= t('index.main.p2')
+    .columns.small-12.large-6
+        .index_block
+            ul
+                = t('index.help.ul')
+                li Ruby on Rails (*.yml)
+                li .NET (*.resx)
+                li Android (*.strings)
+    .clearfix
+    .columns.small-12.large-6
+        .index_block
+            ul
+                = t('index.how.ul')
+                li= t('index.how.li1')
+                li= t('index.how.li2')
+                li= t('index.how.li3')
+                li= t('index.how.li4')
+                li= t('index.how.li5')
+    .columns.small-12.large-6
+        .index_block
+            ul
+                = t('index.add.ul')
+                li= t('index.how.li1')

@@ -6,6 +6,25 @@ da:
     yandex: 'Oversat service '
     yandex_link: '"Yandex.Oversætter"'
     change_locale: Skift sprog
+  index:
+    header:
+      h1: LangTool
+      p: Nem lokaliseringer for udviklere!
+    main:
+      p1: Vores system lokaliserer dine projekter
+      p2: Du fortsætter kodningen
+    help:
+      ul: Vi hjælper udviklere på følgende platforme
+    how:
+      ul: Hvordan kan du lokalisere?
+      li1: vælg fil til lokalisering
+      li2: vælg oversættelse retning
+      li3: køre oversættelse
+      li4: vent nogle få sekunder / minutter
+      li5: download resultat fil
+    add:
+      ul: Yderligere funktioner
+      li1: oversættelser redigering og genopbygning af resultatfilen
   buttons:
     logout: Udgang
     login: Indgang

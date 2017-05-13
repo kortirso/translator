@@ -6,6 +6,25 @@ en:
     yandex: 'Translated by '
     yandex_link: «Yandex.Translator»
     change_locale: Switch language
+  index:
+    header:
+      h1: LangTool
+      p: Easy localizations for developers!
+    main:
+      p1: Our system localize your projects
+      p2: You continue coding
+    help:
+      ul: We help developers on the following platforms
+    how:
+      ul: How can you localize?
+      li1: choose file for localization
+      li2: select translation's direction
+      li3: run translating
+      li4: wait a few seconds / minutes
+      li5: download result file
+    add:
+      ul: Additional features
+      li1: translations editing and rebuilding result file
   buttons:
     logout: Log Out
     login: Log In

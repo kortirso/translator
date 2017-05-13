@@ -61,8 +61,8 @@ class Task < ApplicationRecord
             when 102 then 'fileresponder does not exist'
             when 110 then 'bad YML structure'
             when 201 then 'direction for translating does not exist'
-            when 301 then 'limit is exceeded (50 lines)'
-            when 302 then 'limit is exceeded (100 lines)'
+            when 301 then 'limit is exceeded (100 lines)'
+            when 302 then 'limit is exceeded (200 lines)'
             else ''
         end
     end

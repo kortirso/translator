@@ -95,6 +95,38 @@ nav {
             padding: 0 10px;
         }
     }
+    #index_page {
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            h1 {
+                font-size: 30px;
+                font-weight: 500;
+            }
+            p {
+                font-size: 20px;
+            }
+        }
+        .index_block {
+            padding: 30px;
+            background: linear-gradient(to bottom, #DDD 0%,#FFF 100%);
+            ul {
+                font-weight: 500;
+                font-size: 18px;
+                li {
+                    font-weight: 400;
+                    font-size: 16px;
+                    &:first-of-type {
+                        margin-top: 10px;
+                    }
+                }
+            }
+            &.main {
+                font-weight: 500;
+                font-size: 24px;
+            }
+        }
+    }
 }
 
 table {
@@ -107,7 +139,7 @@ table {
 
 .row {
     .columns {
-        padding: 0;
+        //padding: 0;
     }
 }
 
