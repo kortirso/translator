@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.0.rc1'
+gem 'rails', '5.1.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -23,14 +23,13 @@ gem 'foundation-rails'
 gem 'autoprefixer-rails', '6.7.6'
 gem 'slim'
 gem 'carrierwave', '~> 1.0'
-gem 'simple_form'
 gem 'sidekiq', '>= 4.2.10'
 gem 'redis-namespace'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'oj'
 gem 'oj_mimic_json'
 gem 'route_translator'
-gem 'devise'
+gem 'devise', github: 'plataformatec/devise'
 gem 'activerecord-import'
 
 group :development do

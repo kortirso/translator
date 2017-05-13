@@ -15,11 +15,11 @@ RSpec.describe Fileresponders::Strings do
         end
 
         it 'should assing value for const GUEST_LIMIT' do
-            expect(responder.class::GUEST_LIMIT).to eq 50
+            expect(responder.class::GUEST_LIMIT).to eq 100
         end
 
         it 'should assing value for const USER_LIMIT' do
-            expect(responder.class::USER_LIMIT).to eq 100
+            expect(responder.class::USER_LIMIT).to eq 200
         end
 
         it 'should assing value for const LINES_PER_STRING' do
