@@ -3,12 +3,12 @@
 .row
     .columns.small-12.medium-8.large-6
         #new_file_block.block
-            = simple_form_for Task.new do |f|
+            = form_with model: Task.new do |f|
                 h6= t('tasks.direction')
-                = f.select :to, options_for_select(@locale_list), include_blank: false
+                = f.select :to, options_for_select(@locale_list), include_blank: false, class: 'input_field'
                 h6= t('tasks.file')
                 = f.file_field :file, label: false
-                = f.button :submit, class: '', value: t('tasks.localize')
+                = f.submit t('tasks.localize'), class: 'button'
     .columns.small-12
         .block
             #tasks_box= react_component('TasksBox', access_token: user_signed_in? ? current_user.access_token : session[:guest], locale: I18n.locale)
