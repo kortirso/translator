@@ -18,10 +18,12 @@ class Task < ApplicationRecord
     after_create :task_processing
 
     def file_name
+        return '' if self.file.file.nil?
         self.file.file.file
     end
 
     def result_file_name
+        return '' if self.result_file.file.nil?
         self.result_file.file.file
     end
 
@@ -45,6 +47,12 @@ class Task < ApplicationRecord
 
     def failed?
         status == 'failed'
+    end
+
+    def save_temporary_file(file_name)
+        File.open(file_name) { |f| self.temporary_file = f }
+        self.save
+        File.delete(file_name)
     end
 
     def error_message
