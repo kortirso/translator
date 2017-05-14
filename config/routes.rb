@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
         resources :tasks, only: [:index, :show, :create]
         resources :users, only: [:index, :show]
+        resources :translations, only: :create
 
         namespace :api do
             namespace :v1 do
@@ -19,8 +20,6 @@ Rails.application.routes.draw do
 
         root to: 'welcome#index'
     end
-
-    resources :translations, only: :create
 
     match "*path", to: "application#catch_404", via: :all
 end

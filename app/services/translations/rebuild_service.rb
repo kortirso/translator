@@ -1,12 +1,13 @@
 module Translations
     class RebuildService
         def self.call(params)
+            translations = params[:task].translations
             params[:translations].each do |key, value|
-                translation = Translation.find_by(id: key)
+                translation = translations.find_by(id: key)
                 next if translation.nil?
                 Translations::RebuildService.update_word(translation, value['result'], params[:task])
             end
-            Translations::RebuildService.update_task_file(params[:task])
+            Translations::RebuildService.update_task_file(params[:task], translations)
         end
 
         def self.update_word(translation, new_value, task)
@@ -18,10 +19,9 @@ module Translations
             end
         end
 
-        def self.update_task_file(task)
+        def self.update_task_file(task, translations)
             temporary_text = File.read(task.temporary_file.file.file)
-
-            task.translations.each { |translation| temporary_text.gsub!("_###{translation.base.text}##_", translation.result.text) }
+            translations.each { |translation| temporary_text.gsub!("_###{translation.base.text}##_", translation.result.text) }
 
             File.open(task.result_file_name, 'w') do |f|
                 f.write(temporary_text)
