@@ -21,8 +21,16 @@ FactoryGirl.define do
             file File.open(File.join(Rails.root, 'spec/test_files/UIStrings.resx'))
         end
 
+        trait :with_json do
+            file File.open(File.join(Rails.root, 'spec/test_files/data.json'))
+        end
+
         trait :with_wrong_yml do
             file File.open(File.join(Rails.root, 'spec/test_files/wrong_ru.yml'))
+        end
+
+        trait :with_wrong_json do
+            file File.open(File.join(Rails.root, 'spec/test_files/data_wrong.json'))
         end
     end
 

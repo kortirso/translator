@@ -2,7 +2,7 @@ RSpec.describe TranslationsController, type: :controller do
     describe 'POST #create' do
         context 'for guest' do
             it 'do nothing' do
-                post :create, params: { translation: {} }
+                post :create, params: { translation: {}, locale: 'en' }
 
                 expect(response).to have_http_status(:ok)
             end
@@ -13,7 +13,7 @@ RSpec.describe TranslationsController, type: :controller do
 
             context 'if task does not exist' do
                 it 'do nothing' do
-                    post :create, params: { task_id:  11111,translation: {} }
+                    post :create, params: { task_id: 11111,translation: {}, locale: 'en' }
 
                     expect(response).to have_http_status(:ok)
                 end
@@ -23,7 +23,7 @@ RSpec.describe TranslationsController, type: :controller do
                 let!(:task) { create :task }
 
                 it 'do nothing' do
-                    post :create, params: { task_id:  11111,translation: {} }
+                    post :create, params: { task_id: 11111,translation: {}, locale: 'en' }
 
                     expect(response).to have_http_status(:ok)
                 end
@@ -35,11 +35,11 @@ RSpec.describe TranslationsController, type: :controller do
                 it 'should call activate method for task' do
                     expect_any_instance_of(Task).to receive(:activate)
 
-                    post :create, params: { task_id:  task.id, translation: {"607"=>{result: "About LangTool"}} }
+                    post :create, params: { task_id: task.id, translation: {"607"=>{result: "About LangTool"}}, locale: 'en' }
                 end
 
                 it 'and should redirect_to tasks_path' do
-                    post :create, params: { task_id:  task.id, translation: {"607"=>{result: "About LangTool"}} }
+                    post :create, params: { task_id: task.id, translation: {"607"=>{result: "About LangTool"}}, locale: 'en' }
 
                     expect(response).to redirect_to tasks_en_path
                 end
