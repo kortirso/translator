@@ -1,5 +1,5 @@
 module Fileresponders
-    class Xml
+    class Resx
         include Fileresponders::Base
 
         def check_permissions

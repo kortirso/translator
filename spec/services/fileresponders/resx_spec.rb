@@ -1,7 +1,7 @@
-RSpec.describe Fileresponders::Xml do
+RSpec.describe Fileresponders::Resx do
     describe '#initialize' do
         let!(:task) { create :task }
-        let(:responder) { Fileresponders::Xml.new(task) }
+        let(:responder) { Fileresponders::Resx.new(task) }
 
         it 'should assign task to @task' do
             expect(responder.task).to eq task
@@ -11,8 +11,8 @@ RSpec.describe Fileresponders::Xml do
             expect(responder.words_for_translate).to eq []
         end
 
-        it 'should assign Fileloaders::Xml object to @fileloader' do
-            expect(responder.fileloader.class.name).to eq 'Fileloaders::Xml'
+        it 'should assign Fileloaders::Resx object to @fileloader' do
+            expect(responder.fileloader.class.name).to eq 'Fileloaders::Resx'
         end
 
         it 'should assing value for const GUEST_LIMIT' do

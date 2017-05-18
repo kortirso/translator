@@ -1,7 +1,7 @@
 require 'nokogiri' 
 
 module Fileloaders
-    class Xml
+    class Resx
         include Fileloaders::Base
 
         def load

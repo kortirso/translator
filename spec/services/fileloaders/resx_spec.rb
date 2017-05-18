@@ -1,7 +1,7 @@
-RSpec.describe Fileloaders::Xml do
+RSpec.describe Fileloaders::Resx do
     describe '#initialize' do
         let!(:task) { create :task }
-        let(:loader) { Fileloaders::Xml.new(task) }
+        let(:loader) { Fileloaders::Resx.new(task) }
 
         it 'should assign task to @task' do
             expect(loader.task).to eq task
@@ -11,7 +11,7 @@ RSpec.describe Fileloaders::Xml do
     describe '#load' do
         context 'if file does not exist' do
             let!(:task_without_file) { create :task }
-            let(:loader) { Fileloaders::Xml.new(task_without_file) }
+            let(:loader) { Fileloaders::Resx.new(task_without_file) }
 
             it 'should return false' do
                 expect(loader.load).to eq false
@@ -20,7 +20,7 @@ RSpec.describe Fileloaders::Xml do
 
         context 'if file exists' do
             let!(:task_with_file) { create :task, :with_resx }
-            let(:loader) { Fileloaders::Xml.new(task_with_file) }
+            let(:loader) { Fileloaders::Resx.new(task_with_file) }
 
             it 'should return string' do
                 result = loader.load
@@ -37,7 +37,7 @@ RSpec.describe Fileloaders::Xml do
     describe '#save' do
         let!(:locale) { create :locale, :ru }
         let!(:task_with_file) { create :task, :with_resx, to: 'ru' }
-        let(:loader) { Fileloaders::Xml.new(task_with_file) }
+        let(:loader) { Fileloaders::Resx.new(task_with_file) }
 
         it 'should execute task.save_temporary_file method' do
             result = loader.load
