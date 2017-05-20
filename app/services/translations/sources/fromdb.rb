@@ -21,5 +21,6 @@ module Translations
                 Position.create translation: translation, task: task
                 result_word.text
             end
+        end
     end
 end
