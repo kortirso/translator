@@ -26,10 +26,12 @@ module Translations
             locale_to = Locale.find_by(code: task.to)
 
             new_words.each do |new_word|
-                word_1 = Word.find_or_create_by text: new_word[:word], locale: locale_from
-                word_2 = Word.create text: new_word[:answer], locale: locale_to
-                translation = Translation.new base: word_1, result: word_2
+                word_1 = locale_from.words.find_or_create_by text: new_word[:word]
+                word_2 = locale_to.words.create text: new_word[:answer]
+                translation = Translation.new base: word_1, result: word_2, direction: task.direction(:straight)
                 translation.positions.build task: task
+                translations << translation
+                translation = Translation.new base: word_2, result: word_1, direction: task.direction(:reverse)
                 translations << translation
             end
 

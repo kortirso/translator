@@ -10,6 +10,7 @@ class TasksController < ApplicationController
 
     def show
         @translations = @task.translations.includes(:base, :result).order(id: :asc)
+        @locale = Locale.find_by(code: @task.to)
     end
     
     def create
