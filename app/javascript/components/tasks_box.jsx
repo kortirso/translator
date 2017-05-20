@@ -71,8 +71,7 @@ class TasksBox extends React.Component {
             return (
                 <tr className='task' id={"task_" + task.id} key={task.id}>
                     <td>{task.short_filename}</td>
-                    <td>{task.from}</td>
-                    <td>{task.to}</td>
+                    <td>{task.from} - {task.to}</td>
                     {this._checkStatus(task)}
                     {this._checkDownloading(task)}
                     {this._checkTranslation(task)}
@@ -90,8 +89,7 @@ class TasksBox extends React.Component {
                     <thead>
                         <tr>
                             <th>{strings.file}</th>
-                            <th>{strings.from}</th>
-                            <th>{strings.to}</th>
+                            <th>{strings.direction}</th>
                             <th>{strings.status}</th>
                             <th>{strings.download}</th>
                             <th>{strings.translation}</th>

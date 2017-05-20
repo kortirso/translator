@@ -2,8 +2,7 @@
     "en":{
         "tasks":"Your Current Tasks",
         "file":"File",
-        "from":"From",
-        "to":"To",
+        "direction":"Direction",
         "status":"Status",
         "download":"Download",
         "translation":"Translation",
@@ -13,8 +12,7 @@
     "ru": {
         "tasks":"Ваши текущие задачи",
         "file":"Файл",
-        "from":"Исходный",
-        "to":"Результат",
+        "direction":"Направление",
         "status":"Статус",
         "download":"Скачать",
         "translation":"Переводы",
@@ -24,8 +22,7 @@
     "da": {
         "tasks":"Dine nuværende opgaver",
         "file":"Fil",
-        "from":"Fra",
-        "to":"Til",
+        "direction":"Retning",
         "status":"Status",
         "download":"Hent",
         "translation":"Oversættelse",

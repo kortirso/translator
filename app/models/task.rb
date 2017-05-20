@@ -67,6 +67,13 @@ class Task < ApplicationRecord
         end
     end
 
+    def direction(value)
+        case value
+            when :straight then "#{self.from}-#{self.to}"
+            when :reverse then "#{self.to}-#{self.from}"
+        end
+    end
+
     private
 
     def task_processing
