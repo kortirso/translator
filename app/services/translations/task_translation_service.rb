@@ -1,5 +1,7 @@
 module Translations
     class TaskTranslationService
+        include Translations::Base
+
         attr_reader :task, :translation_service, :words_for_translate
 
         def initialize(args)
@@ -11,7 +13,6 @@ module Translations
             @words_for_translate = args[:words_for_translate].uniq
             translate_file
             translation_service.save_new_words
-            task.complete
         end
 
         private
@@ -19,11 +20,7 @@ module Translations
         def translate_file
             temporary_text = File.read(task.temporary_file.file.file)
             words_for_translate.each { |word| temporary_text.gsub!("_###{word}##_", translation_service.translate(word)) }
-            File.open(change_file_name, 'w') do |f|
-                f.write(temporary_text)
-                task.result_file = f
-            end
-            task.save
+            save_result_file(change_file_name, temporary_text)
             File.delete(change_file_name)
         end
 

@@ -33,7 +33,8 @@ class Task < ApplicationRecord
     end
 
     def complete
-        self.update status: 'done'
+        self.status = 'done'
+        self.save
     end
 
     def failure(code)

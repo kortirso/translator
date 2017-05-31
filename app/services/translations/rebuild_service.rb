@@ -1,16 +1,27 @@
 module Translations
     class RebuildService
-        def self.call(params)
-            translations = params[:task].translations
-            params[:translations].each do |key, value|
-                translation = translations.find_by(id: key)
-                next if translation.nil?
-                Translations::RebuildService.update_word(translation, value['result'], params[:task])
-            end
-            Translations::RebuildService.update_task_file(params[:task], translations)
+        include Translations::Base
+
+        attr_reader :translations
+
+        def initialize(params)
+            @task = params[:task]
+            @translations = params[:translations]
         end
 
-        def self.update_word(translation, new_value, task)
+        def call
+            task_translations = task.translations
+            translations.each do |key, value|
+                translation = task_translations.find_by(id: key)
+                next if translation.nil?
+                update_word(translation, value['result'])
+            end
+           update_task_file(task_translations)
+        end
+
+        private
+
+        def update_word(translation, new_value)
             word = translation.result
             if word.text != new_value
                 new_word = word.locale.words.create text: new_value
@@ -20,16 +31,10 @@ module Translations
             end
         end
 
-        def self.update_task_file(task, translations)
+        def update_task_file(translations)
             temporary_text = File.read(task.temporary_file.file.file)
             translations.each { |translation| temporary_text.gsub!("_###{translation.base.text}##_", translation.result.text) }
-
-            File.open(task.result_file_name, 'w') do |f|
-                f.write(temporary_text)
-                task.result_file = f
-            end
-            task.status = 'done'
-            task.save
+            save_result_file(task.result_file_name, temporary_text)
         end
     end
 end

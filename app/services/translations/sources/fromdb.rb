@@ -16,9 +16,9 @@ module Translations
                 word_translations = word_for_translate.select_translations(locale_to)
                 return false if word_translations.empty?
                 
-                result_word = word_translations.first
+                result_word = locale_to.words.find_by text: word_translations.keys.first
                 translation = Translation.find_by base: word_for_translate, result: result_word, direction: task.direction(:straight)
-                Position.create translation: translation, task: task
+                Position.create! translation: translation, task: task
                 result_word.text
             end
         end
