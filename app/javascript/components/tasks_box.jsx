@@ -1,4 +1,5 @@
 import React from 'react';
+import Task from 'components/task';
 import LocalizedStrings from 'react-localization';
 import I18nData from './i18n_data.json';
 
@@ -17,8 +18,8 @@ class TasksBox extends React.Component {
         $.ajax({
             method: 'GET',
             url: `api/v1/tasks.json?access_token=${this.props.access_token}`,
-            success: (tasks) => {
-                this.setState({tasksList: tasks.tasks});
+            success: (data) => {
+                this.setState({tasksList: data.tasks});
             }
         });
         this._checkCompleting();
@@ -46,36 +47,25 @@ class TasksBox extends React.Component {
         if (amount == 0) clearInterval(this.state.intervalId);
     }
 
-    _checkStatus(task) {
-        let status = task.status;
-        if (task.status == 'failed') status = <span>{strings.error}: {task.error_message}</span>;
-        return <td className={task.status}>{status}</td>
-    }
-
-    _checkDownloading(task) {
-        let link;
-        if (task.status == 'done') link = <a download={task.result_short_filename} href={'/uploads/task/result_file/' + task.id + '/' + task.result_short_filename}>{strings.download}</a>
-        return <td>{link}</td>;
-    }
-
-    _checkTranslation(task) {
-        let link;
-        let locale = '';
-        if (this.props.locale != 'en') locale = '/' + this.props.locale;
-        if (task.status == 'done') link = <a href={locale + '/tasks/' + task.id}>{strings.goto}</a>
-        return <td>{link}</td>;
+    _deleteTask(task) {
+        $.ajax({
+            method: 'DELETE',
+            url: `api/v1/tasks/${task.id}.json?access_token=${this.props.access_token}`,
+            success: (data) => {
+                if(data.status == 'success') {
+                    const tasks = [... this.state.tasksList];
+                    const taskIndex = tasks.indexOf(task);
+                    tasks.splice(taskIndex, 1);
+                    this.setState({tasksList: tasks});
+                }
+            }
+        })
     }
 
     _prepareTasksList() {
         return this.state.tasksList.map((task) => {
             return (
-                <tr className='task' id={"task_" + task.id} key={task.id}>
-                    <td>{task.short_filename}</td>
-                    <td>{task.from} - {task.to}</td>
-                    {this._checkStatus(task)}
-                    {this._checkDownloading(task)}
-                    {this._checkTranslation(task)}
-                </tr>
+                <Task task={task} locale={this.props.locale} key={task.id} onDelete={this._deleteTask.bind(this)} />
             );
         });
     }
@@ -93,6 +83,7 @@ class TasksBox extends React.Component {
                             <th>{strings.status}</th>
                             <th>{strings.download}</th>
                             <th>{strings.translation}</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
