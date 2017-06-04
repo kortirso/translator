@@ -11,6 +11,9 @@ Rails.application.routes.draw do
         resources :tasks, only: [:index, :show, :create]
         resources :users, only: [:index, :show]
         resources :translations, only: :create
+        resources :requests, only: :create
+
+        get 'contribution' => 'welcome#contribution', as: :contribution
 
         namespace :api do
             namespace :v1 do

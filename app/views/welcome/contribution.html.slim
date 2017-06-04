@@ -1,0 +1,18 @@
+- provide(:path, 'contribution')
+.row
+    .columns.small-12
+        h3= t('contribution.header')
+        p= t('contribution.text')
+        = form_with model: Request.new do |f|
+            = f.text_area :body, placeholder: t('contribution.placeholder'), rows: 6
+            = f.submit t('contribution.button'), class: 'button' if user_signed_in?
+#success_is_true.reveal data-reveal=''
+    h1= t('contribution.success.header')
+    p= t('contribution.success.text')
+    button.close-button aria-label=('Close modal') data-close='' type='button'
+        span aria-hidden='true' &times;
+#success_is_false.reveal data-reveal=''
+    h1= t('contribution.failure.header')
+    p= t('contribution.failure.text')
+    button.close-button aria-label=('Close modal') data-close='' type='button'
+        span aria-hidden='true' &times;
