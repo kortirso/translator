@@ -1,5 +1,5 @@
 import React from 'react';
-import Task from 'components/task';
+import Task from 'components/tasks_box/task';
 import LocalizedStrings from 'react-localization';
 import I18nData from './i18n_data.json';
 
