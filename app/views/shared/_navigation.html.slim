@@ -2,6 +2,8 @@ nav
     ul.menu.vertical
         li= link_to t('nav.main'), root_path, class: "#{'active' if yield(:path) == 'root'}"
         li= link_to t('nav.tasks'), tasks_path, class: "#{'active' if yield(:path) == 'selector'}"
+        - if current_user.editor?
+            li= link_to t('nav.translators'), translations_path, class: "#{'active' if yield(:path) == 'translations'}"
         li= link_to t('nav.user'), user_signed_in? ? current_user : users_path, class: "#{'active' if yield(:path) == 'user'}"
         li= link_to t('nav.contribution'), contribution_path, class: "#{'active' if yield(:path) == 'contribution'}"
     .bottom

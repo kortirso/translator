@@ -2,6 +2,7 @@ en:
   nav:
     main: About LangTool
     tasks: Translating
+    translators: For Translators
     user: Account
     contribution: Make a contribution
     yandex: 'Translated by '

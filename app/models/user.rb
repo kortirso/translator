@@ -24,4 +24,8 @@ class User < ApplicationRecord
     def subscriber?
         role == 'subscriber'
     end
+
+    def editor?
+        admin? || translator?
+    end
 end
