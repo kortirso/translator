@@ -1,1 +1,5 @@
 - provide(:path, 'translations')
+= javascript_pack_tag 'translations_box'
+.row
+    .columns.small-12
+        #translations_box= react_component('TranslationsBox', locale: I18n.locale)
