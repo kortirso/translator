@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :request do
+    factory :request do
     
-  end
+    end
 end

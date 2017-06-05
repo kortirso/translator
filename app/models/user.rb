@@ -11,4 +11,8 @@ class User < ApplicationRecord
     def update_token
         self.update(access_token: SecureRandom.hex(32))
     end
+
+    def admin?
+        id == 1
+    end
 end

@@ -67,6 +67,7 @@ GEM
       execjs (~> 2.0)
     bcrypt (3.1.11)
     builder (3.2.3)
+    cancancan (2.0.0)
     capistrano (3.8.1)
       airbrussh (>= 1.0.0)
       i18n
@@ -272,6 +273,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   activerecord-import
   autoprefixer-rails (= 6.7.6)
+  cancancan (~> 2.0.0)
   capistrano
   capistrano-bundler
   capistrano-rails
