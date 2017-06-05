@@ -5,7 +5,7 @@
         p= t('contribution.text')
         = form_with model: Request.new do |f|
             = f.text_area :body, placeholder: t('contribution.placeholder'), rows: 6
-            = f.submit t('contribution.button'), class: 'button' if user_signed_in?
+            = f.submit t('contribution.button'), class: 'button' if can? :create, Request
 #success_is_true.reveal data-reveal=''
     h1= t('contribution.success.header')
     p= t('contribution.success.text')

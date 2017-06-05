@@ -7,12 +7,21 @@ class User < ApplicationRecord
     has_many :requests, dependent: :destroy
 
     validates :username, presence: true, uniqueness: true, length: { in: 1..20 }
+    validates :role, presence: true, inclusion: { in: %w(user subscriber translator admin) }
 
     def update_token
         self.update(access_token: SecureRandom.hex(32))
     end
 
     def admin?
-        id == 1
+        role == 'admin'
+    end
+
+    def translator?
+        role == 'translator'
+    end
+
+    def subscriber?
+        role == 'subscriber'
     end
 end
