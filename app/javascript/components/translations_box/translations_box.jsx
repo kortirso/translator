@@ -4,13 +4,16 @@ import LocalizedStrings from 'react-localization';
 import I18nData from './i18n_data.json';
 
 let strings = new LocalizedStrings(I18nData);
+let alphabet = {en: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X','Y', 'Z'], ru: ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Э', 'Ю', 'Я'], da: []};
 
 class TranslationsBox extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            locale: null
+            locale: null,
+            letter: null,
+            translationsList: []
         }
     }
 
@@ -18,14 +21,46 @@ class TranslationsBox extends React.Component {
         strings.setLanguage(this.props.locale);
     }
 
+    _fetchTranslations(letter) {
+        $.ajax({
+            method: 'GET',
+            url: `api/v1/translations.json?access_token=${this.props.access_token}&language=${this.state.locale}&letter=${letter}`,
+            success: (data) => {
+                this.setState({translationsList: data.translations, letter: letter});
+            }
+        });
+    }
+
     _selectOption(value) {
-        this.setState({locale: value})
+        this.setState({locale: value, letter: null});
+    }
+
+    _selectLetter(event) {
+        this._fetchTranslations(event.target.text);
+    }
+
+    _prepareAlphabetLinks() {
+        if(alphabet[this.state.locale] != null) {
+            return alphabet[this.state.locale].map((letter, index) => {
+                return (
+                    <a onClick={this._selectLetter.bind(this)} key={index}>{letter}</a>
+                );
+            });
+        }
+    }
+
+    _prepareTranslations() {
+        if(this.state.letter != null) {
+            return <p>{this.state.letter}</p>;
+        }
     }
 
     render() {
         return (
             <div>
                 <TranslationsLocale locale={this.props.locale} onSelectOption={this._selectOption.bind(this)} />
+                <div>{this._prepareAlphabetLinks()}</div>
+                <div>{this._prepareTranslations()}</div>
             </div>
         );
     }
