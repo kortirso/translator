@@ -26,7 +26,8 @@ class TranslationsBox extends React.Component {
             method: 'GET',
             url: `api/v1/translations.json?access_token=${this.props.access_token}&language=${this.state.locale}&letter=${letter}`,
             success: (data) => {
-                this.setState({translationsList: data.translations, letter: letter});
+                console.log(data.words);
+                this.setState({translationsList: data.words, letter: letter});
             }
         });
     }
@@ -49,9 +50,30 @@ class TranslationsBox extends React.Component {
         }
     }
 
+    _prepareWord(translations) {
+        return translations.map((translation) => {
+            return (
+                <span className='translation_name' key={translation.id}>{translation.result_text}</span>
+            );
+        });
+    }
+
     _prepareTranslations() {
         if(this.state.letter != null) {
-            return <p>{this.state.letter}</p>;
+            if(this.state.translationsList.length == 0) {
+                return <p>No translations</p>;
+            }
+            else {
+                return this.state.translationsList.map((word) => {
+                    return (
+                        <div className='translation' key={word.id}>
+                            <p>{word.text}</p>
+                            <p>Translations are:</p>
+                            {this._prepareWord(word.translations)}
+                        </div>
+                    );
+                });
+            }
         }
     }
 
