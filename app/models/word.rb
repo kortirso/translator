@@ -6,6 +6,8 @@ class Word < ApplicationRecord
 
     validates :text, :locale_id, presence: true
 
+    scope :text_begins_with, -> (str) { where('text like ?', "#{str}%").order(text: :asc) }
+
     def select_translations(locale)
         transform_values_to_count(select_result_words(locale))
     end

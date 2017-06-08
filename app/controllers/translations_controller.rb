@@ -1,7 +1,11 @@
 class TranslationsController < ApplicationController
     skip_before_action :verify_authenticity_token
     before_action :check_user_signed
-    before_action :find_task
+    before_action :find_task, only: :create
+
+    def index
+
+    end
 
     def create
         @task.activate(translation_params)

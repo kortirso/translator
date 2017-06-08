@@ -2,7 +2,9 @@ da:
   nav:
     main: Om LangTool
     tasks: Oversættelse
+    translators: For oversættere
     user: Højde
+    contribution: Yde et bidrag
     yandex: 'Oversat service '
     yandex_link: '"Yandex.Oversætter"'
     change_locale: Skift sprog
@@ -49,3 +51,14 @@ da:
     translations: Mulige oversættelser
   user:
     welcome: Velkommen
+  contribution:
+    header: Bistand til professionelle oversættere
+    text: Web service LangTool funktioner på grund af den automatiske oversættelse af tekster ved hjælp af Yandex.Oversætter. Men til at forbedre oversættelseskvaliteten, der kræves af en professionel oversætter. Hvis du har den evne, lyst og mulighed for at bidrage til projektet, kan du sende en forespørgsel til at få rettighederne til at oversætte og bekræfte oversættelser.
+    placeholder: Beskrivelse af din kandidat (Tilmeld dig for at sende)
+    button: Send ansøgning
+    success:
+      header: Stor!
+      text: De data, der sendes.
+    failure:
+      header: Noget gik galt!
+      text: Er du sikker på du udfyldt en beskrivelse af dit kandidatur?

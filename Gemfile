@@ -31,6 +31,7 @@ gem 'oj_mimic_json'
 gem 'route_translator'
 gem 'devise', github: 'plataformatec/devise'
 gem 'activerecord-import'
+gem 'cancancan', '~> 2.0.0'
 
 group :development do
     gem 'listen', '~> 3.0.5'

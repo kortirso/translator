@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500&subset=cyrillic');
 
 * {
     font-family: 'Ubuntu' !important;
@@ -146,5 +146,14 @@ table {
 #new_file_block {
     select {
         width: 40%;
+    }
+}
+
+.translation {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #CCC;
+    p {
+        margin-bottom: 5px;
     }
 }

@@ -10,11 +10,15 @@ Rails.application.routes.draw do
         devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
         resources :tasks, only: [:index, :show, :create]
         resources :users, only: [:index, :show]
-        resources :translations, only: :create
+        resources :translations, only: [:index, :create]
+        resources :requests, only: :create
+
+        get 'contribution' => 'welcome#contribution', as: :contribution
 
         namespace :api do
             namespace :v1 do
                 resources :tasks, only: [:index, :destroy]
+                resources :translations, only: :index
             end
         end
 

@@ -2,7 +2,9 @@ en:
   nav:
     main: About LangTool
     tasks: Translating
+    translators: For Translators
     user: Account
+    contribution: Make a contribution
     yandex: 'Translated by '
     yandex_link: «Yandex.Translator»
     change_locale: Switch language
@@ -49,3 +51,14 @@ en:
     translations: Possible translations
   user:
     welcome: Welcome
+  contribution:
+    header: Assistance to professional translators
+    text: Web service LangTool functions due to the automatic translation of texts using Yandex.Translator. But to improve the translation quality required of professional translators. If you have the ability, desire and opportunity to help the project, you can send inquiry to receive the rights to translate and confirm translations.
+    placeholder: Description of your candidate (Log In to send)
+    button: Send application
+    success:
+      header: Great!
+      text: The data sent.
+    failure:
+      header: Something went wrong!
+      text: You sure you filled out the description of your candidacy?
