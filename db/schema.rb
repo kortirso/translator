@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605054759) do
+ActiveRecord::Schema.define(version: 20170609031459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20170605054759) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "direction", default: "", null: false
+    t.boolean "verified", default: false
     t.index ["base_id"], name: "index_translations_on_base_id"
     t.index ["result_id"], name: "index_translations_on_result_id"
   end

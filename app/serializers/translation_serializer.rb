@@ -1,5 +1,5 @@
 class TranslationSerializer < ActiveModel::Serializer
-    attributes :id, :base_text, :result_text
+    attributes :id, :base_text, :result_text, :verified
 
     def base_text
         object.base.text
