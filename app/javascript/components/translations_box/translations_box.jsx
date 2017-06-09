@@ -1,5 +1,6 @@
 import React from 'react';
 import TranslationsLocale from 'components/translations_box/translations_locale';
+import Translation from 'components/translations_box/translation';
 import LocalizedStrings from 'react-localization';
 import I18nData from './i18n_data.json';
 
@@ -26,7 +27,6 @@ class TranslationsBox extends React.Component {
             method: 'GET',
             url: `api/v1/translations.json?access_token=${this.props.access_token}&language=${this.state.locale}&letter=${letter}`,
             success: (data) => {
-                console.log(data.words);
                 this.setState({translationsList: data.words, letter: letter});
             }
         });
@@ -50,11 +50,18 @@ class TranslationsBox extends React.Component {
         }
     }
 
+    _updateVerification(translation_id, verified) {
+        const translation = {verified};
+        $.ajax({
+            method: 'PATCH',
+            url: `api/v1/translations/${translation_id}.json?access_token=${this.props.access_token}`,
+            data: {translation}
+        });
+    }
+
     _prepareWord(translations) {
         return translations.map((translation) => {
-            return (
-                <span className='translation_name' key={translation.id}>{translation.result_text}</span>
-            );
+            return <Translation translation={translation} key={translation.id} updateVerification={this._updateVerification.bind(this)} />;
         });
     }
 

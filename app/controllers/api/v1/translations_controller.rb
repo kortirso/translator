@@ -6,4 +6,14 @@ class Api::V1::TranslationsController < Api::V1::BaseController
         
         render json: { words: ActiveModel::Serializer::CollectionSerializer.new(words, each_serializer: WordSerializer) }
     end
+
+    def update
+        Translation.find_by(id: params[:id]).update(verified: verified_params[:verified])
+    end
+
+    private
+
+    def verified_params
+        params.require(:translation).permit(:verified)
+    end
 end

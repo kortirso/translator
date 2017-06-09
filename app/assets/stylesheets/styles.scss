@@ -157,3 +157,15 @@ table {
         margin-bottom: 5px;
     }
 }
+
+.translation_text {
+    display: inline;
+    input {
+        position: relative;
+        top: 2px;
+        cursor: pointer;
+    }
+    label {
+        line-height: 1;
+    }
+}

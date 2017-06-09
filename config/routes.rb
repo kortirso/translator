@@ -15,14 +15,14 @@ Rails.application.routes.draw do
 
         get 'contribution' => 'welcome#contribution', as: :contribution
 
-        namespace :api do
-            namespace :v1 do
-                resources :tasks, only: [:index, :destroy]
-                resources :translations, only: :index
-            end
-        end
-
         root to: 'welcome#index'
+    end
+
+    namespace :api do
+        namespace :v1 do
+            resources :tasks, only: [:index, :destroy]
+            resources :translations, only: [:index, :update]
+        end
     end
 
     match "*path", to: "application#catch_404", via: :all
