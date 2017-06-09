@@ -20,7 +20,7 @@ Rails.application.routes.draw do
                 resources :tasks, only: [:index, :destroy]
                 resources :translations, only: [:index, :update]
             end
-    end
+        end
 
         root to: 'welcome#index'
     end

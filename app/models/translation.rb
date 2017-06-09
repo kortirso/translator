@@ -6,4 +6,6 @@ class Translation < ApplicationRecord
     has_many :tasks, through: :positions
 
     validates :base_id, :result_id, presence: true
+
+    scope :verifieded, -> { where(verified: true) }
 end

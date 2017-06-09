@@ -73,7 +73,7 @@ class TranslationsBox extends React.Component {
             else {
                 return this.state.translationsList.map((word) => {
                     return (
-                        <div className='translation' key={word.id}>
+                        <div className='translation_verifies' key={word.id}>
                             <p>{word.text}</p>
                             <p>Translations are:</p>
                             {this._prepareWord(word.translations)}
