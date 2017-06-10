@@ -1,8 +1,11 @@
-class Api::V1::BaseController < ApplicationController
+module Api
+    module V1
+        class BaseController < ApplicationController
+            private
 
-    private
-
-    def authenticate_token
-        @user = User.find_by(access_token: params[:access_token])
+            def authenticate_token
+                @user = User.find_by(access_token: params[:access_token])
+            end
+        end
     end
 end

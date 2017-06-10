@@ -51,7 +51,7 @@ RSpec.describe User, type: :model do
         User.create(username: 'tester1', email: 'example@gmail.com', password: 'password')
         user = User.new(username: 'tester2', email: 'example@gmail.com', password: 'password')
         user.valid?
-        
+
         expect(user.errors[:email]).to include('has already been taken')
     end
 

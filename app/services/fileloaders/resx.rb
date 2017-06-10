@@ -1,6 +1,7 @@
-require 'nokogiri' 
+require 'nokogiri'
 
 module Fileloaders
+    # Fileloader for *.resx
     class Resx
         include Fileloaders::Base
 

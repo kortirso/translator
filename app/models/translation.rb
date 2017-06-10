@@ -1,3 +1,4 @@
+# Represents link between 2 words
 class Translation < ApplicationRecord
     belongs_to :base, class_name: 'Word'
     belongs_to :result, class_name: 'Word'

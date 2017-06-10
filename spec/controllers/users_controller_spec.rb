@@ -32,7 +32,7 @@ RSpec.describe UsersController, type: :controller do
                 sign_in_user
 
                 it 'but user_id is not exist' do
-                    get :show, params: { id: 10000, locale: 'en' }
+                    get :show, params: { id: 100, locale: 'en' }
 
                     expect(response).to render_template 'shared/404'
                 end

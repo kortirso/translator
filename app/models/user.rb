@@ -1,5 +1,6 @@
 require 'securerandom'
 
+# Represents user object
 class User < ApplicationRecord
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
@@ -7,10 +8,10 @@ class User < ApplicationRecord
     has_many :requests, dependent: :destroy
 
     validates :username, presence: true, uniqueness: true, length: { in: 1..20 }
-    validates :role, presence: true, inclusion: { in: %w(user subscriber translator admin) }
+    validates :role, presence: true, inclusion: { in: %w[user subscriber translator admin] }
 
     def update_token
-        self.update(access_token: SecureRandom.hex(32))
+        update(access_token: SecureRandom.hex(32))
     end
 
     def admin?

@@ -1,6 +1,6 @@
 module Translations
+    # common methods for translations services
     module Base
-
         attr_reader :task
 
         private

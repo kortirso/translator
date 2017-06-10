@@ -1,6 +1,7 @@
 require 'yaml'
 
 module Fileloaders
+    # Fileloader for *.yml
     class Yml
         include Fileloaders::Base
 

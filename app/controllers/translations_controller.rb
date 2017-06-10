@@ -3,9 +3,7 @@ class TranslationsController < ApplicationController
     before_action :check_user_signed
     before_action :find_task, only: :create
 
-    def index
-
-    end
+    def index; end
 
     def create
         @task.activate(translation_params)

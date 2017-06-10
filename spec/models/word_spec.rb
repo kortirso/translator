@@ -19,11 +19,11 @@ RSpec.describe Word, type: :model do
             let!(:translation_2) { create :translation, base: word_2, result: word_1, direction: "#{word_2.locale.code}-#{word_1.locale.code}" }
 
             it 'should return word_2 as translation for word_1 with amount eq 1' do
-                expect(word_1.select_translations(word_2.locale)).to eq({word_2.text => 1})
+                expect(word_1.select_translations(word_2.locale)).to eq(word_2.text => 1)
             end
 
             it 'should return word_1 as translation for word_2 with amount eq 1' do
-                expect(word_2.select_translations(word_1.locale)).to eq({word_1.text => 1})
+                expect(word_2.select_translations(word_1.locale)).to eq(word_1.text => 1)
             end
         end
     end

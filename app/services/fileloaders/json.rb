@@ -1,6 +1,7 @@
 require 'json'
 
 module Fileloaders
+    # Fileloader for *.json
     class Json
         include Fileloaders::Base
 
@@ -8,7 +9,7 @@ module Fileloaders
 
         def load
             return false unless task_base_file_exist?
-            @json_file = JSON.parse(File.read task.file_name)
+            @json_file = JSON.parse(File.read(task.file_name))
             return task.failure(110) if !json_file.is_a?(Hash) || json_file.keys.count != 1
             task.update(from: json_file.keys.first)
             json_file.values.first

@@ -25,7 +25,7 @@ RSpec.describe Fileloaders::Strings do
             it 'should return string' do
                 result = loader.load
 
-                expect(result.is_a? String).to eq true
+                expect(result.is_a?(String)).to eq true
             end
 
             it 'should update task.from' do

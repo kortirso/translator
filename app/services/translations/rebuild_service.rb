@@ -1,4 +1,5 @@
 module Translations
+    # Service for rebuilding translations by user request
     class RebuildService
         include Translations::Base
 
@@ -16,7 +17,7 @@ module Translations
                 next if translation.nil?
                 update_word(translation, value['result'])
             end
-           update_task_file(task_translations)
+            update_task_file(task_translations)
         end
 
         private
@@ -25,9 +26,9 @@ module Translations
             word = translation.result
             if word.text != new_value
                 new_word = word.locale.words.create text: new_value
-                new_translation_1 = Translation.create base: translation.base, result: new_word, direction: task.direction(:straight)
-                new_translation_2 = Translation.create base: new_word, result: translation.base, direction: task.direction(:reverse)
-                Position.find_by(task: task, translation: translation).update(translation: new_translation_1)
+                new_translation = Translation.create base: translation.base, result: new_word, direction: task.direction(:straight)
+                Translation.create base: new_word, result: translation.base, direction: task.direction(:reverse)
+                Position.find_by(task: task, translation: translation).update(translation: new_translation)
             end
         end
 

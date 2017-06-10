@@ -1,11 +1,12 @@
 module Fileloaders
+    # common module for all fileloaders
     module Base
         attr_reader :task
 
         def initialize(task)
             @task = task
         end
-        
+
         private
 
         def task_base_file_exist?

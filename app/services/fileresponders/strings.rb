@@ -1,4 +1,5 @@
 module Fileresponders
+    # Fileresponder for *.strings
     class Strings
         include Fileresponders::Base
 
@@ -13,13 +14,13 @@ module Fileresponders
         private
 
         def strings_for_translate(arr = [])
-            base_data.lines.each_with_index do |value, index|
-                if value[0] != "\n" && value[0] != '/'
-                    word = value.split('"')[-2]
+            base_data.lines.each do |line|
+                if line[0] != "\n" && line[0] != '/'
+                    word = line.split('"')[-2]
                     words_for_translate.push word
-                    value.gsub!(word, "_###{word}##_")
+                    line.gsub!(word, "_###{word}##_")
                 end
-                arr.push value
+                arr.push line
             end
             @result = arr.join
         end

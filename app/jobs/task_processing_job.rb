@@ -1,3 +1,4 @@
+# Perform task processing
 class TaskProcessingJob < ApplicationJob
     queue_as :default
 
