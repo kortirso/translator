@@ -1,4 +1,5 @@
 module Fileloaders
+    # Fileloader for *.strings
     class Strings
         include Fileloaders::Base
 

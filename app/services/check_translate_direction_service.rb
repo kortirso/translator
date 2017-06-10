@@ -1,5 +1,6 @@
 require 'net/http'
 
+# Check existness of translation direction at Yandex
 class CheckTranslateDirectionService
     def self.call(task)
         uri = URI("https://translate.yandex.net/api/v1.5/tr.json/getLangs?ui=#{task.from}&key=#{ENV['YANDEX_TRANSLATE_API_KEY']}")

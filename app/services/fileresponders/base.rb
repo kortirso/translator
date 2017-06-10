@@ -1,4 +1,5 @@
 module Fileresponders
+    # common module for all fileresponders
     module Base
         GUEST_LIMIT = 100
         USER_LIMIT = 200
@@ -20,7 +21,7 @@ module Fileresponders
         def translating
             strings_for_translate
             fileloader.save(result)
-            Translations::TaskTranslationService.new({task: task}).translate({words_for_translate: words_for_translate})
+            Translations::TaskTranslationService.new(task: task).translate(words_for_translate: words_for_translate)
         end
 
         private

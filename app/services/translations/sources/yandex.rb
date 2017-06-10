@@ -2,6 +2,7 @@ require 'net/http'
 
 module Translations
     module Sources
+        # Request to Yandex for getting translation
         class Yandex
             def self.find_translate(params)
                 uri = URI("https://translate.yandex.net/api/v1.5/tr.json/translate?lang=#{params[:task].from}-#{params[:task].to}&key=#{ENV['YANDEX_TRANSLATE_API_KEY']}")

@@ -1,16 +1,16 @@
 class ApplicationController < ActionController::Base
     helper Webpacker::Helper
-    
+
     protect_from_forgery with: :exception
     before_action :configure_permitted_parameters, if: :devise_controller?
-    
+
     rescue_from ActionController::RoutingError, with: :render_not_found
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
     before_action :set_user_session
 
     def catch_404
-        raise ActionController::RoutingError.new(params[:path])
+        raise ActionController::RoutingError.new(params[:path]), 'route error'
     end
 
     private

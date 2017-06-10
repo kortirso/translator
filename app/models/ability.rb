@@ -1,3 +1,4 @@
+# Authorization rules
 class Ability
     include CanCan::Ability
 
@@ -5,15 +6,12 @@ class Ability
 
     def initialize(user)
         @user = user
-        if user
-            case user.role
-                when 'admin' then admin_abilities
-                when 'translator' then translator_abilities
-                when 'subscriber' then subscriber_abilities
-                else user_abilities
-            end
-        else
-            guest_abilities
+        return guest_abilities unless user
+        case user.role
+            when 'admin' then admin_abilities
+            when 'translator' then translator_abilities
+            when 'subscriber' then subscriber_abilities
+            else user_abilities
         end
     end
 

@@ -25,7 +25,7 @@ RSpec.describe Fileloaders::Resx do
             it 'should return string' do
                 result = loader.load
 
-                expect(result.is_a? Nokogiri::XML::Document).to eq true
+                expect(result.is_a?(Nokogiri::XML::Document)).to eq true
             end
 
             it 'should update task.from' do

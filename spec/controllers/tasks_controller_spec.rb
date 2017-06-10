@@ -4,7 +4,7 @@ RSpec.describe TasksController, type: :controller do
         before { get :index, params: { locale: 'en' } }
 
         it 'should collect an array of locales in @locale_list' do
-            expect(assigns(:locale_list)).to match_array([['English', 'en']])
+            expect(assigns(:locale_list)).to match_array([%w[English en]])
         end
 
         it 'should render tasks#index' do
@@ -40,12 +40,12 @@ RSpec.describe TasksController, type: :controller do
 
             context 'and try access not his task' do
                 it 'should render 404' do
-                    get :show, params: { id: 10000, locale: 'en' }
+                    get :show, params: { id: 100, locale: 'en' }
 
                     expect(response).to render_template 'shared/404'
                 end
             end
-       end
+        end
     end
 
     describe 'POST #create' do

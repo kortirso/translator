@@ -1,6 +1,6 @@
 FactoryGirl.define do
     factory :translation do
-        association :base, factory: [:word, :ru]
-        association :result, factory: [:word, :en]
+        association :base, factory: %i[word ru]
+        association :result, factory: %i[word en]
     end
 end

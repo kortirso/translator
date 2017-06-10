@@ -1,3 +1,4 @@
+# Steps of processing for task
 class TaskProcessingService
     def self.execute(task)
         fileresponder = SelectFileresponderService.call(task)

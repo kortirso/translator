@@ -1,4 +1,5 @@
 module Translations
+    # Service for running translations
     class TaskTranslationService
         include Translations::Base
 

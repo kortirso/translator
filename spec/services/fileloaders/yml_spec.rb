@@ -38,7 +38,7 @@ RSpec.describe Fileloaders::Yml do
             it 'should return hash' do
                 result = loader.load
 
-                expect(result.is_a? Hash).to eq true
+                expect(result.is_a?(Hash)).to eq true
             end
 
             it 'should update task.from' do

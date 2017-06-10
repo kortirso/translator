@@ -1,4 +1,5 @@
 module Fileresponders
+    # Fileresponder for *.json
     class Json
         include Fileresponders::Base
 

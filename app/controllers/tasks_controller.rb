@@ -5,14 +5,14 @@ class TasksController < ApplicationController
     before_action :check_file, only: :create
 
     def index
-        @locale_list = Locale.get_list
+        @locale_list = Locale.list
     end
 
     def show
         @translations = @task.translations.includes(:base, :result).order(id: :asc)
         @locale = Locale.find_by(code: @task.to)
     end
-    
+
     def create
         Task.create(task_params.merge(uid: session[:guest], user: current_user))
         redirect_to tasks_path
@@ -25,12 +25,13 @@ class TasksController < ApplicationController
     end
 
     def find_task
-        if user_signed_in?
-            @task = current_user.tasks.find_by(id: params[:id])
-        else
-            @task = Task.find_by(id: params[:id], uid: session[:guest])
-        end
+        @task = select_task
         render_not_found if @task.nil?
+    end
+
+    def select_task
+        return current_user.tasks.find_by(id: params[:id]) if user_signed_in?
+        Task.find_by(id: params[:id], uid: session[:guest])
     end
 
     def check_task_status

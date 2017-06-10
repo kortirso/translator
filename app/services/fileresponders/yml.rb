@@ -1,4 +1,5 @@
 module Fileresponders
+    # Fileresponder for *.yml
     class Yml
         include Fileresponders::Base
 
@@ -18,7 +19,7 @@ module Fileresponders
                 if value.is_a? Hash
                     strings_for_translate([key] + parent, value)
                 else
-                    translated = get_values_for_translate({keys: [key] + parent, value: value})
+                    translated = get_values_for_translate(keys: [key] + parent, value: value)
                     hash_merging(result, translated)
                 end
             end
@@ -37,7 +38,7 @@ module Fileresponders
         end
 
         def hash_merging(base_data, merging_hash)
-            base_data.merge!(merging_hash) { |key, oldval, newval| hash_merging(base_data[key], merging_hash[key]) }
+            base_data.merge!(merging_hash) { |key, _oldval, _newval| hash_merging(base_data[key], merging_hash[key]) }
         end
     end
 end

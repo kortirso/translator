@@ -1,3 +1,4 @@
+# Represents task with file for translation
 class Task < ApplicationRecord
     mount_uploader :file, FileUploader
     mount_uploader :temporary_file, FileUploader
@@ -11,34 +12,34 @@ class Task < ApplicationRecord
     validates :uid, :status, :to, presence: true
     validates :from, length: { is: 2 }, allow_blank: true
     validates :to, length: { is: 2 }
-    validates :status, inclusion: { in: %w(active done failed) }
+    validates :status, inclusion: { in: %w[active done failed] }
 
-    scope :for_guest, -> (guest_uid) { where uid: guest_uid }
+    scope :for_guest, ->(guest_uid) { where uid: guest_uid }
 
     after_create :task_processing
 
     def file_name
-        return '' if self.file.file.nil?
-        self.file.file.file
+        return '' if file.file.nil?
+        file.file.file
     end
 
     def result_file_name
-        return '' if self.result_file.file.nil?
-        self.result_file.file.file
+        return '' if result_file.file.nil?
+        result_file.file.file
     end
 
     def activate(translation_params)
-        self.update status: 'active'
+        update status: 'active'
         TaskUpdatingJob.perform_later(translation_params, self)
     end
 
     def complete
         self.status = 'done'
-        self.save
+        save
     end
 
     def failure(code)
-        self.update status: 'failed', error: code
+        update status: 'failed', error: code
         false
     end
 
@@ -52,7 +53,7 @@ class Task < ApplicationRecord
 
     def save_temporary_file(file_name)
         File.open(file_name) { |f| self.temporary_file = f }
-        self.save
+        save
         File.delete(file_name)
     end
 
@@ -70,8 +71,8 @@ class Task < ApplicationRecord
 
     def direction(value)
         case value
-            when :straight then "#{self.from}-#{self.to}"
-            when :reverse then "#{self.to}-#{self.from}"
+            when :straight then "#{from}-#{to}"
+            when :reverse then "#{to}-#{from}"
         end
     end
 
