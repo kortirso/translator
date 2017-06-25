@@ -8,7 +8,7 @@ class User < ApplicationRecord
     has_many :requests, dependent: :destroy
 
     validates :username, presence: true, uniqueness: true, length: { in: 1..20 }
-    validates :role, presence: true, inclusion: { in: %w[user subscriber translator admin] }
+    validates :role, presence: true, inclusion: { in: %w[user translator admin] }
 
     def update_token
         update(access_token: SecureRandom.hex(32))
@@ -20,10 +20,6 @@ class User < ApplicationRecord
 
     def translator?
         role == 'translator'
-    end
-
-    def subscriber?
-        role == 'subscriber'
     end
 
     def editor?
