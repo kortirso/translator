@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'jquery-rails'
-gem 'rails', '5.1.1'
+gem 'rails', '~> 5.1.1'
 gem 'therubyracer', platforms: :ruby
 
 # Use postgresql as the database for Active Record
