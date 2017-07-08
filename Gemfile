@@ -58,6 +58,9 @@ gem 'route_translator'
 # Authentication
 gem 'devise', github: 'plataformatec/devise'
 
+# Add Auth through social networks
+gem 'omniauth-facebook'
+
 # Authorization
 gem 'cancancan', '~> 2.0.0'
 
