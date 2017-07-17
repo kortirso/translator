@@ -18,6 +18,10 @@ Rails.application.routes.draw do
 
         namespace :api do
             namespace :v1 do
+                resources :users, only: %i[create update destroy] do
+                    get :me, on: :collection
+                end
+                resources :locales, only: %i[index]
                 resources :tasks, only: %i[index destroy]
                 resources :translations, only: %i[index update]
             end

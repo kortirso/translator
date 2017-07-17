@@ -7,6 +7,7 @@ Bundler.require(*Rails.groups)
 module Translator
     # Translator Application
     class Application < Rails::Application
+        ActiveModelSerializers.config.adapter = :json
         I18n.available_locales = %i[en ru da]
         config.i18n.default_locale = :en
         config.active_record.schema_format = :ruby

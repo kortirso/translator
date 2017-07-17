@@ -1,5 +1,3 @@
-require 'securerandom'
-
 # Represents user object
 class User < ApplicationRecord
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
@@ -21,7 +19,7 @@ class User < ApplicationRecord
     end
 
     def update_token
-        update(access_token: SecureRandom.hex(32))
+        update(access_token: TokenService.call)
     end
 
     def admin?

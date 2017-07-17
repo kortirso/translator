@@ -1,7 +1,6 @@
 module Api
     module V1
         class TasksController < Api::V1::BaseController
-            before_action :authenticate_token
             before_action :select_tasks
 
             def index
