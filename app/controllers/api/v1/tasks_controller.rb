@@ -1,26 +1,27 @@
 module Api
     module V1
         class TasksController < Api::V1::BaseController
-            before_action :select_tasks
+            before_action :select_tasks, only: :index
+            before_action :select_task, only: :destroy
 
             def index
                 render json: { tasks: ActiveModel::Serializer::CollectionSerializer.new(@tasks, each_serializer: TaskSerializer) }
             end
 
             def destroy
-                task = @tasks.find_by(id: params[:id])
-                if task.present?
-                    task.destroy
-                    render json: { status: :success }
-                else
-                    render json: { status: :error }
-                end
+                @task.destroy
+                render json: {success: 'Task destroyed successfully'}, status: 200
             end
 
             private
 
             def select_tasks
-                @tasks = @user.present? ? @user.tasks.order(id: :desc) : Task.for_guest(params[:access_token]).order(id: :desc)
+                @tasks = @user.tasks.order(id: :desc)
+            end
+
+            def select_task
+                @task = Task.find_by(id: params[:id])
+                render json: {error: 'Task not found'}, status: 404 if @task.nil?
             end
         end
     end
