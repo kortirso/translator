@@ -20,6 +20,7 @@ Rails.application.routes.draw do
             namespace :v1 do
                 resources :users, only: %i[create update destroy] do
                     get :me, on: :collection
+                    get :access_token, on: :collection
                 end
                 resources :locales, only: %i[index]
                 resources :tasks, only: %i[index destroy]

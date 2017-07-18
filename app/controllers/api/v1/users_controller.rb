@@ -1,12 +1,18 @@
 module Api
     module V1
         class UsersController < Api::V1::BaseController
-            skip_before_action :authenticate, only: :create
-            before_action :find_user, only: %i[update destroy]
+            skip_before_action :authenticate, only: %i[create access_token]
+            before_action :find_user_by_credentials, only: %i[access_token]
+            before_action :find_user_by_id, only: %i[update destroy]
             before_action :check_owner, only: %i[update destroy]
 
             def me
                 render json: @user, status: 200
+            end
+
+            def access_token
+                @user.update_token
+                render json: @user, status: 201
             end
 
             def create
@@ -38,7 +44,12 @@ module Api
                 params.require(:user).permit(:username, :email, :password, :password_confirmation)
             end
 
-            def find_user
+            def find_user_by_credentials
+                @user = User.find_by(email: params[:email], password: params[:password])
+                render json: {error: 'Unauthorized'}, status: 401 if @user.nil?
+            end
+
+            def find_user_by_id
                 @resourse = User.find_by(id: params[:id])
                 render json: {error: 'User not found'}, status: 404 if @resourse.nil?
             end
