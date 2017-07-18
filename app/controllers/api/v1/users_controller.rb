@@ -12,7 +12,7 @@ module Api
 
             def access_token
                 @user.update_token
-                render json: @user, status: 201
+                render json: @user, status: 200
             end
 
             def create
@@ -44,8 +44,8 @@ module Api
             end
 
             def find_user_by_credentials
-                @user = User.find_by(email: params[:email], password: params[:password])
-                render json: {error: 'Unauthorized'}, status: 401 if @user.nil?
+                @user = User.find_by(email: params[:email])
+                render json: {error: 'Unauthorized'}, status: 401 if @user.nil? || !@user.valid_password?(params[:password])
             end
 
             def find_user_by_id
