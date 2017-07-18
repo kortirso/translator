@@ -15,17 +15,6 @@ class TasksBox extends React.Component {
         }
     }
 
-    _fetchTasksList() {
-        $.ajax({
-            method: 'GET',
-            url: `api/v1/tasks.json?access_token=${this.props.access_token}&email=${this.props.email}`,
-            success: (data) => {
-                this.setState({tasksList: data.tasks});
-            }
-        });
-        this._checkCompleting();
-    }
-
     componentWillMount() {
         this._fetchTasksList();
         strings.setLanguage(this.props.locale);
@@ -48,10 +37,21 @@ class TasksBox extends React.Component {
         if (amount == 0) clearInterval(this.state.intervalId);
     }
 
+    _fetchTasksList() {
+        $.ajax({
+            method: 'GET',
+            url: `api/v1/tasks.json?access_token=${this.props.access_token}&email=${this.props.email}`,
+            success: (data) => {
+                this.setState({tasksList: data.tasks});
+            }
+        });
+        this._checkCompleting();
+    }
+
     _deleteTask(task) {
         $.ajax({
             method: 'DELETE',
-            url: `api/v1/tasks/${task.id}.json?access_token=${this.props.access_token}`,
+            url: `api/v1/tasks/${task.id}.json?access_token=${this.props.access_token}&email=${this.props.email}`,
             success: (data) => {
                 if(data.status == 'success') {
                     const tasks = [... this.state.tasksList];
@@ -63,6 +63,20 @@ class TasksBox extends React.Component {
         })
     }
 
+    _addTask() {
+        $.ajax({
+            method: 'POST',
+            url: `/api/v1/tasks.json?access_token=${this.props.token}&email=${this.props.email}`,
+            data: {},
+            success: (newTasksList) => {
+                this.setState({tasksList: newTasksList.contacts});
+            },
+            error: (msg) => { 
+                alert('Bad request');
+            }
+        });
+    }
+
     _prepareTasksList() {
         return this.state.tasksList.map((task) => {
             return (
@@ -71,13 +85,15 @@ class TasksBox extends React.Component {
         });
     }
 
+    
+
     render() {
         const tasks = this._prepareTasksList();
         return (
             <div className='row'>
                 <div className='columns small-12 medium-8 large-6'>
-                    <div className='block'>
-                        <TaskNew access_token={this.props.access_token} email={this.props.email} strings={strings} />
+                    <div className='block' id='new_file_block'>
+                        <TaskNew access_token={this.props.access_token} email={this.props.email} strings={strings} addTask={this._addTask.bind(this)} />
                     </div>
                 </div>
                 <div className='columns small-12'>
