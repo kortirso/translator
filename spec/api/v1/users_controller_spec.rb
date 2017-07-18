@@ -17,6 +17,10 @@ describe 'Users API' do
                 end
             end
 
+            it 'access_token is not empty' do
+                expect(JSON.parse(response.body)['user']['access_token']).to_not eq('')
+            end
+
             %w(password encrypted_password).each do |attr|
                 it "doesnt contain #{attr}" do
                     expect(response.body).to_not have_json_path("user/#{attr}")

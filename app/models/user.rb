@@ -9,6 +9,8 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true, length: { in: 1..20 }
     validates :role, presence: true, inclusion: { in: %w[user translator admin] }
 
+    before_create :set_token
+
     def self.find_for_oauth(auth)
         identity = Identity.find_for_oauth(auth)
         return identity.user if identity.present?
@@ -32,5 +34,11 @@ class User < ApplicationRecord
 
     def editor?
         admin? || translator?
+    end
+
+    private
+
+    def set_token
+        access_token = TokenService.call
     end
 end

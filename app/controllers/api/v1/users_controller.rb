@@ -18,7 +18,6 @@ module Api
             def create
                 user = User.new(user_params)
                 if user.save
-                    user.update_token
                     render json: user, status: 201
                 else
                     render json: {error: 'User creation error'}, status: 409
