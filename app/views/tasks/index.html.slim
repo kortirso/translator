@@ -9,6 +9,5 @@
                 h6= t('tasks.file')
                 = f.file_field :file, label: false
                 = f.submit t('tasks.localize'), class: 'button'
-    .columns.small-12
-        .block
-            #tasks_box= react_component('TasksBox', access_token: user_signed_in? ? current_user.access_token : session[:guest], locale: I18n.locale)
+
+= react_component('TasksBox', access_token: user_signed_in? ? current_user.access_token : session[:guest], email: user_signed_in? ? current_user.email : nil, locale: I18n.locale)
