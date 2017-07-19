@@ -24,8 +24,8 @@
         "error":"Ошибка"
     },
     "da": {
-        "select": "",
-        "select_file": "",
+        "select": "Vælg en oversættelse retning",
+        "select_file": "Vælg filen til lokalisering",
         "tasks":"Dine nuværende opgaver",
         "file":"Fil",
         "direction":"Retning",

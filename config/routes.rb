@@ -23,7 +23,7 @@ Rails.application.routes.draw do
                     get :access_token, on: :collection
                 end
                 resources :locales, only: %i[index]
-                resources :tasks, only: %i[index destroy]
+                resources :tasks, only: %i[index create destroy]
                 resources :translations, only: %i[index update]
             end
         end

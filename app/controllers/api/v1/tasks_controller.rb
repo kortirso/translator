@@ -8,6 +8,10 @@ module Api
                 render json: { tasks: ActiveModel::Serializer::CollectionSerializer.new(@tasks, each_serializer: TaskSerializer) }
             end
 
+            def create
+
+            end
+
             def destroy
                 @task.destroy
                 render json: {success: 'Task destroyed successfully'}, status: 200

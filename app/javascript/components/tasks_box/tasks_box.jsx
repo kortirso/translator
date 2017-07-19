@@ -63,16 +63,18 @@ class TasksBox extends React.Component {
         })
     }
 
-    _addTask() {
+    _addTask(data) {
         $.ajax({
             method: 'POST',
-            url: `/api/v1/tasks.json?access_token=${this.props.token}&email=${this.props.email}`,
-            data: {},
+            url: `/api/v1/tasks.json?access_token=${this.props.access_token}&email=${this.props.email}`,
+            data: data,
+            contentType: false,
+            processData: false,
             success: (newTasksList) => {
-                this.setState({tasksList: newTasksList.contacts});
+                //this.setState({tasksList: newTasksList.contacts});
             },
-            error: (msg) => { 
-                alert('Bad request');
+            error: (msg) => {
+
             }
         });
     }
@@ -84,8 +86,6 @@ class TasksBox extends React.Component {
             );
         });
     }
-
-    
 
     render() {
         const tasks = this._prepareTasksList();
