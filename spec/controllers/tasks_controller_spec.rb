@@ -49,6 +49,8 @@ RSpec.describe TasksController, type: :controller do
     end
 
     describe 'POST #create' do
+        skip 'removed'
+        
         context 'with valid attributes' do
             it 'saves the new task in the DB' do
                 expect { post :create, params: { task: { to: 'ru', file: File.open("#{Rails.root}/config/locales/en.yml") }, locale: 'en' }, format: :js }.to change(Task, :count).by(1)

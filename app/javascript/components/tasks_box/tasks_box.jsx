@@ -37,10 +37,20 @@ class TasksBox extends React.Component {
         if (amount == 0) clearInterval(this.state.intervalId);
     }
 
+    _checkEndpoint() {
+        if (this.props.email == '') return 'guest';
+        else return 'tasks';
+    }
+
+    _checkEmail() {
+        if (this.props.email == '') return '';
+        else return `&email=${this.props.email}`;
+    }
+
     _fetchTasksList() {
         $.ajax({
             method: 'GET',
-            url: `api/v1/tasks.json?access_token=${this.props.access_token}&email=${this.props.email}`,
+            url: `api/v1/${this._checkEndpoint()}.json?access_token=${this.props.access_token}${this._checkEmail()}`,
             success: (data) => {
                 this.setState({tasksList: data.tasks});
             }
@@ -51,7 +61,7 @@ class TasksBox extends React.Component {
     _deleteTask(task) {
         $.ajax({
             method: 'DELETE',
-            url: `api/v1/tasks/${task.id}.json?access_token=${this.props.access_token}&email=${this.props.email}`,
+            url: `api/v1/${this._checkEndpoint()}/${task.id}.json?access_token=${this.props.access_token}${this._checkEmail()}`,
             success: (data) => {
                 if(data.status == 'success') {
                     const tasks = [... this.state.tasksList];
@@ -66,7 +76,7 @@ class TasksBox extends React.Component {
     _addTask(data) {
         $.ajax({
             method: 'POST',
-            url: `/api/v1/tasks.json?access_token=${this.props.access_token}&email=${this.props.email}`,
+            url: `/api/v1/${this._checkEndpoint()}.json?access_token=${this.props.access_token}${this._checkEmail()}`,
             data: data,
             contentType: false,
             processData: false,

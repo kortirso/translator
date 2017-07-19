@@ -14,7 +14,7 @@ class Task < ApplicationRecord
     validates :to, length: { is: 2 }
     validates :status, inclusion: { in: %w[active done failed] }
 
-    scope :for_guest, ->(guest_uid) { where uid: guest_uid }
+    scope :for_guest, ->(guest_uid) { where uid: guest_uid, user_id: nil }
 
     after_create :task_processing
 
