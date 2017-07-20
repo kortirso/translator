@@ -120,4 +120,56 @@ describe 'Users API' do
             get '/api/v1/users/me', params: { format: :json }.merge(options)
         end
     end
+
+    describe 'DELETE #destroy' do
+        let!(:user) { create :user }
+        it_behaves_like 'API Auth'
+
+        context 'for existed users' do
+            context 'for their own objects' do
+                let(:request) { delete "/api/v1/users/#{user.id}", params: { email: user.email, access_token: user.access_token, format: :json } }
+
+                it 'destroys user object' do
+                    expect { request }.to change(User, :count).by(-1)
+                end
+
+                context 'in answer' do
+                    before { request }
+
+                    it 'returns 200 status' do
+                        expect(response.code).to eq '200'
+                    end
+
+                    it 'returns success message' do
+                        expect(JSON.parse(response.body)).to eq('success' => 'User destroyed successfully')
+                    end
+                end
+            end
+
+            context 'for other objects' do
+                let!(:other_user) { create :user }
+                let(:request) { delete "/api/v1/users/#{other_user.id}", params: { email: user.email, access_token: user.access_token, format: :json } }
+
+                it 'does not destroy user object' do
+                    expect { request }.to_not change(User, :count)
+                end
+
+                context 'in answer' do
+                    before { request }
+
+                    it 'returns 403 status' do
+                        expect(response.code).to eq '403'
+                    end
+
+                    it 'returns error message' do
+                        expect(JSON.parse(response.body)).to eq('error' => 'You cant modify another user')
+                    end
+                end
+            end
+        end
+
+        def do_request(options = {})
+            delete "/api/v1/users/#{user.id}", params: { format: :json }.merge(options)
+        end
+    end
 end
