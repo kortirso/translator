@@ -172,4 +172,75 @@ describe 'Users API' do
             delete "/api/v1/users/#{user.id}", params: { format: :json }.merge(options)
         end
     end
+
+    describe 'PATCH #update' do
+        let!(:user) { create :user }
+        it_behaves_like 'API Auth'
+
+        context 'for existed users' do
+            context 'for their own objects' do
+                context 'with valid params' do
+                    before do
+                        patch "/api/v1/users/#{user.id}", params: { user: { username: 'new_username' }, email: user.email, access_token: user.access_token, format: :json }
+                        user.reload
+                    end
+
+                    it 'updates user object' do
+                        expect(user.username).to eq 'new_username'
+                    end
+
+                    it 'returns 200 status' do
+                        expect(response.code).to eq '200'
+                    end
+
+                    it 'returns serialized user object with new param' do
+                        expect(response.body).to be_json_eql(UserSerializer.new(user).serializable_hash.to_json).at_path('user')
+                        expect(JSON.parse(response.body)['user']['username']).to eq('new_username')
+                    end
+                end
+
+                context 'with invalid params' do
+                    let!(:other_user) { create :user }
+                    before do
+                        patch "/api/v1/users/#{user.id}", params: { user: { username: other_user.username, email: other_user.email }, email: user.email, access_token: user.access_token, format: :json }
+                        user.reload
+                    end
+
+                    it 'does not update user object' do
+                        expect(user.username).to_not eq other_user.username
+                        expect(user.email).to_not eq other_user.email
+                    end
+
+                    it 'returns 409 status' do
+                        expect(response.code).to eq '409'
+                    end
+
+                    it 'returns error message' do
+                        expect(JSON.parse(response.body)).to eq('error' => 'User updating error')
+                    end
+                end
+            end
+
+            context 'for other objects' do
+                let!(:other_user) { create :user }
+                before { patch "/api/v1/users/#{other_user.id}", params: { user: { username: 'new_username' }, email: user.email, access_token: user.access_token, format: :json } }
+
+                it 'does not update user object' do
+                    expect(other_user.username).to_not eq 'new_username'
+                end
+
+                it 'returns 403 status' do
+                    expect(response.code).to eq '403'
+                end
+
+                it 'returns error message' do
+                    expect(JSON.parse(response.body)).to eq('error' => 'You cant modify another user')
+                end
+            end
+        end
+
+        def do_request(options = {})
+            patch "/api/v1/users/#{user.id}", params: { user: { username: 'new_username' }, format: :json }.merge(options)
+        end
+    end
 end
