@@ -20,7 +20,7 @@ module Api
                 if user.save
                     render json: user, status: 201
                 else
-                    render json: {error: 'User creation error'}, status: 409
+                    render json: { error: 'User creation error' }, status: 409
                 end
             end
 
@@ -28,13 +28,13 @@ module Api
                 if @user.update(user_params)
                     render json: @user, status: 200
                 else
-                    render json: {error: 'User updating error'}, status: 409
+                    render json: { error: 'User updating error' }, status: 409
                 end
             end
 
             def destroy
                 @user.destroy
-                render json: {success: 'User destroyed successfully'}, status: 200
+                render json: { success: 'User destroyed successfully' }, status: 200
             end
 
             private
@@ -45,16 +45,16 @@ module Api
 
             def find_user_by_credentials
                 @user = User.find_by(email: params[:email])
-                render json: {error: 'Unauthorized'}, status: 401 if @user.nil? || !@user.valid_password?(params[:password])
+                render json: { error: 'Unauthorized' }, status: 401 if @user.nil? || !@user.valid_password?(params[:password])
             end
 
             def find_user_by_id
                 @resourse = User.find_by(id: params[:id])
-                render json: {error: 'User not found'}, status: 404 if @resourse.nil?
+                render json: { error: 'User not found' }, status: 404 if @resourse.nil?
             end
 
             def check_owner
-                render json: {error: 'You cant modify another user'}, status: 403 if @user != @resourse
+                render json: { error: 'You cant modify another user' }, status: 403 if @user != @resourse
             end
         end
     end

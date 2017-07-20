@@ -2,9 +2,7 @@ class TasksController < ApplicationController
     before_action :find_task, only: :show
     before_action :check_task_status, only: :show
 
-    def index
-        
-    end
+    def index; end
 
     def show
         @translations = @task.translations.includes(:base, :result).order(id: :asc)

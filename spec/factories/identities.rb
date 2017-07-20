@@ -1,6 +1,6 @@
 FactoryGirl.define do
     factory :identity do
-        uid 1234567890
+        uid 123
         provider 'facebook'
         association :user
     end

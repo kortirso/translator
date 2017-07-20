@@ -14,7 +14,7 @@ describe 'Users API' do
                     expect(response.code).to eq '201'
                 end
 
-                %w(id email username access_token).each do |attr|
+                %w[id email username access_token].each do |attr|
                     it "contains #{attr}" do
                         expect(response.body).to have_json_path("user/#{attr}")
                     end
@@ -24,7 +24,7 @@ describe 'Users API' do
                     expect(JSON.parse(response.body)['user']['access_token']).to_not eq('')
                 end
 
-                %w(password encrypted_password).each do |attr|
+                %w[password encrypted_password].each do |attr|
                     it "doesnt contain #{attr}" do
                         expect(response.body).to_not have_json_path("user/#{attr}")
                     end
@@ -48,7 +48,7 @@ describe 'Users API' do
                 end
 
                 it 'returns error text' do
-                    expect(JSON.parse(response.body)).to eq({"error"=>"User creation error"})
+                    expect(JSON.parse(response.body)).to eq('error' => 'User creation error')
                 end
             end
         end
@@ -84,7 +84,7 @@ describe 'Users API' do
                 end
 
                 it 'returns error text' do
-                    expect(JSON.parse(response.body)).to eq({"error"=>"Unauthorized"})
+                    expect(JSON.parse(response.body)).to eq('error' => 'Unauthorized')
                 end
             end
         end
