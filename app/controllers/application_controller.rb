@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     end
 
     def set_user_session
-        session[:guest] = Digest::MD5.hexdigest(Time.current.to_s) if session[:guest].nil? && !user_signed_in?
+        session[:guest] = TokenService.call if session[:guest].nil? && !user_signed_in?
     end
 
     def check_user_signed

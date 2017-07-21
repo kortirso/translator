@@ -12,7 +12,6 @@ RSpec.describe Identity, type: :model do
 
     describe 'methods' do
         context '.find_for_oauth' do
-
         end
     end
 end

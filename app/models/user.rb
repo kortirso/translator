@@ -1,5 +1,3 @@
-require 'securerandom'
-
 # Represents user object
 class User < ApplicationRecord
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
@@ -11,17 +9,19 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true, length: { in: 1..20 }
     validates :role, presence: true, inclusion: { in: %w[user translator admin] }
 
+    before_create :set_token
+
     def self.find_for_oauth(auth)
         identity = Identity.find_for_oauth(auth)
         return identity.user if identity.present?
         user = User.find_by(email: auth.info[:email])
-        user = User.create(email: auth.info[:email], password: Devise.friendly_token[0,20]) if user.nil?
+        user = User.create(email: auth.info[:email], password: Devise.friendly_token[0, 20]) if user.nil?
         user.identities.create(provider: auth.provider, uid: auth.uid)
         user
     end
 
     def update_token
-        update(access_token: SecureRandom.hex(32))
+        update(access_token: TokenService.call)
     end
 
     def admin?
@@ -34,5 +34,11 @@ class User < ApplicationRecord
 
     def editor?
         admin? || translator?
+    end
+
+    private
+
+    def set_token
+        self.access_token = TokenService.call
     end
 end

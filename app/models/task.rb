@@ -9,12 +9,12 @@ class Task < ApplicationRecord
     has_many :positions, dependent: :destroy
     has_many :translations, through: :positions
 
-    validates :uid, :status, :to, presence: true
+    validates :status, :to, presence: true
     validates :from, length: { is: 2 }, allow_blank: true
     validates :to, length: { is: 2 }
     validates :status, inclusion: { in: %w[active done failed] }
 
-    scope :for_guest, ->(guest_uid) { where uid: guest_uid }
+    scope :for_guest, ->(guest_uid) { where uid: guest_uid, user_id: nil }
 
     after_create :task_processing
 

@@ -1,5 +1,7 @@
 {
     "en":{
+        "select": "Select a translation's direction",
+        "select_file": "Select the file for localization",
         "tasks":"Your Current Tasks",
         "file":"File",
         "direction":"Direction",
@@ -10,6 +12,8 @@
         "error":"Error"
     },
     "ru": {
+        "select": "Выберите направление перевода",
+        "select_file": "Выберите файл для перевода",
         "tasks":"Ваши текущие задачи",
         "file":"Файл",
         "direction":"Направление",
@@ -20,6 +24,8 @@
         "error":"Ошибка"
     },
     "da": {
+        "select": "Vælg en oversættelse retning",
+        "select_file": "Vælg filen til lokalisering",
         "tasks":"Dine nuværende opgaver",
         "file":"Fil",
         "direction":"Retning",
