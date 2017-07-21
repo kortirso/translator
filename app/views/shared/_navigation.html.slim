@@ -1,17 +1,14 @@
-nav
-    ul.menu.vertical
-        li= link_to t('nav.main'), root_path, class: "#{'active' if yield(:path) == 'root'}"
-        li= link_to t('nav.tasks'), tasks_path, class: "#{'active' if yield(:path) == 'selector'}"
-        - if current_user.try(:editor?)
-            li= link_to t('nav.translators'), translations_path, class: "#{'active' if yield(:path) == 'translations'}"
-        li= link_to t('nav.user'), user_signed_in? ? current_user : users_path, class: "#{'active' if yield(:path) == 'user'}"
-        li= link_to t('nav.contribution'), contribution_path, class: "#{'active' if yield(:path) == 'contribution'}"
-    .bottom
-        .locales
-            p= t('nav.change_locale')
-            - %w(en ru da).each do |locale|
-                = link_to image_tag("flags/#{locale}.png"), change_locale(locale)
-        .yandex
-            p
-                = t('nav.yandex')
-                = link_to t('nav.yandex_link'), 'http://translate.yandex.ru/'
+.row
+    .columns.small-12
+        header
+            h1 LangTool
+            p Easy localizations for developers!
+            .logins
+                - if user_signed_in?
+                    p= link_to t('buttons.logout'), destroy_user_session_path, method: :delete
+                - else
+                    p
+                        a data-open='login'= t('buttons.login')
+                    p
+                        a data-open='signup'= t('buttons.signup')
+= render 'shared/modals'

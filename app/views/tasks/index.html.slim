@@ -1,3 +1,38 @@
-- provide(:path, 'selector')
 = javascript_pack_tag 'tasks_box'
 = react_component('TasksBox', access_token: user_signed_in? ? current_user.access_token : session[:guest], email: user_signed_in? ? current_user.email : '', locale: I18n.locale)
+.platforms
+    .row
+        .columns.small-4.small-offset-2
+            h2= t('index.help.ul')
+            ul
+                li Ruby on Rails (*.yml)
+                li .NET (*.resx)
+                li Android (*.strings)
+                li JSON (*.json)
+        .columns.small-4.end
+            h2= t('index.how.ul')
+            ul
+                li= t('index.how.li1')
+                li= t('index.how.li2')
+                li= t('index.how.li3')
+                li= t('index.how.li4')
+                li= t('index.how.li5')
+.platforms.without_back
+    .row
+        .columns.small-8.small-offset-2
+            h2= t('contribution.header')
+            p= t('contribution.text')
+            - if can? :create, Request
+                = form_with model: Request.new do |f|
+                    = f.text_area :body, placeholder: t('contribution.placeholder'), rows: 6
+                    = f.submit t('contribution.button'), class: 'button'
+#success_is_true.reveal data-reveal=''
+    h1= t('contribution.success.header')
+    p= t('contribution.success.text')
+    button.close-button aria-label=('Close modal') data-close='' type='button'
+        span aria-hidden='true' &times;
+#success_is_false.reveal data-reveal=''
+    h1= t('contribution.failure.header')
+    p= t('contribution.failure.text')
+    button.close-button aria-label=('Close modal') data-close='' type='button'
+        span aria-hidden='true' &times;

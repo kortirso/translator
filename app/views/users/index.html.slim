@@ -1,8 +1,0 @@
-- provide(:path, 'user')
-.logins
-    p
-        a data-open='login'= t('buttons.login')
-    p
-        a data-open='signup'= t('buttons.signup')
-    p= link_to image_tag('social-facebook.jpg', class: 'social', alt: 'Login Through Facebook'), user_facebook_omniauth_authorize_path, title: 'Login Through Facebook'
-= render 'shared/modals'

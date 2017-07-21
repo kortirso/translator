@@ -10,11 +10,8 @@ Rails.application.routes.draw do
     localized do
         devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
         resources :tasks, only: %i[index show]
-        resources :users, only: %i[index show]
         resources :translations, only: %i[index create]
-        resources :requests, only: :create
-
-        get 'contribution' => 'welcome#contribution', as: :contribution
+        resources :requests, only: %i[create]
 
         namespace :api do
             namespace :v1 do
@@ -31,7 +28,7 @@ Rails.application.routes.draw do
             end
         end
 
-        root to: 'welcome#index'
+        root to: 'tasks#index'
     end
 
     match '*path', to: 'application#catch_404', via: :all
