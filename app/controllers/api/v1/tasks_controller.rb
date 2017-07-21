@@ -25,7 +25,7 @@ module Api
             private
 
             def task_params
-                params.require(:task).permit(:file, :to)
+                params.permit(:file, :to)
             end
 
             def select_tasks

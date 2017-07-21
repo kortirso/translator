@@ -37,7 +37,7 @@ class Task extends React.Component {
         return (
             <tr className='task' id={'task_' + this.state.task.id}>
                 <td>{this.state.task.short_filename}</td>
-                <td>{this.state.task.from} - {this.state.task.to}</td>
+                <td>{this.state.task.to}</td>
                 <td className={this.state.task.status}>{this._checkStatus()}</td>
                 <td>{this._checkDownloading()}</td>
                 <td>{this._checkTranslation()}</td>

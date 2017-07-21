@@ -19,7 +19,7 @@ describe 'Guest API' do
             let(:access_token) { TokenService.call }
 
             context 'with valid data' do
-                let(:request) { post '/api/v1/guest', params: { task: { to: 'ru', file: File.open("#{Rails.root}/config/locales/en.yml") }, access_token: access_token, format: :js } }
+                let(:request) { post '/api/v1/guest', params: { to: 'ru', file: File.open("#{Rails.root}/config/locales/en.yml"), access_token: access_token, format: :js } }
 
                 it 'creates new task record' do
                     expect { request }.to change(Task, :count).by(1)
@@ -39,7 +39,7 @@ describe 'Guest API' do
             end
 
             context 'with invalid data' do
-                let(:request) { post '/api/v1/guest', params: { task: { to: '', file: File.open("#{Rails.root}/config/locales/en.yml") }, access_token: access_token, format: :js } }
+                let(:request) { post '/api/v1/guest', params: { to: '', file: File.open("#{Rails.root}/config/locales/en.yml"), access_token: access_token, format: :js } }
 
                 it 'does not create new task record' do
                     expect { request }.to_not change(Task, :count)

@@ -58,21 +58,27 @@ class TaskNew extends React.Component {
         const options = this._prepareOptions();
         const defaultValue = this._prepareDefaultValue();
         return (
-            <div>
-                <form className='task_form' onSubmit={this._handleSubmit.bind(this)}>
-                    <div className='task_form_fields'>
-                        <h6>{this.props.strings.select}</h6>
+            <form className='task_form' onSubmit={this._handleSubmit.bind(this)}>
+                <div className='task_form_fields row'>
+                    <h6>Output</h6>
+                    <div className='columns small-4'>
+                        <div className='file_uploader'>
+                            <label>
+                                <input type="file" onChange={this._handleUploadFile.bind(this)} />
+                                <span>Select File</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div className='columns small-4'>
                         <select defaultValue={defaultValue} className='input_field' onChange={this._handleLocale.bind(this)}>
                             {options}
-                          </select>
-                        <h6>{this.props.strings.select_file}</h6>
-                        <input type="file" onChange={this._handleUploadFile.bind(this)} />
+                        </select>
                     </div>
-                    <div className='task_form_actions'>
+                    <div className='columns small-4'>
                         <button type='submit' className='button'>Localize</button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         );
     }
 }

@@ -89,6 +89,33 @@ class TasksBox extends React.Component {
         });
     }
 
+    _prepareTasksBox() {
+        if (this.state.tasksList.length > 0) {
+            const tasks = this._prepareTasksList();
+            return (
+                <div className='columns small-10 small-offset-1 end'>
+                    <section className='block'>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>{strings.file}</th>
+                                    <th>{strings.direction}</th>
+                                    <th>{strings.status}</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {tasks}
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            )
+        }
+    }
+
     _prepareTasksList() {
         return this.state.tasksList.map((task) => {
             return (
@@ -98,35 +125,17 @@ class TasksBox extends React.Component {
     }
 
     render() {
-        const tasks = this._prepareTasksList();
         return (
-            <div className='row'>
-                <div className='columns small-12 medium-8 large-6'>
-                    <div className='block' id='new_file_block'>
-                        <TaskNew access_token={this.props.access_token} email={this.props.email} strings={strings} addTask={this._addTask.bind(this)} />
+            <main className='platforms without_back'>
+                <div className='row'>
+                    <div className='columns small-12 medium-6 large-6 medium-offset-3 large-offset-3'>
+                        <section className='block' id='new_file_block'>
+                            <TaskNew access_token={this.props.access_token} email={this.props.email} strings={strings} addTask={this._addTask.bind(this)} />
+                        </section>
                     </div>
+                    {this._prepareTasksBox()}
                 </div>
-                <div className='columns small-12'>
-                    <div className='block'>
-                        <p>{strings.tasks}</p>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>{strings.file}</th>
-                                    <th>{strings.direction}</th>
-                                    <th>{strings.status}</th>
-                                    <th>{strings.download}</th>
-                                    <th>{strings.translation}</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {tasks}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+            </main>
         );
     }
 }

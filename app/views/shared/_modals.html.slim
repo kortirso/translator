@@ -8,6 +8,8 @@
             input.password.optional placeholder="#{t('modals.pass')}" type="password" name="user[password]" id="user_password"
         .small-12.columns
             = f.submit t('modals.enter'), class: 'button', id: 'authorization'
+        .small-12.columns
+            = link_to image_tag('social-facebook.jpg', class: 'social', alt: 'Login Through Facebook'), user_facebook_omniauth_authorize_path, title: 'Login Through Facebook'
     button.close-button aria-label=('Close modal') data-close='' type='button'
         span aria-hidden='true' &times;
 #signup.reveal.tiny data-reveal=''
@@ -22,7 +24,9 @@
             input.password.optional placeholder="#{t('modals.pass')}" type="password" name="user[password]" id="user_password"
         .small-12.columns
             input.password.optional placeholder="#{t('modals.confirm')}" type="password" name="user[password_confirmation]" id="user_password_confirmation"
-        .small-12.small-5.small-offset-7.columns
+        .small-12.columns
             =  f.submit t('buttons.signup'), class: 'button', id: 'registration'
+        .small-12.columns
+            = link_to image_tag('social-facebook.jpg', class: 'social', alt: 'Login Through Facebook'), user_facebook_omniauth_authorize_path, title: 'Login Through Facebook'
     button.close-button aria-label=('Close modal') data-close='' type='button'
         span aria-hidden='true' &times;
