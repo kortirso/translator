@@ -24,12 +24,16 @@ module Api
 
             private
 
+            def task_params
+                params.require(:task).permit(:file, :to)
+            end
+
             def select_tasks
                 @tasks = @user.tasks.order(id: :desc)
             end
 
             def select_task
-                @task = Task.find_by(id: params[:id])
+                @task = @user.tasks.find_by(id: params[:id])
                 render json: { error: 'Task not found' }, status: 404 if @task.nil?
             end
         end

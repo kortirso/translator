@@ -1,7 +1,7 @@
 describe 'Users API' do
     describe 'POST #create' do
         context 'with valid data' do
-            let(:request) { post '/api/v1/users', params: { user: { email: 'some@email.com', username: 'username', password: 'password12', password_confirmation: 'password12' }, format: :json } }
+            let(:request) { post '/api/v1/users', params: { user: { email: 'some@email.com', username: 'username', password: 'password12', password_confirmation: 'password12' }, format: :js } }
 
             it 'creates new user record' do
                 expect { request }.to change(User, :count).by(1)
@@ -38,7 +38,7 @@ describe 'Users API' do
 
         context 'with invalid data' do
             let!(:user) { create :user }
-            let(:request) { post '/api/v1/users', params: { user: { email: user.email, username: user.username, password: 'password12', password_confirmation: 'password12' }, format: :json } }
+            let(:request) { post '/api/v1/users', params: { user: { email: user.email, username: user.username, password: 'password12', password_confirmation: 'password12' }, format: :js } }
 
             it 'doesnt create new user record' do
                 expect { request }.to_not change(User, :count)
@@ -62,7 +62,7 @@ describe 'Users API' do
         let!(:user) { create :user }
 
         context 'with valid data' do
-            let(:request) { get '/api/v1/users/access_token', params: { email: user.email, password: user.password, format: :json } }
+            let(:request) { get '/api/v1/users/access_token', params: { email: user.email, password: user.password, format: :js } }
 
             context 'in answer' do
                 before { request }
@@ -84,7 +84,7 @@ describe 'Users API' do
         end
 
         context 'with invalid data' do
-            let(:request) { get '/api/v1/users/access_token', params: { email: 'wrong@gmail.com', password: user.password, format: :json } }
+            let(:request) { get '/api/v1/users/access_token', params: { email: 'wrong@gmail.com', password: user.password, format: :js } }
 
             context 'in answer' do
                 before { request }
@@ -105,7 +105,7 @@ describe 'Users API' do
 
         context 'for existed users' do
             let!(:user) { create :user }
-            before { get '/api/v1/users/me', params: { email: user.email, access_token: user.access_token, format: :json } }
+            before { get '/api/v1/users/me', params: { email: user.email, access_token: user.access_token, format: :js } }
 
             it 'returns 200 status' do
                 expect(response.code).to eq '200'
@@ -117,7 +117,7 @@ describe 'Users API' do
         end
 
         def do_request(options = {})
-            get '/api/v1/users/me', params: { format: :json }.merge(options)
+            get '/api/v1/users/me', params: { format: :js }.merge(options)
         end
     end
 
@@ -127,7 +127,7 @@ describe 'Users API' do
 
         context 'for existed users' do
             context 'for their own objects' do
-                let(:request) { delete "/api/v1/users/#{user.id}", params: { email: user.email, access_token: user.access_token, format: :json } }
+                let(:request) { delete "/api/v1/users/#{user.id}", params: { email: user.email, access_token: user.access_token, format: :js } }
 
                 it 'destroys user object' do
                     expect { request }.to change(User, :count).by(-1)
@@ -148,7 +148,7 @@ describe 'Users API' do
 
             context 'for other objects' do
                 let!(:other_user) { create :user }
-                let(:request) { delete "/api/v1/users/#{other_user.id}", params: { email: user.email, access_token: user.access_token, format: :json } }
+                let(:request) { delete "/api/v1/users/#{other_user.id}", params: { email: user.email, access_token: user.access_token, format: :js } }
 
                 it 'does not destroy user object' do
                     expect { request }.to_not change(User, :count)
@@ -169,7 +169,7 @@ describe 'Users API' do
         end
 
         def do_request(options = {})
-            delete "/api/v1/users/#{user.id}", params: { format: :json }.merge(options)
+            delete "/api/v1/users/#{user.id}", params: { format: :js }.merge(options)
         end
     end
 
@@ -179,9 +179,9 @@ describe 'Users API' do
 
         context 'for existed users' do
             context 'for their own objects' do
-                context 'with valid params' do
+                context 'with valid data' do
                     before do
-                        patch "/api/v1/users/#{user.id}", params: { user: { username: 'new_username' }, email: user.email, access_token: user.access_token, format: :json }
+                        patch "/api/v1/users/#{user.id}", params: { user: { username: 'new_username' }, email: user.email, access_token: user.access_token, format: :js }
                         user.reload
                     end
 
@@ -199,10 +199,10 @@ describe 'Users API' do
                     end
                 end
 
-                context 'with invalid params' do
+                context 'with invalid data' do
                     let!(:other_user) { create :user }
                     before do
-                        patch "/api/v1/users/#{user.id}", params: { user: { username: other_user.username, email: other_user.email }, email: user.email, access_token: user.access_token, format: :json }
+                        patch "/api/v1/users/#{user.id}", params: { user: { username: other_user.username, email: other_user.email }, email: user.email, access_token: user.access_token, format: :js }
                         user.reload
                     end
 
@@ -223,7 +223,7 @@ describe 'Users API' do
 
             context 'for other objects' do
                 let!(:other_user) { create :user }
-                before { patch "/api/v1/users/#{other_user.id}", params: { user: { username: 'new_username' }, email: user.email, access_token: user.access_token, format: :json } }
+                before { patch "/api/v1/users/#{other_user.id}", params: { user: { username: 'new_username' }, email: user.email, access_token: user.access_token, format: :js } }
 
                 it 'does not update user object' do
                     expect(other_user.username).to_not eq 'new_username'
@@ -240,7 +240,7 @@ describe 'Users API' do
         end
 
         def do_request(options = {})
-            patch "/api/v1/users/#{user.id}", params: { user: { username: 'new_username' }, format: :json }.merge(options)
+            patch "/api/v1/users/#{user.id}", params: { user: { username: 'new_username' }, format: :js }.merge(options)
         end
     end
 end
