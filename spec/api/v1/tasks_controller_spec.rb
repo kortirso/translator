@@ -6,7 +6,7 @@ describe 'Tasks API' do
             let!(:user) { create :user }
 
             context 'with valid data' do
-                let(:request) { post '/api/v1/tasks', params: { task: { to: 'ru', file: File.open("#{Rails.root}/config/locales/en.yml") }, email: user.email, access_token: user.access_token, format: :js } }
+                let(:request) { post '/api/v1/tasks', params: { to: 'ru', file: File.open("#{Rails.root}/config/locales/en.yml"), email: user.email, access_token: user.access_token, format: :js } }
 
                 it 'creates new task record' do
                     expect { request }.to change(Task, :count).by(1)
@@ -30,7 +30,7 @@ describe 'Tasks API' do
             end
 
             context 'with invalid data' do
-                let(:request) { post '/api/v1/tasks', params: { task: { to: '', file: File.open("#{Rails.root}/config/locales/en.yml") }, email: user.email, access_token: user.access_token, format: :js } }
+                let(:request) { post '/api/v1/tasks', params: { to: '', file: File.open("#{Rails.root}/config/locales/en.yml"), email: user.email, access_token: user.access_token, format: :js } }
 
                 it 'does not create new task record' do
                     expect { request }.to_not change(Task, :count)

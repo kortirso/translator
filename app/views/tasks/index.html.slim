@@ -2,14 +2,14 @@
 = react_component('TasksBox', access_token: user_signed_in? ? current_user.access_token : session[:guest], email: user_signed_in? ? current_user.email : '', locale: I18n.locale)
 .platforms
     .row
-        .columns.small-4.small-offset-2
+        .columns.small-12.medium-6.large-4.large-offset-2
             h2= t('index.help.ul')
             ul
                 li Ruby on Rails (*.yml)
                 li .NET (*.resx)
                 li Android (*.strings)
                 li JSON (*.json)
-        .columns.small-4.end
+        .columns.small-12.medium-6.large-4.end
             h2= t('index.how.ul')
             ul
                 li= t('index.how.li1')
@@ -19,7 +19,7 @@
                 li= t('index.how.li5')
 .platforms.without_back
     .row
-        .columns.small-8.small-offset-2
+        .columns.small-12.medium-8.medium-offset-2
             h2= t('contribution.header')
             p= t('contribution.text')
             - if can? :create, Request
