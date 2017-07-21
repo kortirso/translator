@@ -44,7 +44,7 @@ module Api
             end
 
             def authenticate_as_guest
-                render json: { error: 'Unauthorized guest' }, status: 401 if params[:access_token].nil? || params[:access_token].size != TokenService::KEY_SIZE
+                render json: { error: 'Unauthorized guest' }, status: 401 if params[:access_token].nil? || params[:access_token].size != TokenService::KEY_SIZE * 2
             end
         end
     end

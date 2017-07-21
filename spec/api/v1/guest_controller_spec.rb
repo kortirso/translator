@@ -1,19 +1,28 @@
-describe 'Tasks API' do
+describe 'Guest API' do
+    describe 'GET #access_token' do
+        before { get '/api/v1/guest/access_token', params: { format: :js } }
+
+        it 'returns 201 status' do
+            expect(response.code).to eq '201'
+        end
+
+        it 'contains access_token for guest' do
+            expect(response.body).to have_json_path('access_token')
+            expect(JSON.parse(response.body)['access_token'].size).to eq TokenService::KEY_SIZE * 2
+        end
+    end
+
     describe 'POST #create' do
-        it_behaves_like 'API Auth'
+        it_behaves_like 'API Guest Auth'
 
         context 'for existed users' do
-            let!(:user) { create :user }
+            let(:access_token) { TokenService.call }
 
             context 'with valid data' do
-                let(:request) { post '/api/v1/tasks', params: { task: { to: 'ru', file: File.open("#{Rails.root}/config/locales/en.yml") }, email: user.email, access_token: user.access_token, format: :js } }
+                let(:request) { post '/api/v1/guest', params: { task: { to: 'ru', file: File.open("#{Rails.root}/config/locales/en.yml") }, access_token: access_token, format: :js } }
 
                 it 'creates new task record' do
                     expect { request }.to change(Task, :count).by(1)
-                end
-
-                it 'belongs to user' do
-                    expect { request }.to change(user.tasks, :count).by(1)
                 end
 
                 context 'in answer' do
@@ -30,7 +39,7 @@ describe 'Tasks API' do
             end
 
             context 'with invalid data' do
-                let(:request) { post '/api/v1/tasks', params: { task: { to: '', file: File.open("#{Rails.root}/config/locales/en.yml") }, email: user.email, access_token: user.access_token, format: :js } }
+                let(:request) { post '/api/v1/guest', params: { task: { to: '', file: File.open("#{Rails.root}/config/locales/en.yml") }, access_token: access_token, format: :js } }
 
                 it 'does not create new task record' do
                     expect { request }.to_not change(Task, :count)
@@ -51,46 +60,46 @@ describe 'Tasks API' do
         end
 
         def do_request(options = {})
-            post '/api/v1/tasks', params: { format: :js }.merge(options)
+            post '/api/v1/guest', params: { format: :js }.merge(options)
         end
     end
 
     describe 'GET #index' do
-        it_behaves_like 'API Auth'
+        it_behaves_like 'API Guest Auth'
 
         context 'for existed users' do
-            let!(:user) { create :user }
-            let!(:task) { create :task, user: user }
+            let(:access_token) { TokenService.call }
+            let!(:task) { create :task, uid: access_token }
             let!(:other_task) { create :task }
-            before { get '/api/v1/tasks', params: { email: user.email, access_token: user.access_token, format: :js } }
+            before { get '/api/v1/guest', params: { access_token: access_token, format: :js } }
 
             it 'returns 200 status' do
                 expect(response.code).to eq '200'
             end
 
-            it 'contains list of user tasks' do
+            it 'contains list of guest tasks' do
                 expect(response.body).to be_json_eql(TaskSerializer.new(task).serializable_hash.to_json).at_path('tasks/0')
             end
 
-            it 'contains only users tasks' do
-                expect(JSON.parse(response.body)['tasks'].size).to eq user.tasks.size
+            it 'contains only guest tasks' do
+                expect(JSON.parse(response.body)['tasks'].size).to eq Task.for_guest(access_token).size
                 expect(JSON.parse(response.body)['tasks'].size).to_not eq Task.count
             end
         end
 
         def do_request(options = {})
-            get '/api/v1/tasks', params: { format: :js }.merge(options)
+            get '/api/v1/guest', params: { format: :js }.merge(options)
         end
     end
 
     describe 'DELETE #destroy' do
-        let!(:user) { create :user }
-        let!(:task) { create :task, user: user }
-        it_behaves_like 'API Auth'
+        let(:access_token) { TokenService.call }
+        let!(:task) { create :task, uid: access_token }
+        it_behaves_like 'API Guest Auth'
 
         context 'for existed users' do
             context 'for their own objects' do
-                let(:request) { delete "/api/v1/tasks/#{task.id}", params: { email: user.email, access_token: user.access_token, format: :js } }
+                let(:request) { delete "/api/v1/guest/#{task.id}", params: { access_token: access_token, format: :js } }
 
                 it 'destroys task object' do
                     expect { request }.to change(Task, :count).by(-1)
@@ -110,9 +119,8 @@ describe 'Tasks API' do
             end
 
             context 'for other objects' do
-                let!(:other_user) { create :user }
-                let!(:other_task) { create :task, user: other_user }
-                let(:request) { delete "/api/v1/tasks/#{other_task.id}", params: { email: user.email, access_token: user.access_token, format: :js } }
+                let!(:other_task) { create :task }
+                let(:request) { delete "/api/v1/guest/#{other_task.id}", params: { access_token: access_token, format: :js } }
 
                 it 'does not destroy task object' do
                     expect { request }.to_not change(Task, :count)
@@ -133,7 +141,7 @@ describe 'Tasks API' do
         end
 
         def do_request(options = {})
-            delete "/api/v1/tasks/#{task.id}", params: { format: :js }.merge(options)
+            delete "/api/v1/guest/#{task.id}", params: { format: :js }.merge(options)
         end
     end
 end
