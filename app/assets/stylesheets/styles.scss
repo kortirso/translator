@@ -91,7 +91,7 @@ table {
 .button {
     background: #50d691;
     border-radius: 4px;
-    &:hover {
+    &:hover, &:focus {
         background: #30b671;
     }
 }
