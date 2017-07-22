@@ -17,16 +17,17 @@ class TasksBox extends React.Component {
 
     componentWillMount() {
         this._fetchTasksList();
+        this._runTimer();
         strings.setLanguage(this.props.locale);
-    }
-
-    componentDidMount() {
-        this._timer = setInterval(() => this._fetchTasksList(), 5000);
-        this.setState({intervalId: this._timer});
     }
 
     componentWillUnmount() {
         clearInterval(this.state.intervalId);
+    }
+
+    _runTimer() {
+        this._timer = setInterval(() => this._fetchTasksList(), 5000);
+        this.setState({intervalId: this._timer});
     }
 
     _checkCompleting() {
@@ -63,12 +64,10 @@ class TasksBox extends React.Component {
             method: 'DELETE',
             url: `api/v1/${this._checkEndpoint()}/${task.id}.json?access_token=${this.props.access_token}${this._checkEmail()}`,
             success: (data) => {
-                if(data.status == 'success') {
-                    const tasks = [... this.state.tasksList];
-                    const taskIndex = tasks.indexOf(task);
-                    tasks.splice(taskIndex, 1);
-                    this.setState({tasksList: tasks});
-                }
+                const tasks = [... this.state.tasksList];
+                const taskIndex = tasks.indexOf(task);
+                tasks.splice(taskIndex, 1);
+                this.setState({tasksList: tasks});
             }
         })
     }
@@ -80,11 +79,9 @@ class TasksBox extends React.Component {
             data: data,
             contentType: false,
             processData: false,
-            success: (newTasksList) => {
-                //this.setState({tasksList: newTasksList.contacts});
-            },
-            error: (msg) => {
-
+            success: (newTask) => {
+                this.setState({tasksList: [newTask.task].concat(this.state.tasksList)});
+                this._runTimer();
             }
         });
     }

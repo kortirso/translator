@@ -24,7 +24,7 @@ class Task extends React.Component {
 
     _checkTranslation() {
         let locale = '';
-        if (this.props.locale != 'en') locale = '/' + this.props.locale;
+        if (this.props.strings.language != 'en') locale = '/' + this.props.strings.language;
         if (this.state.task.status == 'done') return <a href={locale + '/tasks/' + this.state.task.id}>{this.props.strings.goto}</a>;
     }
 

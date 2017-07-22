@@ -6,7 +6,7 @@ class TaskNew extends React.Component {
         super();
         this.state = {
             locales: [],
-            locale: 'da',
+            locale: '',
             data: {}
         }
     }
@@ -20,7 +20,7 @@ class TaskNew extends React.Component {
             method: 'GET',
             url: `api/v1/locales.json`,
             success: (data) => {
-                this.setState({locales: data.locales});
+                this.setState({locales: data.locales, locale: data.locales[0]['code']});
             }
         });
     }
