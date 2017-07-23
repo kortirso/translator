@@ -92,7 +92,7 @@ class TasksBox extends React.Component {
             return (
                 <div className='columns small-10 small-offset-1 end'>
                     <section className='block'>
-                        <table>
+                        <table className='stack'>
                             <thead>
                                 <tr>
                                     <th>{strings.file}</th>
