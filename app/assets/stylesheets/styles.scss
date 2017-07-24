@@ -66,6 +66,30 @@ body {
                 }
             }
         }
+         .locals {
+            position: absolute;
+            left: 0;
+            top: 20px;
+            p {
+                font-style: normal;
+                margin: 20px 0 0;
+                padding: 0 15px;
+            }
+            a {
+                img {
+                    width: 32px;
+                    border: 1px solid #AAA;
+                    margin-right: 5px;
+                }
+            }
+            @media (max-width: 600px) {
+                position: relative;
+                top: 0;
+                p {
+                    margin: 10px 0 0;
+                }
+            }
+        }
     }
     main {
         min-height: 350px;
