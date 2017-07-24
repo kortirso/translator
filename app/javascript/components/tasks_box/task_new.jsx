@@ -60,12 +60,12 @@ class TaskNew extends React.Component {
         return (
             <form className='task_form' onSubmit={this._handleSubmit.bind(this)}>
                 <div className='task_form_fields row'>
-                    <h6>Output</h6>
+                    <h6>{this.props.strings.output}</h6>
                     <div className='columns small-12 medium-4'>
                         <div className='file_uploader'>
                             <label>
                                 <input type="file" onChange={this._handleUploadFile.bind(this)} />
-                                <span>Select File</span>
+                                <span>{this.props.strings.select}</span>
                             </label>
                         </div>
                     </div>
@@ -75,7 +75,7 @@ class TaskNew extends React.Component {
                         </select>
                     </div>
                     <div className='columns small-12 medium-4'>
-                        <button type='submit' className='button'>Localize</button>
+                        <button type='submit' className='button'>{this.props.strings.localize}</button>
                     </div>
                 </div>
             </form>

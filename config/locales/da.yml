@@ -1,10 +1,5 @@
 da:
   nav:
-    main: Om LangTool
-    tasks: Oversættelse
-    translators: For oversættere
-    user: Højde
-    contribution: Yde et bidrag
     yandex: 'Oversat service '
     yandex_link: '"Yandex.Oversætter"'
     change_locale: Skift sprog
@@ -12,9 +7,6 @@ da:
     header:
       h1: LangTool
       p: Nem lokaliseringer for udviklere!
-    main:
-      p1: Vores system lokaliserer dine projekter
-      p2: Du fortsætter kodningen
     help:
       ul: Vi hjælper udviklere på følgende platforme
     how:
@@ -24,14 +16,13 @@ da:
       li3: køre oversættelse
       li4: vent nogle få sekunder / minutter
       li5: download resultat fil
-    add:
-      ul: Yderligere funktioner
-      li1: oversættelser redigering og genopbygning af resultatfilen
+    footer:
+      h: Kontakter
+      p: Hvis du har spørgsmål eller feedback, kan du bruge disse kontakter
   buttons:
     logout: Udgang
     login: Indgang
     signup: Tilmelding
-    menu: Menu
   modals:
     auth: Tilladelse
     reg: Tilmelding
@@ -41,24 +32,11 @@ da:
     enter: Indgang
     minimal: Mindste password længde - 6 tegn
   tasks:
-    direction: Vælg en oversættelse retning
-    file: Vælg filen til lokalisering
     localize: At lokalisere
-    current: Dit nuværende job
   task:
     title: Læs oversættelser af ord og sætninger fra din fil
     need_login: Autoriserede brugere kan redigere oversættelser
     translations: Mulige oversættelser
-  user:
-    welcome: Velkommen
   contribution:
     header: Bistand til professionelle oversættere
     text: Web service LangTool funktioner på grund af den automatiske oversættelse af tekster ved hjælp af Yandex.Oversætter. Men til at forbedre oversættelseskvaliteten, der kræves af en professionel oversætter. Hvis du har den evne, lyst og mulighed for at bidrage til projektet, kan du sende en forespørgsel til at få rettighederne til at oversætte og bekræfte oversættelser.
-    placeholder: Beskrivelse af din kandidat (Tilmeld dig for at sende)
-    button: Send ansøgning
-    success:
-      header: Stor!
-      text: De data, der sendes.
-    failure:
-      header: Noget gik galt!
-      text: Er du sikker på du udfyldt en beskrivelse af dit kandidatur?

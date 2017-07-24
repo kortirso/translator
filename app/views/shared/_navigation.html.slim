@@ -1,8 +1,8 @@
 .row
     .columns.small-12
         header
-            h1 LangTool
-            p Easy localizations for developers!
+            h1= t('index.header.h1')
+            p= t('index.header.p')
             .locals
                 p= t('nav.change_locale')
                 - %w(en ru da).each do |locale|

@@ -1,8 +1,8 @@
 {
     "en":{
-        "select": "Select a translation's direction",
-        "select_file": "Select the file for localization",
-        "tasks":"Your Current Tasks",
+        "select": "Select File",
+        "localize": "Localize",
+        "output": "Output",
         "file":"File",
         "direction":"Direction",
         "status":"Status",
@@ -12,9 +12,9 @@
         "error":"Error"
     },
     "ru": {
-        "select": "Выберите направление перевода",
-        "select_file": "Выберите файл для перевода",
-        "tasks":"Ваши текущие задачи",
+        "select": "Выбрать файл",
+        "localize": "Локализовать",
+        "output": "Результат",
         "file":"Файл",
         "direction":"Направление",
         "status":"Статус",
@@ -24,9 +24,9 @@
         "error":"Ошибка"
     },
     "da": {
-        "select": "Vælg en oversættelse retning",
-        "select_file": "Vælg filen til lokalisering",
-        "tasks":"Dine nuværende opgaver",
+        "select": "Vælg fil",
+        "localize": "Lokaliser",
+        "output": "Resultat",
         "file":"Fil",
         "direction":"Retning",
         "status":"Status",

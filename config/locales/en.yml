@@ -1,10 +1,5 @@
 en:
   nav:
-    main: About LangTool
-    tasks: Translating
-    translators: For Translators
-    user: Account
-    contribution: Make a contribution
     yandex: 'Translated by '
     yandex_link: «Yandex.Translator»
     change_locale: Switch language
@@ -12,9 +7,6 @@ en:
     header:
       h1: LangTool
       p: Easy localizations for developers!
-    main:
-      p1: Our system localize your projects
-      p2: You continue coding
     help:
       ul: We help developers on the following platforms
     how:
@@ -24,9 +16,6 @@ en:
       li3: run translating
       li4: wait a few seconds / minutes
       li5: download result file
-    add:
-      ul: Additional features
-      li1: translations editing and rebuilding result file
     footer:
       h: Contacts
       p: If you have questions or feedback, you can use this contacts
@@ -34,7 +23,6 @@ en:
     logout: Log Out
     login: Log In
     signup: Sign Up
-    menu: Menu
   modals:
     auth: Authorization
     reg: Registration
@@ -44,24 +32,11 @@ en:
     enter: Log In
     minimal: Minimum password length - 6 characters
   tasks:
-    direction: Select a translation's direction
-    file: Select the file for localization
     localize: Localize
-    current: Your current job
   task:
     title: See the translations of words and phrases from your file
     need_login: Logged users can edit translations
     translations: Possible translations
-  user:
-    welcome: Welcome
   contribution:
     header: Assistance to professional translators
     text: Web service LangTool functions due to the automatic translation of texts using Yandex.Translator. But to improve the translation quality required of professional translators. If you have the ability, desire and opportunity to help the project, you can send inquiry to receive the rights to translate and confirm translations.
-    placeholder: Description of your candidate (Log In to send)
-    button: Send application
-    success:
-      header: Great!
-      text: The data sent.
-    failure:
-      header: Something went wrong!
-      text: You sure you filled out the description of your candidacy?
