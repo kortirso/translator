@@ -107,6 +107,9 @@ body {
         min-height: 100%;
         padding-top: 133px;
         padding-bottom: 150px;
+        @media (max-width: 600px) {
+            padding-top: 170px;
+        }
         footer {
             background: #464756;
             color: #FFF;
@@ -289,6 +292,33 @@ table {
         list-style: none;
         li {
             text-align: center;
+        }
+    }
+}
+
+#translations_box {
+    .radio {
+        label {
+            color: #FFF;
+        }
+    }
+    .alphabet {
+        a {
+            color: #FFF;
+            margin-right: 5px;
+            padding: 3px;
+            line-height: 1;
+            &.active {
+                background: rgba(255, 255, 255, 0.5);
+                border-radius: 3px;
+            }
+        }
+    }
+    .translation_verifies {
+        .translation_text {
+            label {
+                color: #FFF;
+            }
         }
     }
 }

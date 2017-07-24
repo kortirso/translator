@@ -2,4 +2,4 @@
 .row
     .columns.small-12
         .block
-            #translations_box= react_component('TranslationsBox', access_token: user_signed_in? ? current_user.access_token : session[:guest], locale: I18n.locale)
+            #translations_box= react_component('TranslationsBox', access_token: user_signed_in? ? current_user.access_token : '', email: user_signed_in? ? current_user.email : '', locale: I18n.locale)

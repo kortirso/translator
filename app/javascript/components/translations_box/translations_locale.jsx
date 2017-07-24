@@ -1,20 +1,27 @@
 import React from 'react';
-import LocalizedStrings from 'react-localization';
-import I18nData from './i18n_data.json';
-
-let strings = new LocalizedStrings(I18nData);
 
 class TranslationsLocale extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            selectedOption: null
+            selectedOption: null,
+            locales: []
         }
     }
 
     componentWillMount() {
-        strings.setLanguage(this.props.locale);
+        this._fetchLocales();
+    }
+
+    _fetchLocales() {
+        $.ajax({
+            method: 'GET',
+            url: `api/v1/locales.json`,
+            success: (data) => {
+                this.setState({locales: data.locales});
+            }
+        });
     }
 
     _handleOptionChange(event) {
@@ -22,28 +29,24 @@ class TranslationsLocale extends React.Component {
         this.props.onSelectOption(event.target.value);
     }
 
+    _prepareLocales() {
+        return this.state.locales.map((option) => {
+            return (
+                 <div className='radio' key={option.id}>
+                    <label>
+                        <input type='radio' value={option.code} checked={this.state.selectedOption === option.code} onChange={this._handleOptionChange.bind(this)} />
+                        {option.names[this.props.strings.language]}
+                     </label>
+                </div>
+            );
+        });
+    }
+
     render() {
         return (
             <div>
                 <form>
-                    <div className='radio'>
-                        <label>
-                            <input type='radio' value='en' checked={this.state.selectedOption === 'en'} onChange={this._handleOptionChange.bind(this)} />
-                            English
-                         </label>
-                    </div>
-                    <div className='radio'>
-                        <label>
-                            <input type='radio' value='ru' checked={this.state.selectedOption === 'ru'} onChange={this._handleOptionChange.bind(this)} />
-                            Russian
-                        </label>
-                    </div>
-                    <div className='radio'>
-                        <label>
-                            <input type='radio' value='da' checked={this.state.selectedOption === 'da'} onChange={this._handleOptionChange.bind(this)} />
-                            Danish
-                        </label>
-                    </div>
+                    {this._prepareLocales()}
                 </form>
             </div>
         );

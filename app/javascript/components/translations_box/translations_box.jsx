@@ -5,7 +5,7 @@ import LocalizedStrings from 'react-localization';
 import I18nData from './i18n_data.json';
 
 let strings = new LocalizedStrings(I18nData);
-let alphabet = {en: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X','Y', 'Z'], ru: ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Э', 'Ю', 'Я'], da: []};
+let alphabet = {en: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X','Y', 'Z'], ru: ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Э', 'Ю', 'Я'], da: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X','Y', 'Z', 'Å', 'Æ', 'Ø']};
 
 class TranslationsBox extends React.Component {
 
@@ -25,10 +25,19 @@ class TranslationsBox extends React.Component {
     _fetchTranslations(letter) {
         $.ajax({
             method: 'GET',
-            url: `api/v1/translations.json?access_token=${this.props.access_token}&language=${this.state.locale}&letter=${letter}`,
+            url: `api/v1/translations.json?access_token=${this.props.access_token}&email=${this.props.email}&language=${this.state.locale}&letter=${letter}`,
             success: (data) => {
                 this.setState({translationsList: data.words, letter: letter});
             }
+        });
+    }
+
+    _updateVerification(translation_id, verified) {
+        const translation = {verified};
+        $.ajax({
+            method: 'PATCH',
+            url: `api/v1/translations/${translation_id}.json?access_token=${this.props.access_token}&email=${this.props.email}`,
+            data: {translation}
         });
     }
 
@@ -44,24 +53,15 @@ class TranslationsBox extends React.Component {
         if(alphabet[this.state.locale] != null) {
             return alphabet[this.state.locale].map((letter, index) => {
                 return (
-                    <a onClick={this._selectLetter.bind(this)} key={index}>{letter}</a>
+                    <a onClick={this._selectLetter.bind(this)} className={letter == this.state.letter ? 'active' : ''} key={index}>{letter}</a>
                 );
             });
         }
     }
 
-    _updateVerification(translation_id, verified) {
-        const translation = {verified};
-        $.ajax({
-            method: 'PATCH',
-            url: `api/v1/translations/${translation_id}.json?access_token=${this.props.access_token}`,
-            data: {translation}
-        });
-    }
-
     _prepareWord(translations) {
         return translations.map((translation) => {
-            return <Translation translation={translation} key={translation.id} updateVerification={this._updateVerification.bind(this)} />;
+            return <Translation strings={strings} translation={translation} key={translation.id} updateVerification={this._updateVerification.bind(this)} />;
         });
     }
 
@@ -86,9 +86,9 @@ class TranslationsBox extends React.Component {
 
     render() {
         return (
-            <div>
-                <TranslationsLocale locale={this.props.locale} onSelectOption={this._selectOption.bind(this)} />
-                <div>{this._prepareAlphabetLinks()}</div>
+            <div id='translations_box'>
+                <TranslationsLocale strings={strings} locale={this.props.locale} onSelectOption={this._selectOption.bind(this)} />
+                <div className='alphabet'>{this._prepareAlphabetLinks()}</div>
                 <div>{this._prepareTranslations()}</div>
             </div>
         );
