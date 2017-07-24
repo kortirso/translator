@@ -1,18 +1,19 @@
-.row
-    .columns.small-12
-        header
-            h1= t('index.header.h1')
-            p= t('index.header.p')
-            .locals
-                p= t('nav.change_locale')
-                - %w(en ru da).each do |locale|
-                    = link_to image_tag("flags/#{locale}.png"), change_locale(locale)
-            .logins
-                - if user_signed_in?
-                    p= link_to t('buttons.logout'), destroy_user_session_path, method: :delete
-                - else
-                    p
-                        a data-open='login'= t('buttons.login')
-                    p
-                        a data-open='signup'= t('buttons.signup')
+nav
+    .row
+        .columns.small-12
+            header
+                h1= t('index.header.h1')
+                p= t('index.header.p')
+                .locals
+                    p= t('nav.change_locale')
+                    - %w(en ru da).each do |locale|
+                        = link_to image_tag("flags/#{locale}.png"), change_locale(locale)
+                .logins
+                    - if user_signed_in?
+                        p= link_to t('buttons.logout'), destroy_user_session_path, method: :delete
+                    - else
+                        p
+                            a data-open='login'= t('buttons.login')
+                        p
+                            a data-open='signup'= t('buttons.signup')
 = render 'shared/modals'

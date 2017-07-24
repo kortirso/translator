@@ -8,11 +8,13 @@
 html, body {
     padding: 0;
     margin: 0;
+    height: 100%;
 }
 
 html {
     overflow-y: scroll;
     &::-webkit-scrollbar {
+        background: #333;
         width: 6px;
     }
     &::-webkit-scrollbar-track {
@@ -31,7 +33,6 @@ body {
     background: #363747 image-url('background.png') no-repeat;
     background-position: top center;
     color: #FFF;
-    padding-bottom: 150px;
     position: relative;
     header {
         text-align: center;
@@ -91,8 +92,43 @@ body {
             }
         }
     }
+    nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 2;
+    }
     main {
         min-height: 350px;
+    }
+    .content {
+        position: relative;
+        min-height: 100%;
+        padding-top: 133px;
+        padding-bottom: 150px;
+        footer {
+            background: #464756;
+            color: #FFF;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            h4 {
+                font-size: 18px;
+            }
+            p {
+                margin-bottom: 3px;
+                font-size: 14px;
+            }
+            img {
+                width: 25px;
+                border-radius: 5px;
+                margin-right: 4px;
+            }
+        }
     }
 }
 
@@ -134,9 +170,9 @@ table {
                 background: none;
             }
             a {
-                color: #52556b;
+                color: #82859b;
                 &:hover, &:focus {
-                    color: #52556b;
+                    color: #82859b;
                 }
             }
         }
@@ -254,28 +290,5 @@ table {
         li {
             text-align: center;
         }
-    }
-}
-
-footer {
-    background: #464756;
-    color: #FFF;
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    h4 {
-        font-size: 18px;
-    }
-    p {
-        margin-bottom: 3px;
-        font-size: 14px;
-    }
-    img {
-        width: 25px;
-        border-radius: 5px;
-        margin-right: 4px;
     }
 }

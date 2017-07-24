@@ -11,5 +11,6 @@ html
         = csrf_meta_tags
     body
         = render 'shared/navigation'
-        = yield
-        = render 'shared/footer'
+        .content
+            = yield
+            = render 'shared/footer'
