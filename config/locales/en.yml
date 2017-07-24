@@ -27,6 +27,9 @@ en:
     add:
       ul: Additional features
       li1: translations editing and rebuilding result file
+    footer:
+      h: Contacts
+      p: If you have questions or feedback, you can use this contacts
   buttons:
     logout: Log Out
     login: Log In
