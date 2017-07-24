@@ -1,11 +1,14 @@
 {
     "en":{
-
+        "no_translation": "No translations",
+        "translations": "Translations are"
     },
     "ru": {
-
+        "no_translation": "Нет переводов",
+        "translations": "Переводы"
     },
     "da": {
-        
+        "no_translation": "Ingen oversættelser",
+        "translations": "Oversættelser er"
     }
 }

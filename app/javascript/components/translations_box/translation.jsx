@@ -1,5 +1,4 @@
 import React from 'react';
-import LocalizedStrings from 'react-localization';
 
 class Translation extends React.Component {
 

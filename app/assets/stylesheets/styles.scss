@@ -315,6 +315,9 @@ table {
         }
     }
     .translation_verifies {
+        .base_word {
+            text-decoration: underline;
+        }
         .translation_text {
             label {
                 color: #FFF;

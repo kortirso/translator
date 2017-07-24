@@ -61,21 +61,21 @@ class TranslationsBox extends React.Component {
 
     _prepareWord(translations) {
         return translations.map((translation) => {
-            return <Translation strings={strings} translation={translation} key={translation.id} updateVerification={this._updateVerification.bind(this)} />;
+            return <Translation translation={translation} key={translation.id} updateVerification={this._updateVerification.bind(this)} />;
         });
     }
 
     _prepareTranslations() {
         if(this.state.letter != null) {
             if(this.state.translationsList.length == 0) {
-                return <p>No translations</p>;
+                return <p>{strings.no_translation}</p>;
             }
             else {
                 return this.state.translationsList.map((word) => {
                     return (
                         <div className='translation_verifies' key={word.id}>
-                            <p>{word.text}</p>
-                            <p>Translations are:</p>
+                            <p className='base_word'>{word.text}</p>
+                            <p>{strings.translations}:</p>
                             {this._prepareWord(word.translations)}
                         </div>
                     );
