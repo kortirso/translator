@@ -1,7 +1,8 @@
 class TranslationsController < ApplicationController
     skip_before_action :verify_authenticity_token
-    before_action :check_user_signed
-    before_action :find_task, only: :create
+    before_action :user_is_translator?, only: %i[index]
+    before_action :user_task?, only: %i[create]
+    before_action :find_task, only: %i[create]
 
     def index; end
 
@@ -19,5 +20,13 @@ class TranslationsController < ApplicationController
 
     def translation_params
         params.require(:translation).permit!.to_h
+    end
+
+    def user_task?
+        head :ok if current_user.nil?
+    end
+
+    def user_is_translator?
+        render_not_found unless current_user.try(:editor?)
     end
 end

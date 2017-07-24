@@ -26,8 +26,4 @@ class ApplicationController < ActionController::Base
     def set_user_session
         session[:guest] = TokenService.call if session[:guest].nil? && !user_signed_in?
     end
-
-    def check_user_signed
-        head :ok unless user_signed_in?
-    end
 end
