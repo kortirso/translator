@@ -3,7 +3,7 @@
         .columns.small-12
             p= t('task.title')
             p= t('task.need_login')
-            = form_tag :translations do
+            = form_tag :tasks, method: :patch do
                 = hidden_field_tag 'task_id', @task.id
                 - @translations.each do |translation|
                     .row.translation

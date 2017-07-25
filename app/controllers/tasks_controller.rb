@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
-    before_action :find_task, only: :show
-    before_action :check_task_status, only: :show
+    skip_before_action :verify_authenticity_token, only: %[update]
+    before_action :find_task, only: %i[show update]
+    before_action :check_task_status, only: %i[show]
 
     def index; end
 
@@ -9,7 +10,16 @@ class TasksController < ApplicationController
         @locale = Locale.find_by(code: @task.to)
     end
 
+    def update
+        @task.activate(task_params)
+        redirect_to tasks_path
+    end
+
     private
+
+    def task_params
+        params.require(:translation).permit!.to_h
+    end
 
     def find_task
         @task = select_task

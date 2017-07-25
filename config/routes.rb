@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
     localized do
         devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
-        resources :tasks, only: %i[index show]
-        resources :translations, only: %i[index create]
+        resources :tasks, only: %i[index show update]
+        resources :translations, only: %i[index]
 
         namespace :api do
             namespace :v1 do
