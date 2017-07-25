@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-    skip_before_action :verify_authenticity_token, only: %[update]
+    skip_before_action :verify_authenticity_token, only: %i[update]
     before_action :find_task, only: %i[show update]
     before_action :check_task_status, only: %i[show]
 

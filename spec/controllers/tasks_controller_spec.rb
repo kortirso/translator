@@ -56,7 +56,7 @@ RSpec.describe TasksController, type: :controller do
             let!(:task) { create :task }
 
             it 'does not change task' do
-                expect { patch :update, params: { id: task.id, translation: { '607' => { result: 'About LangTool' } }, locale: 'en', format: :js } }.to_not change{task}
+                expect { patch :update, params: { id: task.id, translation: { '607' => { result: 'About LangTool' } }, locale: 'en', format: :js } }.to_not change { task }
             end
         end
 
@@ -67,7 +67,7 @@ RSpec.describe TasksController, type: :controller do
                 let!(:task) { create :task }
 
                 it 'does not change task' do
-                    expect { patch :update, params: { id: task.id, translation: { '607' => { result: 'About LangTool' } }, locale: 'en', format: :js } }.to_not change{task}
+                    expect { patch :update, params: { id: task.id, translation: { '607' => { result: 'About LangTool' } }, locale: 'en', format: :js } }.to_not change { task }
                 end
             end
 
