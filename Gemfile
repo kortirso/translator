@@ -60,6 +60,7 @@ gem 'devise', github: 'plataformatec/devise'
 
 # Add Auth through social networks
 gem 'omniauth-facebook'
+gem 'omniauth-github'
 
 # Fast batch record creation (used by migration tasks)
 gem 'activerecord-import'

@@ -10,6 +10,7 @@
             = f.submit t('modals.enter'), class: 'button', id: 'authorization'
         .small-12.columns
             = link_to image_tag('social-facebook.jpg', class: 'social', alt: 'Login Through Facebook'), user_facebook_omniauth_authorize_path, title: 'Login Through Facebook'
+            = link_to image_tag('social-github.png', class: 'social', alt: 'Login Through Github'), user_github_omniauth_authorize_path, title: 'Login Through Github'
     button.close-button aria-label=('Close modal') data-close='' type='button'
         span aria-hidden='true' &times;
 #signup.reveal.tiny data-reveal=''
@@ -28,5 +29,6 @@
             =  f.submit t('buttons.signup'), class: 'button', id: 'registration'
         .small-12.columns
             = link_to image_tag('social-facebook.jpg', class: 'social', alt: 'Login Through Facebook'), user_facebook_omniauth_authorize_path, title: 'Login Through Facebook'
+            = link_to image_tag('social-github.png', class: 'social', alt: 'Login Through Github'), user_github_omniauth_authorize_path, title: 'Login Through Github'
     button.close-button aria-label=('Close modal') data-close='' type='button'
         span aria-hidden='true' &times;

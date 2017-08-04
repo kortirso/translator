@@ -4,6 +4,8 @@ module Users
 
         def facebook; end
 
+        def github; end
+
         private
 
         def provides_callback
