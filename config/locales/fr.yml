@@ -26,7 +26,7 @@ fr:
   buttons:
     logout: Déconnecter
     login: Connecter
-    signup: Inscrivez -
+    signup: S'inscrire
   modals:
     auth: Autorisation
     reg: Inscription

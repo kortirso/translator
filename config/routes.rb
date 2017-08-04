@@ -7,8 +7,11 @@ Rails.application.routes.draw do
     end
     mount Sidekiq::Web => '/sidekiq'
 
+    devise_for :users, skip: [:session, :registration], controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
     localized do
-        devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
+        get 'omniauth/:provider' => 'users/omniauth#localized', as: :localized_omniauth
+        devise_for :users, skip: :omniauth_callbacks, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
         resources :tasks, only: %i[index show update]
         resources :translations, only: %i[index]
