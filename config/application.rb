@@ -9,7 +9,7 @@ module Translator
     class Application < Rails::Application
         ActiveModelSerializers.config.adapter = :json
 
-        I18n.available_locales = %i[en ru da]
+        I18n.available_locales = %i[en ru da de es pt fr]
         config.i18n.default_locale = :en
 
         config.active_record.schema_format = :ruby

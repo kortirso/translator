@@ -1,0 +1,43 @@
+---
+de:
+  nav:
+    yandex: 'Übersetzt von '
+    yandex_link: «Yandex.Übersetzer»
+    change_locale: Sprache wechseln
+  index:
+    header:
+      h1: LangTool
+      p: Einfach Lokalisierungen für die Entwickler!
+    help:
+      ul: Wir helfen Entwicklern auf den folgenden Plattformen
+    how:
+      ul: Wie können Sie Sie lokalisieren?
+      li1: wählen Sie die Datei für die Lokalisierung
+      li2: wählen Sie übersetzung der Richtung
+      li3: run übersetzung
+      li4: warten Sie ein paar Sekunden / Minuten
+      li5: download Ergebnis-Datei
+    footer:
+      h: Kontakte
+      p: Wenn Sie Fragen oder Anregungen haben, können Sie diese Kontakte
+  buttons:
+    logout: Abmelden
+    login: Anmelden
+    signup: Anmelden
+  modals:
+    auth: Genehmigung
+    reg: Registrierung
+    pass: Passwort
+    username: Benutzername
+    confirm: Kennwort bestätigen
+    enter: Anmelden
+    minimal: Minimale Passwort Länge - 6 Zeichen
+  tasks:
+    localize: Lokalisieren
+  task:
+    title: Siehe die übersetzungen von Wörtern und Phrasen aus Ihrer Datei
+    need_login: Angemeldete Benutzer können Bearbeiten von übersetzungen
+    translations: Mögliche übersetzungen
+  contribution:
+    header: Hilfe für professionelle übersetzer
+    text: Web-Service LangTool funktioniert aufgrund der automatischen Übersetzung von Texten mit Yandex.Translator. Aber um die Übersetzungsqualität von professionellen Übersetzern zu verbessern. Wenn Sie die Fähigkeit haben, Wunsch und Gelegenheit, um das Projekt zu helfen, können Sie Anfrage senden, um die Rechte zu übersetzen und zu bestätigen Übersetzungen zu erhalten.
