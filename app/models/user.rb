@@ -19,8 +19,9 @@ class User < ApplicationRecord
         user
     end
 
-    def update_token
+    def update_token(uid = nil)
         update(access_token: TokenService.call)
+        Task.for_guest(uid).update_all(user_id: self.id) if uid.present?
     end
 
     def admin?
