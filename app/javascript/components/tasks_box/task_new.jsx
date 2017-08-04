@@ -7,7 +7,8 @@ class TaskNew extends React.Component {
         this.state = {
             locales: [],
             locale: '',
-            data: {}
+            data: {},
+            fileName: ''
         }
     }
 
@@ -27,9 +28,11 @@ class TaskNew extends React.Component {
 
     _handleSubmit(event) {
         event.preventDefault();
-        let data = this.state.data;
-        data.append('to', this.state.locale);
-        this.props.addTask(data);
+        if (this.state.fileName != '') {
+            let data = this.state.data;
+            data.append('to', this.state.locale);
+            this.props.addTask(data);
+        }
     }
 
     _handleLocale(event) {
@@ -39,7 +42,7 @@ class TaskNew extends React.Component {
     _handleUploadFile(event) {
         const data = new FormData();
         data.append('file', event.target.files[0]);
-        this.setState({data: data});
+        this.setState({data: data, fileName: event.target.files[0].name});
     }
 
     _prepareOptions() {
@@ -60,7 +63,6 @@ class TaskNew extends React.Component {
         return (
             <form className='task_form' onSubmit={this._handleSubmit.bind(this)}>
                 <div className='task_form_fields row'>
-                    <h6>{this.props.strings.output}</h6>
                     <div className='columns small-12 medium-4'>
                         <div className='file_uploader'>
                             <label>
@@ -68,6 +70,7 @@ class TaskNew extends React.Component {
                                 <span>{this.props.strings.select}</span>
                             </label>
                         </div>
+                        <h6>{this.state.fileName}</h6>
                     </div>
                     <div className='columns small-12 medium-4'>
                         <select defaultValue={defaultValue} className='input_field' onChange={this._handleLocale.bind(this)}>

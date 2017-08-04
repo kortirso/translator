@@ -10,5 +10,21 @@
     "da": {
         "no_translation": "Ingen oversættelser",
         "translations": "Oversættelser er"
+    },
+    "de":{
+        "no_translation": "Keine Übersetzungen",
+        "translations": "Übersetzungen sind"
+    },
+    "es": {
+        "no_translation": "Sin traducciones",
+        "translations": "Las traducciones son"
+    },
+    "pt": {
+        "no_translation": "Sem traduções",
+        "translations": "As traduções são"
+    },
+    "fr": {
+        "no_translation": "Pas de traductions",
+        "translations": "Les traductions sont"
     }
 }

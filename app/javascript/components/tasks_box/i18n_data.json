@@ -34,5 +34,53 @@
         "translation":"Oversættelse",
         "goto":"Gå til oversættelse",
         "error":"Fejl"
+    },
+    "de":{
+        "select": "Datei aussuchen",
+        "localize": "Lokalisieren",
+        "output": "Ausgabe",
+        "file":"Datei",
+        "direction":"Richtung",
+        "status":"Status",
+        "download":"Herunterladen",
+        "translation":"Übersetzung",
+        "goto":"Zur Übersetzung gehen",
+        "error":"Fehler"
+    },
+    "es":{
+        "select": "Seleccione Archivo",
+        "localize": "Localizar",
+        "output": "Salida",
+        "file":"Archivo",
+        "direction":"Dirección",
+        "status":"Estado",
+        "download":"Descargar",
+        "translation":"Traducción",
+        "goto":"Ir a la traducción",
+        "error":"Error"
+    },
+    "pt":{
+        "select": "Selecione o arquivo",
+        "localize": "Localizar",
+        "output": "Saída",
+        "file":"Arquivo",
+        "direction":"Direção",
+        "status":"Status",
+        "download":"Download",
+        "translation":"Tradução",
+        "goto":"Ir para a tradução",
+        "error":"Erro"
+    },
+    "fr":{
+        "select": "Choisir le dossier",
+        "localize": "Localiser",
+        "output": "Sortie",
+        "file":"Fichier",
+        "direction":"Direction",
+        "status":"Statut",
+        "download":"Télécharger",
+        "translation":"Traduction",
+        "goto":"Aller à la traduction",
+        "error":"Erreur"
     }
 }
