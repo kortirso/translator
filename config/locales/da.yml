@@ -1,4 +1,7 @@
 da:
+  meta:
+    keywords: Oversættelse, oversætter, lokalisering, LangTool, udvikling, web
+    description: Automatisk system for udviklere lokalisering
   nav:
     yandex: 'Oversat service '
     yandex_link: '"Yandex.Oversætter"'

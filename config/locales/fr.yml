@@ -1,5 +1,8 @@
 ---
 fr:
+  meta:
+    keywords: Traduction, traducteur, localisation, LangTool, développement, Web
+    description: Système de localisation automatique pour les développeurs
   nav:
     yandex: 'Traduit par '
     yandex_link: «Yandex.Traducteur»

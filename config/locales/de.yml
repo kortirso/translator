@@ -1,5 +1,8 @@
 ---
 de:
+  meta:
+    keywords: Übersetzung, Übersetzer, Lokalisierung, LangTool, Entwicklung, Web
+    description: Automatisches Lokalisierungssystem für Entwickler
   nav:
     yandex: 'Übersetzt von '
     yandex_link: «Yandex.Übersetzer»
