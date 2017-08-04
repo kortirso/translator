@@ -39,9 +39,14 @@ body {
         position: relative;
         padding: 20px 0;
         h1 {
-            color: #50d691;
-            font-size: 2rem;
-            font-weight: 500;
+            a {
+                color: #50d691;
+                font-size: 2rem;
+                font-weight: 500;
+                &:hover, &:focus {
+                    color: #50d691;
+                }
+            }
         }
         p {
             font-style: italic;
@@ -75,7 +80,6 @@ body {
             p {
                 font-style: normal;
                 margin: 20px 0 0;
-                padding: 0 15px;
             }
             a {
                 img {
@@ -128,10 +132,29 @@ body {
                 margin-bottom: 3px;
                 font-size: 14px;
             }
-            img {
-                width: 25px;
-                border-radius: 5px;
-                margin-right: 4px;
+            .links {
+                img {
+                    width: 25px;
+                    border-radius: 5px;
+                    margin-right: 4px;
+                }
+            }
+            .coders {
+                text-align: right;
+                a {
+                    position: relative;
+                    top: 5px;
+                    right: 10%;
+                    img {
+                        height: 30px;
+                    }
+                    @media (max-width: 600px) {
+                        right: 0;
+                    }
+                }
+                @media (max-width: 600px) {
+                    text-align: left;
+                }
             }
         }
     }
