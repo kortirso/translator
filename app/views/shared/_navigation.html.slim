@@ -2,7 +2,7 @@ nav
     .row
         .columns.small-12
             header
-                h1= link_to t('index.header.h1'), "/#{params[:locale]}/tasks"
+                h1= link_to t('index.header.h1'), root_path(locale: params[:locale])
                 p= t('index.header.p')
                 .locals
                     p
