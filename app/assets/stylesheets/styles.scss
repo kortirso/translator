@@ -200,15 +200,31 @@ body {
 }
 
 #edit_translation {
+    background: #363747;
     .translation {
         margin-bottom: 5px;
+        &:nth-of-type(odd) {
+            input, p {
+                background: #464756;
+            }
+        }
         input {
             margin: 0;
+            background: none;
+            color: #FFF;
+            border: none;
+            border-radius: 4px;
+            box-shadow: none;
+            border: 1px solid transparent;
+            &:focus {
+                border: 1px solid #FFF;
+            }
         }
         .additional_translations {
             p {
                 font-size: 12px;
                 margin: 0;
+                padding: 0 0.5rem;
             }
         }
     }

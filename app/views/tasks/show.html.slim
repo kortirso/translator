@@ -1,8 +1,11 @@
 #edit_translation
     .row
-        .columns.small-12
+        .columns.small-12.medium-10.medium-offset-1
             p= t('task.title')
-            p= t('task.need_login')
+            - if user_signed_in?
+                p= t('task.for_logged')
+            - else
+                p= t('task.need_login')
             = form_tag :tasks, method: :patch do
                 = hidden_field_tag 'task_id', @task.id
                 - @translations.each do |translation|

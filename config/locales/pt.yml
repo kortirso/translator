@@ -38,8 +38,9 @@ pt:
   tasks:
     localize: Localizar
   task:
-    title: Ver as traduções de palavras e frases a partir de seu arquivo
+    title: Aqui você pode ver as traduções de palavras e frases do seu arquivo
     need_login: Usuários registrados podem editar traduções
+    for_logged: Você pode editar as traduções, depois de salvar os resultados, o arquivo resultante será re-formado.
     translations: Traduções possíveis
   contribution:
     header: Assistência tradutores profissionais

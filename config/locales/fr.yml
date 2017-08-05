@@ -38,8 +38,9 @@ fr:
   tasks:
     localize: Localiser
   task:
-    title: Voir les traductions des mots et des phrases à partir de votre fichier
+    title: Ici vous pouvez voir les traductions de mots et de phrases de votre fichier
     need_login: Connecté, les utilisateurs peuvent modifier les traductions
+    for_logged: Vous pouvez modifier les traductions, après avoir enregistré les résultats, le fichier résultant sera réformé.
     translations: Traductions possibles
   contribution:
     header: L'Assistance à des traducteurs professionnels

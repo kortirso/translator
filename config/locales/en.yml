@@ -38,8 +38,9 @@ en:
   tasks:
     localize: Localize
   task:
-    title: See the translations of words and phrases from your file
+    title: Here you can see the translations of words and phrases from your file
     need_login: Logged users can edit translations
+    for_logged: You can edit translations, after saving the results the resulting file will be re-formed.
     translations: Possible translations
   contribution:
     header: Assistance to professional translators

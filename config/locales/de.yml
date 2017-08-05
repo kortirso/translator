@@ -38,8 +38,9 @@ de:
   tasks:
     localize: Lokalisieren
   task:
-    title: Siehe die übersetzungen von Wörtern und Phrasen aus Ihrer Datei
+    title: Hier sehen Sie die Übersetzungen von Wörtern und Phrasen aus Ihrer Akte
     need_login: Angemeldete Benutzer können Bearbeiten von übersetzungen
+    for_logged: Sie können Übersetzungen bearbeiten, nach dem Speichern der Ergebnisse wird die resultierende Datei neu gebildet.
     translations: Mögliche übersetzungen
   contribution:
     header: Hilfe für professionelle übersetzer

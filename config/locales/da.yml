@@ -38,8 +38,9 @@ da:
   tasks:
     localize: At lokalisere
   task:
-    title: Læs oversættelser af ord og sætninger fra din fil
+    title: Her kan du se oversættelserne af ord og sætninger fra din fil
     need_login: Autoriserede brugere kan redigere oversættelser
+    for_logged: Du kan redigere oversættelser, efter at resultaterne er gemt, vil den resulterende fil blive omformet.
     translations: Mulige oversættelser
   contribution:
     header: Bistand til professionelle oversættere
