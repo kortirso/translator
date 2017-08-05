@@ -1,5 +1,6 @@
 ---
 es:
+  login_through: A través de iniciar sesión
   meta:
     keywords: La traducción, traductor, localización, LangTool, desarrollo, web
     description: Sistema de localización automática para los desarrolladores
