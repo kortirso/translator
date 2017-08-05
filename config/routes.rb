@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+    
     require 'sidekiq/web'
     if Rails.env.production?
         Sidekiq::Web.use Rack::Auth::Basic do |username, password|

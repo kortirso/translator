@@ -68,6 +68,9 @@ gem 'activerecord-import'
 # Code analyzation
 gem 'rubocop', '~> 0.49.1', require: false
 
+# Admin panel
+gem 'rails_admin', '~> 1.2'
+
 group :development do
     gem 'capistrano', require: false
     gem 'capistrano-bundler', require: false
