@@ -117,7 +117,7 @@ body {
     .content {
         position: relative;
         min-height: 100%;
-        padding-top: 133px;
+        padding-top: 159px;
         padding-bottom: 150px;
         @media (max-width: 600px) {
             padding-top: 170px;
@@ -344,6 +344,23 @@ table {
             label {
                 color: #FFF;
             }
+        }
+    }
+}
+
+#sign_in_form, #sign_up_form {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px 0;
+    img {
+        width: 25px;
+        border-radius: 4px;
+        margin-right: 5px;
+    }
+    #error_explanation {
+        h2 {
+            font-size: 20px;
+            color: #f30000;
         }
     }
 }

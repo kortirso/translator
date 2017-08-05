@@ -6,7 +6,7 @@ module Users
         private
 
         def update_token
-            current_user.update_token(session[:guest])
+            current_user.update_token(session[:guest]) if current_user.present?
         end
     end
 end
