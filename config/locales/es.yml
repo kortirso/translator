@@ -1,6 +1,5 @@
----
 es:
-  login_through: A través de iniciar sesión
+  login_through: Iniciar sesión a través de
   meta:
     keywords: La traducción, traductor, localización, LangTool, desarrollo, web
     description: Sistema de localización automática para los desarrolladores
@@ -23,18 +22,18 @@ es:
       li5: descargar archivo
     footer:
       h: Contactos
-      p: Si usted tiene preguntas o comentarios, puede utilizar estos contactos
+      p: Si usted tiene preguntas o comentarios
   buttons:
-    logout: La Sesión
-    login: Registro En
-    signup: Inscribirse
+    logout: Cerrar sesión
+    login: Iniciar sesión
+    signup: Registro
   modals:
-    auth: Autorización
+    auth: Autenticación
     reg: Registro
     pass: Contraseña
     username: Nombre de usuario
     confirm: Confirmar contraseña
-    enter: Registro En
+    enter: Iniciar sesión
     minimal: Longitud mínima de la contraseña - 6 caracteres
   tasks:
     localize: Localizar

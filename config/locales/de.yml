@@ -1,6 +1,5 @@
----
 de:
-  login_through: Einloggen durch
+  login_through: Login durch
   meta:
     keywords: Übersetzung, Übersetzer, Lokalisierung, LangTool, Entwicklung, Web
     description: Automatisches Lokalisierungssystem für Entwickler
@@ -23,18 +22,18 @@ de:
       li5: download Ergebnis-Datei
     footer:
       h: Kontakte
-      p: Wenn Sie Fragen oder Anregungen haben, können Sie diese Kontakte
+      p: Wenn Sie Fragen oder Anregungen haben
   buttons:
-    logout: Abmelden
-    login: Anmelden
-    signup: Anmelden
+    logout: Ausloggen
+    login: Anmeldung
+    signup: Neu registrieren
   modals:
-    auth: Genehmigung
+    auth: Authentifizierung
     reg: Registrierung
     pass: Passwort
     username: Benutzername
     confirm: Kennwort bestätigen
-    enter: Anmelden
+    enter: Anmeldung
     minimal: Minimale Passwort Länge - 6 Zeichen
   tasks:
     localize: Lokalisieren

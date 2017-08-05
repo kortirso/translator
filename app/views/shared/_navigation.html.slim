@@ -4,10 +4,6 @@ nav
             header
                 h1= link_to t('index.header.h1'), root_path(locale: params[:locale])
                 p= t('index.header.p')
-                .locals
-                    p
-                        - %w(en ru da de es pt fr).each do |locale|
-                            = link_to image_tag("flags/#{locale}.png"), change_locale(locale)
                 .logins
                     - if user_signed_in?
                         p= link_to t('buttons.logout'), destroy_user_session_path, method: :delete

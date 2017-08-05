@@ -1,5 +1,5 @@
 da:
-  login_through: Log through
+  login_through: Log ind gennem
   meta:
     keywords: Oversættelse, oversætter, lokalisering, LangTool, udvikling, web
     description: Automatisk system for udviklere lokalisering
@@ -22,18 +22,18 @@ da:
       li5: download resultat fil
     footer:
       h: Kontakter
-      p: Hvis du har spørgsmål eller feedback, kan du bruge disse kontakter
+      p: Hvis du har spørgsmål eller feedback
   buttons:
-    logout: Udgang
-    login: Indgang
-    signup: Tilmelding
+    logout: Log ud
+    login: Log på
+    signup: Tilmeld
   modals:
-    auth: Tilladelse
+    auth: Godkendelse
     reg: Tilmelding
     pass: Password
     username: Kaldenavn
     confirm: Bekræft adgangskode
-    enter: Indgang
+    enter: Log på
     minimal: Mindste password længde - 6 tegn
   tasks:
     localize: At lokalisere

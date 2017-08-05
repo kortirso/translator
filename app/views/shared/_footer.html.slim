@@ -6,8 +6,25 @@ footer
                     h4= t('index.footer.h')
                     p= t('index.footer.p')
                     p.links
-                        = link_to image_tag('social-vkontakte.png'), 'https://vk.com/kortirso', target: '_blank'
-                        = link_to image_tag('social-facebook.jpg'), 'https://www.facebook.com/kortirso', target: '_blank'
+                        = link_to image_tag('link-facebook.png'), 'https://www.facebook.com/kortirso', target: '_blank'
+                        = link_to image_tag('link-vkontakte.png'), 'https://vk.com/kortirso', target: '_blank'
                 .columns.small-12.medium-4
+                    h4 Account
+                    - if user_signed_in?
+                        p= t('buttons.login')
+                        p= t('buttons.signup')
+                    - else
+                        p= link_to t('buttons.login'), new_user_session_path(locale: params[:locale])
+                        p= link_to t('buttons.signup'), new_user_registration_path(locale: params[:locale])
                 .coders.columns.small-12.medium-4
                     = link_to image_tag('Logo-hvid.png'), 'https://junglecoders.com/', target: '_blank'
+                    p By Anton Bogdanov
+.bottom_footer
+    .row
+        .columns.small-12.medium-10.medium-offset-1
+            .columns.small-12.medium-6.large-4.large-offset-4
+                span LangTool © 2017
+            .columns.small-12.medium-6.large-4
+                .locals
+                    - %w(en ru da de es pt fr).each do |locale|
+                        = link_to image_tag("flags/#{locale}.png"), change_locale(locale)

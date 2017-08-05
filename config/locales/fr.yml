@@ -1,6 +1,5 @@
----
 fr:
-  login_through: Connectez-vous à travers
+  login_through: Se connecter via
   meta:
     keywords: Traduction, traducteur, localisation, LangTool, développement, Web
     description: Système de localisation automatique pour les développeurs
@@ -23,18 +22,18 @@ fr:
       li5: télécharger le fichier résultat
     footer:
       h: Contacts
-      p: Si vous avez des questions ou des commentaires, vous pouvez utiliser ce contacts
+      p: Si vous avez des questions ou des commentaires
   buttons:
     logout: Déconnecter
-    login: Connecter
-    signup: S'inscrire
+    login: S'identifier
+    signup: Registre
   modals:
-    auth: Autorisation
+    auth: Authentification
     reg: Inscription
     pass: Mot de passe
     username: Nom d'utilisateur
     confirm: Confirmer le mot de passe
-    enter: Connecter
+    enter: S'identifier
     minimal: Minimale du mot de passe de la longueur de 6 caractères
   tasks:
     localize: Localiser

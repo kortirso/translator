@@ -22,18 +22,18 @@ en:
       li5: download result file
     footer:
       h: Contact us
-      p: If you have questions or feedback, you can use this contacts
+      p: If you have questions or feedback
   buttons:
-    logout: Log Out
-    login: Log In
-    signup: Sign Up
+    logout: Logout
+    login: Login
+    signup: Register
   modals:
-    auth: Authorization
+    auth: Authentication
     reg: Registration
     pass: Password
     username: Username
     confirm: Confirm password
-    enter: Log In
+    enter: Login
     minimal: Minimum password length - 6 characters
   tasks:
     localize: Localize
