@@ -20,7 +20,7 @@ en:
       li4: wait a few seconds / minutes
       li5: download result file
     footer:
-      h: Contacts
+      h: Contact us
       p: If you have questions or feedback, you can use this contacts
   buttons:
     logout: Log Out

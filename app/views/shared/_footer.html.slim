@@ -1,10 +1,13 @@
 footer
     .row
-        .columns.small-12.medium-6.large-4.large-offset-1
-            h4= t('index.footer.h')
-            p= t('index.footer.p')
-            p.links
-                = link_to image_tag('social-vkontakte.png'), 'https://vk.com/kortirso', target: '_blank'
-                = link_to image_tag('social-facebook.jpg'), 'https://www.facebook.com/kortirso', target: '_blank'
-        .coders
-            = link_to image_tag('Logo-hvid.png'), 'https://junglecoders.com/', target: '_blank'
+        .columns.small-12.medium-10.medium-offset-1
+            .footer
+                .columns.small-12.medium-4
+                    h4= t('index.footer.h')
+                    p= t('index.footer.p')
+                    p.links
+                        = link_to image_tag('social-vkontakte.png'), 'https://vk.com/kortirso', target: '_blank'
+                        = link_to image_tag('social-facebook.jpg'), 'https://www.facebook.com/kortirso', target: '_blank'
+                .columns.small-12.medium-4
+                .coders.columns.small-12.medium-4
+                    = link_to image_tag('Logo-hvid.png'), 'https://junglecoders.com/', target: '_blank'
