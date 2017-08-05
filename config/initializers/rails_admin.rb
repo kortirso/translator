@@ -1,8 +1,7 @@
 RailsAdmin.config do |config|
-
     config.authenticate_with do
         warden.authenticate! scope: :user
-        end
+    end
 
     config.authorize_with do
         redirect_to main_app.root_path unless current_user.editor?

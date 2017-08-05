@@ -28,6 +28,11 @@ class Task < ApplicationRecord
         result_file.file.file
     end
 
+    def double_translating
+        update double: true
+        true
+    end
+
     def activate(translation_params)
         update status: 'active'
         TaskUpdatingJob.perform_later(translation_params, self)

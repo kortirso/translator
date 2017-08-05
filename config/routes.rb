@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-    
+
     require 'sidekiq/web'
     if Rails.env.production?
         Sidekiq::Web.use Rack::Auth::Basic do |username, password|
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
     mount Sidekiq::Web => '/sidekiq'
 
-    devise_for :users, skip: [:session, :registration], controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+    devise_for :users, skip: %i[session registration], controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
     localized do
         get 'omniauth/:provider' => 'users/omniauth#localized', as: :localized_omniauth
