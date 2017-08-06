@@ -1,4 +1,5 @@
 require 'yaml'
+require 'fileutils'
 
 module Fileloaders
     # Fileloader for *.yml
@@ -7,6 +8,7 @@ module Fileloaders
 
         def load
             return false unless task_base_file_exist?
+            remove_comments(task.file_name)
             yaml_file = YAML.load_file task.file_name
             return task.failure(110) if !yaml_file.is_a?(Hash) || yaml_file.keys.count != 1 || yaml_file.values.count != 1
             task.update(from: yaml_file.keys.first)
@@ -22,6 +24,17 @@ module Fileloaders
 
         def change_file_name
             "#{Rails.root}/public/uploads/tmp/#{task.to}.yml"
+        end
+
+        def remove_comments(file_name)
+            open(file_name, 'r') do |f|
+                open("#{file_name}.tmp", 'w') do |f2|
+                    f.each_line do |line|
+                        f2.write(line) unless line.start_with? '#'
+                    end
+                end
+            end
+            FileUtils.mv "#{file_name}.tmp", file_name
         end
     end
 end
