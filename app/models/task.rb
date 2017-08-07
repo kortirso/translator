@@ -16,7 +16,7 @@ class Task < ApplicationRecord
 
     scope :for_guest, ->(guest_uid) { where uid: guest_uid, user_id: nil }
 
-    after_create :task_processing
+    after_commit :task_processing, on: :create
 
     def file_name
         return '' if file.file.nil?
