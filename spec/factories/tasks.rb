@@ -9,6 +9,10 @@ FactoryGirl.define do
             status 'done'
         end
 
+        trait :failed do
+            status 'failed'
+        end
+
         trait :with_yml do
             file File.open(File.join(Rails.root, 'spec/test_files/ru.yml'))
         end

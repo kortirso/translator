@@ -28,7 +28,7 @@ RSpec.describe Task, type: :model do
         context '.double_translating' do
             let!(:task) { create :task }
 
-            it 'updates task' do
+            it 'updates task to use double translating' do
                 expect { task.double_translating }.to change(task, :double).from(false).to(true)
             end
 
@@ -40,7 +40,7 @@ RSpec.describe Task, type: :model do
         context '.complete' do
             let!(:task) { create :task }
 
-            it 'should be completed' do
+            it 'updates task status to done' do
                 expect { task.complete }.to change(task, :status).from('active').to('done')
             end
         end
@@ -49,12 +49,37 @@ RSpec.describe Task, type: :model do
             let!(:task_1) { create :task, :done }
             let!(:task_2) { create :task }
 
-            it 'should return true if status eq done' do
+            it 'returns true if status eq done' do
                 expect(task_1.completed?).to eq true
             end
 
-            it 'should return false if status not eq done' do
+            it 'returns false if status not eq done' do
                 expect(task_2.completed?).to eq false
+            end
+        end
+
+        context '.failure' do
+            let!(:task) { create :task }
+
+            it 'updates task status to failed' do
+                expect { task.failure(101) }.to change(task, :status).from('active').to('failed')
+            end
+
+            it 'returns false' do
+                expect(task.failure(101)).to eq false
+            end
+        end
+
+        context '.failed?' do
+            let!(:task_1) { create :task, :failed }
+            let!(:task_2) { create :task }
+
+            it 'returns true if status eq failed' do
+                expect(task_1.failed?).to eq true
+            end
+
+            it 'returns false if status not eq failed' do
+                expect(task_2.failed?).to eq false
             end
         end
     end
