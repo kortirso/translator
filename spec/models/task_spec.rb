@@ -96,5 +96,17 @@ RSpec.describe Task, type: :model do
                 expect(task_2.failed?).to eq false
             end
         end
+
+        context '.direction' do
+            let!(:task) { create :task }
+
+            it 'returns straight direction if :straight' do
+                expect(task.direction(:straight)).to eq "#{task.from}-#{task.to}"
+            end
+
+            it 'returns reverse direction if :reverse' do
+                expect(task.direction(:reverse)).to eq "#{task.to}-#{task.from}"
+            end
+        end
     end
 end
