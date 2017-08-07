@@ -113,7 +113,7 @@ RSpec.describe Task, type: :model do
             let!(:task) { create :task }
 
             it 'returns string with error' do
-                expect(task.error_message.is_a? String).to eq true
+                expect(task.error_message.is_a?(String)).to eq true
             end
 
             it 'returns specific error message for 101' do

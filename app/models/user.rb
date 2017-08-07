@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_many :tasks, dependent: :destroy
     has_many :identities, dependent: :destroy
 
-    validates :username, presence: true, uniqueness: true, length: { in: 1..20 }
+    validates :username, presence: true, length: { in: 1..30 }
     validates :role, presence: true, inclusion: { in: %w[user translator admin] }
 
     before_create :set_token
@@ -13,8 +13,10 @@ class User < ApplicationRecord
     def self.find_for_oauth(auth)
         identity = Identity.find_for_oauth(auth)
         return identity.user if identity.present?
-        user = User.find_by(email: auth.info[:email])
-        user = User.create(email: auth.info[:email], password: Devise.friendly_token[0, 20]) if user.nil?
+        user = User.find_or_create_by!(email: auth.info[:email]) do |u|
+            u.password = Devise.friendly_token[0, 20]
+            u.username = auth[:info][:nickname].present? ? auth[:info][:nickname] : "#{auth[:info][:last_name]} #{auth[:info][:first_name]}"
+        end
         user.identities.create(provider: auth.provider, uid: auth.uid)
         user
     end
