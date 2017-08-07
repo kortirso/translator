@@ -25,6 +25,18 @@ RSpec.describe Task, type: :model do
             end
         end
 
+        context '.double_translating' do
+            let!(:task) { create :task }
+
+            it 'updates task' do
+                expect { task.double_translating }.to change(task, :double).from(false).to(true)
+            end
+
+            it 'returns true' do
+                expect(task.double_translating).to eq true
+            end
+        end
+
         context '.complete' do
             let!(:task) { create :task }
 
