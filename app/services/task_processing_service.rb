@@ -7,7 +7,7 @@ class TaskProcessingService
         file_handler = fileresponder.new(task)
         return false unless file_handler.processing
         return false unless CheckTranslateDirectionService.call(task)
-        return false unless file_handler.check_permissions
+        # return false unless file_handler.check_permissions
 
         file_handler.translating
     end
