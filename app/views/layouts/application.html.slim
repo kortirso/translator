@@ -6,6 +6,8 @@ html
         meta name='viewport' content='width=device-width, initial-scale=1'
         meta name='Keywords' content= t('meta.keywords')
         meta name='Description' content= t('meta.description')
+        meta name='yandex-verification' content='2d0655efb8573c0b'
+        meta name='google-site-verification' content='bCL3ETt27VTKTa7gdwiIGpE347qf1c9hsTCkTwWNwyM'
         = stylesheet_link_tag 'application', media: 'all'
         = javascript_include_tag 'application'
         = csrf_meta_tags
@@ -14,3 +16,4 @@ html
         .content
             = yield
             = render 'shared/footer'
+        = render 'shared/metrics'
