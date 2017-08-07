@@ -108,5 +108,41 @@ RSpec.describe Task, type: :model do
                 expect(task.direction(:reverse)).to eq "#{task.to}-#{task.from}"
             end
         end
+
+        context '.error_message' do
+            let!(:task) { create :task }
+
+            it 'returns string with error' do
+                expect(task.error_message.is_a? String).to eq true
+            end
+
+            it 'returns specific error message for 101' do
+                task.update(error: 101)
+                task.reload
+
+                expect(task.error_message).to eq 'file does not exist'
+            end
+
+            it 'returns specific error message for 102' do
+                task.update(error: 102)
+                task.reload
+
+                expect(task.error_message).to eq 'fileresponder does not exist'
+            end
+
+            it 'returns specific error message for 110' do
+                task.update(error: 110)
+                task.reload
+
+                expect(task.error_message).to eq 'bad YML structure'
+            end
+
+            it 'returns specific error message for 201' do
+                task.update(error: 201)
+                task.reload
+
+                expect(task.error_message).to eq 'direction for translating does not exist'
+            end
+        end
     end
 end
