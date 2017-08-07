@@ -1,5 +1,5 @@
-RSpec.describe CheckTranslateDirectionService do
-    describe '#call' do
+RSpec.describe CheckTranslateDirectionService, type: :service do
+    describe '.call' do
         context 'for valid task' do
             let!(:task) { create :task, from: 'ru' }
 
