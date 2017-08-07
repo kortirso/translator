@@ -252,9 +252,14 @@ Devise.setup do |config|
     # up on your models and hooks.
     # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-    config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: 'email,public_profile',
+    if Rails.env.production?
+        config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: 'email,public_profile', info_fields: 'email,link,locale,first_name,last_name,verified', redirect_url: 'https://langtool.tech/users/auth/facebook/callback'
+        config.omniauth :github, ENV['GITHUB_APP_ID'], ENV['GITHUB_APP_SECRET'], scope: 'user', redirect_url: 'https://langtool.tech/users/auth/github/callback'
+    else
+        config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: 'email,public_profile',
                   info_fields: 'email,link,locale,first_name,last_name,verified'
-    config.omniauth :github, ENV['GITHUB_APP_ID'], ENV['GITHUB_APP_SECRET'], scope: 'user'
+        config.omniauth :github, ENV['GITHUB_APP_ID'], ENV['GITHUB_APP_SECRET'], scope: 'user'
+    end
 
     # ==> Warden configuration
     # If you want to use other strategies, that are not supported by Devise, or
