@@ -1,6 +1,6 @@
 module Users
     class SessionsController < Devise::SessionsController
-        skip_before_action :verify_authenticity_token, only: :create
+        skip_before_action :verify_authenticity_token, only: %i[create destroy]
         after_action :update_token, only: :create
 
         private
