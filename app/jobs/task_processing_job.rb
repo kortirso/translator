@@ -3,6 +3,6 @@ class TaskProcessingJob < ApplicationJob
     queue_as :default
 
     def perform(task)
-        TaskProcessingService.delay_for(10.seconds).execute(task)
+        TaskProcessingService.delay_for(3.seconds).execute(task)
     end
 end
