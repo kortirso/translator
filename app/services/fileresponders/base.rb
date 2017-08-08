@@ -21,7 +21,7 @@ module Fileresponders
         def translating
             strings_for_translate
             fileloader.save(result)
-            Translations::TaskTranslationService.new(task: task).translate(words_for_translate: words_for_translate)
+            Translations::TaskTranslationService.new(task: task).translate(words_for_translate: words_for_translate.flatten)
         end
 
         private

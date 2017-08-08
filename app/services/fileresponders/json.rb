@@ -13,8 +13,9 @@ module Fileresponders
 
         def strings_for_translate(new_data = {})
             base_data.each do |key, value|
-                words_for_translate.push value
-                new_data[key] = "_###{value}##_"
+                checked = Checks::SentenceService.call(value)
+                words_for_translate.push checked[:blocks_for_translate]
+                new_data[key] = checked[:sentence]
             end
             @result = new_data
         end

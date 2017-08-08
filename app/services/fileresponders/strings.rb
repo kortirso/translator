@@ -17,8 +17,9 @@ module Fileresponders
             base_data.lines.each do |line|
                 if line[0] != "\n" && line[0] != '/'
                     word = line.split('"')[-2]
-                    words_for_translate.push word
-                    line.gsub!(word, "_###{word}##_")
+                    checked = Checks::SentenceService.call(word)
+                    words_for_translate.push checked[:blocks_for_translate]
+                    line.gsub!(word, checked[:sentence])
                 end
                 arr.push line
             end

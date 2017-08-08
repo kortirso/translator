@@ -1,0 +1,11 @@
+en:
+  error_404:
+    status: Page not found.
+    description: Houston, we have a problem. We're having trouble loading the page you are looking for.
+  links:
+    new_theme: Create Your Own %{resource_name}
+  import_message:
+    success: Import completed. %{count} news imported.
+  views:
+    pagination:
+      first: "&laquo;"

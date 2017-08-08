@@ -26,8 +26,9 @@ module Fileresponders
         end
 
         def get_values_for_translate(params)
-            words_for_translate.push params[:value]
-            value = create_hash_for_value(params[:keys].shift, "_###{params[:value]}##_")
+            checked = Checks::SentenceService.call(params[:value])
+            words_for_translate.push checked[:blocks_for_translate]
+            value = create_hash_for_value(params[:keys].shift, checked[:sentence])
             params[:keys].each { |key| value = create_hash_for_value(key, value) }
             value
         end
