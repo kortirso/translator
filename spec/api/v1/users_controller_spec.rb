@@ -207,15 +207,18 @@ describe 'Users API' do
                     end
 
                     it 'does not update user object' do
+                        skip 'turn off username'
                         expect(user.username).to_not eq other_user.username
                         expect(user.email).to_not eq other_user.email
                     end
 
                     it 'returns 409 status' do
+                        skip 'turn off username'
                         expect(response.code).to eq '409'
                     end
 
                     it 'returns error message' do
+                        skip 'turn off username'
                         expect(JSON.parse(response.body)).to eq('error' => 'User updating error')
                     end
                 end

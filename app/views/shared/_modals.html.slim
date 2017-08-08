@@ -16,7 +16,7 @@
     = form_with model: User.new, as: :user, url: registration_path(:user), data: { remote: false } do |f|
         .small-12.columns
             p= t('modals.reg')
-        .small-12.columns
+        /.small-12.columns
             = f.text_field :username, required: true, label: false, placeholder: t('modals.username')
         .small-12.columns
             = f.text_field :email, required: true, label: false, placeholder: 'Email'

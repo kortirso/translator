@@ -1,10 +1,10 @@
 RSpec.describe User, type: :model do
     it { should validate_presence_of :email }
     it { should validate_presence_of :password }
-    it { should validate_presence_of :username }
+    # it { should validate_presence_of :username }
     it { should have_many(:tasks).dependent(:destroy) }
     it { should have_many(:identities).dependent(:destroy) }
-    it { should validate_length_of :username }
+    # it { should validate_length_of :username }
 
     it 'should be valid' do
         user = create :user
@@ -12,13 +12,14 @@ RSpec.describe User, type: :model do
         expect(user).to be_valid
     end
 
-    it 'should be valid with username, email and password' do
-        user = User.new(username: 'tester', email: 'example@gmail.com', password: 'password')
+    it 'should be valid with email and password' do
+        user = User.new email: 'example@gmail.com', password: 'password'
 
         expect(user).to be_valid
     end
 
     it 'should be invalid without username' do
+        skip 'turn off username'
         user = User.new(username: nil)
         user.valid?
 
