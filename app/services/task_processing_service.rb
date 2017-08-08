@@ -1,6 +1,9 @@
 # Steps of processing for task
 class TaskProcessingService
-    def self.execute(task)
+    def self.execute(task_id)
+        task = Task.find(task_id)
+        return false if task.nil?
+
         fileresponder = SelectFileresponderService.call(task)
         return false unless fileresponder
 

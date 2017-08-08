@@ -20,7 +20,7 @@ RSpec.describe Task, type: :model do
             subject { build :task }
 
             it 'should perform_later job TaskProcessingJob' do
-                expect(TaskProcessingJob).to receive(:perform_later).with(subject)
+                expect(TaskProcessingJob).to receive(:perform_later)
                 subject.save!
             end
         end
