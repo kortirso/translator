@@ -57,3 +57,6 @@ Style/GuardClause:
 
 Style/FileName:
   Enabled: false
+
+Style/FormatStringToken:
+  EnforcedStyle: template
