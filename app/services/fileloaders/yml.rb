@@ -16,7 +16,7 @@ module Fileloaders
         end
 
         def save(result, temp_file_name = change_file_name)
-            File.write(temp_file_name, { task.to => result }.to_yaml)
+            File.write(temp_file_name, { task.to => result }.to_yaml(line_width: 500))
             task.save_temporary_file(temp_file_name)
         end
 
