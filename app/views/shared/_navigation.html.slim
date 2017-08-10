@@ -12,4 +12,4 @@ nav
                             a data-open='login'= t('buttons.login')
                         p
                             a data-open='signup'= t('buttons.signup')
-= render 'shared/modals'
+= render 'shared/modals' unless user_signed_in?
