@@ -4,7 +4,8 @@ module Checks
         def self.call(value)
             @blocks = []
             sentences = sentence_splitter(value)
-            rebuilded_sentence = sentences.collect { |sentence| checks(sentence) }.join
+            rebuilded_sentence = sentences.collect { |sentence| checks(sentence) }.join('.')
+            rebuilded_sentence[-1] += '.' if value[-1] == '.'
             {
                 sentence: rebuilded_sentence,
                 blocks_for_translate: @blocks
@@ -13,10 +14,10 @@ module Checks
 
         def self.sentence_splitter(value)
             sentences = value.split('.')
-            sentences[-1] += '.' if value[-1] == '.'
-            (0..(sentences.size - 2)).each.with_index do |index|
-                sentences[index] += '.'
-            end
+            #sentences[-1] += '.' if value[-1] == '.'
+            #(0..(sentences.size - 2)).each.with_index do |index|
+                #sentences[index] += '.'
+            #end
             sentences
         end
 

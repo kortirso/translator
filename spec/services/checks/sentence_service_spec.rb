@@ -6,8 +6,8 @@ RSpec.describe Checks::SentenceService, type: :service do
             it 'returns modified sentence and array for translate' do
                 answer = Checks::SentenceService.call(sentence)
 
-                expect(answer[:sentence]).to eq "_###{sentence}##_"
-                expect(answer[:blocks_for_translate]).to eq [sentence]
+                expect(answer[:sentence]).to eq "_##Page not found##_"
+                expect(answer[:blocks_for_translate]).to eq ['Page not found']
             end
         end
 
@@ -17,8 +17,8 @@ RSpec.describe Checks::SentenceService, type: :service do
             it 'returns modified sentence and array for translate' do
                 answer = Checks::SentenceService.call(sentence)
 
-                expect(answer[:sentence]).to eq "_###{sentence}##_"
-                expect(answer[:blocks_for_translate]).to eq [sentence]
+                expect(answer[:sentence]).to eq "_##Page not found##_."
+                expect(answer[:blocks_for_translate]).to eq ['Page not found']
             end
         end
 
@@ -28,8 +28,8 @@ RSpec.describe Checks::SentenceService, type: :service do
             it 'returns modified sentence and array for translate' do
                 answer = Checks::SentenceService.call(sentence)
 
-                expect(answer[:sentence]).to eq '_##Page not found.##__## 1##_'
-                expect(answer[:blocks_for_translate]).to eq ['Page not found.', ' 1']
+                expect(answer[:sentence]).to eq '_##Page not found##_._## 1##_'
+                expect(answer[:blocks_for_translate]).to eq ['Page not found', ' 1']
             end
         end
 
@@ -39,8 +39,8 @@ RSpec.describe Checks::SentenceService, type: :service do
             it 'returns modified sentence and array for translate' do
                 answer = Checks::SentenceService.call(sentence)
 
-                expect(answer[:sentence]).to eq '_##Page not found.##__## 1.##_'
-                expect(answer[:blocks_for_translate]).to eq ['Page not found.', ' 1.']
+                expect(answer[:sentence]).to eq '_##Page not found##_._## 1##_.'
+                expect(answer[:blocks_for_translate]).to eq ['Page not found', ' 1']
             end
         end
 
@@ -84,7 +84,7 @@ RSpec.describe Checks::SentenceService, type: :service do
             it 'returns sentence in array with dot' do
                 answer = Checks::SentenceService.sentence_splitter(sentence)
 
-                expect(answer).to eq [sentence]
+                expect(answer).to eq ['Page not found']
             end
         end
 
@@ -94,7 +94,7 @@ RSpec.describe Checks::SentenceService, type: :service do
             it 'returns sentences in array with 1 dot' do
                 answer = Checks::SentenceService.sentence_splitter(sentence)
 
-                expect(answer).to eq ['Page not found.', ' 1']
+                expect(answer).to eq ['Page not found', ' 1']
             end
         end
 
@@ -104,7 +104,7 @@ RSpec.describe Checks::SentenceService, type: :service do
             it 'returns sentences in array with 2 dots' do
                 answer = Checks::SentenceService.sentence_splitter(sentence)
 
-                expect(answer).to eq ['Page not found.', ' 1.']
+                expect(answer).to eq ['Page not found', ' 1']
             end
         end
     end
