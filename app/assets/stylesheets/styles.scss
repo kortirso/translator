@@ -281,11 +281,19 @@ table {
             padding: 0;
         }
         select {
-            background: #6f707e;
+            background: #6f707e image-url('arrow.png') no-repeat;
+            background-position: 90% 55%;
             text-align-last: center;
             &:hover {
                 cursor: pointer;
-                background: #5f606e;
+                background: #5f606e image-url('arrow.png') no-repeat;
+                background-position: 90% 55%;
+            }
+            @media (max-width: 640px) {
+                background-position: 95% 55%;
+                &:hover {
+                    background-position: 95% 55%;
+                }
             }
         }
         .file_uploader {

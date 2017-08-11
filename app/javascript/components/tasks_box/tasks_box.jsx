@@ -125,7 +125,7 @@ class TasksBox extends React.Component {
         return (
             <main className='platforms without_back'>
                 <div className='row'>
-                    <div className='columns small-12 medium-6 large-6 medium-offset-3 large-offset-3'>
+                    <div className='columns small-10 medium-8 large-6 small-offset-1 medium-offset-2 large-offset-3'>
                         <section className='block' id='new_file_block'>
                             <TaskNew access_token={this.props.access_token} email={this.props.email} strings={strings} addTask={this._addTask.bind(this)} />
                         </section>
