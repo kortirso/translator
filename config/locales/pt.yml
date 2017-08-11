@@ -23,6 +23,7 @@ pt:
     footer:
       h: Contactos
       p: Se você tiver perguntas ou comentários
+      account: CONTA
   buttons:
     logout: Sair
     login: Entrar

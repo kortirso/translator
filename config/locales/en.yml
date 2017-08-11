@@ -23,6 +23,7 @@ en:
     footer:
       h: Contact us
       p: If you have questions or feedback
+      account: ACCOUNT
   buttons:
     logout: Logout
     login: Login

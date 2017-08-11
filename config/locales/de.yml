@@ -23,6 +23,7 @@ de:
     footer:
       h: Kontakte
       p: Wenn Sie Fragen oder Anregungen haben
+      account: KONTO
   buttons:
     logout: Ausloggen
     login: Anmeldung

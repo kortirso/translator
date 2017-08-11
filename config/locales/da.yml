@@ -23,6 +23,7 @@ da:
     footer:
       h: Kontakter
       p: Hvis du har spørgsmål eller feedback
+      account: KONTO
   buttons:
     logout: Log ud
     login: Log på

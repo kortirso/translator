@@ -23,6 +23,7 @@ es:
     footer:
       h: Contactos
       p: Si usted tiene preguntas o comentarios
+      account: CUENTA
   buttons:
     logout: Cerrar sesión
     login: Iniciar sesión

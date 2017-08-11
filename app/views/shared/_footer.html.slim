@@ -9,7 +9,7 @@ footer
                         = link_to image_tag('link-facebook.png'), 'https://www.facebook.com/kortirso', target: '_blank'
                         = link_to image_tag('link-vkontakte.png'), 'https://vk.com/kortirso', target: '_blank'
                 .columns.small-12.medium-4
-                    h4 Account
+                    h4= t('index.footer.account')
                     - if user_signed_in?
                         p= t('buttons.login')
                         p= t('buttons.signup')

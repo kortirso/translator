@@ -23,6 +23,7 @@ fr:
     footer:
       h: Contacts
       p: Si vous avez des questions ou des commentaires
+      account: COMPTE
   buttons:
     logout: Déconnecter
     login: S'identifier
