@@ -5,7 +5,8 @@ module Fileloaders
 
         def load
             return false unless task_base_file_exist?
-            task.update(from: 'en')
+            file_name = task.file_name.split('/')[-1]
+            task.update(from: file_name.split('.').size == 2 ? 'en' : file_name.split('.')[1].split('.')[1])
             File.read task.file_name
         end
 
@@ -17,7 +18,8 @@ module Fileloaders
         private
 
         def change_file_name
-            "#{Rails.root}/public/uploads/tmp/#{task.file_name.split('/')[-1]}"
+            file_name = task.file_name.split('/')[-1].split('.')[0]
+            "#{Rails.root}/public/uploads/tmp/#{file_name}.#{task.to}.strings"
         end
     end
 end

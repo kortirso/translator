@@ -23,7 +23,8 @@ module Fileloaders
         private
 
         def change_file_name
-            "#{Rails.root}/public/uploads/tmp/#{task.to}.yml"
+            file_name = task.file_name.split('/')[-1].gsub("#{task.from}.yml", "#{task.to}.yml")
+            "#{Rails.root}/public/uploads/tmp/#{file_name}"
         end
 
         def remove_comments(file_name)
