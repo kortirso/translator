@@ -1,5 +1,5 @@
 RSpec.describe Fileresponders::Yml do
-    describe '#initialize' do
+    describe '.initialize' do
         let!(:task) { create :task }
         let(:responder) { Fileresponders::Yml.new(task) }
 

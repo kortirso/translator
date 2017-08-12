@@ -1,5 +1,5 @@
 RSpec.describe Fileresponders::Resx do
-    describe '#initialize' do
+    describe '.initialize' do
         let!(:task) { create :task }
         let(:responder) { Fileresponders::Resx.new(task) }
 

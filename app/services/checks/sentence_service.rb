@@ -13,12 +13,7 @@ module Checks
         end
 
         def self.sentence_splitter(value)
-            sentences = value.split('.')
-            #sentences[-1] += '.' if value[-1] == '.'
-            #(0..(sentences.size - 2)).each.with_index do |index|
-                #sentences[index] += '.'
-            #end
-            sentences
+            value.split('.')
         end
 
         def self.checks(sentence)

@@ -1,5 +1,5 @@
 RSpec.describe Fileloaders::Yml do
-    describe '#initialize' do
+    describe '.initialize' do
         let!(:task) { create :task }
         let(:loader) { Fileloaders::Yml.new(task) }
 
@@ -8,7 +8,7 @@ RSpec.describe Fileloaders::Yml do
         end
     end
 
-    describe '#load' do
+    describe '.load' do
         context 'if file does not exist' do
             let!(:task_without_file) { create :task }
             let(:loader) { Fileloaders::Yml.new(task_without_file) }
@@ -47,7 +47,7 @@ RSpec.describe Fileloaders::Yml do
         end
     end
 
-    describe '#save' do
+    describe '.save' do
         let!(:task_with_file) { create :task, :with_yml }
         let(:loader) { Fileloaders::Yml.new(task_with_file) }
 

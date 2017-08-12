@@ -25,6 +25,10 @@ FactoryGirl.define do
             file File.open(File.join(Rails.root, 'spec/test_files/UIStrings.resx'))
         end
 
+        trait :with_xml do
+            file File.open(File.join(Rails.root, 'spec/test_files/strings.xml'))
+        end
+
         trait :with_json do
             file File.open(File.join(Rails.root, 'spec/test_files/data.json'))
         end
