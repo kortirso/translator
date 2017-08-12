@@ -4,7 +4,7 @@ RSpec.describe Checks::SentenceService, type: :service do
             let(:sentence) { 'Page not found' }
 
             it 'returns modified sentence and array for translate' do
-                answer = Checks::SentenceService.call(sentence)
+                answer = Checks::SentenceService.call(sentence, :yml)
 
                 expect(answer[:sentence]).to eq '_##Page not found##_'
                 expect(answer[:blocks_for_translate]).to eq ['Page not found']
@@ -15,7 +15,7 @@ RSpec.describe Checks::SentenceService, type: :service do
             let(:sentence) { 'Page not found.' }
 
             it 'returns modified sentence and array for translate' do
-                answer = Checks::SentenceService.call(sentence)
+                answer = Checks::SentenceService.call(sentence, :yml)
 
                 expect(answer[:sentence]).to eq '_##Page not found##_.'
                 expect(answer[:blocks_for_translate]).to eq ['Page not found']
@@ -26,7 +26,7 @@ RSpec.describe Checks::SentenceService, type: :service do
             let(:sentence) { 'Page not found. 1' }
 
             it 'returns modified sentence and array for translate' do
-                answer = Checks::SentenceService.call(sentence)
+                answer = Checks::SentenceService.call(sentence, :yml)
 
                 expect(answer[:sentence]).to eq '_##Page not found##_._## 1##_'
                 expect(answer[:blocks_for_translate]).to eq ['Page not found', ' 1']
@@ -37,32 +37,10 @@ RSpec.describe Checks::SentenceService, type: :service do
             let(:sentence) { 'Page not found. 1.' }
 
             it 'returns modified sentence and array for translate' do
-                answer = Checks::SentenceService.call(sentence)
+                answer = Checks::SentenceService.call(sentence, :yml)
 
                 expect(answer[:sentence]).to eq '_##Page not found##_._## 1##_.'
                 expect(answer[:blocks_for_translate]).to eq ['Page not found', ' 1']
-            end
-        end
-
-        context 'for sentence with 1 variable' do
-            let(:sentence) { 'Page not found, %{name}' }
-
-            it 'returns modified sentence and array for translate with untranslated variables' do
-                answer = Checks::SentenceService.call(sentence)
-
-                expect(answer[:sentence]).to eq '_##Page not found, ##_%{name}'
-                expect(answer[:blocks_for_translate]).to eq ['Page not found, ']
-            end
-        end
-
-        context 'for sentence with 2 variables' do
-            let(:sentence) { '%{name_1}, Page not found, %{name_2}' }
-
-            it 'returns modified sentence and array for translate with untranslated variables' do
-                answer = Checks::SentenceService.call(sentence)
-
-                expect(answer[:sentence]).to eq '%{name_1}_##, Page not found, ##_%{name_2}'
-                expect(answer[:blocks_for_translate]).to eq [', Page not found, ']
             end
         end
     end
