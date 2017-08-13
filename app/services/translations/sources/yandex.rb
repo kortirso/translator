@@ -12,7 +12,7 @@ module Translations
             end
 
             def self.request(from, to, word)
-                RequestService.new(request: :translate, from: from, to: to).request(word)
+                RequestService.new(request: :translate, from: from, to: to).call(word)
             end
         end
     end

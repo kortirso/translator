@@ -8,9 +8,9 @@ module Checks
         end
 
         def self.request(from, to)
-            answer = RequestService.new(request: :get_langs, from: from).request
-            return false in answer.nil?
-            return false unless answer.include? "#{from}-#{to}"
+            answer = RequestService.new(request: :get_langs, from: from).call
+            return false if answer.nil?
+            return false unless answer['dirs'].include? "#{from}-#{to}"
             true
         end
     end
