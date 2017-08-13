@@ -254,11 +254,11 @@ Devise.setup do |config|
 
     if Rails.env.production?
         config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: 'email,public_profile', info_fields: 'email,link,locale,first_name,last_name,verified', callback_url: 'https://langtool.tech/users/auth/facebook/callback'
-        config.omniauth :github, ENV['GITHUB_APP_ID'], ENV['GITHUB_APP_SECRET'], scope: 'user', callback_url: 'https://langtool.tech/users/auth/github/callback'
+        config.omniauth :github, ENV['GITHUB_APP_ID'], ENV['GITHUB_APP_SECRET'], scope: 'user:email', callback_url: 'https://langtool.tech/users/auth/github/callback'
     else
         config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: 'email,public_profile',
                   info_fields: 'email,link,locale,first_name,last_name,verified'
-        config.omniauth :github, ENV['GITHUB_APP_ID'], ENV['GITHUB_APP_SECRET'], scope: 'user'
+        config.omniauth :github, ENV['GITHUB_APP_ID'], ENV['GITHUB_APP_SECRET'], scope: 'user:email'
     end
 
     # ==> Warden configuration
