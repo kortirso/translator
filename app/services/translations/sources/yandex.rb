@@ -1,5 +1,3 @@
-require 'net/http'
-
 module Translations
     module Sources
         # Request to Yandex for getting translation
@@ -14,12 +12,7 @@ module Translations
             end
 
             def self.request(from, to, word)
-                uri = URI("https://translate.yandex.net/api/v1.5/tr.json/translate?lang=#{from}-#{to}&key=#{ENV['YANDEX_TRANSLATE_API_KEY']}")
-                req = Net::HTTP::Post.new(uri)
-                req.set_form_data(text: word)
-                res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) { |http| http.request(req) }
-                return nil unless res.code == '200'
-                JSON.parse(res.body)['text'][0]
+                RequestService.new(request: :translate, from: from, to: to).request(word)
             end
         end
     end

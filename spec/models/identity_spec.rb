@@ -10,7 +10,7 @@ RSpec.describe Identity, type: :model do
         expect(identity).to be_valid
     end
 
-    describe 'methods' do
+    describe 'class methods' do
         context '.find_for_oauth' do
             let(:oauth) { create :oauth }
 

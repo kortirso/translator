@@ -11,8 +11,8 @@ RSpec.describe Locale, type: :model do
         expect(locale).to be_valid
     end
 
-    describe 'methods' do
-        context 'self.list' do
+    describe 'class methods' do
+        context '.list' do
             let!(:locale) { create :locale, :en }
 
             it 'should be array with en name and code' do
