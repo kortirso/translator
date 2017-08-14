@@ -5,11 +5,21 @@
         .columns.small-12.medium-6.large-4.large-offset-2
             h2= t('index.help.ul')
             ul
-                li Ruby on Rails (*.yml)
-                li JSON (*.json)
-                li .NET (*.resx)
-                li iOS (*.strings)
-                li Android (*.xml)
+                li
+                    = 'Ruby on Rails (*.yml)'
+                    a.structure data-open='ror_structure'
+                li
+                    = 'JSON (*.json)'
+                    a.structure data-open='json_structure'
+                li
+                    = '.NET (*.resx)'
+                    a.structure data-open='net_structure'
+                li
+                    = 'iOS (*.strings)'
+                    a.structure data-open='ios_structure'
+                li
+                    = 'Android (*.xml)'
+                    a.structure data-open='android_structure'
         .columns.small-12.medium-6.large-4.end
             h2= t('index.how.ul')
             ul
@@ -18,6 +28,7 @@
                 li= t('index.how.li3')
                 li= t('index.how.li4')
                 li= t('index.how.li5')
+    = render 'shared/structure'
 .platforms.without_back
     .row
         .columns.small-12.medium-8.medium-offset-2
