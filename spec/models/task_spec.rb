@@ -134,7 +134,7 @@ RSpec.describe Task, type: :model do
                 task.update(error: 110)
                 task.reload
 
-                expect(task.error_message).to eq 'bad YML structure'
+                expect(task.error_message).to eq 'bad file structure'
             end
 
             it 'returns specific error message for 201' do

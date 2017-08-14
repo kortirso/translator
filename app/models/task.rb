@@ -66,8 +66,9 @@ class Task < ApplicationRecord
         case error
             when 101 then 'file does not exist'
             when 102 then 'fileresponder does not exist'
-            when 110 then 'bad YML structure'
+            when 110 then 'bad file structure'
             when 201 then 'direction for translating does not exist'
+            when 202 then 'locale must be 2 characters (en, ru, de)'
             when 301 then 'limit is exceeded (100 lines)'
             when 302 then 'limit is exceeded (200 lines)'
             else ''

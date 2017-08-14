@@ -6,7 +6,9 @@ module Fileloaders
         def load
             return false unless task_base_file_exist?
             file_name = task.file_name.split('/')[-1]
-            task.update(from: file_name.split('.').size == 2 ? 'en' : file_name.split('.')[1].split('.')[1])
+            locale = file_name.split('.').size == 2 ? 'en' : file_name.split('.')[1].split('.')[1]
+            return task.failure(202) if locale.size != 2
+            task.update(from: locale)
             File.read task.file_name
         end
 

@@ -9,7 +9,9 @@ module Fileloaders
             return false unless task_base_file_exist?
             xml_file = Nokogiri::XML(File.open(task.file_name))
             file_name = task.file_name.split('/')[-1]
-            task.update(from: file_name.split('.').size == 2 ? 'en' : file_name.split('.')[1].split('-')[0])
+            locale = file_name.split('.').size == 2 ? 'en' : file_name.split('.')[1].split('-')[0]
+            return task.failure(202) if locale.size != 2
+            task.update(from: locale)
             xml_file
         end
 

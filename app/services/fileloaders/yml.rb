@@ -11,6 +11,7 @@ module Fileloaders
             remove_comments(task.file_name)
             yaml_file = YAML.load_file task.file_name
             return task.failure(110) if !yaml_file.is_a?(Hash) || yaml_file.keys.count != 1 || yaml_file.values.count != 1
+            return task.failure(202) if yaml_file.keys.first.size != 2
             task.update(from: yaml_file.keys.first)
             yaml_file.values.first
         end

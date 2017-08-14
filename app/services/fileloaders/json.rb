@@ -18,12 +18,12 @@ module Fileloaders
             return task.failure(110) unless json_file.is_a?(Hash)
 
             if json_file.keys.count != 1
-                locale_from_file_name = task.file_name.split('/')[-1].split('.')[0]
-                return task.failure(110) unless Locale.pluck(:code).include?(locale_from_file_name)
-                @locale = locale_from_file_name
+                @locale = task.file_name.split('/')[-1].split('.')[0]
             end
 
-            task.update(from: locale.nil? ? json_file.keys.first : locale)
+            loc = locale.nil? ? json_file.keys.first : locale
+            return task.failure(202) if loc.size != 2
+            task.update(from: loc)
             locale.nil? ? json_file.values.first : json_file
         end
 

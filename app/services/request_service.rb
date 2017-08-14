@@ -20,9 +20,10 @@ class RequestService
     private
 
     def select_uri(args)
+        base_uri = 'https://translate.yandex.net/api/v1.5/tr.json'
         case request
-            when :get_langs then URI("https://translate.yandex.net/api/v1.5/tr.json/getLangs?ui=#{args[:from]}&key=#{api_key}")
-            when :translate then URI("https://translate.yandex.net/api/v1.5/tr.json/translate?lang=#{args[:from]}-#{args[:to]}&key=#{api_key}")
+            when :get_langs then URI("#{base_uri}/getLangs?ui=#{args[:from]}&key=#{api_key}")
+            when :translate then URI("#{base_uri}/translate?lang=#{args[:from]}-#{args[:to]}&key=#{api_key}")
         end
     end
 
