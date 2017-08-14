@@ -143,6 +143,13 @@ RSpec.describe Task, type: :model do
 
                 expect(task.error_message).to eq 'direction for translating does not exist'
             end
+
+            it 'returns specific error message for 202' do
+                task.update(error: 202)
+                task.reload
+
+                expect(task.error_message).to eq 'locale definition error (see file structure below)'
+            end
         end
     end
 end
