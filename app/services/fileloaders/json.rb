@@ -30,7 +30,6 @@ module Fileloaders
         def save(result, temp_file_name = change_file_name)
             if locale.nil?
                 @json_file[task.to] = result
-                json_file.delete(task.from)
             else
                 @json_file = result
             end
@@ -41,7 +40,7 @@ module Fileloaders
         private
 
         def change_file_name
-            file_name = locale.nil? ? task.file_name.split('/')[-1].gsub('.json', ".#{task.to}.json") : "#{task.to}.json"
+            file_name = locale.nil? ? task.file_name.split('/')[-1] : "#{task.to}.json"
             "#{Rails.root}/public/uploads/tmp/#{file_name}"
         end
     end
