@@ -1,6 +1,6 @@
 .row
     #sign_in_form
-        = form_with model: User.new, as: :user, url: session_path(:user), data: { remote: false } do |f|
+        = form_with model: User.new, as: :user, url: session_path(:user), local: true do |f|
             .small-12.columns
                 p= t('modals.auth')
             .small-12.columns= f.text_field :email, autofocus: true, label: false, placeholder: 'Email'
