@@ -9,7 +9,7 @@ module Checks
                     blocks += check[:blocks_for_translate]
                 end
                 rebuilded_sentence = rebuilded_sentence.join('.')
-                rebuilded_sentence[-1] += '.' if value[-1] == '.'
+                rebuilded_sentence += '.' if value[-1] == '.'
             else
                 rebuilded_sentence = value
             end

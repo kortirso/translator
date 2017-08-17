@@ -3,7 +3,7 @@ require 'yandex'
 module Translations
     module Sources
         # Request to Yandex for getting translation
-        class Yandex
+        class FromYandex
             def self.find_translate(params)
                 if params[:task].double?
                     en_word = request(params[:task].from, 'en', params[:word])
@@ -14,7 +14,7 @@ module Translations
             end
 
             def self.request(from, to, word)
-                response = Yandex::Translator.new('api_key').translate(text: word, from: from, to: to)
+                response = Yandex::Translator.new(ENV['YANDEX_TRANSLATE_API_KEY']).translate(text: word, from: from, to: to)
                 return nil unless response.is_a?(Array)
                 response[0]
             end

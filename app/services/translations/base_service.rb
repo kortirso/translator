@@ -13,7 +13,7 @@ module Translations
             answer = db_data.find_translate(word)
             return answer if answer
 
-            answer = Translations::Sources::Yandex.find_translate(task: task, word: word)
+            answer = Translations::Sources::FromYandex.find_translate(task: task, word: word)
             if answer
                 new_words.push(word: word, answer: answer)
                 return answer
