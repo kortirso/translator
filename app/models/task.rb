@@ -71,6 +71,8 @@ class Task < ApplicationRecord
             when 202 then 'locale definition error (see file structure below)'
             when 301 then 'limit is exceeded (100 lines)'
             when 302 then 'limit is exceeded (200 lines)'
+            when 401 then 'loading file error (message sent to developers)'
+            when 402 then 'prepare translation error (message sent to developers)'
             else ''
         end
     end

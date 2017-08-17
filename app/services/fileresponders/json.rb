@@ -18,6 +18,8 @@ module Fileresponders
                 new_data[key] = checked[:sentence]
             end
             @result = new_data
+        rescue
+            raise AuthFailure, '402'
         end
     end
 end

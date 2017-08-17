@@ -23,6 +23,8 @@ module Fileresponders
                     hash_merging(result, translated)
                 end
             end
+        rescue
+            raise AuthFailure, '402'
         end
 
         def get_values_for_translate(params)

@@ -1,6 +1,8 @@
 module Fileresponders
     # common module for all fileresponders
     module Base
+        class AuthFailure < StandardError; end
+
         GUEST_LIMIT = 100
         USER_LIMIT = 200
 
@@ -16,12 +18,16 @@ module Fileresponders
             file_load = fileloader.load
             return false unless file_load
             @base_data = file_load
+        rescue
+            task.failure(401)
         end
 
         def translating
             strings_for_translate
             fileloader.save(result)
             Translations::TaskTranslationService.new(task: task).translate(words_for_translate: words_for_translate.flatten)
+        rescue AuthFailure => ex
+            task.failure(ex.message.to_i)
         end
 
         private

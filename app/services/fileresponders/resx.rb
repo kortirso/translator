@@ -19,6 +19,8 @@ module Fileresponders
                 value.children = checked[:sentence]
             end
             @result = base_data
+        rescue
+            raise AuthFailure, '402'
         end
     end
 end

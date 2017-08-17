@@ -24,6 +24,8 @@ module Fileresponders
                 arr.push line
             end
             @result = arr.join
+        rescue
+            raise AuthFailure, '402'
         end
     end
 end
