@@ -71,6 +71,9 @@ gem 'rubocop', '~> 0.49.1', require: false
 # Admin panel
 gem 'rails_admin', '~> 1.2'
 
+# Translator
+gem 'yandex-translator-api'
+
 group :development do
     gem 'capistrano', require: false
     gem 'capistrano-bundler', require: false

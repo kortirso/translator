@@ -1,3 +1,5 @@
+require 'yandex'
+
 module Checks
     # Check existness of translation direction at Yandex
     class TranslateDirectionService
@@ -8,9 +10,9 @@ module Checks
         end
 
         def self.request(from, to)
-            answer = RequestService.new(request: :get_langs, from: from).call
-            return false if answer.nil?
-            return false unless answer['dirs'].include? "#{from}-#{to}"
+            response = Yandex::Translator.new(ENV['YANDEX_TRANSLATE_API_KEY']).langs
+            return false unless response.is_a?(Array)
+            return false unless response.include? "#{from}-#{to}"
             true
         end
     end
