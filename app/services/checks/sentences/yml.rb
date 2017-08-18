@@ -4,8 +4,9 @@ module Checks
         class Yml
             REGEXP_TAGS = /<.+?>/
             REGEXP_VARIABLES = /%{\w+?}/
-            REGEXP_START_SPACES = /^[\s,:;]*/
-            REGEXP_TRAIL_SPACES = /[\s,:;]*$/
+            REGEXP_START_SPACES = /^[\s,:;|]*/
+            REGEXP_TRAIL_SPACES = /[\s,:;|]*$/
+            REGEXP_SPECIAL = /&[0-9a-zA-Z#]+?;/
 
             def initialize; end
 
@@ -16,6 +17,12 @@ module Checks
                 # remove variables
                 splitted_sentence.map! { |elem| elem.split(REGEXP_VARIABLES) }
                 splitted_sentence = splitted_sentence.flatten
+
+                # remove special characters
+                splitted_sentence.map! do |elem|
+                    elem.empty? ? nil : elem.split(REGEXP_SPECIAL)
+                end
+                splitted_sentence = splitted_sentence.flatten.compact
 
                 # remove first and last symbols
                 splitted_sentence.map! do |elem|

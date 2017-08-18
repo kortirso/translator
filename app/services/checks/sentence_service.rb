@@ -3,9 +3,10 @@ module Checks
     class SentenceService
         REGEXP_TAGS = /<.+?>/
 
-        attr_reader :sentence_checker
+        attr_reader :extension, :sentence_checker
 
         def initialize(extension)
+            @extension = extension
             @sentence_checker = "Checks::Sentences::#{extension.capitalize}".constantize.new
         end
 
@@ -30,6 +31,13 @@ module Checks
         private
 
         def sentence_splitted_by_dot(value)
+            case extension
+                when :yml then yml_splitting(value)
+                else value.split('.')
+            end
+        end
+
+        def yml_splitting(value)
             # replace dots in tags
             value.scan(REGEXP_TAGS).each do |tag|
                 value.gsub!(tag, tag.gsub('.', '_##_'))
