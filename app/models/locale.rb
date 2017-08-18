@@ -7,4 +7,8 @@ class Locale < ApplicationRecord
     def self.list
         all.collect { |loc| [loc.names[I18n.locale.to_s], loc.code] }.sort_by { |loc| loc[0] }
     end
+
+    def self.code_list
+        all.pluck(:code)
+    end
 end

@@ -150,6 +150,27 @@ RSpec.describe Task, type: :model do
 
                 expect(task.error_message).to eq 'locale definition error (see file structure below)'
             end
+
+            it 'returns specific error message for 203' do
+                task.update(error: 203)
+                task.reload
+
+                expect(task.error_message).to eq 'your language is not supported yet'
+            end
+
+            it 'returns specific error message for 401' do
+                task.update(error: 401)
+                task.reload
+
+                expect(task.error_message).to eq 'loading file error (message sent to developers)'
+            end
+
+            it 'returns specific error message for 402' do
+                task.update(error: 402)
+                task.reload
+
+                expect(task.error_message).to eq 'prepare translation error (message sent to developers)'
+            end
         end
     end
 end

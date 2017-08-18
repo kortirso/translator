@@ -69,6 +69,7 @@ class Task < ApplicationRecord
             when 110 then 'bad file structure'
             when 201 then 'direction for translating does not exist'
             when 202 then 'locale definition error (see file structure below)'
+            when 203 then 'your language is not supported yet'
             when 301 then 'limit is exceeded (100 lines)'
             when 302 then 'limit is exceeded (200 lines)'
             when 401 then 'loading file error (message sent to developers)'

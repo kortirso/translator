@@ -30,7 +30,7 @@ Metrics/ModuleLength:
   Enabled: false
 
 Metrics/CyclomaticComplexity:
-  Max: 10
+  Max: 20
 
 Layout/IndentationWidth:
   # Number of spaces for each indentation level.
