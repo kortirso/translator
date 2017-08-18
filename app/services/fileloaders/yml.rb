@@ -10,8 +10,8 @@ module Fileloaders
             return false unless task_base_file_exist?
             remove_comments(task.file_name)
             yaml_file = YAML.load_file task.file_name
-            return task.failure(110) if !yaml_file.is_a?(Hash) || yaml_file.keys.count != 1 || yaml_file.values.count != 1
-            return task.failure(202) if yaml_file.keys.first.size != 2
+            return task.failure(110) unless file_is_correct?(yaml_file)
+            return task.failure(202) unless locale_is_correct?(yaml_file.keys.first)
             task.update(from: yaml_file.keys.first)
             yaml_file.values.first
         end
@@ -38,6 +38,18 @@ module Fileloaders
                 end
             end
             FileUtils.mv "#{file_name}.tmp", file_name
+        end
+
+        def file_is_correct?(file)
+            return false unless file.is_a?(Hash)
+            return false unless file.keys.count == 1
+            true
+        end
+
+        def locale_is_correct?(locale)
+            return true if locale.size == 2
+            return true if locale.split('-')[0].size == 2
+            false
         end
     end
 end
