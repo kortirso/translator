@@ -13,7 +13,7 @@ module Fileresponders
 
         def strings_for_translate(new_data = {})
             base_data.each do |key, value|
-                checked = Checks::SentenceService.call(value, :json)
+                checked = sentence_service.call(value)
                 words_for_translate.push checked[:blocks_for_translate]
                 new_data[key] = checked[:sentence]
             end

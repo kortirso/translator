@@ -1,10 +1,18 @@
 module Checks
     # Split sentences, remove untranslated things
     class SentenceService
-        def self.call(value, extension, blocks = [], rebuilded_sentence = [])
+        REGEXP_TAGS = /<.+?>/
+
+        attr_reader :sentence_checker
+
+        def initialize(extension)
+            @sentence_checker = "Checks::Sentences::#{extension.capitalize}".constantize.new
+        end
+
+        def call(value, blocks = [], rebuilded_sentence = [])
             if value.is_a?(String)
-                sentence_splitter(value).each do |sentence|
-                    check = checks(sentence, extension)
+                sentence_splitted_by_dot(value).each do |sentence|
+                    check = sentence_checker.call(sentence)
                     rebuilded_sentence.push check[:sentence]
                     blocks += check[:blocks_for_translate]
                 end
@@ -19,12 +27,16 @@ module Checks
             }
         end
 
-        def self.sentence_splitter(value)
-            value.split('.')
-        end
+        private
 
-        def self.checks(sentence, extension)
-            "Checks::Sentences::#{extension.capitalize}".constantize.call(sentence)
+        def sentence_splitted_by_dot(value)
+            # replace dots in tags
+            value.scan(REGEXP_TAGS).each do |tag|
+                value.gsub!(tag, tag.gsub('.', '_##_'))
+            end
+
+            # split value for sentences and put dots in sentence
+            value.split('.').map! { |sent| sent.gsub('_##_', '.') }
         end
     end
 end

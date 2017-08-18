@@ -6,12 +6,13 @@ module Fileresponders
         GUEST_LIMIT = 100
         USER_LIMIT = 200
 
-        attr_reader :task, :words_for_translate, :base_data, :fileloader, :result
+        attr_reader :task, :words_for_translate, :base_data, :fileloader, :result, :sentence_service
 
         def initialize(task)
             @task = task
             @words_for_translate = []
             @fileloader = select_fileloader.new(task)
+            @sentence_service = Checks::SentenceService.new(self.class.name.demodulize.to_sym)
         end
 
         def processing

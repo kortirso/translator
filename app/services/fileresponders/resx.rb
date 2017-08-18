@@ -14,7 +14,7 @@ module Fileresponders
 
         def strings_for_translate
             base_data.xpath('//data/value').each do |value|
-                checked = Checks::SentenceService.call(value.children.to_s, :resx)
+                checked = sentence_service.call(value.children.to_s)
                 words_for_translate.push checked[:blocks_for_translate]
                 value.children = checked[:sentence]
             end
