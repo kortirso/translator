@@ -49,6 +49,10 @@ FactoryGirl.define do
             file File.open(File.join(Rails.root, 'spec/test_files/wrong_ru.yml'))
         end
 
+        trait :with_double_locale_yml do
+            file File.open(File.join(Rails.root, 'spec/test_files/nb-NO.yml'))
+        end
+
         trait :with_wrong_json do
             file File.open(File.join(Rails.root, 'spec/test_files/data_wrong.json'))
         end

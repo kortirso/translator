@@ -1,3 +1,5 @@
+require 'yaml'
+
 RSpec.describe Fileloaders::Yml do
     describe '.initialize' do
         let!(:task) { create :task }
@@ -79,6 +81,53 @@ RSpec.describe Fileloaders::Yml do
                 responce = loader.send(:change_file_name)
 
                 expect(responce).to eq "#{Rails.root}/public/uploads/tmp/hard_with_params.ru.yml"
+            end
+        end
+    end
+
+    describe '.file_is_correct?' do
+        context 'for incorrect file' do
+            let!(:task_with_file) { create :task, :with_wrong_yml }
+            let(:loader) { Fileloaders::Yml.new(task_with_file) }
+            let(:yaml_file) { YAML.load_file task_with_file.file_name }
+
+            it 'returns false' do
+                expect(loader.send(:file_is_correct?, yaml_file)).to eq false
+            end
+        end
+
+        context 'for correct file' do
+            let!(:task_with_file) { create :task, :with_yml }
+            let(:loader) { Fileloaders::Yml.new(task_with_file) }
+            let(:yaml_file) { YAML.load_file task_with_file.file_name }
+
+            it 'returns false' do
+                expect(loader.send(:file_is_correct?, yaml_file)).to eq true
+            end
+        end
+    end
+
+    describe '.locale_is_correct?' do
+        let!(:task_with_file) { create :task, :with_yml }
+        let(:loader) { Fileloaders::Yml.new(task_with_file) }
+
+        context 'for incorrect locale' do
+            it "returns false for 'enu'" do
+                expect(loader.send(:locale_is_correct?, 'enu')).to eq false
+            end
+
+            it "returns false for 'enu-GB'" do
+                expect(loader.send(:locale_is_correct?, 'enu-GB')).to eq false
+            end
+        end
+
+        context 'for correct locale' do
+            it "returns true for 'en'" do
+                expect(loader.send(:locale_is_correct?, 'en')).to eq true
+            end
+
+            it "returns true for 'en-GB'" do
+                expect(loader.send(:locale_is_correct?, 'en-GB')).to eq true
             end
         end
     end

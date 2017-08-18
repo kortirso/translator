@@ -11,8 +11,10 @@ module Fileloaders
             remove_comments(task.file_name)
             yaml_file = YAML.load_file task.file_name
             return task.failure(110) unless file_is_correct?(yaml_file)
-            return task.failure(202) unless locale_is_correct?(yaml_file.keys.first)
-            task.update(from: yaml_file.keys.first)
+
+            locale_from_file = yaml_file.keys.first
+            return task.failure(202) unless locale_is_correct?(locale_from_file)
+            task.update(from: locale_from_file.size == 2 ? locale_from_file : locale_from_file.split('-')[0])
             yaml_file.values.first
         end
 
