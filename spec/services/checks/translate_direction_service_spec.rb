@@ -5,21 +5,65 @@ RSpec.describe Checks::TranslateDirectionService, type: :service do
             let!(:task) { create :task, from: 'ru' }
 
             it 'returns true' do
+                stub_request(:post, 'https://translate.yandex.net/api/v1.5/tr.json/getLangs')
+                    .to_return(status: 200, body: '{"dirs":["ru-en", "en-de"]}', headers: {})
+
                 expect(Checks::TranslateDirectionService.call(task)).to eq true
             end
         end
 
         context 'for invalid locale' do
-            let(:task) { create :task, from: 'EN' }
+            context 'for incorrect locale code' do
+                let(:task) { create :task, from: 'EN' }
+                let(:request) { Checks::TranslateDirectionService.call(task) }
 
-            it 'returns false' do
-                expect(Checks::TranslateDirectionService.call(task)).to eq false
+                it 'returns false' do
+                    expect(request).to eq false
+                end
+
+                it 'executes failure method for task' do
+                    expect_any_instance_of(Task).to receive(:failure)
+
+                    request
+                end
+
+                it 'updates task with 203 failure code' do
+                    request
+                    task.reload
+
+                    expect(task.error).to eq 203
+                end
             end
 
-            it 'executes failure method for task' do
-                expect_any_instance_of(Task).to receive(:failure)
+            context 'for unexisted locale at Yandex' do
+                let!(:locale) { create :locale, :en }
+                let(:task) { create :task, from: 'en', to: 'pk' }
+                let(:request) { Checks::TranslateDirectionService.call(task) }
 
-                Checks::TranslateDirectionService.call(task)
+                it 'returns false' do
+                    stub_request(:post, 'https://translate.yandex.net/api/v1.5/tr.json/getLangs')
+                        .to_return(status: 200, body: '{"dirs":["ru-en", "en-de"]}', headers: {})
+
+                    expect(request).to eq false
+                end
+
+                it 'executes failure method for task' do
+                    stub_request(:post, 'https://translate.yandex.net/api/v1.5/tr.json/getLangs')
+                        .to_return(status: 200, body: '{"dirs":["ru-en", "en-de"]}', headers: {})
+                    expect_any_instance_of(Task).to receive(:failure)
+
+                    request
+                end
+
+                it 'updates task with 201 failure code' do
+                    stub_request(:post, 'https://translate.yandex.net/api/v1.5/tr.json/getLangs')
+                        .to_return(status: 200, body: '{"dirs":["ru-en", "en-de"]}', headers: {})
+
+                    request
+                    task.reload
+
+                    expect(task.error).to eq 201
+                end
             end
         end
     end

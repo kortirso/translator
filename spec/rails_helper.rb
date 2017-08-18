@@ -5,6 +5,7 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'sidekiq/testing'
+require 'webmock/rspec'
 
 Sidekiq::Testing.fake!
 
@@ -25,5 +26,9 @@ RSpec.configure do |config|
     Warden.test_mode!
     config.after :each do
         Warden.test_reset!
+    end
+
+    config.before :all do
+        WebMock.enable!
     end
 end

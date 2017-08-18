@@ -94,4 +94,5 @@ end
 group :test do
     gem 'json_spec'
     gem 'shoulda-matchers'
+    gem 'webmock'
 end
