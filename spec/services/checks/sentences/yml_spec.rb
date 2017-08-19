@@ -23,5 +23,38 @@ RSpec.describe Checks::Sentences::Yml, type: :service do
                 expect(answer[:blocks_for_translate]).to eq ['Page not found']
             end
         end
+
+        context 'for sentence with tag' do
+            let(:sentence) { 'You are using an <strong>outdated</strong> browser' }
+
+            it 'returns modified sentence and array for translate with untranslated tags' do
+                answer = sentence_checker.call(sentence)
+
+                expect(answer[:sentence]).to eq '_##You are using an##_ <strong>_##outdated##_</strong> _##browser##_'
+                expect(answer[:blocks_for_translate]).to eq ['You are using an', 'outdated', 'browser']
+            end
+        end
+
+        context 'for sentence with special characters' do
+            let(:sentence) { 'You are using an <strong>outdated &amp;</strong> browser' }
+
+            it 'returns modified sentence and array for translate with untranslated tags and special characters' do
+                answer = sentence_checker.call(sentence)
+
+                expect(answer[:sentence]).to eq '_##You are using an##_ <strong>_##outdated##_ &amp;</strong> _##browser##_'
+                expect(answer[:blocks_for_translate]).to eq ['You are using an', 'outdated', 'browser']
+            end
+        end
+
+        context 'for sentence with formatters' do
+            let(:sentence) { '%m/%d/%Y' }
+
+            it 'returns modified sentence and array for translate with untranslated formatters' do
+                answer = sentence_checker.call(sentence)
+
+                expect(answer[:sentence]).to eq '%m/%d/%Y'
+                expect(answer[:blocks_for_translate]).to eq []
+            end
+        end
     end
 end

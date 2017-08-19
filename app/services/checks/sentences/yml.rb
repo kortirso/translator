@@ -20,9 +20,20 @@ module Checks
                 end
                 splitted_sentence = splitted_sentence.flatten.compact
 
+                # remove formats
+                splitted_sentence.map! do |elem|
+                    elem.empty? ? nil : elem.split(REGEXP_FORMATS)
+                end
+                splitted_sentence = splitted_sentence.flatten.compact
+
                 # remove first and last symbols
                 splitted_sentence.map! do |elem|
-                    elem.empty? ? nil : elem.gsub(REGEXP_START_SPACES, '').gsub(REGEXP_TRAIL_SPACES, '')
+                    if elem.empty?
+                        nil
+                    else
+                        middle_var = elem.gsub(REGEXP_START_SPACES, '').gsub(REGEXP_TRAIL_SPACES, '')
+                        middle_var.empty? ? nil : middle_var
+                    end
                 end
                 blocks = splitted_sentence.compact
 
