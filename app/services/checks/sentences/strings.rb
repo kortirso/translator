@@ -2,6 +2,8 @@ module Checks
     module Sentences
         # Rebuild sentence for translation from Strings
         class Strings
+            include Checks::Sentences::Base
+
             def initialize; end
 
             def call(sentence)

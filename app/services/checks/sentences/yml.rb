@@ -2,20 +2,16 @@ module Checks
     module Sentences
         # Rebuild sentence for translation from Yml
         class Yml
-            REGEXP_TAGS = /<.+?>/
-            REGEXP_VARIABLES = /%{\w+?}/
-            REGEXP_START_SPACES = /^[\s,:;|]*/
-            REGEXP_TRAIL_SPACES = /[\s,:;|]*$/
-            REGEXP_SPECIAL = /&[0-9a-zA-Z#]+?;/
+            include Checks::Sentences::Base
 
             def initialize; end
 
             def call(sentence)
                 # remove tags
-                splitted_sentence = sentence.split(REGEXP_TAGS)
+                splitted_sentence = sentence.split(REGEXP_YML_TAGS)
 
                 # remove variables
-                splitted_sentence.map! { |elem| elem.split(REGEXP_VARIABLES) }
+                splitted_sentence.map! { |elem| elem.split(REGEXP_YML_VARIABLES) }
                 splitted_sentence = splitted_sentence.flatten
 
                 # remove special characters

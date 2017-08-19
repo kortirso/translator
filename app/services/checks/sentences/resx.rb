@@ -2,6 +2,8 @@ module Checks
     module Sentences
         # Rebuild sentence for translation from Resx
         class Resx
+            include Checks::Sentences::Base
+
             def initialize; end
 
             def call(sentence)

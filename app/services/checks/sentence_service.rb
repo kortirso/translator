@@ -1,7 +1,8 @@
 module Checks
     # Split sentences, remove untranslated things
     class SentenceService
-        REGEXP_TAGS = /<.+?>/
+        REGEXP_YML_TAGS = /<.+?>/
+        REGEXP_XML_VARIABLES = /<xliff:g.+?xliff:g>/
 
         attr_reader :extension, :sentence_checker
 
@@ -33,13 +34,24 @@ module Checks
         def sentence_splitted_by_dot(value)
             case extension
                 when :yml then yml_splitting(value)
+                when :xml then xml_splitting(value)
                 else value.split('.')
             end
         end
 
         def yml_splitting(value)
             # replace dots in tags
-            value.scan(REGEXP_TAGS).each do |tag|
+            value.scan(REGEXP_YML_TAGS).each do |tag|
+                value.gsub!(tag, tag.gsub('.', '_##_'))
+            end
+
+            # split value for sentences and put dots in sentence
+            value.split('.').map! { |sent| sent.gsub('_##_', '.') }
+        end
+
+        def xml_splitting(value)
+            # replace dots in variables
+            value.scan(REGEXP_XML_VARIABLES).each do |tag|
                 value.gsub!(tag, tag.gsub('.', '_##_'))
             end
 
