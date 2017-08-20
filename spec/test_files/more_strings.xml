@@ -1,0 +1,12 @@
+<resources>
+    <string name="facebook_app_id" translatable="false">1482258818749642</string>
+    <string-array name="podcast_tabs">
+        <item>All</item>
+        <item>Popular</item>
+        <item>Favorites</item>
+        <item>Saved</item>
+    </string-array>
+    <string name="led_font" translatable="false">fonts/LCD-BOLD.TTF</string>
+    <string name="podcast_context_tracks">Tracks</string>
+    <string name="title_activity_podcast">Club Life Podcasts</string>
+</resources>
