@@ -6,6 +6,7 @@ module Checks
 
             REGEXP_XML_VARIABLES = /<xliff:g.+?xliff:g>/
             REGEXP_YML_VARIABLES = /%{\w+?}/
+            REGEXP_LARAVEL_VARIABLES = /:\w+?/
 
             REGEXP_START_SPACES = %r{^[\s,:;|\'\"\/]*}
             REGEXP_TRAIL_SPACES = %r{[\s,:;|\'\"\/]*$}
