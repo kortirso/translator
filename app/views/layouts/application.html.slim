@@ -17,6 +17,7 @@ html
         meta itemprop='name' content='LangTool - Easy localizations for developers'
         meta itemprop='description' content='Automatic localization system for developers'
         meta itemprop='image' content='https://langtool.tech/image.jpg'
+        = render 'shared/adsense' if Rails.env.production?
         = stylesheet_link_tag 'application', media: 'all'
         = javascript_include_tag 'application'
         = csrf_meta_tags
