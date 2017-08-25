@@ -28,6 +28,10 @@
                 li= t('index.how.li3')
                 li= t('index.how.li4')
                 li= t('index.how.li5')
+    - if Rails.env.production?
+        .row
+            .columns.small-12
+                = render 'shared/adsense_block' 
     = render 'shared/structure'
 .platforms.without_back
     .row
