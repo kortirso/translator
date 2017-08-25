@@ -1,8 +1,8 @@
 en:
   login_through: Login through
   meta:
-    keywords: Translation, translator, localization, LangTool, development, web
-    description: Automatic localization system for developers
+    keywords: translator, localization, development, internationalization, i18n, l10n, translation tool, ruby on rails, android, react, .NET, yml, xml, json, resx, strings
+    description: LangTool is a automatic localization tool for developers
   nav:
     yandex: 'Translated by '
     yandex_link: «Yandex.Translator»

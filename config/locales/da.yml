@@ -1,8 +1,8 @@
 da:
   login_through: Log ind gennem
   meta:
-    keywords: Oversættelse, oversætter, lokalisering, LangTool, udvikling, web
-    description: Automatisk system for udviklere lokalisering
+    keywords: oversætter, lokalisering, udvikling, internationalisering, i18n, l10n, oversættelsesværktøj, ruby on rails, android, react .NET, yml, xml, json, resx, strings
+    description: LangTool er et oversættelsesværktøj til udviklere og webstedsejere
   nav:
     yandex: 'Oversat service '
     yandex_link: '"Yandex.Oversætter"'

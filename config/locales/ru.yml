@@ -1,8 +1,8 @@
 ru:
   login_through: Вход через
   meta:
-    keywords: Перевод, переводчик, локализация, LangTool, разработка, веб
-    description: Система автоматической локализации для разработчиков
+    keywords: переводчик, локализация, разработка, интернационализация, i18n, l10n, инструмент перевода, ruby on rails, android, react, .NET, yml, xml, json, resx, strings
+    description: LangTool - система автоматической локализации для разработчиков
   nav:
     yandex: 'Переведено сервисом '
     yandex_link: «Яндекс.Переводчик»

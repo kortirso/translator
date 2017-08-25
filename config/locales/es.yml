@@ -1,8 +1,8 @@
 es:
   login_through: Iniciar sesión a través de
   meta:
-    keywords: La traducción, traductor, localización, LangTool, desarrollo, web
-    description: Sistema de localización automática para los desarrolladores
+    keywords: traductor, localización, desarrollo, internacionalización, i18n, l10n, herramienta de traducción, ruby on rails, android, react, yml, xml, json, resx, strings
+    description: LangTool - herramienta de localización automática para desarrolladores
   nav:
     yandex: 'Traducido por '
     yandex_link: "Yandex.Traductor"

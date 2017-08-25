@@ -1,8 +1,8 @@
 de:
   login_through: Login durch
   meta:
-    keywords: Übersetzung, Übersetzer, Lokalisierung, LangTool, Entwicklung, Web
-    description: Automatisches Lokalisierungssystem für Entwickler
+    keywords: Übersetzer, Lokalisierung, Entwicklung, Internationalisierung, i18n, l10n, Übersetzungswerkzeug, ruby on rails, android, react, yml, xml, json, resx, strings
+    description: LangTool - Automatisches Lokalisierungswerkzeug für Entwickler
   nav:
     yandex: 'Übersetzt von '
     yandex_link: «Yandex.Übersetzer»
