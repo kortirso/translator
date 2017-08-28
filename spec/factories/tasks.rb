@@ -56,6 +56,10 @@ FactoryGirl.define do
         trait :with_wrong_json do
             file File.open(File.join(Rails.root, 'spec/test_files/data_wrong.json'))
         end
+
+        trait :with_php do
+            file File.open(File.join(Rails.root, 'spec/test_files/app.php'))
+        end
     end
 
     factory :invalid_task, class: 'Task' do
