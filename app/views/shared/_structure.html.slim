@@ -120,3 +120,24 @@
         |<&zwj;/resources>
     button.close-button aria-label=('Close modal') data-close='' type='button'
         span aria-hidden='true' &times;
+#php_structure.file_structure.reveal.small data-reveal=''
+    h2 PHP file structure
+    p Base locale is defined by file's name.
+    p.lead File name
+    p
+        = 'File name could be like '
+        span.italic= 'app.php'
+        = ' or '
+        span.italic= 'app.es.php.'
+    p.lead File structure
+    p Common structure of PHP file is described below.
+    pre
+        |return [
+        br/
+        |   'original message 1' => 'translated message 1',
+        br/
+        |   'original message 2' => 'translated message 2',
+        br/
+        |];
+    button.close-button aria-label=('Close modal') data-close='' type='button'
+        span aria-hidden='true' &times;
