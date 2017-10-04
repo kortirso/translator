@@ -2,13 +2,6 @@ import React from 'react';
 
 class Task extends React.Component {
 
-    constructor() {
-        super();
-        this.state = {
-
-        }
-    }
-
     _checkStatus() {
         if (this.props.task.status == 'failed') return <span>{this.props.strings.error}: {this.props.task.error_message}</span>;
         else return this.props.task.status;

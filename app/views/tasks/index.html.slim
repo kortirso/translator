@@ -1,5 +1,5 @@
 = javascript_pack_tag 'tasks_box'
-= react_component('TasksBox', access_token: user_signed_in? ? current_user.access_token : session[:guest], email: user_signed_in? ? current_user.email : '', locale: I18n.locale)
+= react_component('TasksBox', locale: I18n.locale)
 .platforms
     .row
         .columns.small-12.medium-6.large-4.large-offset-2

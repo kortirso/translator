@@ -15,7 +15,7 @@ Rails.application.routes.draw do
         get 'omniauth/:provider' => 'users/omniauth#localized', as: :localized_omniauth
         devise_for :users, skip: :omniauth_callbacks, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
-        resources :tasks, only: %i[index show update]
+        resources :tasks, only: %i[index show create update destroy]
         resources :translations, only: %i[index]
 
         namespace :api do

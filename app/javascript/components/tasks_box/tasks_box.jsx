@@ -38,20 +38,10 @@ class TasksBox extends React.Component {
         if (amount == 0) clearInterval(this.state.intervalId);
     }
 
-    _checkEndpoint() {
-        if (this.props.email == '') return 'guest';
-        else return 'tasks';
-    }
-
-    _checkEmail() {
-        if (this.props.email == '') return '';
-        else return `&email=${this.props.email}`;
-    }
-
     _fetchTasksList() {
         $.ajax({
             method: 'GET',
-            url: `api/v1/${this._checkEndpoint()}.json?access_token=${this.props.access_token}${this._checkEmail()}`,
+            url: 'tasks.json',
             success: (data) => {
                 this.setState({tasksList: data.tasks});
             }
@@ -62,7 +52,7 @@ class TasksBox extends React.Component {
     _deleteTask(task) {
         $.ajax({
             method: 'DELETE',
-            url: `api/v1/${this._checkEndpoint()}/${task.id}.json?access_token=${this.props.access_token}${this._checkEmail()}`,
+            url: `tasks/${task.id}.json`,
             success: (data) => {
                 const tasks = [... this.state.tasksList];
                 const taskIndex = tasks.indexOf(task);
@@ -75,7 +65,7 @@ class TasksBox extends React.Component {
     _addTask(data) {
         $.ajax({
             method: 'POST',
-            url: `/api/v1/${this._checkEndpoint()}.json?access_token=${this.props.access_token}${this._checkEmail()}`,
+            url: 'tasks.json',
             data: data,
             contentType: false,
             processData: false,
@@ -127,7 +117,7 @@ class TasksBox extends React.Component {
                 <div className='row'>
                     <div className='columns small-10 medium-8 small-offset-1 medium-offset-2'>
                         <section className='block' id='new_file_block'>
-                            <TaskNew access_token={this.props.access_token} email={this.props.email} strings={strings} addTask={this._addTask.bind(this)} />
+                            <TaskNew strings={strings} addTask={this._addTask.bind(this)} />
                         </section>
                     </div>
                     {this._prepareTasksBox()}

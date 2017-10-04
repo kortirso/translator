@@ -1,13 +1,29 @@
 class TasksController < ApplicationController
-    skip_before_action :verify_authenticity_token, only: %i[update]
-    before_action :find_task, only: %i[show update]
+    skip_before_action :verify_authenticity_token, only: %i[create update]
+    before_action :find_task, only: %i[show update destroy]
     before_action :check_task_status, only: %i[show]
 
-    def index; end
+    def index
+        respond_to do |format|
+            format.html
+            format.json do
+                render json: { tasks: ActiveModel::Serializer::CollectionSerializer.new(find_tasks, each_serializer: TaskSerializer) }, status: 200
+            end
+        end
+    end
 
     def show
         @translations = @task.translations.includes(:base, :result).order(id: :asc)
         @locale = Locale.find_by(code: @task.to)
+    end
+
+    def create
+        task = Task.new(create_task_params)
+        if task.save
+            render json: task, status: 201
+        else
+            render json: { error: 'Task creation error' }, status: 409
+        end
     end
 
     def update
@@ -15,10 +31,25 @@ class TasksController < ApplicationController
         redirect_to tasks_path
     end
 
+    def destroy
+        @task.destroy
+        render json: { success: 'Task destroyed successfully' }, status: 200
+    end
+
     private
 
     def task_params
         params.require(:translation).permit!.to_h
+    end
+
+    def create_task_params
+        return task_params.merge(user: current_user) if user_signed_in?
+        task_params.merge(uid: session[:guest])
+    end
+
+    def find_tasks
+        return current_user.tasks.order(id: :desc) if user_signed_in?
+        Task.for_guest(session[:guest])
     end
 
     def find_task
