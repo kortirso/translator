@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.4.2'
 
 git_source(:github) do |repo_name|
     repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -8,24 +8,24 @@ git_source(:github) do |repo_name|
 end
 
 gem 'jquery-rails'
-gem 'rails', '~> 5.1.1'
+gem 'rails', '5.1.4'
 gem 'therubyracer', platforms: :ruby
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
+gem 'pg', '0.21'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma', '3.10.0'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '5.0.6'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '3.2.0'
 
 # Add Webpack
 gem 'foreman'
-gem 'webpacker'
+gem 'webpacker', '2.0'
 gem 'webpacker-react', '~> 0.2.0'
 
 # Store secrets
@@ -45,7 +45,7 @@ gem 'carrierwave', '~> 1.0'
 
 # Background Jobs
 gem 'redis-namespace'
-gem 'sidekiq', '>= 4.2.10'
+gem 'sidekiq', '5.0.5'
 
 # Model Serializers
 gem 'active_model_serializers', '~> 0.10.0'
@@ -86,6 +86,8 @@ group :development do
 end
 
 group :development, :test do
+    gem 'capybara'
+    gem 'database_cleaner'
     gem 'factory_girl_rails'
     gem 'rails-controller-testing'
     gem 'rspec-rails'
