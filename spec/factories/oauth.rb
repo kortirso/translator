@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
     factory :oauth, class: OmniAuth::AuthHash do
         provider 'facebook'
         uid { '1234567890' }

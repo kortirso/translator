@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
     factory :translation do
         direction 'ru-en'
         verified false
