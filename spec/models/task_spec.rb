@@ -1,9 +1,10 @@
 RSpec.describe Task, type: :model do
     it { should belong_to :user }
+    it { should belong_to :framework }
     it { should have_many(:positions).dependent(:destroy) }
     it { should have_many(:translations).through(:positions) }
     it { should validate_presence_of :status }
-    it { should validate_presence_of :to }
+    it { should validate_presence_of :framework_id }
     it { should validate_inclusion_of(:status).in_array(%w[verification checked active done failed]) }
     it { should validate_length_of(:from).is_equal_to(2) }
     it { should allow_value('').for(:from) }
@@ -127,7 +128,7 @@ RSpec.describe Task, type: :model do
                 task.update(error: 102)
                 task.reload
 
-                expect(task.error_message).to eq 'fileresponder does not exist'
+                expect(task.error_message).to eq 'file is incorrect'
             end
 
             it 'returns specific error message for 110' do

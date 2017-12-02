@@ -4,6 +4,7 @@ FactoryBot.define do
         to 'en'
         uid Digest::MD5.hexdigest(Time.current.to_s)
         status 'active'
+        association :framework
 
         trait :done do
             status 'done'

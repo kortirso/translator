@@ -43,7 +43,9 @@ class TasksController < ApplicationController
     private
 
     def task_params
-        params.require(:translation).permit!.to_h
+        resp = params.permit(:file, :framework).to_h
+        resp['framework'] = Framework.find_by(name: resp[:framework])
+        resp
     end
 
     def create_task_params

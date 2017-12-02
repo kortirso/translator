@@ -17,7 +17,7 @@ class TaskNew extends React.Component {
 
     _handleSubmit(event) {
         event.preventDefault();
-        if (this.state.fileName != '') {
+        if (this.state.fileName != '' && this.state.locale != null) {
             let data = this.state.data;
             data.append('to', this.state.locale);
             this.props.addTask(data);
@@ -35,7 +35,9 @@ class TaskNew extends React.Component {
     _handleUploadFile(event) {
         const data = new FormData();
         data.append('file', event.target.files[0]);
+        data.append('framework', this.state.framework);
         this.setState({data: data, fileName: event.target.files[0].name});
+        this.props.addTask(data);
     }
 
     _prepareFrameworks() {

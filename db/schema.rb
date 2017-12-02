@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127051538) do
+ActiveRecord::Schema.define(version: 20171202175855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,17 +51,19 @@ ActiveRecord::Schema.define(version: 20171127051538) do
 
   create_table "tasks", id: :serial, force: :cascade do |t|
     t.string "uid", default: "", null: false
-    t.string "status", default: "active", null: false
+    t.string "status", default: "verification", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "file"
     t.string "from", default: "", null: false
-    t.string "to", default: "en", null: false
+    t.string "to", default: "", null: false
     t.string "result_file"
     t.integer "user_id"
     t.integer "error"
     t.string "temporary_file"
     t.boolean "double", default: false
+    t.integer "framework_id"
+    t.index ["framework_id"], name: "index_tasks_on_framework_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 

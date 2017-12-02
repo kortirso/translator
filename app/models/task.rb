@@ -5,13 +5,14 @@ class Task < ApplicationRecord
     mount_uploader :result_file, FileUploader
 
     belongs_to :user, optional: true
+    belongs_to :framework
 
     has_many :positions, dependent: :destroy
     has_many :translations, through: :positions
 
-    validates :status, :to, presence: true
+    validates :status, :framework_id, presence: true
     validates :from, length: { is: 2 }, allow_blank: true
-    validates :to, length: { is: 2 }
+    validates :to, length: { is: 2 }, allow_blank: true
     validates :status, inclusion: { in: %w[verification checked active done failed] }
 
     scope :for_guest, ->(guest_uid) { where uid: guest_uid, user_id: nil }
@@ -65,7 +66,7 @@ class Task < ApplicationRecord
     def error_message
         case error
             when 101 then 'file does not exist'
-            when 102 then 'fileresponder does not exist'
+            when 102 then 'file is incorrect'
             when 110 then 'bad file structure'
             when 201 then 'direction for translating does not exist'
             when 202 then 'locale definition error (see file structure below)'
