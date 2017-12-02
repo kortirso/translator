@@ -35,7 +35,7 @@ class TasksBox extends React.Component {
     _checkCompleting() {
         let amount = 0;
         this.state.tasksList.map((task) => {
-            if (task.status == 'active') amount = amount + 1;
+            if (task.status == 'verification' || task.status == 'active') amount = amount + 1;
         });
         if (amount == 0) clearInterval(this.state.intervalId);
     }

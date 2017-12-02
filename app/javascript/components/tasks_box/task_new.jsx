@@ -37,7 +37,6 @@ class TaskNew extends React.Component {
         data.append('file', event.target.files[0]);
         data.append('framework', this.state.framework);
         this.setState({data: data, fileName: event.target.files[0].name});
-        this.props.addTask(data);
     }
 
     _prepareFrameworks() {
@@ -56,14 +55,9 @@ class TaskNew extends React.Component {
         });
     }
 
-    _prepareDefaultValue() {
-        if (this.props.locales.length > 0) return this.props.locales[0].names[this.props.strings.language];
-    }
-
     render() {
         const frameworks = this._prepareFrameworks();
         const locales = this._prepareLocales();
-        const defaultValue = this._prepareDefaultValue();
         return (
             <form className='task_form' onSubmit={this._handleSubmit.bind(this)}>
                 <div className='task_form_fields row'>
@@ -82,7 +76,8 @@ class TaskNew extends React.Component {
                         </div>
                     </div>
                     <div className='columns small-12 medium-4'>
-                        <select defaultValue={defaultValue} className='input_field' onChange={this._handleLocale.bind(this)} disabled={this.state.framework == null || this.state.fileName == ''}>
+                        <select defaultValue={true} className='input_field' onChange={this._handleLocale.bind(this)} disabled={this.state.framework == null || this.state.fileName == ''}>
+                            <option disabled value>Select Language</option>
                             {locales}
                         </select>
                     </div>

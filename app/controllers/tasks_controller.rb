@@ -9,8 +9,8 @@ class TasksController < ApplicationController
             format.json do
                 render json: {
                     tasks: ActiveModel::Serializer::CollectionSerializer.new(find_tasks, each_serializer: TaskSerializer),
-                    locales: ActiveModel::Serializer::CollectionSerializer.new(Locale.all.order(id: :asc), each_serializer: LocaleSerializer),
-                    frameworks: ActiveModel::Serializer::CollectionSerializer.new(Framework.all.order(id: :asc), each_serializer: FrameworkSerializer)
+                    locales: ActiveModel::Serializer::CollectionSerializer.new(Locale.all.order(code: :asc), each_serializer: LocaleSerializer),
+                    frameworks: ActiveModel::Serializer::CollectionSerializer.new(Framework.all.order(name: :asc), each_serializer: FrameworkSerializer)
                 }, status: 200
             end
         end
@@ -43,7 +43,7 @@ class TasksController < ApplicationController
     private
 
     def task_params
-        resp = params.permit(:file, :framework).to_h
+        resp = params.permit(:file, :framework, :to).to_h
         resp['framework'] = Framework.find_by(name: resp[:framework])
         resp
     end
