@@ -7,7 +7,11 @@ class TasksController < ApplicationController
         respond_to do |format|
             format.html
             format.json do
-                render json: { tasks: ActiveModel::Serializer::CollectionSerializer.new(find_tasks, each_serializer: TaskSerializer) }, status: 200
+                render json: {
+                    tasks: ActiveModel::Serializer::CollectionSerializer.new(find_tasks, each_serializer: TaskSerializer),
+                    locales: ActiveModel::Serializer::CollectionSerializer.new(Locale.all.order(id: :asc), each_serializer: LocaleSerializer),
+                    frameworks: ActiveModel::Serializer::CollectionSerializer.new(Framework.all.order(id: :asc), each_serializer: FrameworkSerializer)
+                }, status: 200
             end
         end
     end

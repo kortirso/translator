@@ -11,7 +11,9 @@ class TasksBox extends React.Component {
     constructor() {
         super();
         this.state = {
-            tasksList: []
+            tasksList: [],
+            locales: [],
+            frameworks: []
         }
     }
 
@@ -43,7 +45,7 @@ class TasksBox extends React.Component {
             method: 'GET',
             url: 'tasks.json',
             success: (data) => {
-                this.setState({tasksList: data.tasks});
+                this.setState({tasksList: data.tasks, locales: data.locales, frameworks: data.frameworks});
             }
         });
         this._checkCompleting();
@@ -117,7 +119,7 @@ class TasksBox extends React.Component {
                 <div className='row'>
                     <div className='columns small-10 medium-8 small-offset-1 medium-offset-2'>
                         <section className='block' id='new_file_block'>
-                            <TaskNew strings={strings} addTask={this._addTask.bind(this)} />
+                            <TaskNew frameworks={this.state.frameworks} locales={this.state.locales} strings={strings} addTask={this._addTask.bind(this)} />
                         </section>
                     </div>
                     {this._prepareTasksBox()}
