@@ -1,5 +1,19 @@
 # Represents task with file for translation
 class Task < ApplicationRecord
+    ERRORS = {
+        '101' => 'file does not exist',
+        '102' => 'file is incorrect',
+        '103' => 'file uploading error',
+        '110' => 'bad file structure',
+        '201' => 'direction for translating does not exist',
+        '202' => 'locale definition error (see file structure below)',
+        '203' => 'your language is not supported yet',
+        '301' => 'limit is exceeded (100 lines)',
+        '302' => 'limit is exceeded (200 lines)',
+        '401' => 'loading file error (message sent to developers)',
+        '402' => 'prepare translation error (message sent to developers)'
+    }.freeze
+
     mount_uploader :file, FileUploader
     mount_uploader :temporary_file, FileUploader
     mount_uploader :result_file, FileUploader
@@ -64,19 +78,7 @@ class Task < ApplicationRecord
     end
 
     def error_message
-        case error
-            when 101 then 'file does not exist'
-            when 102 then 'file is incorrect'
-            when 110 then 'bad file structure'
-            when 201 then 'direction for translating does not exist'
-            when 202 then 'locale definition error (see file structure below)'
-            when 203 then 'your language is not supported yet'
-            when 301 then 'limit is exceeded (100 lines)'
-            when 302 then 'limit is exceeded (200 lines)'
-            when 401 then 'loading file error (message sent to developers)'
-            when 402 then 'prepare translation error (message sent to developers)'
-            else ''
-        end
+        ERRORS[error.to_s]
     end
 
     def direction(value)

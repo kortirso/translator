@@ -113,64 +113,17 @@ RSpec.describe Task, type: :model do
         context '.error_message' do
             let!(:task) { create :task }
 
-            it 'returns string with error' do
-                expect(task.error_message.is_a?(String)).to eq true
+            it 'returns nil if no error' do
+                expect(task.error_message).to eq nil
             end
 
-            it 'returns specific error message for 101' do
-                task.update(error: 101)
-                task.reload
+            %w[101 102 110 201 202 203 401 402].each do |error|
+                it "returns specific error message for #{error}" do
+                    task.update(error: error)
+                    task.reload
 
-                expect(task.error_message).to eq 'file does not exist'
-            end
-
-            it 'returns specific error message for 102' do
-                task.update(error: 102)
-                task.reload
-
-                expect(task.error_message).to eq 'file is incorrect'
-            end
-
-            it 'returns specific error message for 110' do
-                task.update(error: 110)
-                task.reload
-
-                expect(task.error_message).to eq 'bad file structure'
-            end
-
-            it 'returns specific error message for 201' do
-                task.update(error: 201)
-                task.reload
-
-                expect(task.error_message).to eq 'direction for translating does not exist'
-            end
-
-            it 'returns specific error message for 202' do
-                task.update(error: 202)
-                task.reload
-
-                expect(task.error_message).to eq 'locale definition error (see file structure below)'
-            end
-
-            it 'returns specific error message for 203' do
-                task.update(error: 203)
-                task.reload
-
-                expect(task.error_message).to eq 'your language is not supported yet'
-            end
-
-            it 'returns specific error message for 401' do
-                task.update(error: 401)
-                task.reload
-
-                expect(task.error_message).to eq 'loading file error (message sent to developers)'
-            end
-
-            it 'returns specific error message for 402' do
-                task.update(error: 402)
-                task.reload
-
-                expect(task.error_message).to eq 'prepare translation error (message sent to developers)'
+                    expect(task.error_message).to eq Task::ERRORS[error.to_s]
+                end
             end
         end
     end
