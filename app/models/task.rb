@@ -60,7 +60,7 @@ class Task < ApplicationRecord
 
     def failure(code)
         update status: 'failed', error: code
-        false
+        nil
     end
 
     def completed?
