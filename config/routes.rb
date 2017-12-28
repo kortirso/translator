@@ -17,19 +17,11 @@ Rails.application.routes.draw do
 
         resources :tasks, only: %i[index show create update destroy]
         resources :translations, only: %i[index]
-        resources :locales, only: %i[index]
 
         namespace :api do
             namespace :v1 do
-                resources :users, only: %i[create update destroy] do
-                    get :me, on: :collection
-                    get :access_token, on: :collection
-                end
-                resources :tasks, only: %i[index create destroy]
-                resources :guest, only: %i[index create destroy] do
-                    get :access_token, on: :collection
-                end
                 resources :translations, only: %i[index update]
+                resources :locales, only: %i[index]
             end
         end
 

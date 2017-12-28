@@ -3,7 +3,7 @@ require 'fileutils'
 
 module FileHandle
     module Save
-        # Base class for saving files
+        # Saving service for Ruby on Rails framework
         class RailsService < FileHandle::SaveService
             def save_temporary(temporary, temp_file_name = temporary_file_name)
                 File.write(temp_file_name, { task.to => temporary }.to_yaml(line_width: 500))

@@ -112,13 +112,13 @@ RSpec.describe FileHandle::Upload::RailsService do
 
         context 'for locale like ru' do
             it 'updates task with ru locale' do
-                expect { loader.send(:task_update, 'ru')}.to change(task, :from).to('ru')
+                expect { loader.send(:task_update, 'ru') }.to change(task, :from).to('ru')
             end
         end
 
         context 'for locale like nb-NO' do
             it 'updates task with nb locale' do
-                expect { loader.send(:task_update, 'nb-NO')}.to change(task, :from).to('nb')
+                expect { loader.send(:task_update, 'nb-NO') }.to change(task, :from).to('nb')
             end
         end
     end
