@@ -72,7 +72,7 @@ gem 'rubocop', '~> 0.49.1', require: false
 gem 'rails_admin', '~> 1.2'
 
 # Translator
-gem 'yandex-translator-api'
+gem 'yandex-translator-api', '1.1.0'
 
 group :development do
     gem 'capistrano', require: false
