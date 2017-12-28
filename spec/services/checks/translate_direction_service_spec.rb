@@ -17,8 +17,8 @@ RSpec.describe Checks::TranslateDirectionService, type: :service do
                 let(:task) { create :task, from: 'EN' }
                 let(:request) { Checks::TranslateDirectionService.call(task) }
 
-                it 'returns false' do
-                    expect(request).to eq false
+                it 'returns nil' do
+                    expect(request).to eq nil
                 end
 
                 it 'executes failure method for task' do
@@ -44,7 +44,7 @@ RSpec.describe Checks::TranslateDirectionService, type: :service do
                     stub_request(:post, 'https://translate.yandex.net/api/v1.5/tr.json/getLangs')
                         .to_return(status: 200, body: '{"dirs":["ru-en", "en-de"]}', headers: {})
 
-                    expect(request).to eq false
+                    expect(request).to eq nil
                 end
 
                 it 'executes failure method for task' do

@@ -5,7 +5,7 @@ RSpec.describe Task, type: :model do
     it { should have_many(:translations).through(:positions) }
     it { should validate_presence_of :status }
     it { should validate_presence_of :framework_id }
-    it { should validate_inclusion_of(:status).in_array(%w[verification checked active done failed]) }
+    it { should validate_inclusion_of(:status).in_array(%w[verification active done failed]) }
     it { should validate_length_of(:from).is_equal_to(2) }
     it { should allow_value('').for(:from) }
     it { should validate_length_of(:to).is_equal_to(2) }
@@ -81,7 +81,7 @@ RSpec.describe Task, type: :model do
             end
 
             it 'returns false' do
-                expect(task.failure(101)).to eq false
+                expect(task.failure(101)).to eq nil
             end
         end
 
