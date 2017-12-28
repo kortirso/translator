@@ -1,5 +1,4 @@
 require 'yaml'
-require 'fileutils'
 
 module FileHandle
     module Save
@@ -17,19 +16,18 @@ module FileHandle
                 File.delete(change_file_name)
             end
 
-            private
-
-            def temporary_file_name
+            # private section
+            private def temporary_file_name
                 file_name = task.file_name.split('/')[-1]
                 file_name = file_name.split('.').size <= 2 ? "#{task.to}.yml" : "#{file_name.split('.')[0]}.#{task.to}.yml"
                 "#{Rails.root}/public/uploads/tmp/#{file_name}"
             end
 
-            def change_file_name
+            private def change_file_name
                 "#{Rails.root}/public/uploads/tmp/#{task.temporary_file.file.file.split('/')[-1]}"
             end
 
-            def save_result_file(filename, temporary_text)
+            private def save_result_file(filename, temporary_text)
                 File.open(filename, 'w') do |f|
                     f.write(temporary_text)
                     task.result_file = f

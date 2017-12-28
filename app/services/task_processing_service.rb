@@ -24,25 +24,24 @@ class TaskProcessingService
         task.failure(103)
     end
 
-    private
-
-    def file_service
+    # private section
+    private def file_service
         @file_service ||= Checks::FileresponderService.call(task)
     end
 
-    def file_uploader
+    private def file_uploader
         @file_uploader ||= service('Upload')
     end
 
-    def file_converter
+    private def file_converter
         @file_converter ||= service('Convert')
     end
 
-    def file_saver
+    private def file_saver
         @file_saver ||= service('Save')
     end
 
-    def service(type)
+    private def service(type)
         "FileHandle::#{type}::#{file_service}".constantize.new(task: task)
     end
 end

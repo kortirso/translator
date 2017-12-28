@@ -9,7 +9,7 @@ module FileHandle
         end
 
         # subclasses may override
-        def post_initialize(_args)
+        private def post_initialize(_args)
             nil
         end
     end

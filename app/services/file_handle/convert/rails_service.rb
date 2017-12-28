@@ -7,10 +7,6 @@ module FileHandle
         class RailsService < FileHandle::ConvertService
             attr_reader :temporary
 
-            def post_initialize(_args)
-                @temporary = {}
-            end
-
             def convert(hash_for_translate, parent = [])
                 hash_for_translate.each do |key, value|
                     if value.is_a?(Hash)
@@ -20,6 +16,11 @@ module FileHandle
                         hash_merging(temporary, translated)
                     end
                 end
+            end
+
+            # private section
+            private def post_initialize(_args)
+                @temporary = {}
             end
 
             private def get_values_for_translate(args)

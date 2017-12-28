@@ -14,9 +14,8 @@ module Translate
             word_service.save_new_words
         end
 
-        private
-
-        def translate_word(word)
+        # private section
+        private def translate_word(word)
             translated.push(word_service.translate(word))
         end
     end
