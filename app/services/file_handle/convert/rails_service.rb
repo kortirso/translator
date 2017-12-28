@@ -5,24 +5,21 @@ module FileHandle
     module Convert
         # FileUploader for *.yml
         class RailsService < FileHandle::ConvertService
-            attr_reader :result
+            attr_reader :temporary
 
             def post_initialize(_args)
-                @result = {}
+                @temporary = {}
             end
 
             def convert(hash_for_translate, parent = [])
                 hash_for_translate.each do |key, value|
                     if value.is_a?(Hash)
-                        strings_for_translate([key] + parent, value)
+                        convert(value, [key] + parent)
                     else
                         translated = get_values_for_translate(keys: [key] + parent, value: value)
-                        hash_merging(result, translated)
+                        hash_merging(temporary, translated)
                     end
                 end
-                true
-            rescue
-                raise AuthFailure, '402'
             end
 
             private def get_values_for_translate(args)

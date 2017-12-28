@@ -1,7 +1,10 @@
 module FileHandle
     # Base class for saving files
     class SaveService
+        attr_reader :task
+
         def initialize(args = {})
+            @task = args[:task]
             post_initialize(args)
         end
 

@@ -1,38 +1,48 @@
 # Steps of processing for task
 class TaskProcessingService
-    class << self
-        # old method
-        def execute(task)
-            fileresponder = Checks::FileresponderService.call(task)
-            return false unless fileresponder
+    attr_reader :task
 
-            file_handler = fileresponder.new(task)
-            return false unless file_handler.processing
-            return false unless Checks::TranslateDirectionService.call(task)
-            # return false unless file_handler.check_permissions
+    def initialize(args = {})
+        @task = args[:task]
+    end
 
-            file_handler.translating
-        end
+    def call
+        # uploading data from file
+        uploaded = file_uploader.load
+        # converting data for translation
+        file_converter.convert(uploaded)
+        # save temporary file with rebuilded data
+        file_saver.save_temporary(file_converter.temporary)
+        # translate data
+        translator = Translate::TaskService.new(task: task)
+        translator.translate(data: file_converter.words_for_translate)
+        # save result file with trnslated data
+        file_saver.save_result(data: file_converter.words_for_translate, translated: translator.translated)
+    rescue StandardError => ex
+        task.failure(ex.message.to_i)
+    rescue
+        task.failure(103)
+    end
 
-        # new method
-        def call(task)
-            file_service = Checks::FileresponderService.call2(task)
-            return false if file_service.nil?
+    private
 
-            file_uploader = "FileHandle::Upload::#{file_service}".constantize.new(task: task)
-            uploaded = file_uploader.load
-            return false if uploaded.nil?
+    def file_service
+        @file_service ||= Checks::FileresponderService.call(task)
+    end
 
-            file_converter = "FileHandle::Convert::#{file_service}".constantize.new
-            converted = file_converter.convert(uploaded)
-            return false if converted.nil?
+    def file_uploader
+        @file_uploader ||= service('Upload')
+    end
 
-            translator = Translate::TranslateService.new(task: task)
-            translated = translator.translate(data: converted.words_for_translate)
-            return false if translated.nil?
+    def file_converter
+        @file_converter ||= service('Convert')
+    end
 
-            file_saver = "FileHandle::Save::#{file_service}".constantize.new(task: task)
-            file_saver.save(data: translated)
-        end
+    def file_saver
+        @file_saver ||= service('Save')
+    end
+
+    def service(type)
+        "FileHandle::#{type}::#{file_service}".constantize.new(task: task)
     end
 end

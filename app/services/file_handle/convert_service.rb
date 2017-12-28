@@ -1,13 +1,12 @@
 module FileHandle
     # Base class for converting files
     class ConvertService
-        class AuthFailure < StandardError; end
-
-        attr_reader :words_for_translate, :sentence_service
+        attr_reader :task, :words_for_translate, :sentence_service
 
         def initialize(args = {})
+            @task = args[:task]
             @words_for_translate = []
-            @sentence_service = Checks::SentenceService.new(self.class.name.demodulize.to_sym)
+            @sentence_service = Checks::SentenceService.new(task.framework.extension)
             post_initialize(args)
         end
 

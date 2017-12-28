@@ -14,10 +14,6 @@ module FileHandle
                 check_file
                 check_locale
                 returned_value
-            rescue AuthFailure => ex
-                task.failure(ex.message.to_i)
-            rescue
-                task.failure(103)
             end
 
             private def prepare_file
@@ -26,7 +22,7 @@ module FileHandle
             end
 
             private def task_base_file_exist?
-                raise AuthFailure, '101' unless File.file?(task.file_name)
+                raise StandardError, '101' unless File.file?(task.file_name)
             end
 
             private def remove_comments(file_name = task.file_name)
@@ -41,8 +37,8 @@ module FileHandle
             end
 
             private def check_file
-                raise AuthFailure, '110' unless uploaded_file.is_a?(Hash)
-                raise AuthFailure, '110' unless uploaded_file.keys.count == 1
+                raise StandardError, '110' unless uploaded_file.is_a?(Hash)
+                raise StandardError, '110' unless uploaded_file.keys.count == 1
             end
 
             private def check_locale
@@ -54,11 +50,11 @@ module FileHandle
             private def locale_is_correct?(locale)
                 return true if locale.size == 2
                 return true if locale.split('-')[0].size == 2
-                raise AuthFailure, '202'
+                raise StandardError, '202'
             end
 
             private def task_update(locale)
-                task.update(from: locale.size == 2 ? locale : locale.split('-')[0])
+                task.update(from: locale.size == 2 ? locale : locale.split('-')[0], status: 'active')
             end
 
             private def returned_value
