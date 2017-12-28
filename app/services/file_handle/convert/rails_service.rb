@@ -1,6 +1,3 @@
-require 'yaml'
-require 'fileutils'
-
 module FileHandle
     module Convert
         # FileUploader for *.yml
