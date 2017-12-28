@@ -1,9 +1,9 @@
-RSpec.describe Translations::Sources::Fromdb do
+RSpec.describe Translate::Source::FromDb do
     let!(:locale_en) { create :locale, :en }
     let!(:locale_ru) { create :locale, :ru }
     let!(:locale_da) { create :locale, :da }
     let!(:task) { create :task, :with_yml, from: 'ru' }
-    let(:translator) { Translations::Sources::Fromdb.new(task: task) }
+    let(:translator) { Translate::Source::FromDb.new(task: task) }
 
     describe '.initialize' do
         it 'should assign task to @task' do
@@ -35,7 +35,7 @@ RSpec.describe Translations::Sources::Fromdb do
 
                 context 'there are no translations for locale' do
                     let!(:task_da) { create :task, :with_yml, from: 'ru', to: 'da' }
-                    let!(:translator_da) { Translations::Sources::Fromdb.new(task: task_da) }
+                    let!(:translator_da) { Translate::Source::FromDb.new(task: task_da) }
 
                     it 'returns false' do
                         expect(translator_da.find_translate(word_ru.text)).to eq false
@@ -58,7 +58,7 @@ RSpec.describe Translations::Sources::Fromdb do
 
                 context 'there are no translations for locale' do
                     let!(:task_da) { create :task, :with_yml, from: 'ru', to: 'da' }
-                    let!(:translator_da) { Translations::Sources::Fromdb.new(task: task_da) }
+                    let!(:translator_da) { Translate::Source::FromDb.new(task: task_da) }
 
                     it 'returns false' do
                         expect(translator_da.find_translate(word_ru.text)).to eq false

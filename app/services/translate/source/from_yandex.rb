@@ -14,7 +14,7 @@ module Translate
             end
 
             def self.request(from, to, word)
-                response = Yandex::Translator.new(ENV['YANDEX_TRANSLATE_API_KEY']).translate(text: word, from: from, to: to)
+                response = Yandex::Translator.new(api_key: ENV['YANDEX_TRANSLATE_API_KEY']).translate(text: word, from: from, to: to)
                 return nil unless response.is_a?(Array)
                 response[0]
             end
