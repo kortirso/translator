@@ -1,11 +1,11 @@
 module Checks
     # Returns fileresponder's class
     class FileresponderService
-        def self.call(task)
-            extension = task.file_name.split('.').last
-            case extension
-                when 'json', 'resx', 'strings', 'yml', 'xml', 'php' then "Fileresponders::#{extension.capitalize}".constantize
-                else task.failure(102)
+        class << self
+            def call(task)
+                extension = task.file_name.split('.').last
+                return task.framework.service if extension == task.framework.extension
+                raise StandardError, 102
             end
         end
     end

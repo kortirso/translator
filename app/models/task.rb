@@ -1,18 +1,33 @@
 # Represents task with file for translation
 class Task < ApplicationRecord
+    ERRORS = {
+        '101' => 'file does not exist',
+        '102' => 'file is incorrect',
+        '103' => 'file uploading error',
+        '110' => 'bad file structure',
+        '201' => 'direction for translating does not exist',
+        '202' => 'locale definition error (see file structure below)',
+        '203' => 'your language is not supported yet',
+        '301' => 'limit is exceeded (100 lines)',
+        '302' => 'limit is exceeded (200 lines)',
+        '401' => 'loading file error (message sent to developers)',
+        '402' => 'prepare translation error (message sent to developers)'
+    }.freeze
+
     mount_uploader :file, FileUploader
     mount_uploader :temporary_file, FileUploader
     mount_uploader :result_file, FileUploader
 
     belongs_to :user, optional: true
+    belongs_to :framework
 
     has_many :positions, dependent: :destroy
     has_many :translations, through: :positions
 
-    validates :status, :to, presence: true
+    validates :status, :framework_id, presence: true
     validates :from, length: { is: 2 }, allow_blank: true
-    validates :to, length: { is: 2 }
-    validates :status, inclusion: { in: %w[active done failed] }
+    validates :to, length: { is: 2 }, allow_blank: true
+    validates :status, inclusion: { in: %w[verification active done failed] }
 
     scope :for_guest, ->(guest_uid) { where uid: guest_uid, user_id: nil }
 
@@ -45,7 +60,7 @@ class Task < ApplicationRecord
 
     def failure(code)
         update status: 'failed', error: code
-        false
+        nil
     end
 
     def completed?
@@ -63,19 +78,7 @@ class Task < ApplicationRecord
     end
 
     def error_message
-        case error
-            when 101 then 'file does not exist'
-            when 102 then 'fileresponder does not exist'
-            when 110 then 'bad file structure'
-            when 201 then 'direction for translating does not exist'
-            when 202 then 'locale definition error (see file structure below)'
-            when 203 then 'your language is not supported yet'
-            when 301 then 'limit is exceeded (100 lines)'
-            when 302 then 'limit is exceeded (200 lines)'
-            when 401 then 'loading file error (message sent to developers)'
-            when 402 then 'prepare translation error (message sent to developers)'
-            else ''
-        end
+        ERRORS[error.to_s]
     end
 
     def direction(value)

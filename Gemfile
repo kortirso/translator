@@ -72,7 +72,7 @@ gem 'rubocop', '~> 0.49.1', require: false
 gem 'rails_admin', '~> 1.2'
 
 # Translator
-gem 'yandex-translator-api'
+gem 'yandex-translator-api', '1.1.0'
 
 group :development do
     gem 'capistrano', require: false
@@ -88,7 +88,7 @@ end
 group :development, :test do
     gem 'capybara'
     gem 'database_cleaner'
-    gem 'factory_girl_rails'
+    gem 'factory_bot_rails'
     gem 'rails-controller-testing'
     gem 'rspec-rails'
 end
@@ -96,5 +96,6 @@ end
 group :test do
     gem 'json_spec'
     gem 'shoulda-matchers'
+    gem 'simplecov', require: false
     gem 'webmock'
 end

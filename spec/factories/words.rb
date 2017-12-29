@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
     factory :word do
         trait :en do
             text 'Some text'

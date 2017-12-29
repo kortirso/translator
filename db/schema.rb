@@ -10,11 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805035753) do
+ActiveRecord::Schema.define(version: 20171221035823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "frameworks", force: :cascade do |t|
+    t.string "name"
+    t.string "extension"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "service", default: ""
+  end
 
   create_table "identities", force: :cascade do |t|
     t.string "provider"
@@ -44,17 +52,19 @@ ActiveRecord::Schema.define(version: 20170805035753) do
 
   create_table "tasks", id: :serial, force: :cascade do |t|
     t.string "uid", default: "", null: false
-    t.string "status", default: "active", null: false
+    t.string "status", default: "verification", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "file"
     t.string "from", default: "", null: false
-    t.string "to", default: "en", null: false
+    t.string "to", default: "", null: false
     t.string "result_file"
     t.integer "user_id"
     t.integer "error"
     t.string "temporary_file"
     t.boolean "double", default: false
+    t.integer "framework_id"
+    t.index ["framework_id"], name: "index_tasks_on_framework_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
