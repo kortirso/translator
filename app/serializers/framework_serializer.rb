@@ -1,3 +1,3 @@
 class FrameworkSerializer < ActiveModel::Serializer
-    attributes :id, :name, :extension
+  attributes :id, :name, :extension
 end

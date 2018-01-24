@@ -1,0 +1,6 @@
+= render 'components/navigation/navigation'
+= render 'components/modals/modals' unless user_signed_in?
+.content
+  = yield
+  = render 'components/footer/footer'
+= render 'components/metrics/metrics' if Rails.env.production?

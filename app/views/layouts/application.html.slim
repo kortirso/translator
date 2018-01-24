@@ -1,29 +1,25 @@
 doctype html
-html
-    head
-        title LangTool - Easy localizations for developers
-        meta charset='utf-8'
-        meta name='viewport' content='width=device-width, initial-scale=1'
-        meta name='Keywords' content= t('meta.keywords')
-        meta name='Description' content= t('meta.description')
-        meta name='yandex-verification' content='2d0655efb8573c0b'
-        meta name='google-site-verification' content='bCL3ETt27VTKTa7gdwiIGpE347qf1c9hsTCkTwWNwyM'
-        meta property='og:title' content='LangTool - Easy localizations for developers'
-        meta property='og:description' content='Free automatic localization system for developers'
-        meta property='og:type' content='WebService'
-        meta property='og:url' content='https://langtool.tech'
-        meta property='og:image' content='https://langtool.tech/image.jpg'
-        meta property='fb:app_id' content='1409706782431183'
-        meta itemprop='name' content='LangTool - Easy localizations for developers'
-        meta itemprop='description' content='Free automatic localization system for developers'
-        meta itemprop='image' content='https://langtool.tech/image.jpg'
-        = render 'shared/adsense' if Rails.env.production?
-        = stylesheet_link_tag 'application', media: 'all'
-        = javascript_include_tag 'application'
-        = csrf_meta_tags
-    body
-        = render 'shared/navigation'
-        .content
-            = yield
-            = render 'shared/footer'
-        = render 'shared/metrics' if Rails.env.production?
+html lang='en'
+  head
+    title LangTool - Easy localizations for developers
+    meta charset='utf-8'
+    meta name='viewport' content='width=device-width, initial-scale=1'
+    meta name='Keywords' content= t('meta.keywords')
+    meta name='Description' content= t('meta.description')
+    meta name='yandex-verification' content='2d0655efb8573c0b'
+    meta name='google-site-verification' content='bCL3ETt27VTKTa7gdwiIGpE347qf1c9hsTCkTwWNwyM'
+    meta property='og:title' content='LangTool - Easy localizations for developers'
+    meta property='og:description' content='Free automatic localization system for developers'
+    meta property='og:type' content='WebService'
+    meta property='og:url' content='https://langtool.tech'
+    meta property='og:image' content='https://langtool.tech/image.jpg'
+    meta property='fb:app_id' content='1409706782431183'
+    meta itemprop='name' content='LangTool - Easy localizations for developers'
+    meta itemprop='description' content='Free automatic localization system for developers'
+    meta itemprop='image' content='https://langtool.tech/image.jpg'
+    = render 'shared/adsense' if Rails.env.production?
+    = stylesheet_pack_tag 'application', media: 'all'
+    = csrf_meta_tags
+  body
+    = yield
+    = javascript_pack_tag 'application'

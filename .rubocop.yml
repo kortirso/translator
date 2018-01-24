@@ -34,7 +34,7 @@ Metrics/CyclomaticComplexity:
 
 Layout/IndentationWidth:
   # Number of spaces for each indentation level.
-  Width: 4
+  Width: 2
 
 Layout/CaseIndentation:
   EnforcedStyle: case
