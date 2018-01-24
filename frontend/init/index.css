@@ -60,3 +60,65 @@ body {
     background: #30b671;
   }
 }
+
+.flag {
+  display: inline-block;
+  width: 24px;
+  height: 16px;
+  background: url(../images/flags.png);
+
+  &.flag_ru {
+    background-position: 0 0;
+  }
+
+  &.flag_en {
+    background-position: 0 -16px;
+  }
+
+  &.flag_de {
+    background-position: 0 -32px;
+  }
+
+  &.flag_da {
+    background-position: 0 -48px;
+  }
+
+  &.flag_pt {
+    background-position: 0 -64px;
+  }
+
+  &.flag_es {
+    background-position: 0 -80px;
+  }
+
+  &.flag_fr {
+    background-position: 0 -96px;
+  }
+}
+
+.icon {
+  display: inline-block;
+  background: url(../images/icons.png);
+
+  &.social {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    &.vk {
+      background-position: 0 0;
+    }
+
+    &.twitter {
+      background-position: 0 -32px;
+    }
+
+    &.github {
+      background-position: 0 -64px;
+    }
+
+    &.facebook {
+      background-position: 0 -96px;
+    }
+  }
+}

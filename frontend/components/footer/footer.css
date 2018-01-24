@@ -18,9 +18,7 @@ footer {
   }
 
   .links {
-    img {
-      width: 32px;
-      border-radius: 50%;
+    a {
       margin-right: 4px;
     }
   }
@@ -102,12 +100,9 @@ footer {
     padding-bottom: 5px;
 
     a {
-      img {
-        width: 24px;
-        border: 1px solid #aaa;
-        margin-right: 5px;
-        opacity: 0.75;
-      }
+      border: 1px solid #aaa;
+      margin-right: 5px;
+      opacity: 0.75;
     }
   }
 }

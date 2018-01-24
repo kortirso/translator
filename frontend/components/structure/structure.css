@@ -1,0 +1,26 @@
+.file_structure {
+  background: rgba(54, 55, 71, 0.9);
+  border: 1px solid #000;
+
+  h2 {
+    color: #50d691;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  .italic {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  pre {
+    padding: 5px 10px;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.75);
+    color: #000;
+    float: left;
+    margin-right: 10px;
+  }
+}
