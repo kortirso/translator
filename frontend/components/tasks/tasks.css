@@ -1,0 +1,29 @@
+.platforms {
+  padding: 75px 0;
+  background: #464756;
+  text-align: center;
+
+  @media (max-width: 640px) {
+    padding: 50px 0;
+  }
+
+  &.without_back {
+    background: none;
+  }
+
+  h2 {
+    color: #50d691;
+    font-size: 1.5rem;
+    font-weight: 500;
+    min-height: 80px;
+
+    @media (max-width: 640px) {
+      min-height: 0;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin-left: 0;
+  }
+}

@@ -1,43 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500&subset=cyrillic');
-
-* {
-    font-family: 'Ubuntu' !important;
-    font-size: 16px;
-    font-weight: 300;
-}
-
-html, body {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-}
-
-html {
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-        background: #333;
-        width: 6px;
-    }
-    &::-webkit-scrollbar-track {
-        -webkit-border-radius: 6px;
-        border-radius: 6px;
-    }
-    &::-webkit-scrollbar-thumb {
-        -webkit-border-radius: 6px;
-        border-radius: 6px;
-        background: rgba(217,217,217,0.8);
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    }
-}
-
 body {
-    background: #363747 image-url('background.png') no-repeat;
-    background-position: top center;
-    color: #FFF;
-    position: relative;
-    .reveal-overlay {
-        overflow-y: hidden;
-    }
     header {
         text-align: center;
         position: relative;
@@ -89,10 +50,6 @@ body {
         min-height: 350px;
     }
     .content {
-        position: relative;
-        min-height: 100%;
-        padding-top: 159px;
-        padding-bottom: 185px;
         @media (max-width: 600px) {
             padding-top: 174px;
             padding-bottom: 341px;
@@ -357,31 +314,6 @@ table {
     .button {
         background: #50d691;
         border-radius: 4px;
-    }
-}
-
-.platforms {
-    padding: 75px 0;
-    background: #464756;
-    text-align: center;
-    @media (max-width: 640px) {
-        padding: 50px 0;
-    }
-    &.without_back {
-        background: none;
-    }
-    h2 {
-        color: #50d691;
-        font-size: 1.5rem;
-        font-weight: 500;
-        min-height: 80px;
-        @media (max-width: 640px) {
-            min-height: 0;
-        }
-    }
-    ul {
-        list-style: none;
-        margin-left: 0;
     }
 }
 

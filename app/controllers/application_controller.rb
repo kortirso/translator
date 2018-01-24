@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper Webpacker::Helper
+    prepend_view_path Rails.root.join('frontend')
 
     protect_from_forgery with: :exception
     before_action :configure_permitted_parameters, if: :devise_controller?

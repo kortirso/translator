@@ -1,0 +1,5 @@
+= render 'shared/navigation'
+.content
+  = yield
+  = render 'shared/footer'
+= render 'shared/metrics' if Rails.env.production?

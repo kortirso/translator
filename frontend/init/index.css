@@ -1,0 +1,49 @@
+@import "normalize.css/normalize.css";
+@import "foundation-sites/dist/css/foundation.css";
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,500&subset=cyrillic");
+
+* {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+html {
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    background: #333;
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    background: rgba(217, 217, 217, 0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+}
+
+body {
+  background: #363747 url("../images/background.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  color: #fff;
+  position: relative;
+
+  .reveal-overlay {
+    overflow-y: hidden;
+  }
+}

@@ -25,17 +25,11 @@ gem 'uglifier', '3.2.0'
 
 # Add Webpack
 gem 'foreman'
-gem 'webpacker', '2.0'
-gem 'webpacker-react', '~> 0.2.0'
+gem 'webpacker', '3.2.1'
+gem 'webpacker-react', '~> 0.3.2'
 
 # Store secrets
 gem 'figaro'
-
-# Foundation for frontend
-gem 'foundation-rails'
-
-# Auto-prefixing CSS for cross-browser compat.
-gem 'autoprefixer-rails', '6.7.6'
 
 # Use Slim as the templating engine. Better than ERB
 gem 'slim'
