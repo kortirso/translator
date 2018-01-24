@@ -3,6 +3,7 @@ import TranslationsLocale from 'components_react/translations_box/translations_l
 import Translation from 'components_react/translations_box/translation';
 import LocalizedStrings from 'react-localization';
 import I18nData from './i18n_data.json';
+const $ = require("jquery");
 
 let strings = new LocalizedStrings(I18nData);
 let alphabet = {en: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X','Y', 'Z'], ru: ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Э', 'Ю', 'Я'], da: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X','Y', 'Z', 'Å', 'Æ', 'Ø']};

@@ -6,13 +6,16 @@
   font-family: "Ubuntu", sans-serif;
   font-size: 16px;
   font-weight: 300;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  height: 100%;
 }
 
 html {
@@ -45,5 +48,15 @@ body {
 
   .reveal-overlay {
     overflow-y: hidden;
+  }
+}
+
+.button {
+  background: #50d691;
+  border-radius: 4px;
+
+  &:hover,
+  &:focus {
+    background: #30b671;
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+const $ = require("jquery");
 
 class TranslationsLocale extends React.Component {
 

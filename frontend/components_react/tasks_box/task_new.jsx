@@ -60,7 +60,7 @@ class TaskNew extends React.Component {
         const locales = this._prepareLocales();
         return (
             <form className='task_form' onSubmit={this._handleSubmit.bind(this)}>
-                <div className='task_form_fields row'>
+                <div className='task_form_fields grid-x'>
                     <div className='columns small-12 medium-4'>
                         <select defaultValue={true} className='input_field' onChange={this._handleFramework.bind(this)}>
                             <option disabled value>Select Framework</option>

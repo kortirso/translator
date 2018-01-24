@@ -3,6 +3,7 @@ import Task from 'components_react/tasks_box/task';
 import TaskNew from 'components_react/tasks_box/task_new';
 import LocalizedStrings from 'react-localization';
 import I18nData from './i18n_data.json';
+const $ = require("jquery");
 
 let strings = new LocalizedStrings(I18nData);
 
@@ -115,9 +116,9 @@ class TasksBox extends React.Component {
 
     render() {
         return (
-            <main className='platforms without_back'>
-                <div className='row'>
-                    <div className='columns small-10 medium-8 small-offset-1 medium-offset-2'>
+            <main className='platforms without_back grid-container'>
+                <div className='grid-x'>
+                    <div className='cell small-10 medium-8 small-offset-1 medium-offset-2'>
                         <section className='block' id='new_file_block'>
                             <TaskNew frameworks={this.state.frameworks} locales={this.state.locales} strings={strings} addTask={this._addTask.bind(this)} />
                         </section>
