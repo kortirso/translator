@@ -1,44 +1,63 @@
 = javascript_pack_tag 'tasks_box'
+header
+  h1= t('index.header.h1')
+  p= t('index.header.p')
+section.block.description
+  .grid-x
+    .cell.medium-4
+      .description_block
+        = image_tag '1.jpg'
+        h3 1. Upload file
+        p Some text
+    .cell.medium-4
+      .description_block
+        = image_tag '1.jpg'
+        h3 2. Auto Translation
+        p Some text
+    .cell.medium-4
+      .description_block
+        = image_tag '1.jpg'
+        h3 3. Download Result
+        p Some text
 = react_component('TasksBox', locale: I18n.locale)
-.grid-container
-    .platforms
-        .grid-x
-            .cell.small-12.medium-6.large-4.large-offset-2
-                h2= t('index.help.ul')
-                ul
-                    li
-                        = 'Ruby on Rails (*.yml)'
-                        a.structure data-open='ror_structure'
-                    li
-                        = 'JSON (*.json)'
-                        a.structure data-open='json_structure'
-                    li
-                        = '.NET (*.resx)'
-                        a.structure data-open='net_structure'
-                    li
-                        = 'iOS (*.strings)'
-                        a.structure data-open='ios_structure'
-                    li
-                        = 'Android (*.xml)'
-                        a.structure data-open='android_structure'
-                    li
-                        = 'PHP (*.php)'
-                        a.structure data-open='php_structure'
-            .cell.small-12.medium-6.large-4.end
-                h2= t('index.how.ul')
-                ul
-                    li= t('index.how.li1')
-                    li= t('index.how.li2')
-                    li= t('index.how.li3')
-                    li= t('index.how.li4')
-                    li= t('index.how.li5')
-        - if Rails.env.production?
-            .grid-x
-                .cell.small-12
-                    .adsense_block= render 'shared/adsense_block' 
-        = render 'components/structure/structure'
-    .platforms.without_back
-        .grid-x
-            .cell.small-12.medium-8.medium-offset-2
-                h2= t('contribution.header')
-                p= t('contribution.text')
+- if Rails.env.production?
+  section.block
+    .grid-x
+      .cell.small-12
+        .adsense_block= render 'shared/adsense_block'
+section.block
+  .grid-x
+    .cell.small-12.medium-6
+      h2= t('index.help.ul')
+      ul
+        li
+          = 'Ruby on Rails (*.yml)'
+          a.structure data-open='ror_structure'
+        li
+          = 'JSON (*.json)'
+          a.structure data-open='json_structure'
+        li
+          = '.NET (*.resx)'
+          a.structure data-open='net_structure'
+        li
+          = 'iOS (*.strings)'
+          a.structure data-open='ios_structure'
+        li
+          = 'Android (*.xml)'
+          a.structure data-open='android_structure'
+        li
+          = 'PHP (*.php)'
+          a.structure data-open='php_structure'
+    .cell.small-12.medium-6
+    = render 'components/structure/structure'
+section.block
+  .grid-x
+    .cell.small-12.medium-6
+
+    .cell.small-12.medium-6
+      h2 Преимущества для зарегистрированных пользователей
+/section.block
+  .grid-x
+    .cell.small-12.medium-8.medium-offset-2
+      h2= t('contribution.header')
+      p= t('contribution.text')

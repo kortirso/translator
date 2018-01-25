@@ -1,11 +1,11 @@
 @import "normalize.css/normalize.css";
 @import "foundation-sites/dist/css/foundation.css";
-@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,500&subset=cyrillic");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=cyrillic");
 
 * {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
 
   &:focus {
     outline: none;
@@ -40,10 +40,10 @@ html {
 }
 
 body {
-  background: #363747 url("../images/background.png");
+  background: #fff;
   background-repeat: no-repeat;
   background-position: top center;
-  color: #fff;
+  color: #555;
   position: relative;
 
   .reveal-overlay {
@@ -53,8 +53,15 @@ body {
 
 h1,
 h2,
-h3 {
-  font-family: "Ubuntu", sans-serif;
+h3,
+h4 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  color: #333;
+}
+
+p {
+  margin-bottom: 0;
 }
 
 .button {
@@ -69,8 +76,8 @@ h3 {
 
 .flag {
   display: inline-block;
-  width: 24px;
-  height: 16px;
+  width: 25px;
+  height: 17px;
   background: url(../images/flags.png);
 
   &.flag_ru {
