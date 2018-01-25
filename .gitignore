@@ -23,7 +23,8 @@
 /node_modules
 
 dump.rdb
-coverage/public/packs
+coverage
+/public/packs
 /public/packs-test
 /node_modules
 yarn-debug.log*
