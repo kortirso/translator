@@ -1,0 +1,10 @@
+= javascript_pack_tag 'tasks_box'
+header
+  h1 Ваши задачи
+  p На этой странице можно подробно изучить ваши задачи либо начать новую задачу по переводу
+= react_component('TasksBox', locale: I18n.locale)
+- if Rails.env.production?
+  section.block
+    .grid-x
+      .cell.small-12
+        .adsense_block= render 'shared/adsense_block'

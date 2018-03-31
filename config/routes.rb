@@ -16,12 +16,9 @@ Rails.application.routes.draw do
     devise_for :users, skip: :omniauth_callbacks, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
     resources :tasks, only: %i[index show create update destroy]
-    resources :translations, only: %i[index]
 
     namespace :api do
       namespace :v1 do
-        resources :translations, only: %i[index update]
-        resources :locales, only: %i[index]
       end
     end
 

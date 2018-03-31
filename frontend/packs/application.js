@@ -9,6 +9,7 @@ import "components/metrics/metrics";
 import "components/structure/structure";
 
 import "components/welcome/welcome";
+import "components/tasks/tasks";
 
 import Rails from "rails-ujs";
 

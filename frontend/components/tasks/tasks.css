@@ -1,0 +1,29 @@
+header {
+  text-align: center;
+  margin-bottom: 75px;
+
+  h1 {
+    font-size: 40px;
+    font-weight: 600;
+  }
+
+  p {
+    font-style: italic;
+    font-size: 18px;
+  }
+}
+
+.block {
+  margin: 50px auto;
+  text-align: center;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  ul {
+    list-style: none;
+    margin-left: 0;
+  }
+}

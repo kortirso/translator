@@ -6,6 +6,8 @@
           .top-bar-left
             ul.menu
               li.menu-text= link_to 'LangTool', root_path(locale: params[:locale])
+              - if user_signed_in?
+                li.menu-text= link_to 'Tasks', tasks_path(locale: params[:locale])
           .top-bar-right
             ul.menu
               li
