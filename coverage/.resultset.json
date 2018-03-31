@@ -179,21 +179,21 @@
         null,
         null,
         1,
-        7,
-        null,
-        null,
-        1,
         5,
         null,
         null,
         1,
-        5,
+        4,
+        null,
+        null,
+        1,
+        3,
         null,
         null,
         1,
         null,
         1,
-        44,
+        42,
         null,
         null
       ],
@@ -306,22 +306,11 @@
         null,
         null,
         1,
-        7,
+        5,
         null,
         null,
         1,
-        16,
-        null,
-        null
-      ],
-      "/web/_myprojects/translator/app/controllers/translations_controller.rb": [
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        3,
+        10,
         null,
         null
       ],
@@ -783,7 +772,7 @@
         1,
         null,
         1,
-        54,
+        48,
         null,
         null
       ],
@@ -824,39 +813,6 @@
         null,
         null
       ],
-      "/web/_myprojects/translator/app/controllers/api/v1/locales_controller.rb": [
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        3,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/web/_myprojects/translator/app/controllers/api/v1/base_controller.rb": [
-        1,
-        1,
-        1,
-        4,
-        1,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/web/_myprojects/translator/app/serializers/locale_serializer.rb": [
-        1,
-        1,
-        null
-      ],
       "/web/_myprojects/translator/app/jobs/task_updating_job.rb": [
         null,
         1,
@@ -875,6 +831,11 @@
         0
       ],
       "/web/_myprojects/translator/app/serializers/user_serializer.rb": [
+        0,
+        0,
+        0
+      ],
+      "/web/_myprojects/translator/app/serializers/locale_serializer.rb": [
         0,
         0,
         0
@@ -916,6 +877,27 @@
         0
       ],
       "/web/_myprojects/translator/app/serializers/framework_serializer.rb": [
+        0,
+        0,
+        0
+      ],
+      "/web/_myprojects/translator/app/controllers/welcome_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
         0,
         0,
         0
@@ -981,21 +963,14 @@
         0,
         0
       ],
-      "/web/_myprojects/translator/app/controllers/api/v1/translations_controller.rb": [
+      "/web/_myprojects/translator/app/controllers/api/v1/base_controller.rb": [
         0,
-        0,
-        0,
-        0,
-        null,
         0,
         0,
         0,
         0,
         null,
         0,
-        0,
-        0,
-        null,
         0,
         0,
         0,
@@ -1902,6 +1877,6 @@
         0
       ]
     },
-    "timestamp": 1522478920
+    "timestamp": 1522502522
   }
 }
