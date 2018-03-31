@@ -10,6 +10,8 @@ AllCops:
     - bin/*
     - node_modules/**/*
     - spec/controllers/tasks_controller_spec.rb
+    - db/migrate/*
+    - spec/**/*
 
 Metrics/AbcSize:
   Enabled: false
