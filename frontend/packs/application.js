@@ -8,7 +8,7 @@ import "components/footer/footer";
 import "components/metrics/metrics";
 import "components/structure/structure";
 
-import "components/tasks/tasks";
+import "components/welcome/welcome";
 
 import Rails from "rails-ujs";
 
