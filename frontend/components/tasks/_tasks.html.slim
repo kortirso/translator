@@ -6,19 +6,19 @@ section.block.description
   .grid-x
     .cell.medium-4
       .description_block
-        = image_tag '1.jpg'
+        = image_tag(asset_pack_path('images/empty.jpg'))
         h3 1. Upload file
-        p Some text
+        p Select your framework, upload file and select language to translation
     .cell.medium-4
       .description_block
-        = image_tag '1.jpg'
+        = image_tag(asset_pack_path('images/empty.jpg'))
         h3 2. Auto Translation
-        p Some text
+        p Wait some time for automatic translation
     .cell.medium-4
       .description_block
-        = image_tag '1.jpg'
+        = image_tag(asset_pack_path('images/empty.jpg'))
         h3 3. Download Result
-        p Some text
+        p Download result file
 = react_component('TasksBox', locale: I18n.locale)
 - if Rails.env.production?
   section.block
@@ -55,9 +55,13 @@ section.block
     .cell.small-12.medium-6
 
     .cell.small-12.medium-6
-      h2 Преимущества для зарегистрированных пользователей
-/section.block
+      h2 Базовые возможности системы
+      ul
+        li Автоматический перевод локализационных файлов
+section.block
   .grid-x
-    .cell.small-12.medium-8.medium-offset-2
-      h2= t('contribution.header')
-      p= t('contribution.text')
+    .cell.small-12.medium-6
+      h2 Преимущества для зарегистрированных пользователей
+      ul
+        li Просмотр и редактирование переведенных файлов
+    .cell.small-12.medium-6
