@@ -1,20 +1,19 @@
-.grid-container
-  .grid-x
-    .cell
-      nav
-        .top-bar
-          .top-bar-left
-            ul.menu
-              li.menu-text= link_to 'LangTool', root_path(locale: params[:locale])
-              - if user_signed_in?
-                li.menu-text= link_to 'Tasks', tasks_path(locale: params[:locale])
-          .top-bar-right
-            ul.menu
-              - if user_signed_in?
-                li= link_to t('buttons.logout'), destroy_user_session_path, method: :delete
-              - else
-                li
-                  a data-open='login'= t('buttons.login')
-                li
-                  a data-open='signup'= t('buttons.signup')
-                = render 'components/modals/modals'
+.grid-x
+  .cell
+    nav
+      .top-bar
+        .top-bar-left
+          ul.menu
+            li.menu-text= link_to 'LangTool', root_path(locale: params[:locale])
+            - if user_signed_in?
+              li.menu-text= link_to 'Tasks', tasks_path(locale: params[:locale])
+        .top-bar-right
+          ul.menu
+            - if user_signed_in?
+              li= link_to t('buttons.logout'), destroy_user_session_path, method: :delete
+            - else
+              li
+                a data-open='login'= t('buttons.login')
+              li
+                a data-open='signup'= t('buttons.signup')
+              = render 'components/modals/modals'
