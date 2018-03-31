@@ -1,7 +1,7 @@
 #login.reveal.tiny data-reveal=''
   = form_with model: User.new, as: :user, url: session_path(:user), local: true do |f|
     .small-12.columns
-      p= t('modals.auth')
+      p.header= t('modals.auth')
     .small-12.columns= f.text_field :email, autofocus: true, placeholder: 'Email'
     .small-12.columns= f.password_field :password, autocomplete: 'off', placeholder: "#{t('modals.pass')}"
     .small-12.columns= f.submit t('modals.enter'), class: 'button', id: 'authorization'
@@ -11,7 +11,7 @@
 #signup.reveal.tiny data-reveal=''
   = form_with model: User.new, as: :user, url: registration_path(:user), local: true do |f|
     .small-12.columns
-      p= t('modals.reg')
+      p.header= t('modals.reg')
     .small-12.columns= f.text_field :email, required: true, placeholder: 'Email'
     .small-12.columns= f.password_field :password, autocomplete: 'off', placeholder: "#{t('modals.pass')}"
     .small-12.columns= f.password_field :password_confirmation, autocomplete: 'off', placeholder: "#{t('modals.confirm')}"

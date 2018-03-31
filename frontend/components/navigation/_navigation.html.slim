@@ -10,9 +10,11 @@
                 li.menu-text= link_to 'Tasks', tasks_path(locale: params[:locale])
           .top-bar-right
             ul.menu
-              li
-                - if user_signed_in?
-                  = link_to t('buttons.logout'), destroy_user_session_path, method: :delete
-                - else
+              - if user_signed_in?
+                li= link_to t('buttons.logout'), destroy_user_session_path, method: :delete
+              - else
+                li
                   a data-open='login'= t('buttons.login')
-                  = render 'components/modals/modals'
+                li
+                  a data-open='signup'= t('buttons.signup')
+                = render 'components/modals/modals'

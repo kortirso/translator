@@ -1,6 +1,6 @@
 #login,
 #signup {
-  background: rgba(54, 55, 71, 0.9);
+  background: #fff;
   border: 1px solid #000;
 
   img {
@@ -12,5 +12,9 @@
   .button {
     background: #50d691;
     border-radius: 4px;
+  }
+
+  .header {
+    margin-bottom: 10px;
   }
 }
