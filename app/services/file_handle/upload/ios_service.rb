@@ -2,11 +2,6 @@ module FileHandle
   module Upload
     # FileUploader for *.strings from IOs
     class IosService < FileHandle::UploadService
-      def load
-        check_locale
-        returned_value
-      end
-
       # private section
       private def post_initialize(_args)
         prepare_file

@@ -5,12 +5,6 @@ module FileHandle
   module Upload
     # FileUploader for *.yml
     class RailsService < FileHandle::UploadService
-      def load
-        check_file
-        check_locale
-        returned_value
-      end
-
       # private section
       private def post_initialize(_args)
         prepare_file
