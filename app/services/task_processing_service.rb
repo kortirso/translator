@@ -14,7 +14,6 @@ class TaskProcessingService
     # save temporary file with rebuilded data
     file_saver.save_temporary(file_converter.temporary)
     # translate data
-    translator = Translate::TaskService.new(task: task)
     translator.translate(data: file_converter.words_for_translate)
     # save result file with trnslated data
     file_saver.save_result(data: file_converter.words_for_translate, translated: translator.translated)
@@ -35,6 +34,10 @@ class TaskProcessingService
 
   private def file_saver
     @file_saver ||= service('Save')
+  end
+
+  private def translator
+    @translator ||= Translate::TaskService.new(task: task)
   end
 
   private def service(type)
