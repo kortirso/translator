@@ -1,7 +1,7 @@
 module FileHandle
   # Base class for converting files
   class ConvertService
-    attr_reader :task, :words_for_translate, :sentence_service
+    attr_reader :task, :words_for_translate, :sentence_service, :temporary
 
     def initialize(args = {})
       @task = args[:task]

@@ -4,8 +4,6 @@ module FileHandle
   module Convert
     # FileUploader for *.resx from .NET
     class NetService < FileHandle::ConvertService
-      attr_reader :temporary
-
       def convert(data)
         data.xpath('//data/value').each do |value|
           checked = sentence_service.call(value.children.to_s)

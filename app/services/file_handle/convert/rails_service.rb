@@ -2,8 +2,6 @@ module FileHandle
   module Convert
     # FileUploader for *.yml
     class RailsService < FileHandle::ConvertService
-      attr_reader :temporary
-
       def convert(hash_for_translate, parent = [])
         hash_for_translate.each do |key, value|
           if value.is_a?(Hash)

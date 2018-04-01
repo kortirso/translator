@@ -2,8 +2,6 @@ module FileHandle
   module Convert
     # FileUploader for *.strings from IOs
     class IosService < FileHandle::ConvertService
-      attr_reader :temporary
-
       def convert(data, arr = [])
         data.lines.each do |line|
           if line[0] != "\n" && line[0] != '/'

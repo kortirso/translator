@@ -2,8 +2,6 @@ module FileHandle
   module Convert
     # FileUploader for *.json from Laravel
     class LaravelService < FileHandle::ConvertService
-      attr_reader :temporary
-
       def convert(data, new_data = {})
         data.each do |key, value|
           checked = sentence_service.call(value)

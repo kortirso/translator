@@ -2,8 +2,6 @@ module FileHandle
   module Convert
     # FileUploader for *.php from Yii
     class YiiService < FileHandle::ConvertService
-      attr_reader :temporary
-
       def convert(data, arr = [])
         data.lines.each do |line|
           if line.end_with?(",\n")
