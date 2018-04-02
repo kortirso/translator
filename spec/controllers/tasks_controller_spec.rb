@@ -27,9 +27,9 @@ RSpec.describe TasksController, type: :controller do
       sign_in_user
 
       context 'try access unexisted task' do
-        before { get :show, params: { id: 111, locale: 'en' } }
-
         it 'renders 404 page' do
+          get :show, params: { id: 111, locale: 'en' }
+
           expect(response).to render_template 'shared/404'
         end
       end
@@ -44,9 +44,10 @@ RSpec.describe TasksController, type: :controller do
 
       context 'try access his active task' do
         let!(:task) { create :task, user: @current_user }
-        before { get :show, params: { id: task.id, locale: 'en' } }
 
         it 'renders 404 page' do
+          get :show, params: { id: task.id, locale: 'en' }
+
           expect(response).to render_template 'shared/404'
         end
       end
