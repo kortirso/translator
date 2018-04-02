@@ -38,6 +38,14 @@ FactoryBot.define do
       file File.open(File.join(Rails.root, 'spec/test_files/strings.xml'))
     end
 
+    trait :with_wrong_xml do
+      file File.open(File.join(Rails.root, 'spec/test_files/strings.wrong.xml'))
+    end
+
+    trait :with_locale_xml do
+      file File.open(File.join(Rails.root, 'spec/test_files/more_strings.ru.xml'))
+    end
+
     trait :with_json do
       file File.open(File.join(Rails.root, 'spec/test_files/data.json'))
     end

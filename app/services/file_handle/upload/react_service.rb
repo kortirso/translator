@@ -10,32 +10,13 @@ module FileHandle
         @uploaded_file = JSON.parse(File.read(task.file_name))
       end
 
-      private def prepare_file
-        task_base_file_exist?
-      end
-
-      private def task_base_file_exist?
-        raise StandardError, '101' unless File.file?(task.file_name)
-      end
-
       private def check_file
         raise StandardError, '110' unless uploaded_file.is_a?(Hash)
         raise StandardError, '110' unless uploaded_file.keys.count == 1
       end
 
-      private def check_locale
-        locale = uploaded_file.keys.first
-        locale_is_correct?(locale)
-        task_update(locale)
-      end
-
-      private def locale_is_correct?(locale)
-        return true if locale.size == 2
-        raise StandardError, '202'
-      end
-
-      private def task_update(locale)
-        task.update(from: locale, status: 'active')
+      private def locale
+        @locale ||= uploaded_file.keys.first
       end
 
       private def returned_value

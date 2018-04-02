@@ -12,12 +12,8 @@ module FileHandle
       end
 
       private def prepare_file
-        task_base_file_exist?
+        super
         remove_comments
-      end
-
-      private def task_base_file_exist?
-        raise StandardError, '101' unless File.file?(task.file_name)
       end
 
       private def remove_comments(file_name = task.file_name)
@@ -36,20 +32,12 @@ module FileHandle
         raise StandardError, '110' unless uploaded_file.keys.count == 1
       end
 
-      private def check_locale
-        locale = uploaded_file.keys.first
-        locale_is_correct?(locale)
-        task_update(locale)
+      private def locale
+        @locale ||= uploaded_file_locale.size == 2 ? uploaded_file_locale : uploaded_file_locale.split('-')[0]
       end
 
-      private def locale_is_correct?(locale)
-        return true if locale.size == 2
-        return true if locale.split('-')[0].size == 2
-        raise StandardError, '202'
-      end
-
-      private def task_update(locale)
-        task.update(from: locale.size == 2 ? locale : locale.split('-')[0], status: 'active')
+      private def uploaded_file_locale
+        uploaded_file.keys.first
       end
 
       private def returned_value

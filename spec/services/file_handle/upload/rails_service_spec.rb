@@ -15,6 +15,10 @@ RSpec.describe FileHandle::Upload::RailsService do
       it 'assigns task to @task' do
         expect(loader.task).to eq task
       end
+
+      it 'assigns hash from file to @uploaded_file' do
+        expect(loader.uploaded_file.is_a?(Hash)).to eq true
+      end
     end
   end
 
@@ -63,32 +67,38 @@ RSpec.describe FileHandle::Upload::RailsService do
   end
 
   describe '.locale_is_correct?' do
-    let!(:task) { create :task, :with_yml }
-    let(:loader) { FileHandle::Upload::RailsService.new(task: task) }
-
     context 'for incorrect locale' do
+      let!(:task) { create :task, :with_wrong_yml }
+      let(:loader) { FileHandle::Upload::RailsService.new(task: task) }
+
       it 'raises error' do
-        expect { loader.send(:locale_is_correct?, 'ENG') }.to raise_error(StandardError)
+        expect { loader.send(:locale_is_correct?) }.to raise_error(StandardError)
       end
     end
 
     context 'for locale like ru' do
+      let!(:task) { create :task, :with_yml }
+      let(:loader) { FileHandle::Upload::RailsService.new(task: task) }
+
       it 'does not raise error' do
-        expect { loader.send(:locale_is_correct?, 'ru') }.to_not raise_error
+        expect { loader.send(:locale_is_correct?) }.to_not raise_error
       end
 
       it 'and returns true' do
-        expect(loader.send(:locale_is_correct?, 'ru')).to eq true
+        expect(loader.send(:locale_is_correct?)).to eq true
       end
     end
 
     context 'for locale like nb-NO' do
+      let!(:task) { create :task, :with_double_locale_yml }
+      let(:loader) { FileHandle::Upload::RailsService.new(task: task) }
+
       it 'does not raise error' do
-        expect { loader.send(:locale_is_correct?, 'nb-NO') }.to_not raise_error
+        expect { loader.send(:locale_is_correct?) }.to_not raise_error
       end
 
       it 'and returns true' do
-        expect(loader.send(:locale_is_correct?, 'nb-NO')).to eq true
+        expect(loader.send(:locale_is_correct?)).to eq true
       end
     end
   end
@@ -97,16 +107,46 @@ RSpec.describe FileHandle::Upload::RailsService do
     let!(:task) { create :task, :with_yml }
     let(:loader) { FileHandle::Upload::RailsService.new(task: task) }
 
+    it 'updates task with locale' do
+      expect { loader.send(:task_update) }.to change(task, :from).to('ru')
+    end
+  end
+
+  describe '.locale' do
     context 'for locale like ru' do
-      it 'updates task with ru locale' do
-        expect { loader.send(:task_update, 'ru') }.to change(task, :from).to('ru')
+      let!(:task) { create :task, :with_yml }
+      let(:loader) { FileHandle::Upload::RailsService.new(task: task) }
+
+      it 'returns short locale' do
+        expect(loader.send(:locale)).to eq 'ru'
       end
     end
 
     context 'for locale like nb-NO' do
-      it 'updates task with nb locale' do
-        expect { loader.send(:task_update, 'nb-NO') }.to change(task, :from).to('nb')
+      let!(:task) { create :task, :with_double_locale_yml }
+      let(:loader) { FileHandle::Upload::RailsService.new(task: task) }
+
+      it 'returns short locale' do
+        expect(loader.send(:locale)).to eq 'nb'
       end
+    end
+  end
+
+  describe '.uploaded_file_locale' do
+    let!(:task) { create :task, :with_yml }
+    let(:loader) { FileHandle::Upload::RailsService.new(task: task) }
+
+    it 'returns full locale' do
+      expect(loader.send(:uploaded_file_locale)).to eq 'ru'
+    end
+  end
+
+  describe '.returned_value' do
+    let!(:task) { create :task, :with_yml }
+    let(:loader) { FileHandle::Upload::RailsService.new(task: task) }
+
+    it 'returns hash from file' do
+      expect(loader.send(:returned_value)).to eq loader.uploaded_file.values.first
     end
   end
 end
