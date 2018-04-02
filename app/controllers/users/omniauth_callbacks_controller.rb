@@ -12,7 +12,8 @@ module Users
       @user = User.find_for_oauth(request.env['omniauth.auth'])
       if @user
         @user.update_token(session[:guest])
-        sign_in_and_redirect @user, event: :authentication
+        sign_in @user
+        redirect_to root_path, event: :authentication
       else
         redirect_to root_path, flash: { manifesto_username: true }
       end

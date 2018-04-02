@@ -13,9 +13,9 @@ class User < ApplicationRecord
   def self.find_for_oauth(auth)
     identity = Identity.find_for_oauth(auth)
     return identity.user if identity.present?
+    return false if auth.info[:email].nil?
     user = User.find_or_create_by(email: auth.info[:email]) do |u|
       u.password = Devise.friendly_token[0, 20]
-      # u.username = auth[:info][:nickname].present? ? auth[:info][:nickname] : "#{auth[:info][:last_name]} #{auth[:info][:first_name]}"
     end
     user.identities.create(provider: auth.provider, uid: auth.uid)
     user
@@ -38,9 +38,7 @@ class User < ApplicationRecord
     admin? || translator?
   end
 
-  private
-
-  def set_token
+  private def set_token
     self.access_token = TokenService.call
   end
 end
