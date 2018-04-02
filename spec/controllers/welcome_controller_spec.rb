@@ -1,17 +1,17 @@
 RSpec.describe WelcomeController, type: :controller do
   describe 'GET #index' do
     context 'for html request' do
-      before { get :index, params: { locale: 'en' } }
+      it 'renders tasks#index' do
+        get :index, params: { locale: 'en' }
 
-      it 'should render tasks#index' do
         expect(response).to render_template :index
       end
     end
 
     context 'for json request' do
-      before { get :index, params: { locale: 'en', format: :json } }
-
       it 'should render json' do
+        get :index, params: { locale: 'en', format: :json }
+
         resp = JSON.parse(response.body)
 
         expect(resp['tasks']).to_not eq nil
