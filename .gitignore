@@ -24,7 +24,7 @@
 /node_modules
 
 dump.rdb
-coverage
+/coverage
 
 yarn-debug.log*
 yarn-error.log*
