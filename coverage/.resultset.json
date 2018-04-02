@@ -55,7 +55,7 @@
         1,
         1,
         null,
-        2,
+        4,
         null,
         1,
         null,
@@ -218,10 +218,10 @@
         1,
         null,
         1,
+        2,
+        2,
+        2,
         1,
-        1,
-        1,
-        0,
         null,
         null,
         null,
@@ -266,8 +266,8 @@
         null,
         null,
         1,
-        0,
-        0,
+        1,
+        1,
         null,
         null,
         1,
@@ -310,7 +310,28 @@
         null,
         null,
         1,
-        10,
+        13,
+        null,
+        null
+      ],
+      "/web/_myprojects/translator/app/controllers/welcome_controller.rb": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
         null,
         null
       ],
@@ -834,7 +855,7 @@
         1,
         null,
         1,
-        48,
+        51,
         null,
         null
       ],
@@ -875,6 +896,33 @@
         null,
         null
       ],
+      "/web/_myprojects/translator/app/serializers/task_serializer.rb": [
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/web/_myprojects/translator/app/serializers/locale_serializer.rb": [
+        1,
+        1,
+        null
+      ],
+      "/web/_myprojects/translator/app/serializers/framework_serializer.rb": [
+        1,
+        1,
+        null
+      ],
       "/web/_myprojects/translator/app/jobs/task_updating_job.rb": [
         null,
         1,
@@ -897,29 +945,7 @@
         0,
         0
       ],
-      "/web/_myprojects/translator/app/serializers/locale_serializer.rb": [
-        0,
-        0,
-        0
-      ],
       "/web/_myprojects/translator/app/serializers/word_serializer.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/web/_myprojects/translator/app/serializers/task_serializer.rb": [
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
         0,
         0,
         0,
@@ -933,32 +959,6 @@
         0,
         0,
         null,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/web/_myprojects/translator/app/serializers/framework_serializer.rb": [
-        0,
-        0,
-        0
-      ],
-      "/web/_myprojects/translator/app/controllers/welcome_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
         0,
         0,
         0,
@@ -1707,6 +1707,6 @@
         0
       ]
     },
-    "timestamp": 1522642721
+    "timestamp": 1522643177
   }
 }
