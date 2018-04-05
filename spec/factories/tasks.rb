@@ -81,6 +81,10 @@ FactoryBot.define do
     trait :with_php do
       file File.open(File.join(Rails.root, 'spec/test_files/app.php'))
     end
+
+    trait :with_locale_php do
+      file File.open(File.join(Rails.root, 'spec/test_files/app.ru.php'))
+    end
   end
 
   factory :invalid_task, class: 'Task' do
