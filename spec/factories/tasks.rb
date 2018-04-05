@@ -62,6 +62,10 @@ FactoryBot.define do
       file File.open(File.join(Rails.root, 'spec/test_files/de.json'))
     end
 
+    trait :with_wrong_json_keyed do
+      file File.open(File.join(Rails.root, 'spec/test_files/ded.json'))
+    end
+
     trait :with_wrong_yml do
       file File.open(File.join(Rails.root, 'spec/test_files/wrong_ru.yml'))
     end

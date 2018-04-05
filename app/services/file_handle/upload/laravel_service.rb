@@ -15,7 +15,7 @@ module FileHandle
       end
 
       private def locale
-        @locale ||= task.file_name.split('/')[-1].split('.')[0]
+        @locale ||= file_name.split('.')[0]
       end
     end
   end
