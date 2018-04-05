@@ -6,7 +6,7 @@ module FileHandle
     class NetService < FileHandle::ConvertService
       def convert(data)
         data.xpath('//data/value').each do |value|
-          checked = sentence_service.call(value.children.to_s)
+          checked = fragment_service.call(value.children.to_s)
           words_for_translate.push checked[:blocks_for_translate]
           value.children = checked[:sentence]
         end

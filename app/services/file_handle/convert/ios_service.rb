@@ -6,7 +6,7 @@ module FileHandle
         data.lines.each do |line|
           if line[0] != "\n" && line[0] != '/'
             word = line.split('"')[-2]
-            checked = sentence_service.call(word)
+            checked = fragment_service.call(word)
             words_for_translate.push checked[:blocks_for_translate]
             line.gsub!(word, checked[:sentence])
           end

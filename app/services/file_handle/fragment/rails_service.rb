@@ -1,14 +1,12 @@
-module Checks
-  module Sentences
-    # Rebuild sentence for translation from Yml
-    class Yml
-      include Checks::Sentences::Base
+module FileHandle
+  module Fragment
+    # Rebuild sentence for translation from Rails
+    class RailsService < FileHandle::FragmentService
+      include FileHandle::Fragment::Base
 
-      def initialize; end
-
-      def call(sentence)
+      def perform_phrase(phrase)
         # remove tags
-        splitted_sentence = sentence.split(REGEXP_YML_TAGS)
+        splitted_sentence = phrase.split(REGEXP_YML_TAGS)
 
         # remove variables
         splitted_sentence.map! { |elem| elem.split(REGEXP_YML_VARIABLES) }
@@ -37,14 +35,24 @@ module Checks
         end
         blocks = splitted_sentence.compact
 
-        # modifying sentence for translate variables
-        blocks.each { |elem| sentence.gsub!(elem, "_###{elem}##_") }
+        # modifying phrase for translate variables
+        blocks.each { |elem| phrase.gsub!(elem, "_###{elem}##_") }
 
-        # returns sentence and blocks for translate
+        # returns phrase and blocks for translate
         {
-          sentence: sentence,
+          sentence: phrase,
           blocks_for_translate: blocks
         }
+      end
+
+      private def sentence_splitted_by_dot(value)
+        # replace dots in tags
+        value.scan(REGEXP_YML_TAGS).each do |tag|
+          value.gsub!(tag, tag.gsub('.', '_##_'))
+        end
+
+        # split value for sentences and put dots in sentence
+        value.split('.').map! { |sent| sent.gsub('_##_', '.') }
       end
     end
   end

@@ -4,7 +4,7 @@ module FileHandle
     class ReactService < FileHandle::ConvertService
       def convert(data, new_data = {})
         data.each do |key, value|
-          checked = sentence_service.call(value)
+          checked = fragment_service.call(value)
           words_for_translate.push checked[:blocks_for_translate]
           new_data[key] = checked[:sentence]
         end

@@ -1,5 +1,5 @@
-module Checks
-  module Sentences
+module FileHandle
+  module Fragment
     # common module for all checking sentences
     module Base
       REGEXP_YML_TAGS = /<.+?>/
