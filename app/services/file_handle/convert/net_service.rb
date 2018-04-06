@@ -5,12 +5,16 @@ module FileHandle
     # FileUploader for *.resx from .NET
     class NetService < FileHandle::ConvertService
       def convert(data)
-        data.xpath('//data/value').each do |value|
-          checked = fragment_service.call(value.children.to_s)
-          words_for_translate.push checked[:blocks_for_translate]
+        for_translate(data).each do |value|
+          checked = fragment_service.perform_sentence(value.children.to_s)
+          words_for_translate << checked[:blocks_for_translate]
           value.children = checked[:sentence]
         end
         @temporary = data
+      end
+
+      private def for_translate(data)
+        data.xpath('//data/value')
       end
     end
   end

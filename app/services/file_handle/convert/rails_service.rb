@@ -13,14 +13,9 @@ module FileHandle
         end
       end
 
-      # private section
-      private def post_initialize(_args)
-        @temporary = {}
-      end
-
       private def get_values_for_translate(args)
-        checked = fragment_service.call(args[:value])
-        words_for_translate.push checked[:blocks_for_translate]
+        checked = fragment_service.perform_sentence(args[:value])
+        words_for_translate << checked[:blocks_for_translate]
         value = create_hash_for_value(args[:keys].shift, checked[:sentence])
         args[:keys].each { |key| value = create_hash_for_value(key, value) }
         value
