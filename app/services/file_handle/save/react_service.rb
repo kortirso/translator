@@ -4,15 +4,15 @@ module FileHandle
   module Save
     # Saving service for React
     class ReactService < FileHandle::SaveService
-      def save_temporary(temporary, temp_file_name = temporary_file_name)
+      def save_temporary(temporary)
         temp_hash = JSON.parse(File.read(task.file_name))
         temp_hash[task.to] = temporary
-        File.write(temp_file_name, temp_hash.to_json)
-        task.save_temporary_file(temp_file_name)
+        File.write(temporary_file_name, temp_hash.to_json)
+        task.save_temporary_file(temporary_file_name)
       end
 
       # private section
-      private def temporary_file_name
+      private def define_temp_filename
         file_name = task.file_name.split('/')[-1]
         "#{Rails.root}/public/uploads/tmp/#{file_name}"
       end

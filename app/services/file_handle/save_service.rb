@@ -5,27 +5,29 @@ module FileHandle
 
     def initialize(args = {})
       @task = args[:task]
-      post_initialize(args)
+    end
+
+    def save_temporary(temporary)
+      File.write(temporary_file_name, temporary)
+      task.save_temporary_file(temporary_file_name)
     end
 
     def save_result(args = {})
       temporary_text = File.read(task.temporary_file.file.file)
       args[:data].uniq.each_with_index { |word, index| temporary_text.gsub!("_###{word}##_", args[:translated][index]) }
-      save_result_file(temp_file_for_result, temporary_text)
-      File.delete(temp_file_for_result)
+      save_result_file(result_file_name, temporary_text)
+      File.delete(result_file_name)
     end
 
-    # subclasses may override
-    private def post_initialize(_args)
-      nil
-    end
-
-    # subclasses may override
     private def temporary_file_name
-      nil
+      @temporary_file_name ||= define_temp_filename
     end
 
-    private def temp_file_for_result
+    private def result_file_name
+      @result_file_name ||= define_result_filename
+    end
+
+    private def define_result_filename
       file_name = task.temporary_file.file.file.split('/')[-1]
       "#{Rails.root}/public/uploads/tmp/#{file_name}"
     end
