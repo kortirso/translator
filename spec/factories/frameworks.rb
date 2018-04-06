@@ -34,4 +34,16 @@ FactoryBot.define do
     extension 'resx'
     service 'NetService'
   end
+
+  factory :react_framework, class: 'Framework' do
+    name 'React'
+    extension 'json'
+    service 'ReactService'
+  end
+
+  factory :yii_framework, class: 'Framework' do
+    name 'Yii'
+    extension 'php'
+    service 'YiiService'
+  end
 end
