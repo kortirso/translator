@@ -16,4 +16,10 @@ FactoryBot.define do
     extension 'xml'
     service 'AndroidService'
   end
+
+  factory :ios_framework, class: 'Framework' do
+    name 'Ios'
+    extension 'strings'
+    service 'IosService'
+  end
 end

@@ -13,8 +13,6 @@ RSpec.describe FileHandle::Convert::AndroidService do
     end
 
     it 'and assigns FileHandle::Fragment::AndroidService to @fragment_service' do
-      puts task.file_name.split('.').last
-      puts task.framework.inspect
       expect(loader.fragment_service.is_a?(FileHandle::Fragment::AndroidService)).to eq true
     end
   end
