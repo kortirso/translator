@@ -5,13 +5,20 @@ module FileHandle
     # FileUploader for *.xml from Android
     class AndroidService < FileHandle::ConvertService
       def convert(data)
-        for_translate = (data.xpath('//resources/string') + data.xpath('//resources/string-array/item')).select { |tag| tag.attributes['translatable'].nil? || tag.attributes['translatable'].value != 'false' }
-        for_translate.each do |value|
-          checked = fragment_service.perform_sentence(value.children.to_s)
+        translatable(data).each do |tag|
+          checked = fragment_service.perform_sentence(tag.children.to_s)
           words_for_translate << checked[:blocks_for_translate]
-          value.children = checked[:sentence]
+          tag.children = checked[:sentence]
         end
         @temporary = data
+      end
+
+      private def translatable(data)
+        for_translate(data).select { |tag| tag.attributes['translatable'].nil? || tag.attributes['translatable'].value != 'false' }
+      end
+
+      private def for_translate(data)
+        data.xpath('//resources/string') + data.xpath('//resources/string-array/item')
       end
     end
   end
