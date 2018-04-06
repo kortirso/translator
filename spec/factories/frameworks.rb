@@ -22,4 +22,16 @@ FactoryBot.define do
     extension 'strings'
     service 'IosService'
   end
+
+  factory :laravel_framework, class: 'Framework' do
+    name 'Laravel'
+    extension 'json'
+    service 'LaravelService'
+  end
+
+  factory :net_framework, class: 'Framework' do
+    name 'Net'
+    extension 'resx'
+    service 'NetService'
+  end
 end
