@@ -88,9 +88,7 @@ class Task < ApplicationRecord
     end
   end
 
-  private
-
-  def task_processing
+  private def task_processing
     TaskProcessingJob.perform_later(self)
   end
 end

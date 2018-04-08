@@ -25,6 +25,7 @@
 
 dump.rdb
 /coverage/*
+/db/files/*
 
 yarn-debug.log*
 yarn-error.log*

@@ -13,13 +13,11 @@ class Word < ApplicationRecord
     transform_values_to_count(select_result_words(locale))
   end
 
-  private
-
-  def select_result_words(locale)
+  private def select_result_words(locale)
     result_words.where(locale: locale).group_by(&:text)
   end
 
-  def transform_values_to_count(hash)
+  private def transform_values_to_count(hash)
     hash.each { |key, value| hash[key] = value.count }.sort_by { |_key, value| value }.reverse.to_h
   end
 end

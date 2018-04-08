@@ -7,6 +7,12 @@ module FileHandle
       @task = args[:task]
       @words_for_translate = []
       @fragment_service = "FileHandle::Fragment::#{file_service}".constantize.new
+      post_initialize(args)
+    end
+
+    # subclasses may override
+    private def post_initialize(_args)
+      nil
     end
 
     private def file_service
