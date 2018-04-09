@@ -18,13 +18,9 @@ module FileHandle
     end
 
     private def prepare_results(args)
-      if task.temporary_file_name != ''
-        text = File.read(task.temporary_file_name)
-        args[:data].uniq.each_with_index { |word, index| text.gsub!("_###{word}##_", args[:translated][index]) }
-        text
-      else
-        ''
-      end
+      text = task.temporary_file_content
+      args[:data].uniq.each_with_index { |word, index| text.gsub!("_###{word}##_", args[:translated][index]) }
+      text
     end
 
     private def temporary_file_name

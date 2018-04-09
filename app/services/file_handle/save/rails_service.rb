@@ -4,16 +4,14 @@ module FileHandle
   module Save
     # Saving service for Ruby on Rails framework
     class RailsService < FileHandle::SaveService
-      def save_temporary(temporary)
-        File.write(temporary_file_name, { task.to => temporary }.to_yaml(line_width: 500))
-        task.save_temporary_file(temporary_file_name)
+      def save_temporary(args = {})
+        task.save_file(temporary_file_name, { task.to => args[:data] }.to_yaml(line_width: 500), 'temporary')
       end
 
-      # private section
-      private def define_temp_filename
-        file_name = task.file_name.split('/')[-1]
-        file_name = file_name.split('.').size <= 2 ? "#{task.to}.yml" : "#{file_name.split('.')[0]}.#{task.to}.yml"
-        "#{Rails.root}/public/uploads/tmp/#{file_name}"
+      private def define_filename(type)
+        file_name = task.file_name
+        file_name = file_name.split('.').size <= 2 ? '' : file_name.split('.')[0]
+        "#{TEMP_FOLDER}#{task.id}.#{type}.#{file_name}.#{task.to}.yml"
       end
     end
   end

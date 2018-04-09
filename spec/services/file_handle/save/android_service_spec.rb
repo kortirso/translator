@@ -28,7 +28,7 @@ RSpec.describe FileHandle::Save::AndroidService do
       converter.convert(uploaded)
       task.reload
 
-      saver.save_result(data: '1')
+      saver.save_result(data: ['1'], translated: ['1'])
     end
   end
 
