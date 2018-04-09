@@ -68,45 +68,23 @@ RSpec.describe TasksController, type: :controller do
   end
 
   describe 'POST #create' do
-    context 'with invalid attributes' do
-      let(:request) { post :create, params: { locale: 'en', file: '', framework: '', to: '' } }
+    let!(:framework) { create :framework }
+    let(:request) { post :create, params: { locale: 'en', file: Rack::Test::UploadedFile.new("#{Rails.root}/spec/test_files/ru.yml"), framework: framework.name, to: 'en' } }
 
-      it 'does not create new Task' do
-        expect { request }.to_not change { Task.count }
-      end
-
-      it 'and returns status 409' do
-        request
-
-        expect(response.status).to eq 409
-      end
-
-      it 'and returns json with error message' do
-        request
-
-        expect(JSON.parse(response.body)).to eq('error' => 'Task creation error')
-      end
+    it 'creates new Task' do
+      expect { request }.to change { Task.count }.by(1)
     end
 
-    context 'with valid attributes' do
-      let!(:framework) { create :framework }
-      let(:request) { post :create, params: { locale: 'en', file: Rack::Test::UploadedFile.new("#{Rails.root}/spec/test_files/ru.yml"), framework: framework.name, to: 'en' } }
+    it 'and returns status 201' do
+      request
 
-      it 'creates new Task' do
-        expect { request }.to change { Task.count }.by(1)
-      end
+      expect(response.status).to eq 201
+    end
 
-      it 'and returns status 201' do
-        request
+    it 'and returns json with task' do
+      request
 
-        expect(response.status).to eq 201
-      end
-
-      it 'and returns json with task' do
-        request
-
-        expect(JSON.parse(response.body)['task']).to_not eq nil
-      end
+      expect(JSON.parse(response.body)['task']).to_not eq nil
     end
   end
 

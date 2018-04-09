@@ -7,13 +7,15 @@ require 'active_record/railtie'
 require 'action_controller/railtie'
 require 'action_mailer/railtie'
 require 'action_view/railtie'
-require 'carrierwave'
+require 'active_storage/engine'
 
 Bundler.require(*Rails.groups)
 
 module Translator
   # Translator Application
   class Application < Rails::Application
+    config.load_defaults 5.0
+
     ActiveModelSerializers.config.adapter = :json
 
     I18n.available_locales = %i[en ru da de es pt fr]

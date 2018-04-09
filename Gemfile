@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '5.1.6'
+gem 'rails', '5.2.0.rc2'
 gem 'therubyracer', platforms: :ruby
 
 # Use postgresql as the database for Active Record
@@ -26,9 +26,6 @@ gem 'figaro'
 
 # Use Slim as the templating engine. Better than ERB
 gem 'slim'
-
-# File uploading
-gem 'carrierwave', '~> 1.0'
 
 # Background Jobs
 gem 'redis-namespace'

@@ -7,35 +7,6 @@ RailsAdmin.config do |config|
     redirect_to main_app.root_path unless current_user.editor?
   end
 
-  config.model Locale do
-    list do
-      field :id
-      field :code
-      field :country_code
-      field :names
-    end
-  end
-
-  config.model Task do
-    list do
-      field :id
-      field :uid
-      field :status
-      field :from
-      field :to
-      field :file
-    end
-  end
-
-  config.model Translation do
-    list do
-      field :id
-      field :direction
-      field :base
-      field :result
-    end
-  end
-
   config.actions do
     dashboard
     index

@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.webpacker.check_yarn_integrity = false
+  # config.webpacker.check_yarn_integrity = false
+
+  config.active_storage.service = :local
 
   # Code is not reloaded between requests.
   config.cache_classes = true

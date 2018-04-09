@@ -17,6 +17,106 @@ RSpec.describe Task, type: :model do
   end
 
   describe 'methods' do
+    context '.file_name' do
+      let!(:framework) { create :android_framework }
+
+      context 'without file' do
+        let!(:task) { create :task, framework: framework }
+
+        it 'returns empty string' do
+          expect(task.file_name).to eq ''
+        end
+      end
+
+      context 'with file' do
+        let!(:task) { create :task, :with_xml, framework: framework }
+
+        it 'returns file name' do
+          expect(task.file_name).to eq 'strings.xml'
+        end
+      end
+    end
+
+    context '.file_content' do
+      let!(:framework) { create :android_framework }
+
+      context 'without file' do
+        let!(:task) { create :task, framework: framework }
+
+        it 'returns empty string' do
+          expect(task.file_content).to eq ''
+        end
+      end
+
+      context 'with file' do
+        let!(:task) { create :task, :with_xml, framework: framework }
+
+        it 'returns file name' do
+          expect(task.file_content).to_not eq ''
+        end
+      end
+    end
+
+    context '.temporary_file_name' do
+      let!(:framework) { create :android_framework }
+
+      context 'without file' do
+        let!(:task) { create :task, framework: framework }
+
+        it 'returns empty string' do
+          expect(task.temporary_file_name).to eq ''
+        end
+      end
+
+      context 'with file' do
+      end
+    end
+
+    context '.temporary_file_content' do
+      let!(:framework) { create :android_framework }
+
+      context 'without file' do
+        let!(:task) { create :task, framework: framework }
+
+        it 'returns empty string' do
+          expect(task.temporary_file_content).to eq ''
+        end
+      end
+
+      context 'with file' do
+      end
+    end
+
+    context '.result_file_name' do
+      let!(:framework) { create :android_framework }
+
+      context 'without file' do
+        let!(:task) { create :task, framework: framework }
+
+        it 'returns empty string' do
+          expect(task.result_file_name).to eq ''
+        end
+      end
+
+      context 'with file' do
+      end
+    end
+
+    context '.result_file_content' do
+      let!(:framework) { create :android_framework }
+
+      context 'without file' do
+        let!(:task) { create :task, framework: framework }
+
+        it 'returns empty string' do
+          expect(task.result_file_content).to eq ''
+        end
+      end
+
+      context 'with file' do
+      end
+    end
+
     context '.task_processing' do
       subject { build :task }
 
@@ -140,7 +240,7 @@ RSpec.describe Task, type: :model do
           task.save_file(filename, text, type)
           task.reload
 
-          expect(task.temporary_file_name).to_not eq nil
+          expect(task.temporary_file.attached?).to eq true
         end
       end
 
@@ -152,7 +252,7 @@ RSpec.describe Task, type: :model do
           task.save_file(filename, text, type)
           task.reload
 
-          expect(task.result_file_name).to_not eq nil
+          expect(task.result_file.attached?).to eq true
         end
       end
     end

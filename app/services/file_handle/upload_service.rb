@@ -26,7 +26,7 @@ module FileHandle
     end
 
     private def task_base_file_exist?
-      raise StandardError, '101' unless File.file?(task.file_name)
+      raise StandardError, '101' unless task.file.attached?
     end
 
     private def check_locale
@@ -44,7 +44,7 @@ module FileHandle
     end
 
     private def file_name
-      task.file_name.split('/')[-1]
+      task.file_name
     end
 
     private def returned_value

@@ -14,9 +14,9 @@ class Task < ApplicationRecord
     '402' => 'prepare translation error (message sent to developers)'
   }.freeze
 
-  mount_uploader :file, FileUploader
-  mount_uploader :temporary_file, FileUploader
-  mount_uploader :result_file, FileUploader
+  has_one_attached :file
+  has_one_attached :temporary_file
+  has_one_attached :result_file
 
   belongs_to :user, optional: true
   belongs_to :framework
@@ -34,37 +34,50 @@ class Task < ApplicationRecord
   after_commit :task_processing, on: :create
 
   def file_name
-    return '' if file.file.nil?
-    file.file.file
+    return '' unless file.attached?
+    file.attachment.blob.filename.to_s
+  end
+
+  def file_content
+    return '' unless file.attached?
+    file.attachment.blob.download
   end
 
   def temporary_file_name
-    return '' if temporary_file.file.nil?
-    temporary_file.file.file
+    return '' unless temporary_file.attached?
+    temporary_file.attachment.blob.filename
+  end
+
+  def temporary_file_content
+    return '' unless temporary_file.attached?
+    temporary_file.attachment.blob.download
   end
 
   def result_file_name
-    return '' if result_file.file.nil?
-    result_file.file.file
+    return '' unless result_file.attached?
+    result_file.attachment.blob.filename
+  end
+
+  def result_file_content
+    return '' unless result_file.attached?
+    result_file.attachment.blob.download
   end
 
   def double_translating
-    update double: true
-    true
+    update(double: true)
   end
 
   def activate(translation_params)
-    update status: 'active'
+    update(status: 'active')
     TaskUpdatingJob.perform_later(translation_params, self)
   end
 
   def complete
-    self.status = 'done'
-    save
+    update(status: 'done')
   end
 
   def failure(code)
-    update status: 'failed', error: code
+    update(status: 'failed', error: code)
     nil
   end
 
@@ -88,12 +101,10 @@ class Task < ApplicationRecord
   end
 
   def save_file(filename, text, type)
-    File.open(filename, 'w') do |f|
-      f.write(text)
-      self["#{type}_file"] = f
-    end
-    self.status = 'done' if type == 'result'
-    save
+    File.open(filename, 'w') { |f| f.write(text) }
+    attach_type = type == 'result' ? result_file : temporary_file
+    attach_type.attach(io: File.open(filename), filename: filename.split('/')[-1])
+    complete if type == 'result'
     File.delete(filename)
   end
 

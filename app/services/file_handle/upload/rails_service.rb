@@ -8,12 +8,12 @@ module FileHandle
       # private section
       private def post_initialize(_args)
         prepare_file
-        @uploaded_file = YAML.load_file(task.file_name)
+        @uploaded_file = YAML.safe_load(task.file_content)
       end
 
       private def prepare_file
         super
-        remove_comments
+        # remove_comments
       end
 
       private def remove_comments(file_name = task.file_name)
