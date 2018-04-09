@@ -9,6 +9,14 @@ RSpec.describe FileHandle::Save::RailsService do
     end
   end
 
+  describe '.save_temporary' do
+    it 'calls save_file for task with temporary type' do
+      expect(task).to receive(:save_file)
+
+      saver.save_temporary(data: '1')
+    end
+  end
+
   describe '.temporary_file_name' do
     it 'returns new file name with locale' do
       expect(saver.send(:temporary_file_name)).to eq "#{Rails.root}/public/uploads/tmp/#{task.id}.temp.en.yml"
