@@ -38,6 +38,11 @@ class Task < ApplicationRecord
     file.file.file
   end
 
+  def temporary_file_name
+    return '' if temporary_file.file.nil?
+    temporary_file.file.file
+  end
+
   def result_file_name
     return '' if result_file.file.nil?
     result_file.file.file
@@ -71,12 +76,6 @@ class Task < ApplicationRecord
     status == 'failed'
   end
 
-  def save_temporary_file(file_name)
-    File.open(file_name) { |f| self.temporary_file = f }
-    save
-    File.delete(file_name)
-  end
-
   def error_message
     ERRORS[error.to_s]
   end
@@ -86,6 +85,16 @@ class Task < ApplicationRecord
       when :straight then "#{from}-#{to}"
       when :reverse then "#{to}-#{from}"
     end
+  end
+
+  def save_file(filename, text, type)
+    File.open(filename, 'w') do |f|
+      f.write(text)
+      self["#{type}_file"] = f
+    end
+    self.status = 'done' if type == 'result'
+    save
+    File.delete(filename)
   end
 
   private def task_processing

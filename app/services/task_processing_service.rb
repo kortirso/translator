@@ -12,7 +12,7 @@ class TaskProcessingService
     # converting data for translation
     file_converter.convert(uploaded)
     # save temporary file with rebuilded data
-    file_saver.save_temporary(file_converter.temporary)
+    file_saver.save_temporary(data: file_converter.temporary)
     # translate data
     translator.translate(data: file_converter.words_for_translate)
     # save result file with trnslated data

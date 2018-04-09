@@ -126,5 +126,35 @@ RSpec.describe Task, type: :model do
         end
       end
     end
+
+    context '.save_file' do
+      let!(:framework) { create :android_framework }
+      let!(:task) { create :task, :with_xml, framework: framework }
+      let(:text) { 'some text' }
+
+      context 'for temp type' do
+        let(:type) { 'temporary' }
+        let(:filename) { "#{Rails.root}/public/uploads/tmp/strings.#{task.to}.xml" }
+
+        it 'saves temporary_file for task' do
+          task.save_file(filename, text, type)
+          task.reload
+
+          expect(task.temporary_file_name).to_not eq nil
+        end
+      end
+
+      context 'for temp type' do
+        let(:type) { 'result' }
+        let(:filename) { "#{Rails.root}/public/uploads/tmp/strings.#{task.to}.xml" }
+
+        it 'saves result_file for task' do
+          task.save_file(filename, text, type)
+          task.reload
+
+          expect(task.result_file_name).to_not eq nil
+        end
+      end
+    end
   end
 end
