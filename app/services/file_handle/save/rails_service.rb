@@ -10,8 +10,8 @@ module FileHandle
 
       private def define_filename(type)
         file_name = task.file_name
-        file_name = file_name.split('.').size <= 2 ? '' : file_name.split('.')[0]
-        "#{TEMP_FOLDER}#{task.id}.#{type}.#{file_name}.#{task.to}.yml"
+        file_name = file_name.split('.').size <= 2 ? task.to : "#{file_name.split('.')[0]}.#{task.to}"
+        "#{TEMP_FOLDER}#{task.id}.#{type}.#{file_name}.yml"
       end
     end
   end
