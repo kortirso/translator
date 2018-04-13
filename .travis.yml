@@ -3,7 +3,7 @@ language: ruby
 rvm: 2.5.1
 env:
   global:
-    CC_TEST_REPORTER_ID=9e32ff08088a9e2b642813dc82b93b4779c3feec5dff20cbe507cd880bf6964c
+    CC_TEST_REPORTER_ID=980243e873d152344af902979fdbd7790fab9dfb0abbd552030f80585599a3bd
 addons:
   postgresql: 9.6
 after_success:
