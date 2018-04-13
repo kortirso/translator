@@ -21,8 +21,8 @@ RSpec.describe Translate::Source::FromDb do
 
   describe '.find_translate' do
     context 'there is no word for translate in DB' do
-      it 'returns false' do
-        expect(translator.find_translate('Example')).to eq false
+      it 'returns nil' do
+        expect(translator.find_translate(word: 'Example')).to eq nil
       end
     end
 
@@ -37,18 +37,18 @@ RSpec.describe Translate::Source::FromDb do
           let!(:task_da) { create :task, :with_yml, from: 'ru', to: 'da' }
           let!(:translator_da) { Translate::Source::FromDb.new(task: task_da) }
 
-          it 'returns false' do
-            expect(translator_da.find_translate(word_ru.text)).to eq false
+          it 'returns nil' do
+            expect(translator_da.find_translate(word: word_ru.text)).to eq nil
           end
         end
 
         context 'there are translations for locale' do
           it 'returns text of most popular translation' do
-            expect(translator.find_translate(word_ru.text)).to eq word_en.text
+            expect(translator.find_translate(word: word_ru.text)).to eq word_en.text
           end
 
           it 'creates new position between translation and task' do
-            expect { translator.find_translate(word_ru.text) }.to change(Position, :count).by(1)
+            expect { translator.find_translate(word: word_ru.text) }.to change(Position, :count).by(1)
           end
         end
       end
@@ -60,18 +60,18 @@ RSpec.describe Translate::Source::FromDb do
           let!(:task_da) { create :task, :with_yml, from: 'ru', to: 'da' }
           let!(:translator_da) { Translate::Source::FromDb.new(task: task_da) }
 
-          it 'returns false' do
-            expect(translator_da.find_translate(word_ru.text)).to eq false
+          it 'returns nil' do
+            expect(translator_da.find_translate(word: word_ru.text)).to eq nil
           end
         end
 
         context 'there are translations for locale' do
           it 'returns text of most popular translation' do
-            expect(translator.find_translate(word_ru.text)).to eq word_en.text
+            expect(translator.find_translate(word: word_ru.text)).to eq word_en.text
           end
 
           it 'creates new position between translation and task' do
-            expect { translator.find_translate(word_ru.text) }.to change(Position, :count).by(1)
+            expect { translator.find_translate(word: word_ru.text) }.to change(Position, :count).by(1)
           end
         end
       end

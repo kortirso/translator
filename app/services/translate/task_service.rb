@@ -16,7 +16,7 @@ module Translate
 
     # private section
     private def translate_word(word)
-      translated.push(word_service.translate(word))
+      translated << word_service.translate(word: word)
     end
   end
 end
