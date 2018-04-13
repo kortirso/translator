@@ -8,6 +8,8 @@ after_success:
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
+after_script:
+  - bundle exec rake coveralls:push
 install: bundle install --jobs=3 --retry=3
 script:
   - bundle exec rake db:migrate RAILS_ENV=test

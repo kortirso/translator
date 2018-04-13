@@ -234,7 +234,7 @@ RSpec.describe Task, type: :model do
 
       context 'for temp type' do
         let(:type) { 'temporary' }
-        let(:filename) { "#{Rails.root}/public/uploads/tmp/strings.#{task.to}.xml" }
+        let(:filename) { "#{Rails.root}/spec/test_files/strings.#{task.to}.xml" }
 
         it 'saves temporary_file for task' do
           task.save_file(filename, text, type)
@@ -246,7 +246,7 @@ RSpec.describe Task, type: :model do
 
       context 'for temp type' do
         let(:type) { 'result' }
-        let(:filename) { "#{Rails.root}/public/uploads/tmp/strings.#{task.to}.xml" }
+        let(:filename) { "#{Rails.root}/spec/test_files/strings.#{task.to}.xml" }
 
         it 'saves result_file for task' do
           task.save_file(filename, text, type)
