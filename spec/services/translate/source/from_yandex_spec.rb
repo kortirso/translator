@@ -17,7 +17,7 @@ RSpec.describe Translate::Source::FromYandex do
       context 'for simple task' do
         it 'returns word' do
           stub_request(:post, "https://translate.yandex.net/api/v1.5/tr.json/translate?key=#{ENV['YANDEX_TRANSLATE_API_KEY']}&lang=ru-en&text=Привет")
-            .to_return(status: 200, body: '{"code":200, "lang":"ru-en", "text": ["Hello"]}', headers: {})
+            .to_return(status: 200, body: '{"code":200, "lang":"ru-en", "text":["Hello"]}', headers: {})
 
           expect(translator.find_translate(word: 'Привет')).to eq 'Hello'
         end
@@ -34,7 +34,7 @@ RSpec.describe Translate::Source::FromYandex do
 
       it 'returns word for valid data' do
         stub_request(:post, "https://translate.yandex.net/api/v1.5/tr.json/translate?key=#{ENV['YANDEX_TRANSLATE_API_KEY']}&lang=en-ru&text=Hello")
-          .to_return(status: 200, body: '{"code":200, "lang":"en-ru", "text": ["Привет"]}', headers: {})
+          .to_return(status: 200, body: '{"code":200, "lang":"en-ru", "text":["Привет"]}', headers: {})
 
         expect(translator.send(:request, 'en', 'ru', 'Hello')).to eq 'Привет'
       end

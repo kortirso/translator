@@ -3,18 +3,17 @@ module Translate
   class TaskService
     attr_reader :task, :word_service, :translated
 
-    def initialize(args)
+    def initialize(args = {})
       @task = args[:task]
       @word_service = Translate::WordService.new(task: task)
       @translated = []
     end
 
-    def translate(args)
+    def translate(args = {})
       args[:data].uniq.each { |word| translate_word(word) }
       word_service.save_new_words
     end
 
-    # private section
     private def translate_word(word)
       translated << word_service.translate(word: word)
     end
