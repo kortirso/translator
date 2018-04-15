@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_15_142435) do
+ActiveRecord::Schema.define(version: 2018_04_15_153717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -135,6 +135,7 @@ ActiveRecord::Schema.define(version: 2018_04_15_142435) do
     t.datetime "updated_at", null: false
     t.integer "locale_id"
     t.index ["locale_id"], name: "index_words_on_locale_id"
+    t.index ["text", "locale_id"], name: "index_words_on_text_and_locale_id", unique: true
   end
 
 end

@@ -6,9 +6,7 @@ module FileHandle
         data.lines.each do |line|
           if line.end_with?(",\n")
             word = line.split('=>')[-1].chop.strip.slice(1..-3)
-            checked = fragment_service.perform_sentence(word)
-            words_for_translate << checked[:blocks_for_translate]
-            line.gsub!(word, checked[:sentence])
+            line.gsub!(word, fragment_service.perform_sentence(word))
           end
           arr << line
         end

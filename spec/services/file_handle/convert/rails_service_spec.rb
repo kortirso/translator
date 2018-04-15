@@ -1,6 +1,7 @@
 RSpec.describe FileHandle::Convert::RailsService do
+  let!(:locale) { create :locale, :ru }
   let!(:framework) { create :rails_framework }
-  let!(:task) { create :task, :with_yml, framework: framework }
+  let!(:task) { create :task, :with_yml, framework: framework, from: 'ru' }
   let(:converter) { FileHandle::Convert::RailsService.new(task: task) }
 
   describe '.initialize' do
@@ -23,17 +24,8 @@ RSpec.describe FileHandle::Convert::RailsService do
         let(:hash_for_translate) { { hello: 'Hello', index: { hi: 'Hi', bye: 'Bye', night: 'Good. Night' } } }
         before { converter.convert(hash_for_translate) }
 
-        it 'collects words for translate' do
-          expect(converter.words_for_translate.is_a?(Array)).to eq true
-          expect(converter.words_for_translate.size).to eq 4
-          expect(converter.words_for_translate[0]).to eq ['Hello']
-          expect(converter.words_for_translate[1]).to eq ['Hi']
-          expect(converter.words_for_translate[2]).to eq ['Bye']
-          expect(converter.words_for_translate[3]).to eq %w[Good Night]
-        end
-
-        it 'and creates temporary hash' do
-          expect(converter.temporary).to eq('hello' => '_##Hello##_', 'index' => { 'hi' => '_##Hi##_', 'bye' => '_##Bye##_', 'night' => '_##Good##_. _##Night##_' })
+        it 'creates temporary hash' do
+          expect(converter.temporary.is_a?(Hash)).to eq true
         end
       end
     end

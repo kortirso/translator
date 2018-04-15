@@ -1,6 +1,7 @@
 RSpec.describe FileHandle::Convert::NetService do
+  let!(:locale) { create :locale, :ru }
   let!(:framework) { create :net_framework }
-  let!(:task) { create :task, :with_resx, framework: framework }
+  let!(:task) { create :task, :with_resx, framework: framework, from: 'ru' }
   let(:converter) { FileHandle::Convert::NetService.new(task: task) }
 
   describe '.initialize' do
@@ -24,12 +25,7 @@ RSpec.describe FileHandle::Convert::NetService do
     describe '.convert' do
       before { converter.convert(uploaded) }
 
-      it 'prepares words for translate' do
-        expect(converter.words_for_translate.is_a?(Array)).to eq true
-        expect(converter.words_for_translate.size).to eq 1
-      end
-
-      it 'and saves temporary data in temporary' do
+      it 'saves temporary data in temporary' do
         expect(converter.temporary.is_a?(Nokogiri::XML::Document)).to eq true
       end
     end

@@ -1,6 +1,8 @@
 RSpec.describe FileHandle::Save::AndroidService do
+  let!(:locale) { create :locale, :ru }
+  let!(:locale) { create :locale, :en }
   let!(:framework) { create :android_framework }
-  let!(:task) { create :task, :with_xml, framework: framework }
+  let!(:task) { create :task, :with_xml, framework: framework, from: 'ru' }
   let(:saver) { FileHandle::Save::AndroidService.new(task: task) }
 
   describe '.initialize' do

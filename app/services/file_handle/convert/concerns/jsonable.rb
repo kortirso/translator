@@ -19,9 +19,9 @@ module FileHandle
         end
 
         private def get_values_for_translate(args)
-          checked = fragment_service.perform_sentence(args[:value])
-          words_for_translate << checked[:blocks_for_translate]
-          value = create_hash_for_value(args[:keys].shift, checked[:sentence])
+          # checked = fragment_service.perform_sentence(args[:value])
+          # words_for_translate << checked[:blocks_for_translate]
+          value = create_hash_for_value(args[:keys].shift, fragment_service.perform_sentence(args[:value]))
           args[:keys].each { |key| value = create_hash_for_value(key, value) }
           value
         end

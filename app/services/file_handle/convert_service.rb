@@ -6,7 +6,7 @@ module FileHandle
     def initialize(args = {})
       @task = args[:task]
       @words_for_translate = []
-      @fragment_service = "FileHandle::Fragment::#{file_service}".constantize.new
+      @fragment_service = "FileHandle::Fragment::#{file_service}".constantize.new(task: task)
       post_initialize(args)
     end
 

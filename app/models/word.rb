@@ -5,8 +5,15 @@ class Word < ApplicationRecord
   has_many :phrases
 
   validates :text, :locale, presence: true
+  validates :text, uniqueness: { scope: :locale, message: 'This word for locale is already exist' }
 
   scope :text_begins_with, ->(str) { where('text like ?', "#{str}%").order(text: :asc) }
+
+  def self.create_or_find_by(args = {})
+    create!(text: args[:text], locale: args[:locale])
+  rescue ActiveRecord::RecordNotUnique
+    find_by(text: args[:text], locale: args[:locale])
+  end
 
   # returns sorted hash with translated text as keys and count of using these translations
   def select_translations(args = {})
