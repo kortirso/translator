@@ -17,7 +17,7 @@ class Word < ApplicationRecord
   # returns array of words
   def translated_text(args = {})
     objects = args[:locale].nil? ? translations : for_language(args[:locale])
-    objects.collect { |word| word.text }
+    objects.collect(&:text)
   end
 
   # returns hash with translated text as keys and array of WORD objects as values
@@ -33,11 +33,11 @@ class Word < ApplicationRecord
 
   # returns all WORD objects for specific word through translations
   private def translations
-    interpretations.collect { |interpretation| interpretation.translation(self.id) }
+    interpretations.collect { |interpretation| interpretation.translation(id) }
   end
 
   # returns all TRANSLATE objects for specific word
   private def interpretations
-    Translation.eager_load(:base, :result).where('base_id = ? OR result_id = ?', self.id, self.id)
+    Translation.eager_load(:base, :result).where('base_id = ? OR result_id = ?', id, id)
   end
 end

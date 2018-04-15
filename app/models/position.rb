@@ -4,5 +4,5 @@ class Position < ApplicationRecord
 
   has_many :phrases, dependent: :destroy
 
-  validates :task, presence: true
+  validates :task, :base_value, :temp_value, presence: true
 end
