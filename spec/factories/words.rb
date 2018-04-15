@@ -1,13 +1,18 @@
 FactoryBot.define do
   factory :word do
     trait :en do
-      text 'Some text'
+      text 'Hello'
       association :locale, :en
     end
 
     trait :ru do
-      text 'Какой-то текст'
+      text 'Привет'
       association :locale, :ru
+    end
+
+    trait :es do
+      text 'Hola'
+      association :locale, :es
     end
   end
 end

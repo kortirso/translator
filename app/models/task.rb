@@ -22,7 +22,6 @@ class Task < ApplicationRecord
   belongs_to :framework
 
   has_many :positions, dependent: :destroy
-  has_many :translations, through: :positions
 
   validates :status, :framework_id, presence: true
   validates :from, length: { is: 2 }, allow_blank: true

@@ -3,10 +3,12 @@ class Translation < ApplicationRecord
   belongs_to :base, class_name: 'Word'
   belongs_to :result, class_name: 'Word'
 
-  has_many :positions, dependent: :destroy
-  has_many :tasks, through: :positions
-
   validates :base_id, :result_id, presence: true
 
   scope :verifieded, -> { where(verified: true) }
+
+  def translation(identifier)
+    return result if base_id == identifier
+    base
+  end
 end

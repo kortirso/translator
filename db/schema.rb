@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_09_025153) do
+ActiveRecord::Schema.define(version: 2018_04_15_091303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -64,11 +64,9 @@ ActiveRecord::Schema.define(version: 2018_04_09_025153) do
 
   create_table "positions", force: :cascade do |t|
     t.integer "task_id"
-    t.integer "translation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["task_id"], name: "index_positions_on_task_id"
-    t.index ["translation_id"], name: "index_positions_on_translation_id"
   end
 
   create_table "tasks", id: :serial, force: :cascade do |t|
@@ -91,7 +89,6 @@ ActiveRecord::Schema.define(version: 2018_04_09_025153) do
     t.integer "result_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "direction", default: "", null: false
     t.boolean "verified", default: false
     t.index ["base_id"], name: "index_translations_on_base_id"
     t.index ["result_id"], name: "index_translations_on_result_id"

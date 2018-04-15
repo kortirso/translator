@@ -2,22 +2,40 @@
 class Word < ApplicationRecord
   belongs_to :locale
 
-  has_many :translations, foreign_key: :base_id, dependent: :destroy
-  has_many :result_words, through: :translations, source: :result
-
   validates :text, :locale_id, presence: true
 
   scope :text_begins_with, ->(str) { where('text like ?', "#{str}%").order(text: :asc) }
 
-  def select_translations(locale)
-    transform_values_to_count(select_result_words(locale))
-  end
-
-  private def select_result_words(locale)
-    result_words.where(locale: locale).group_by(&:text)
-  end
-
-  private def transform_values_to_count(hash)
+  # returns sorted hash with translated text as keys and count of using these translations
+  def select_translations(args = {})
+    hash = grouped_translated_text(args[:locale])
     hash.each { |key, value| hash[key] = value.count }.sort_by { |_key, value| value }.reverse.to_h
+  end
+
+  # returns array of words
+  def translated_text(args = {})
+    objects = args[:locale].nil? ? translations : for_language(args[:locale])
+    objects.collect { |word| word.text }
+  end
+
+  # returns hash with translated text as keys and array of WORD objects as values
+  private def grouped_translated_text(locale)
+    objects = locale.nil? ? translations : for_language(locale)
+    objects.group_by(&:text)
+  end
+
+  # select WORD objects for specific locale
+  private def for_language(locale)
+    translations.select { |word| word.locale == locale }
+  end
+
+  # returns all WORD objects for specific word through translations
+  private def translations
+    interpretations.collect { |interpretation| interpretation.translation(self.id) }
+  end
+
+  # returns all TRANSLATE objects for specific word
+  private def interpretations
+    Translation.eager_load(:base, :result).where('base_id = ? OR result_id = ?', self.id, self.id)
   end
 end
