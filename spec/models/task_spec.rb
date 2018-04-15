@@ -3,7 +3,7 @@ RSpec.describe Task, type: :model do
   it { should belong_to :framework }
   it { should have_many(:positions).dependent(:destroy) }
   it { should validate_presence_of :status }
-  it { should validate_presence_of :framework_id }
+  it { should validate_presence_of :framework }
   it { should validate_inclusion_of(:status).in_array(%w[verification active done failed]) }
   it { should validate_length_of(:from).is_equal_to(2) }
   it { should allow_value('').for(:from) }

@@ -2,7 +2,9 @@
 class Word < ApplicationRecord
   belongs_to :locale
 
-  validates :text, :locale_id, presence: true
+  has_many :phrases
+
+  validates :text, :locale, presence: true
 
   scope :text_begins_with, ->(str) { where('text like ?', "#{str}%").order(text: :asc) }
 

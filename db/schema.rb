@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_15_091303) do
+ActiveRecord::Schema.define(version: 2018_04_15_135012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 2018_04_15_091303) do
     t.hstore "names"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "phrases", force: :cascade do |t|
+    t.integer "position_id", null: false
+    t.integer "word_id", null: false
+    t.text "current_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["position_id"], name: "index_phrases_on_position_id"
+    t.index ["word_id"], name: "index_phrases_on_word_id"
   end
 
   create_table "positions", force: :cascade do |t|

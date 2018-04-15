@@ -1,7 +1,8 @@
 RSpec.describe Word, type: :model do
   it { should belong_to :locale }
+  it { should have_many :phrases }
   it { should validate_presence_of :text }
-  it { should validate_presence_of :locale_id }
+  it { should validate_presence_of :locale }
 
   it 'should be valid' do
     word = create :word, :en

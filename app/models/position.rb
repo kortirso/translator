@@ -2,5 +2,7 @@
 class Position < ApplicationRecord
   belongs_to :task
 
-  validates :task_id, presence: true
+  has_many :phrases, dependent: :destroy
+
+  validates :task, presence: true
 end

@@ -23,7 +23,7 @@ class Task < ApplicationRecord
 
   has_many :positions, dependent: :destroy
 
-  validates :status, :framework_id, presence: true
+  validates :status, :framework, presence: true
   validates :from, length: { is: 2 }, allow_blank: true
   validates :to, length: { is: 2 }, allow_blank: true
   validates :status, inclusion: { in: %w[verification active done failed] }
