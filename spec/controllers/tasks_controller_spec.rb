@@ -56,10 +56,6 @@ RSpec.describe TasksController, type: :controller do
         let!(:task) { create :task, :done, user: @current_user }
         before { get :show, params: { id: task.id, locale: 'en' } }
 
-        it 'collects an array of translations in @translations' do
-          expect(assigns(:translations)).to match_array([])
-        end
-
         it 'and renders tasks#show' do
           expect(response).to render_template :show
         end

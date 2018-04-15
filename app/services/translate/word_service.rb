@@ -30,10 +30,8 @@ module Translate
       new_words.each do |new_word|
         word1 = locale_from.words.find_or_create_by(text: new_word[:word])
         word2 = locale_to.words.create(text: new_word[:answer])
-        translation = Translation.new(base: word1, result: word2, direction: task.direction(:straight))
-        translation.positions.build(task: task)
-        translations << translation
-        translation = Translation.new(base: word2, result: word1, direction: task.direction(:reverse))
+        translation = Translation.new(base: word1, result: word2)
+        # translation.positions.build(task: task)
         translations << translation
       end
 

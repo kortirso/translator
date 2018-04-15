@@ -25,7 +25,7 @@ class Word < ApplicationRecord
   end
 
   # select WORD objects for specific locale
-  private def for_language(locale)
+  def for_language(locale)
     translations.select { |word| word.locale == locale }
   end
 
