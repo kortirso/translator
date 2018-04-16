@@ -20,8 +20,8 @@ module FileHandle
 
     private def prepare_results
       text = task.temporary_file_content
-      task.phrases.each do |phrase|
-        text.gsub!("_###{phrase.id}##_", phrase.word.select_translations(locale: locale_to))
+      task.positions.each do |position|
+        text.gsub!("_###{position.id}##_", position_translation(position))
       end
       text
     end
@@ -32,6 +32,15 @@ module FileHandle
 
     private def result_file_name
       @result_file_name ||= define_filename('result')
+    end
+
+    private def position_translation(position)
+      temp_value = position.temp_value
+      position.phrases.each do |phrase|
+        temp_value.gsub!("_###{phrase.id}##_", phrase.word.select_translations(locale: locale_to))
+      end
+      position.update(translator_value: temp_value, current_value: temp_value)
+      temp_value
     end
   end
 end
