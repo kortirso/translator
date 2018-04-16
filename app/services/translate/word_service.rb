@@ -24,7 +24,7 @@ module Translate
       # "!#{args[:word]}"
     end
 
-    def save_new_words(translations = [])
+    def save_new_words
       locale_from = Locale.find_by(code: task.from)
       locale_to = Locale.find_by(code: task.to)
 

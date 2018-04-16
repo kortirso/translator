@@ -9,10 +9,6 @@ class ApplicationController < ActionController::Base
 
   before_action :set_user_session
 
-  def catch_404
-    raise ActionController::RoutingError.new(params[:path]), 'route error'
-  end
-
   private def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation) }
   end

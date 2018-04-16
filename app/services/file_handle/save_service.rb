@@ -37,7 +37,8 @@ module FileHandle
     private def position_translation(position)
       temp_value = position.temp_value
       position.phrases.each do |phrase|
-        temp_value.gsub!("_###{phrase.id}##_", phrase.word.select_translations(locale: locale_to).keys.first)
+        replace = phrase.word.select_translations(locale: locale_to).keys.first
+        temp_value.gsub!("_###{phrase.id}##_", replace) if replace.present?
       end
       position.update(translator_value: temp_value, current_value: temp_value)
       temp_value

@@ -1,12 +1,14 @@
 class TaskSerializer < ActiveModel::Serializer
-  attributes :id, :short_filename, :result_short_filename, :from, :to, :status, :error, :error_message
+  include Rails.application.routes.url_helpers
 
-  def short_filename
-    object.file.to_s.split('/').last
-  end
+  attributes :id, :result_file_name, :from, :to, :status, :error, :error_message, :link_to_file
 
-  def result_short_filename
-    object.result_file.to_s.split('/').last
+  def link_to_file
+    if object.result_file.attached?
+      rails_blob_url(object.result_file, disposition: 'attachment', only_path: true)
+    else
+      nil
+    end
   end
 
   def error_message

@@ -93,7 +93,6 @@ class TasksBox extends React.Component {
                   <th>{strings.status}</th>
                   <th></th>
                   <th></th>
-                  <th></th>
                 </tr>
               </thead>
               <tbody>
