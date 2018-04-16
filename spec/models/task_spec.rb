@@ -130,13 +130,13 @@ RSpec.describe Task, type: :model do
       let!(:task) { create :task, :done }
 
       it 'should perform_later job TaskUpdatingJob' do
-        expect(TaskUpdatingJob).to receive(:perform_later).with({}, task)
+        expect(TaskUpdatingJob).to receive(:perform_later).with(task)
 
-        task.activate({})
+        task.activate
       end
 
       it 'updates task status to active' do
-        expect { task.activate({}) }.to change(task, :status).from('done').to('active')
+        expect { task.activate }.to change(task, :status).from('done').to('active')
       end
     end
 

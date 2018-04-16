@@ -16,4 +16,46 @@ RSpec.describe FileHandle::Fragment::LaravelService, type: :service do
       end
     end
   end
+
+  describe '.sentence_splitted_by_dot' do
+    context 'for simple sentence without dot' do
+      let(:sentence) { 'Page not found' }
+
+      it 'returns sentence in array without dot' do
+        answer = fragmenter.send(:sentence_splitted_by_dot, sentence)
+
+        expect(answer).to eq [sentence]
+      end
+    end
+
+    context 'for simple sentence with dot' do
+      let(:sentence) { 'Page not found.' }
+
+      it 'returns sentence in array with dot' do
+        answer = fragmenter.send(:sentence_splitted_by_dot, sentence)
+
+        expect(answer).to eq ['Page not found']
+      end
+    end
+
+    context 'for 2 sentences with 1 dot' do
+      let(:sentence) { 'Page not found. 1' }
+
+      it 'returns sentences in array with 1 dot' do
+        answer = fragmenter.send(:sentence_splitted_by_dot, sentence)
+
+        expect(answer).to eq ['Page not found', ' 1']
+      end
+    end
+
+    context 'for 2 sentences with 2 dots' do
+      let(:sentence) { 'Page not found. 1.' }
+
+      it 'returns sentences in array with 2 dots' do
+        answer = fragmenter.send(:sentence_splitted_by_dot, sentence)
+
+        expect(answer).to eq ['Page not found', ' 1']
+      end
+    end
+  end
 end

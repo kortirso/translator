@@ -71,9 +71,9 @@ class Task < ApplicationRecord
     phrases.collect { |phrase| phrase.word.text }
   end
 
-  def activate(translation_params)
+  def activate
     update(status: 'active')
-    TaskUpdatingJob.perform_later(translation_params, self)
+    TaskUpdatingJob.perform_later(self)
   end
 
   def complete

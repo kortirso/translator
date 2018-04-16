@@ -9,12 +9,21 @@ RSpec.describe FileHandle::Convert::YiiService do
       expect(converter.task).to eq task
     end
 
-    it 'and assigns [] to @words_for_translate' do
-      expect(converter.words_for_translate).to eq []
-    end
-
     it 'and assigns FileHandle::Fragment::YiiService to @fragment_service' do
       expect(converter.fragment_service.is_a?(FileHandle::Fragment::YiiService)).to eq true
+    end
+  end
+
+  describe 'methods' do
+    let(:loader) { FileHandle::Upload::YiiService.new(task: task) }
+    let(:uploaded) { loader.load }
+
+    describe '.convert' do
+      before { converter.convert(uploaded) }
+
+      it 'saves temporary data in temporary' do
+        expect(converter.temporary.is_a?(String)).to eq true
+      end
     end
   end
 end

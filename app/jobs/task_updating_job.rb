@@ -2,7 +2,7 @@
 class TaskUpdatingJob < ApplicationJob
   queue_as :default
 
-  def perform(translations, task)
-    Translate::RebuildService.new(translations: translations, task: task).call
+  def perform(task)
+    Translate::RebuildService.new(task: task).call
   end
 end

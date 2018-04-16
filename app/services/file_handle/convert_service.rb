@@ -1,11 +1,10 @@
 module FileHandle
   # Base class for converting files
   class ConvertService
-    attr_reader :task, :words_for_translate, :fragment_service, :temporary
+    attr_reader :task, :fragment_service, :temporary
 
     def initialize(args = {})
       @task = args[:task]
-      @words_for_translate = []
       @fragment_service = "FileHandle::Fragment::#{file_service}".constantize.new(task: task)
       post_initialize(args)
     end

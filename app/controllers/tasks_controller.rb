@@ -28,7 +28,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task.activate(task_params)
+    @task.activate
     redirect_to tasks_path
   end
 

@@ -9,10 +9,6 @@ RSpec.describe FileHandle::Convert::AndroidService do
       expect(converter.task).to eq task
     end
 
-    it 'and assigns [] to @words_for_translate' do
-      expect(converter.words_for_translate).to eq []
-    end
-
     it 'and assigns FileHandle::Fragment::AndroidService to @fragment_service' do
       expect(converter.fragment_service.is_a?(FileHandle::Fragment::AndroidService)).to eq true
     end
