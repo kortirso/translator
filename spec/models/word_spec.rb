@@ -10,6 +10,35 @@ RSpec.describe Word, type: :model do
     expect(word).to be_valid
   end
 
+  describe 'class methods' do
+    context '.create_or_find_by' do
+      let!(:locale_en) { create :locale, :en }
+      let(:request) { Word.create_or_find_by(text: 'Hello', locale: locale_en) }
+
+      context 'if word does not exist' do
+        it 'creates new word' do
+          expect { request }.to change(Word, :count).by(1)
+        end
+
+        it 'and returns it' do
+          expect(request.is_a?(Word)).to eq true
+        end
+      end
+
+      context 'if word exists' do
+        let!(:word) { create :word, text: 'Hello', locale: locale_en }
+
+        it 'does not create new word' do
+          expect { request }.to_not change(Word, :count)
+        end
+
+        it 'and returns already existed' do
+          expect(request).to eq word
+        end
+      end
+    end
+  end
+
   describe 'methods' do
     let!(:word_1) { create :word, :en }
     let!(:word_2) { create :word, :ru }

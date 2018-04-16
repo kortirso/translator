@@ -29,9 +29,9 @@ module Translate
       locale_to = Locale.find_by(code: task.to)
 
       new_words.each do |new_word|
-        word1 = Word.find_or_create_by(text: new_word[:word], locale: locale_from)
-        word2 = Word.create!(text: new_word[:answer], locale: locale_to)
-        Translation.create!(base: word1, result: word2)
+        word1 = Word.create_or_find_by(text: new_word[:word], locale: locale_from)
+        word2 = Word.create(text: new_word[:answer], locale: locale_to)
+        Translation.create(base: word1, result: word2)
       end
     end
   end

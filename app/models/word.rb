@@ -11,7 +11,7 @@ class Word < ApplicationRecord
 
   def self.create_or_find_by(args = {})
     create!(text: args[:text], locale: args[:locale])
-  rescue ActiveRecord::RecordNotUnique
+  rescue ActiveRecord::RecordInvalid
     find_by(text: args[:text], locale: args[:locale])
   end
 

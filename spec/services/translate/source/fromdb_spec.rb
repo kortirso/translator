@@ -46,12 +46,6 @@ RSpec.describe Translate::Source::FromDb do
           it 'returns text of most popular translation' do
             expect(translator.find_translation(word: word_ru.text)).to eq word_en.text
           end
-
-          it 'creates new position between translation and task' do
-            skip '1'
-
-            expect { translator.find_translation(word: word_ru.text) }.to change(Position, :count).by(1)
-          end
         end
       end
 
