@@ -27,6 +27,13 @@ RSpec.describe FileHandle::Convert::RailsService do
         it 'creates temporary hash' do
           expect(converter.temporary.is_a?(Hash)).to eq true
         end
+
+        it 'and values are start with _## and end with ##_' do
+          new_value = converter.temporary['hello']
+
+          expect(new_value.starts_with?('_##')).to eq true
+          expect(new_value.ends_with?('##_')).to eq true
+        end
       end
     end
   end

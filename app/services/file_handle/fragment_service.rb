@@ -21,7 +21,6 @@ module FileHandle
         rebuilded_sentences = value
       end
       create_position(base_value: value, temp_value: rebuilded_sentences, phrases: blocks)
-      rebuilded_sentences
     end
 
     private def create_position(args = {})
@@ -33,6 +32,7 @@ module FileHandle
         temp_value["_###{phrase}##_"] = "_###{phrase_new.id}##_"
       end
       position.update(temp_value: temp_value)
+      "_###{position.id}##_"
     end
   end
 end
