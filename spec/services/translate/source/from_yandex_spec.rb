@@ -13,13 +13,13 @@ RSpec.describe Translate::Source::FromYandex do
   end
 
   describe 'methods' do
-    context '.find_translate' do
+    context '.find_translation' do
       context 'for simple task' do
         it 'returns word' do
           stub_request(:post, "https://translate.yandex.net/api/v1.5/tr.json/translate?key=#{ENV['YANDEX_TRANSLATE_API_KEY']}&lang=ru-en&text=Привет")
             .to_return(status: 200, body: '{"code":200, "lang":"ru-en", "text":["Hello"]}', headers: {})
 
-          expect(translator.find_translate(word: 'Привет')).to eq 'Hello'
+          expect(translator.find_translation(word: 'Привет')).to eq 'Hello'
         end
       end
     end

@@ -1,6 +1,6 @@
 module FileHandle
   module Convert
-    # FileUploader for *.php from Yii
+    # FileConverter for *.php from Yii
     class YiiService < FileHandle::ConvertService
       def convert(data, arr = [])
         data.lines.each do |line|

@@ -2,12 +2,10 @@ require 'nokogiri'
 
 module FileHandle
   module Convert
-    # FileUploader for *.xml from Android
+    # FileConverter for *.xml from Android
     class AndroidService < FileHandle::ConvertService
       def convert(data)
         translatable(data).each do |tag|
-          # checked = fragment_service.perform_sentence(tag.children.to_s)
-          # words_for_translate << checked[:blocks_for_translate]
           tag.children = fragment_service.perform_sentence(tag.children.to_s)
         end
         @temporary = data

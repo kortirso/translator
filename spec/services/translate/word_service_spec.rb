@@ -51,15 +51,6 @@ RSpec.describe Translate::WordService do
           expect(worder.translate(word: word_ru.text)).to eq word_en.text
         end
       end
-
-      context 'for invalid data' do
-        it 'returns default word with !' do
-          stub_request(:post, "https://translate.yandex.net/api/v1.5/tr.json/translate?key=#{ENV['YANDEX_TRANSLATE_API_KEY']}&lang=ru-en&text=Привет")
-            .to_return(status: 200, body: '{"error":"Bad Request"}', headers: {})
-
-          expect(worder.translate(word: 'Привет')).to eq '!Привет'
-        end
-      end
     end
 
     context '.save_new_words' do

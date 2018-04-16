@@ -10,7 +10,7 @@ module Translate
         @locale_to = Locale.find_by(code: task.to)
       end
 
-      def find_translate(args = {})
+      def find_translation(args = {})
         word_for_translate = locale_from.words.find_by(text: args[:word])
         return nil if word_for_translate.nil?
 

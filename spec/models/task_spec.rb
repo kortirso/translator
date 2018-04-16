@@ -2,6 +2,7 @@ RSpec.describe Task, type: :model do
   it { should belong_to :user }
   it { should belong_to :framework }
   it { should have_many(:positions).dependent(:destroy) }
+  it { should have_many(:phrases).through(:positions) }
   it { should validate_presence_of :status }
   it { should validate_presence_of :framework }
   it { should validate_inclusion_of(:status).in_array(%w[verification active done failed]) }

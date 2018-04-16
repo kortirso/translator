@@ -6,16 +6,15 @@ module Translate
     def initialize(args = {})
       @task = args[:task]
       @word_service = Translate::WordService.new(task: task)
-      @translated = []
     end
 
-    def translate(args = {})
-      args[:data].uniq.each { |word| translate_word(word) }
+    def translate
+      task.phrases_for_translation.uniq.each { |word| translate_word(word) }
       word_service.save_new_words
     end
 
     private def translate_word(word)
-      translated << word_service.translate(word: word)
+      word_service.translate(word: word)
     end
   end
 end

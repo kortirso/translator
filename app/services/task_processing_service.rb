@@ -14,9 +14,9 @@ class TaskProcessingService
     # save temporary file with rebuilded data
     file_saver.save_temporary(data: file_converter.temporary)
     # translate data
-    translator.translate(data: file_converter.words_for_translate)
+    translator.translate
     # save result file with trnslated data
-    file_saver.save_result(data: file_converter.words_for_translate, translated: translator.translated)
+    file_saver.save_result
   rescue StandardError => ex
     task.failure(ex.message.to_i)
   rescue

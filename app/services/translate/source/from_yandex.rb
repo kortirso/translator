@@ -11,7 +11,7 @@ module Translate
         @yandex_translator = Yandex::Translator.new(api_key: ENV['YANDEX_TRANSLATE_API_KEY'])
       end
 
-      def find_translate(args)
+      def find_translation(args)
         if task.double?
           en_word = request(task.from, 'en', args[:word])
           en_word.present? ? request('en', task.to, en_word) : nil

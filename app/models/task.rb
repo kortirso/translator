@@ -22,6 +22,7 @@ class Task < ApplicationRecord
   belongs_to :framework
 
   has_many :positions, dependent: :destroy
+  has_many :phrases, through: :positions
 
   validates :status, :framework, presence: true
   validates :from, length: { is: 2 }, allow_blank: true
@@ -64,6 +65,10 @@ class Task < ApplicationRecord
 
   def double_translating
     update(double: true)
+  end
+
+  def phrases_for_translation
+    phrases.collect { |phrase| phrase.word.text }
   end
 
   def activate(translation_params)
