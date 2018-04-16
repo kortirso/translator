@@ -12,10 +12,10 @@ module Translate
 
     def translate(args = {})
       answer = db_translator.find_translation(word: args[:word])
-      return answer if answer
+      return answer if answer.present?
 
       answer = yandex_translator.find_translation(word: args[:word])
-      if answer
+      if answer.present?
         new_words << { word: args[:word], answer: answer }
         return answer
       end
@@ -29,14 +29,10 @@ module Translate
       locale_to = Locale.find_by(code: task.to)
 
       new_words.each do |new_word|
-        word1 = Word.create_or_find_by(text: new_word[:word], locale: locale_from)
-        word2 = Word.create(text: new_word[:answer], locale: locale_to)
-        translation = Translation.new(base: word1, result: word2)
-        # translation.positions.build(task: task)
-        translations << translation
+        word1 = Word.find_or_create_by(text: new_word[:word], locale: locale_from)
+        word2 = Word.create!(text: new_word[:answer], locale: locale_to)
+        Translation.create!(base: word1, result: word2)
       end
-
-      Translation.import translations, recursive: true
     end
   end
 end

@@ -27,8 +27,8 @@ module FileHandle
       temp_value = args[:temp_value]
       position = task.positions.create(base_value: args[:base_value], temp_value: temp_value)
       args[:phrases].each do |phrase|
-        word = Word.create_or_find_by(text: phrase, locale: locale_from)
-        phrase_new = Phrase.create(word: word, position: position, current_value: phrase)
+        word = Word.find_or_create_by(text: phrase, locale: locale_from)
+        phrase_new = Phrase.create!(word: word, position: position, current_value: phrase)
         temp_value["_###{phrase}##_"] = "_###{phrase_new.id}##_"
       end
       position.update(temp_value: temp_value)

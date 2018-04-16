@@ -11,7 +11,7 @@ module Translate
       end
 
       def find_translation(args = {})
-        word_for_translate = locale_from.words.find_by(text: args[:word])
+        word_for_translate = Word.find_by(text: args[:word], locale: locale_from)
         return nil if word_for_translate.nil?
 
         word_translations = word_for_translate.select_translations(locale: locale_to)
