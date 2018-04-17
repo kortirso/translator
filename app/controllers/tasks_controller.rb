@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   skip_before_action :verify_authenticity_token, only: %i[create update destroy]
-  before_action :find_task, only: %i[show update destroy]
-  before_action :check_task_status, only: %i[show destroy]
+  before_action :find_task, only: %i[update destroy]
+  before_action :check_task_status, only: %i[destroy]
 
   def index
     respond_to do |format|
@@ -15,8 +15,6 @@ class TasksController < ApplicationController
       end
     end
   end
-
-  def show; end
 
   def create
     task = Task.new(create_task_params)

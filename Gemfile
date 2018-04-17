@@ -52,9 +52,6 @@ gem 'activerecord-import'
 # Code analyzation
 gem 'rubocop', '~> 0.49.1', require: false
 
-# Admin panel
-gem 'rails_admin', '1.3'
-
 # Translator
 gem 'yandex-translator-api', '1.2'
 

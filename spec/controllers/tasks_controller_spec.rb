@@ -22,47 +22,6 @@ RSpec.describe TasksController, type: :controller do
     end
   end
 
-  describe 'GET #show' do
-    context 'if user is signed in' do
-      sign_in_user
-
-      context 'try access unexisted task' do
-        it 'renders 404 page' do
-          get :show, params: { id: 111, locale: 'en' }
-
-          expect(response).to render_template 'shared/404'
-        end
-      end
-
-      context 'try access not his task' do
-        it 'renders 404 page' do
-          get :show, params: { id: 100, locale: 'en' }
-
-          expect(response).to render_template 'shared/404'
-        end
-      end
-
-      context 'try access his active task' do
-        let!(:task) { create :task, user: @current_user }
-
-        it 'renders 404 page' do
-          get :show, params: { id: task.id, locale: 'en' }
-
-          expect(response).to render_template 'shared/404'
-        end
-      end
-
-      context 'try access his completed task' do
-        let!(:task) { create :task, :done, user: @current_user }
-        before { get :show, params: { id: task.id, locale: 'en' } }
-
-        it 'and renders tasks#show' do
-          expect(response).to render_template :show
-        end
-      end
-    end
-  end
-
   describe 'POST #create' do
     let!(:framework) { create :framework }
     let(:request) { post :create, params: { locale: 'en', file: Rack::Test::UploadedFile.new("#{Rails.root}/spec/test_files/ru.yml"), framework: framework.name, to: 'en' } }
