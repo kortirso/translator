@@ -10,6 +10,8 @@ AllCops:
     - bin/*
     - node_modules/**/*
     - spec/controllers/tasks_controller_spec.rb
+    - spec/services/file_handle/fragment_service_spec.rb
+    - spec/services/file_handle/convert/react_service_spec.rb
     - db/migrate/*
 
 Metrics/AbcSize:
