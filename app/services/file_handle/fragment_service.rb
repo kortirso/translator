@@ -17,10 +17,12 @@ module FileHandle
         end
         rebuilded_sentences = rebuilded_sentences.join('.')
         rebuilded_sentences += '.' if value[-1] == '.'
+        create_position(base_value: value, temp_value: rebuilded_sentences, phrases: blocks)
+      elsif value.is_a?(Array)
+        value.map { |element| perform_sentence(element) }
       else
-        rebuilded_sentences = value
+        value
       end
-      create_position(base_value: value, temp_value: rebuilded_sentences, phrases: blocks)
     end
 
     private def create_position(args = {})
