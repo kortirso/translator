@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'should be valid with email and password' do
-    user = User.new email: 'example@gmail.com', password: 'password'
+    user = User.new email: 'example@gmail.com', password: 'password12'
 
     expect(user).to be_valid
   end
@@ -32,8 +32,8 @@ RSpec.describe User, type: :model do
   end
 
   it 'should be invalid with a duplicate email' do
-    User.create(username: 'tester1', email: 'example@gmail.com', password: 'password')
-    user = User.new(username: 'tester2', email: 'example@gmail.com', password: 'password')
+    User.create(username: 'tester1', email: 'example@gmail.com', password: 'password12', confirmed_at: DateTime.now)
+    user = User.new(username: 'tester2', email: 'example@gmail.com', password: 'password12')
     user.valid?
 
     expect(user.errors[:email]).to include('has already been taken')

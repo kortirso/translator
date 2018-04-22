@@ -49,7 +49,7 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
       end
 
       context 'for existed user' do
-        let!(:user) { create :user, email: 'example_facebook@xyze.it' }
+        let!(:user) { create :user, :confirmed, email: 'example_facebook@xyze.it' }
 
         it 'redirects to user path' do
           get 'facebook'
@@ -108,7 +108,7 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
       end
 
       context 'for existed user' do
-        let!(:user) { create :user, email: 'example_facebook@xyze.it' }
+        let!(:user) { create :user, :confirmed, email: 'example_facebook@xyze.it' }
 
         it 'redirects to user path' do
           get 'github'

@@ -7,5 +7,5 @@
       .small-12.columns= f.text_field :email, required: true, label: false, placeholder: 'Email'
       .small-12.columns= f.password_field :password, autocomplete: 'off', placeholder: "#{t('modals.pass')}"
       .small-12.columns= f.password_field :password_confirmation, autocomplete: 'off', placeholder: "#{t('modals.confirm')}"
-      .small-12.columns=  f.submit t('buttons.signup'), class: 'button', id: 'registration'
+      .small-12.columns= f.submit t('buttons.signup'), class: 'button', id: 'registration'
       .small-12.columns= link_to '', localized_omniauth_path(:facebook), title: "#{t('login_through')} Facebook", class: 'icon social facebook'

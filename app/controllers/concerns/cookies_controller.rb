@@ -7,6 +7,6 @@ module CookiesController
   end
 
   private def remember_user
-    remember(current_user) if params[:remember_me] == '1'
+    remember(current_user) if params[:remember_me] == '1' && current_user.present?
   end
 end

@@ -2,7 +2,7 @@
 class User < ApplicationRecord
   include Personable
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: %i[facebook github]
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, omniauth_providers: %i[facebook github]
 
   has_many :identities, dependent: :destroy
   has_many :guests, dependent: :destroy
@@ -15,6 +15,7 @@ class User < ApplicationRecord
     return false if auth.info[:email].nil?
     user = User.find_or_create_by(email: auth.info[:email]) do |u|
       u.password = Devise.friendly_token[0, 20]
+      u.confirmed_at = DateTime.now
     end
     user.identities.create(provider: auth.provider, uid: auth.uid)
     user
