@@ -1,5 +1,7 @@
 module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+    include CookiesHelper
+
     before_action :provides_callback
 
     def facebook; end
@@ -12,6 +14,7 @@ module Users
       @user = User.find_for_oauth(request.env['omniauth.auth'])
       if @user
         @user.update_token
+        remember(@user)
         sign_in @user
         redirect_to root_path, event: :authentication
       else
