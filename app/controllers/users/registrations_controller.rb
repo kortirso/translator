@@ -4,7 +4,7 @@ module Users
     after_action :update_token, only: :create
 
     private def update_token
-      current_user.update_token(session[:guest]) if current_user.present?
+      current_user.update_token if current_user.present?
     end
   end
 end

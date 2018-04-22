@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
+  include CookiesHelper
+
   prepend_view_path Rails.root.join('frontend')
 
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_current_person
-  before_action :set_user_session
 
   rescue_from ActionController::RoutingError, with: :render_not_found
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
@@ -17,11 +18,8 @@ class ApplicationController < ActionController::Base
     render template: 'shared/404', status: 404
   end
 
-  private def set_user_session
-    session[:guest] = TokenService.call if session[:guest].nil? && !user_signed_in?
-  end
-
   private def set_current_person
-    Current.person = user_signed_in? ? current_user : Guest.create
+    Rails.logger.debug current_person.inspect
+    Current.person = current_person
   end
 end

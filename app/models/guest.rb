@@ -1,6 +1,6 @@
 # Represents guest users, reason - store their tasks with session
 class Guest < ApplicationRecord
-  belongs_to :user, optional: true
+  include Personable
 
-  has_many :tasks, as: :personable, dependent: :destroy
+  belongs_to :user, optional: true
 end

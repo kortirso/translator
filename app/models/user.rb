@@ -1,8 +1,9 @@
 # Represents user object
 class User < ApplicationRecord
+  include Personable
+
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: %i[facebook github]
 
-  has_many :tasks, as: :personable, dependent: :destroy
   has_many :identities, dependent: :destroy
   has_many :guests, dependent: :destroy
 
@@ -21,9 +22,8 @@ class User < ApplicationRecord
     user
   end
 
-  def update_token(uid = nil)
+  def update_token
     update(access_token: TokenService.call)
-    # Task.for_guest(uid).update_all(user_id: id) if uid.present?
   end
 
   def admin?
