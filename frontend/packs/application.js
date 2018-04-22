@@ -11,7 +11,6 @@ import "components/registrations/registrations";
 import "components/sessions/sessions";
 
 import "components/welcome/welcome";
-import "components/tasks/tasks";
 
 import Rails from "rails-ujs";
 

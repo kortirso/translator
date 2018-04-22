@@ -13,7 +13,7 @@ module Checks
     def self.request(from, to)
       response = Yandex::Translator.new(api_key: ENV['YANDEX_TRANSLATE_API_KEY']).langs['dirs']
       return false unless response.is_a?(Array)
-      return false unless response.include? "#{from}-#{to}"
+      return false unless response.include?("#{from}-#{to}")
       true
     end
   end
