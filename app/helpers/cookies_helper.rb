@@ -8,6 +8,14 @@ module CookiesHelper
     cookies.permanent[:remember_token] = person.remember_token
   end
 
+  # Forgets a person in a persistent session.
+  def forget(person)
+    person.forget
+    cookies.delete(:person_id)
+    cookies.delete(:person_type)
+    cookies.delete(:remember_token)
+  end
+
   # returns logged user, creates/returns guest, logges remembered person
   def current_person
     return current_user if user_signed_in?

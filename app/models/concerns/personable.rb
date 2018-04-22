@@ -34,6 +34,11 @@ module Personable
     update_attribute(:remember_digest, self.class.digest(remember_token))
   end
 
+  # Forget a person in the database for use in persistent sessions.
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
+
   # Returns true if the given token matches the digest.
   def authenticated?(remember_token)
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
