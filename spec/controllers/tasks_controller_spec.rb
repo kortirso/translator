@@ -64,7 +64,7 @@ RSpec.describe TasksController, type: :controller do
       end
 
       context 'if task belongs to user' do
-        let!(:task) { create :task, :done, user: @current_user }
+        let!(:task) { create :task, :done, personable: @current_user }
 
         it 'calls activate method for task' do
           expect_any_instance_of(Task).to receive(:activate)
@@ -102,7 +102,7 @@ RSpec.describe TasksController, type: :controller do
       end
 
       context 'try delete his active task' do
-        let!(:task) { create :task, user: @current_user }
+        let!(:task) { create :task, personable: @current_user }
 
         it 'renders 404 page' do
           delete :destroy, params: { id: task.id, locale: 'en' }
@@ -112,7 +112,7 @@ RSpec.describe TasksController, type: :controller do
       end
 
       context 'try delete his completed task' do
-        let!(:task) { create :task, :done, user: @current_user }
+        let!(:task) { create :task, :done, personable: @current_user }
         let(:request){ delete :destroy, params: { id: task.id, locale: 'en' } }
 
         it 'destroys task' do

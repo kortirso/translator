@@ -2,10 +2,10 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: %i[facebook github]
 
-  has_many :tasks, dependent: :destroy
+  has_many :tasks, as: :personable, dependent: :destroy
   has_many :identities, dependent: :destroy
+  has_many :guests, dependent: :destroy
 
-  # validates :username, presence: true, length: { in: 1..30 }
   validates :role, presence: true, inclusion: { in: %w[user translator admin] }
 
   before_create :set_token
@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
   def update_token(uid = nil)
     update(access_token: TokenService.call)
-    Task.for_guest(uid).update_all(user_id: id) if uid.present?
+    # Task.for_guest(uid).update_all(user_id: id) if uid.present?
   end
 
   def admin?

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_15_153717) do
+ActiveRecord::Schema.define(version: 2018_04_22_040201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 2018_04_15_153717) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "service", default: ""
+  end
+
+  create_table "guests", force: :cascade do |t|
+    t.string "remember_digest"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_guests_on_user_id"
   end
 
   create_table "identities", force: :cascade do |t|
@@ -90,12 +98,13 @@ ActiveRecord::Schema.define(version: 2018_04_15_153717) do
     t.datetime "updated_at", null: false
     t.string "from", default: "", null: false
     t.string "to", default: "", null: false
-    t.integer "user_id"
     t.integer "error"
     t.boolean "double", default: false
     t.integer "framework_id"
+    t.integer "personable_id"
+    t.string "personable_type"
     t.index ["framework_id"], name: "index_tasks_on_framework_id"
-    t.index ["user_id"], name: "index_tasks_on_user_id"
+    t.index ["personable_type", "personable_id"], name: "index_tasks_on_personable_type_and_personable_id"
   end
 
   create_table "translations", id: :serial, force: :cascade do |t|
@@ -124,6 +133,7 @@ ActiveRecord::Schema.define(version: 2018_04_15_153717) do
     t.datetime "updated_at", null: false
     t.string "access_token"
     t.string "role", default: "user", null: false
+    t.string "remember_digest"
     t.index ["access_token"], name: "index_users_on_access_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

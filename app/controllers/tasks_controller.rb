@@ -17,7 +17,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = Task.new(create_task_params)
+    task = Task.new(task_params.merge(personable: Current.person))
     if task.save
       render json: task, status: 201
     else
@@ -41,24 +41,13 @@ class TasksController < ApplicationController
     resp
   end
 
-  private def create_task_params
-    return task_params.merge(user: current_user) if user_signed_in?
-    task_params.merge(uid: session[:guest])
-  end
-
   private def find_tasks
-    return current_user.tasks.order(id: :desc) if user_signed_in?
-    Task.for_guest(session[:guest])
+    Current.person.tasks.order(id: :desc)
   end
 
   private def find_task
-    @task = select_task
+    @task = Current.person.tasks.find_by(id: params[:id])
     render_not_found if @task.nil?
-  end
-
-  private def select_task
-    return current_user.tasks.find_by(id: params[:id]) if user_signed_in?
-    Task.find_by(id: params[:id], uid: session[:guest])
   end
 
   private def check_task_status

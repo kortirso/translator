@@ -18,7 +18,7 @@ class Task < ApplicationRecord
   has_one_attached :temporary_file
   has_one_attached :result_file
 
-  belongs_to :user, optional: true
+  belongs_to :personable, polymorphic: true
   belongs_to :framework
 
   has_many :positions, dependent: :destroy

@@ -13,7 +13,6 @@ class WelcomeController < ApplicationController
   end
 
   private def find_tasks
-    return current_user.tasks.order(id: :desc) if user_signed_in?
-    Task.for_guest(session[:guest])
+    Current.person.tasks.order(id: :desc)
   end
 end

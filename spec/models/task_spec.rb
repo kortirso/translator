@@ -1,5 +1,5 @@
 RSpec.describe Task, type: :model do
-  it { should belong_to :user }
+  it { should belong_to :personable }
   it { should belong_to :framework }
   it { should have_many(:positions).dependent(:destroy) }
   it { should have_many(:phrases).through(:positions) }
