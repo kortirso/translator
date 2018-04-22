@@ -43,11 +43,7 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
       context 'for new user' do
         before { get 'facebook' }
 
-        it 'updates token for created user' do
-          expect(User.last.access_token.size).to eq TokenService::KEY_SIZE * 2
-        end
-
-        it 'and redirects to user path' do
+        it 'redirects to user path' do
           expect(response).to redirect_to root_en_path
         end
       end
@@ -55,13 +51,7 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
       context 'for existed user' do
         let!(:user) { create :user, email: 'example_facebook@xyze.it' }
 
-        it 'updates token for this user' do
-          get 'facebook'
-
-          expect(User.last.access_token.size).to eq TokenService::KEY_SIZE * 2
-        end
-
-        it 'and redirects to user path' do
+        it 'redirects to user path' do
           get 'facebook'
 
           expect(response).to redirect_to root_en_path
@@ -112,11 +102,7 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
       context 'for new user' do
         before { get 'github' }
 
-        it 'updates token for created user' do
-          expect(User.last.access_token.size).to eq TokenService::KEY_SIZE * 2
-        end
-
-        it 'and redirects to user path' do
+        it 'redirects to user path' do
           expect(response).to redirect_to root_en_path
         end
       end
@@ -124,13 +110,7 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
       context 'for existed user' do
         let!(:user) { create :user, email: 'example_facebook@xyze.it' }
 
-        it 'updates token for this user' do
-          get 'github'
-
-          expect(User.last.access_token.size).to eq TokenService::KEY_SIZE * 2
-        end
-
-        it 'and redirects to user path' do
+        it 'redirects to user path' do
           get 'github'
 
           expect(response).to redirect_to root_en_path

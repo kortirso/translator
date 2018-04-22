@@ -111,26 +111,6 @@ RSpec.describe User, type: :model do
   end
 
   describe 'methods' do
-    context '.update_token' do
-      let!(:user) { create :user }
-
-      it 'creates new secret token' do
-        expect { user.update_token }.to change(user, :access_token)
-      end
-
-      context 'with uid' do
-        let!(:task) { create :task }
-
-        it 'updates task to belong_to user' do
-          skip '1'
-          user.update_token(task.uid)
-          task.reload
-
-          expect(task.user_id).to eq user.id
-        end
-      end
-    end
-
     context '.admin?' do
       let!(:user_1) { create :user, :admin }
       let!(:user_2) { create :user }
