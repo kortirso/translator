@@ -4,18 +4,30 @@
     p Описание форматов файлов, которые поддерживаются системой LangTool
   section.block.formats
     .framework
-      = link_to format_rails_path do
+      = link_to format_path(:rails) do
         h2 Ruby on Rails
         p .yml files
     .framework
-      = link_to format_android_path do
+      = link_to format_path(:android) do
         h2 Android
         p .xml files
     .framework
-      = link_to format_ios_path do
+      = link_to format_path(:ios) do
         h2 iOS
         p .strings files
     .framework
-      = link_to format_net_path do
+      = link_to format_path(:net) do
         h2 .NET
         p .resx files
+    .framework
+      = link_to format_path(:react) do
+        h2 ReactJS
+        p .json files
+    .framework
+      = link_to format_path(:laravel) do
+        h2 Laravel
+        p .json files
+    .framework
+      = link_to format_path(:yii) do
+        h2 Yii
+        p .php files
