@@ -1,63 +1,68 @@
 = javascript_pack_tag 'tasks_box'
-header
-  h1= t('index.header.h1')
-  p Бесплатный сервис для автоматической локализации ваших приложений
-section.block.description
-  .grid-x
-    .cell.medium-6
-      .image_block
-        = image_tag(asset_pack_path('images/empty.jpg'))
-    .cell.medium-6
-      .text_block
-        h2 1. Создайте задачу
-        p Выберите фреймворк, загрузите файл, выберите направления перевода
-        h2 2. Автоматический перевод
-        p Дождитесь окончания автоматического перевода
-        h2 3. Скачайте результат
-        p Скачайте сформированный локализационный файл
-= react_component('TasksBox', locale: I18n.locale)
-- if Rails.env.production?
-  section.block
+.inside_block
+  header
+    h1= t('index.header.h1')
+    p Бесплатный сервис для автоматической локализации ваших приложений
+  section.block.description
     .grid-x
-      .cell.small-12
-        .adsense_block= render 'shared/adsense_block'
-/section.block
-  .grid-x
-    .cell.small-12.medium-6
-      h2= t('index.help.ul')
-      ul
-        li
-          = 'Ruby on Rails (*.yml)'
-          a.structure data-open='ror_structure'
-        li
-          = 'JSON (*.json)'
-          a.structure data-open='json_structure'
-        li
-          = '.NET (*.resx)'
-          a.structure data-open='net_structure'
-        li
-          = 'iOS (*.strings)'
-          a.structure data-open='ios_structure'
-        li
-          = 'Android (*.xml)'
-          a.structure data-open='android_structure'
-        li
-          = 'PHP (*.php)'
-          a.structure data-open='php_structure'
-    .cell.small-12.medium-6
-    = render 'components/structure/structure'
-section.block
-  .grid-x
-    .cell.small-12.medium-6
-
-    .cell.small-12.medium-6
-      h2 Базовые возможности системы
-      ul
-        li Автоматический перевод локализационных файлов
-section.block
-  .grid-x
-    .cell.small-12.medium-6
-      h2 Преимущества для зарегистрированных пользователей
-      ul
-        li Просмотр и редактирование переведенных файлов
-    .cell.small-12.medium-6
+      .cell.medium-6
+        .image_block
+          = image_tag(asset_pack_path('images/empty.jpg'))
+      .cell.medium-6
+        .text_block
+          h2 1. Создайте задачу
+          p Выберите фреймворк, загрузите файл, выберите направления перевода
+          h2 2. Автоматический перевод
+          p Дождитесь окончания автоматического перевода
+          h2 3. Скачайте результат
+          p Скачайте сформированный локализационный файл
+  = react_component('TasksBox', locale: I18n.locale)
+  - if Rails.env.production?
+    section.block
+      .grid-x
+        .cell.small-12
+          .adsense_block= render 'shared/adsense_block'
+  /section.block
+    .grid-x
+      .cell.small-12.medium-6
+        h2= t('index.help.ul')
+        ul
+          li
+            = 'Ruby on Rails (*.yml)'
+            a.structure data-open='ror_structure'
+          li
+            = 'JSON (*.json)'
+            a.structure data-open='json_structure'
+          li
+            = '.NET (*.resx)'
+            a.structure data-open='net_structure'
+          li
+            = 'iOS (*.strings)'
+            a.structure data-open='ios_structure'
+          li
+            = 'Android (*.xml)'
+            a.structure data-open='android_structure'
+          li
+            = 'PHP (*.php)'
+            a.structure data-open='php_structure'
+      .cell.small-12.medium-6
+      = render 'components/structure/structure'
+  section.block.description
+    .grid-x
+      .cell.small-12.medium-6
+        .image_block
+          = image_tag(asset_pack_path('images/empty.jpg'))
+      .cell.small-12.medium-6
+        h2 Базовые возможности системы
+        ul
+          li Автоматический перевод локализационных файлов
+          li Нет ограничений на объем перевода
+  section.block.description
+    .grid-x
+      .cell.small-12.medium-6
+        h2 Преимущества для зарегистрированных пользователей
+        ul
+          li Просмотр и редактирование переведенных файлов
+      .cell.small-12.medium-6
+        .image_block
+          = image_tag(asset_pack_path('images/empty.jpg'))
