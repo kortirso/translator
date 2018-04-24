@@ -50,6 +50,10 @@ body {
   .reveal-overlay {
     overflow-y: hidden;
   }
+
+  .grid-container {
+    position: relative;
+  }
 }
 
 h1,
@@ -71,7 +75,8 @@ button.button,
   border-radius: 2px;
   color: #fff !important;
   text-align: center !important;
-  padding: 0 !important;
+  padding: 11px 15px 10px !important;
+  font-size: 16px;
 
   &:hover,
   &:focus {

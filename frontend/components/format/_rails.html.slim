@@ -1,0 +1,28 @@
+.inside_block
+  header
+    h1 Файлы для Ruby on Rails
+    p Описание формата файлов .yml
+  section.format
+    p Язык оригинала для файла определяется по содержимому файла.
+    p Типичная структура файла .yml представлена ниже.
+    pre
+      |en:
+      br/
+      |   index: Main
+      br/
+      |   help: Help, %{user_name}
+      br/
+      |   body: A new approval request has been submitted from <&zwj;strong>%{name}<&zwj;/strong>.
+      br/
+      |   day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+      br/
+      |   footer:
+      br/
+      |     header: Contacts
+    p Переведены будут только текстовые данные, элементы массива переводятся по отдельности.
+    ul
+      = "Элементы, которые не переводятся:"
+      li переменные,
+      li тэги,
+      li спецсимволы,
+      li комментарии.

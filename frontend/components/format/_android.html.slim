@@ -1,0 +1,45 @@
+.inside_block
+  header
+    h1 Файлы для приложений на базе Android
+    p Описание формата файлов .xml
+  section.format
+    p
+      | Язык оригинала для файла определяется по названию файла.
+      |  Например, имя файла может быть 
+      span.italic= 'strings.xml'
+      |  или 
+      span.italic= 'strings.es.xml.'
+    p Типичная структура файла .xml представлена ниже.
+    pre
+      |<&zwj;resources>
+      br/
+      |   <&zwj;string>You are here<&zwj;/string>
+      br/
+      |   <&zwj;string-array>
+      br/
+      |      <&zwj;item>Singles<&zwj;/item>
+      br/
+      |      <&zwj;item translatable="false">Albums<&zwj;/item>
+      br/
+      |   <&zwj;/string-array>
+      br/
+      |   <&zwj;plurals>
+      br/
+      |      <&zwj;item quantity="one">%s koala<&zwj;/item>
+      br/
+      |      <&zwj;item quantity="other">%s koalas<&zwj;/item>
+      br/
+      |   <&zwj;/plurals>
+      br/
+      |<&zwj;/resources>
+    ul
+      | Переведены будут только текстовые данные, находящиеся в тэгах:
+      li string,
+      li string-array, item,
+      li plurals, item.
+    ul
+      | Элементы, которые не переводятся:
+      li переменные,
+      li тэги,
+      li спецсимволы,
+      li= "элементы с дополнительным аттрибутом translatable='false'."

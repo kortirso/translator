@@ -16,7 +16,7 @@ module FileHandle
       end
 
       private def for_translate(data)
-        data.xpath('//resources/string') + data.xpath('//resources/string-array/item')
+        data.xpath('//resources/string') + data.xpath('//resources/string-array/item') + data.xpath('//resources/plurals/item')
       end
     end
   end

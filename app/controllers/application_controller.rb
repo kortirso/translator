@@ -19,7 +19,6 @@ class ApplicationController < ActionController::Base
   end
 
   private def set_current_person
-    Rails.logger.debug current_person.inspect
     Current.person = current_person
   end
 end

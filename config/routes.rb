@@ -14,6 +14,11 @@ Rails.application.routes.draw do
     devise_for :users, skip: :omniauth_callbacks, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
     resources :tasks, only: %i[index create update destroy]
+    scope path: '/formats' do
+      get '/' => 'formats#index', as: :formats
+      get '/android' => 'formats#android', as: :format_android
+      get '/rails' => 'formats#rails', as: :format_rails
+    end
 
     namespace :api do
       namespace :v1 do

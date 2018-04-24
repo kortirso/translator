@@ -3,7 +3,7 @@
   height: 100%;
   margin: 0 auto;
   position: relative;
-  padding-bottom: 185px;
+  padding: 72px 0 185px;
 
   .inside_block {
     max-width: 1000px;
