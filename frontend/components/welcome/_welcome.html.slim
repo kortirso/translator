@@ -22,25 +22,6 @@
       .grid-x
         .cell.small-12
           .adsense_block= render 'shared/adsense_block'
-  /section.block
-    .grid-x
-      .cell.small-12.medium-6
-        h2= t('index.help.ul')
-        ul
-          li
-            = 'JSON (*.json)'
-            a.structure data-open='json_structure'
-          li
-            = '.NET (*.resx)'
-            a.structure data-open='net_structure'
-          li
-            = 'iOS (*.strings)'
-            a.structure data-open='ios_structure'
-          li
-            = 'PHP (*.php)'
-            a.structure data-open='php_structure'
-      .cell.small-12.medium-6
-      = render 'components/structure/structure'
   section.block.description
     .grid-x
       .cell.small-12.medium-6

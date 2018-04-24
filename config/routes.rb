@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get '/' => 'formats#index', as: :formats
       get '/android' => 'formats#android', as: :format_android
       get '/rails' => 'formats#rails', as: :format_rails
+      get '/ios' => 'formats#ios', as: :format_ios
     end
 
     namespace :api do
