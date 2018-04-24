@@ -11,7 +11,7 @@
               li= link_to t('buttons.logout'), destroy_user_session_path, method: :delete
             - else
               li
-                a data-open='login'= t('buttons.login')
+                a.modal_link data-open='login'= t('buttons.login')
               li
-                a data-open='signup'= t('buttons.signup')
+                a.modal_link data-open='signup'= t('buttons.signup')
               = render 'components/modals/modals'

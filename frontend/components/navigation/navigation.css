@@ -3,14 +3,27 @@ nav {
 
   .top-bar {
     background: none;
+    border-bottom: 1px solid #eee;
 
     ul.menu {
       background: none;
 
       li {
         a {
-          font-weight: 600;
-          color: #000;
+          font-weight: 500;
+          color: #2f3340;
+          padding: 8px 16px;
+
+          &.modal_link {
+            background: #f2f4f7;
+            border: 1px solid #e1e3e8;
+            border-radius: 3px;
+            margin-right: 10px;
+
+            &:hover {
+              background: #e2e4e7;
+            }
+          }
         }
       }
     }

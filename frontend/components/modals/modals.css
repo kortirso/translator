@@ -1,7 +1,8 @@
 #login,
 #signup {
   background: #fff;
-  border: 1px solid #000;
+  border: 1px solid #888;
+  border-radius: 3px;
 
   img {
     width: 32px;
@@ -16,5 +17,7 @@
 
   .header {
     margin-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
   }
 }

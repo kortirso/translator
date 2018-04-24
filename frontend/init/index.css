@@ -1,9 +1,9 @@
 @import "normalize.css/normalize.css";
 @import "foundation-sites/dist/css/foundation.css";
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=cyrillic");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500&subset=cyrillic");
 
 * {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 400;
 
@@ -43,7 +43,7 @@ body {
   background: #fff;
   background-repeat: no-repeat;
   background-position: top center;
-  color: #555;
+  color: #2f3340;
   position: relative;
 
   .reveal-overlay {
@@ -55,9 +55,9 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
-  color: #333;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #2f3340;
 }
 
 p {
