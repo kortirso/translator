@@ -1,0 +1,23 @@
+.inside_block
+  header
+    h1 Файлы для .NET
+    p Описание формата файлов .resx
+  section.format
+    p
+      | Язык оригинала для файла определяется по названию файла.
+      |  Например, имя файла может быть 
+      span.italic= 'UIStrings.resx'
+      |  или 
+      span.italic= 'UIStrings.da-DK.resx.'
+    p Типичная структура файла .resx представлена ниже.
+    pre
+      |<&zwj;root>
+      br/
+      |   <&zwj;data name="ChangeUser" xml:space="preserve">
+      br/
+      |     <&zwj;value>Change User<&zwj;/value>
+      br/
+      |   <&zwj;/data>
+      br/
+      |<&zwj;/root>
+    p Переведены будут только текстовые данные, находящиеся в тэгах value

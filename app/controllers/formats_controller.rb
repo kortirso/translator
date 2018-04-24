@@ -3,4 +3,5 @@ class FormatsController < ApplicationController
   def android; end
   def rails; end
   def ios; end
+  def net; end
 end
