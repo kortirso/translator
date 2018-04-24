@@ -1,0 +1,35 @@
+.inside_block
+  header
+    h1 Файлы для ReactJS
+    p Описание формата файлов .json
+  section.format
+    p
+      | Язык оригинала для файла определяется по названию файла.
+      |  Например, имя файла может быть 
+      span.italic= 'en.json'
+      |  или 
+      span.italic= 'da.json.'
+    p Типичная структура файла .json представлена ниже.
+    pre
+      |{
+      br/
+      |   "en": {
+      br/
+      |     "index": "Main",
+      br/
+      |     "Real Estate found": {
+      br/
+      |        "0": "No real estate found",
+      br/
+      |        "n": "{n} real estates found"
+      br/
+      |     }
+      br/
+      |   }
+      br/
+      |}
+    p Переведены будут только текстовые данные, находящиеся в парах ключ/значение.
+    ul
+      | Элементы, которые не переводятся:
+      li переменные,
+      li тэги.
