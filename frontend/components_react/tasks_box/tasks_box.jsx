@@ -1,15 +1,15 @@
-import React from 'react';
-import Task from 'components_react/tasks_box/task';
-import TaskNew from 'components_react/tasks_box/task_new';
-import LocalizedStrings from 'react-localization';
-import I18nData from './i18n_data.json';
-const $ = require("jquery");
+import React from 'react'
+import Task from 'components_react/tasks_box/task'
+import TaskNew from 'components_react/tasks_box/task_new'
+import LocalizedStrings from 'react-localization'
+import I18nData from './i18n_data.json'
+const $ = require("jquery")
 
-let strings = new LocalizedStrings(I18nData);
+let strings = new LocalizedStrings(I18nData)
 
-class TasksBox extends React.Component {
+export default class TasksBox extends React.Component {
   constructor() {
-    super();
+    super()
     this.state = {
       tasksList: [],
       locales: [],
@@ -18,7 +18,7 @@ class TasksBox extends React.Component {
   }
 
   componentWillMount() {
-    // this._fetchTasksList()
+    this._fetchTasksList()
     this._runTimer()
     strings.setLanguage(this.props.locale)
   }
@@ -80,7 +80,7 @@ class TasksBox extends React.Component {
 
   _prepareTasksBox() {
     if (this.state.tasksList.length > 0) {
-      const tasks = this._prepareTasksList();
+      const tasks = this._prepareTasksList()
       return (
         <div className='cell small-10 small-offset-1 end'>
           <h2>Existed tasks for translation</h2>
@@ -117,19 +117,13 @@ class TasksBox extends React.Component {
 
   render() {
     return (
-      <main className='platforms without_back grid-container'>
-        <div className='grid-x'>
-          <div className='cell small-10 medium-8 small-offset-1 medium-offset-2'>
-            <section className='block' id='new_file_block'>
-              <h2>New Task Form</h2>
-              <TaskNew frameworks={this.state.frameworks} locales={this.state.locales} strings={strings} addTask={this._addTask.bind(this)} />
-            </section>
-          </div>
-          {this._prepareTasksBox()}
-        </div>
+      <main>
+        <section className='block' id='new_file_block'>
+          <h2>Начните работу прямо сейчас</h2>
+          <TaskNew frameworks={this.state.frameworks} locales={this.state.locales} strings={strings} addTask={this._addTask.bind(this)} />
+        </section>
+        {this._prepareTasksBox()}
       </main>
     )
   }
 }
-
-export default TasksBox;
