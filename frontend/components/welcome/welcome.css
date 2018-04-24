@@ -1,6 +1,6 @@
 header {
   text-align: center;
-  margin-bottom: 75px;
+  margin: 25px 0 75px;
 
   h1 {
     font-size: 40px;
@@ -8,8 +8,7 @@ header {
   }
 
   p {
-    font-style: italic;
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
@@ -28,18 +27,26 @@ header {
   }
 }
 
-.description_block {
-  margin-bottom: 25px;
+.description {
+  max-width: 1000px;
 
-  img {
-    width: 250px;
-    height: 250px;
-    margin-bottom: 15px;
+  .image_block {
+    img {
+      width: 250px;
+      height: 250px;
+      margin-bottom: 15px;
+    }
   }
 
-  h3 {
-    font-size: 24px;
-    font-weight: 500;
+  .text_block {
+    margin-top: 30px;
+    text-align: left;
+
+    h2 {
+      font-size: 26px;
+      font-weight: 400;
+      margin: 15px 0 5px;
+    }
   }
 }
 
