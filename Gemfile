@@ -55,6 +55,9 @@ gem 'rubocop', '~> 0.49.1', require: false
 # Translator
 gem 'yandex-translator-api', '1.2'
 
+# Mailer styles
+gem 'premailer-rails'
+
 group :development do
   gem 'capistrano', require: false
   gem 'capistrano-bundler', require: false

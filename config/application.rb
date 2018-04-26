@@ -35,5 +35,6 @@ module Translator
     config.active_job.queue_adapter = :sidekiq
 
     config.generators.system_tests = nil
+    config.action_mailer.preview_path = 'spec/mailers/previews'
   end
 end
