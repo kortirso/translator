@@ -39,6 +39,25 @@ RSpec.describe User, type: :model do
     expect(user.errors[:email]).to include('has already been taken')
   end
 
+  describe 'callbacks' do
+    context 'send_welcome_email' do
+      let!(:user) { create :user }
+
+      it 'does not execute job if confirmed_at does not changed' do
+        expect(WelcomeLetterJob).to_not receive(:perform_later)
+
+        user.save
+      end
+
+      it 'executes job if confirmed_at changed' do
+        expect(WelcomeLetterJob).to receive(:perform_later)
+
+        user.confirmed_at = DateTime.now
+        user.save
+      end
+    end
+  end
+
   describe 'class methods' do
     context '.find_for_oauth' do
       let(:oauth) { create :oauth, :with_credentials }

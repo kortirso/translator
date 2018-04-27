@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   validates :role, presence: true, inclusion: { in: %w[user translator admin] }
 
+  before_save :send_welcome_email
+
   def self.find_for_oauth(auth)
     identity = Identity.find_for_oauth(auth)
     return identity.user if identity.present?
@@ -31,5 +33,9 @@ class User < ApplicationRecord
 
   def editor?
     admin? || translator?
+  end
+
+  private def send_welcome_email
+    WelcomeLetterJob.perform_later(self) if id.present? && confirmed_at_changed?
   end
 end
