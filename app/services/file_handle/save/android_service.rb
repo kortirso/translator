@@ -3,8 +3,7 @@ module FileHandle
     # Saving service for Android
     class AndroidService < FileHandle::SaveService
       private def define_filename(type)
-        file_name = task.file_name.split('.')[0]
-        "#{TEMP_FOLDER}#{task.id}.#{type}.#{file_name}.#{task.to}.xml"
+        super(type) + 'xml'
       end
     end
   end

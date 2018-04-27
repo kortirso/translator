@@ -3,8 +3,7 @@ module FileHandle
     # Saving service for Yii
     class YiiService < FileHandle::SaveService
       private def define_filename(type)
-        file_name = task.file_name.split('.')[0]
-        "#{TEMP_FOLDER}#{task.id}.#{type}.#{file_name}.#{task.to}.php"
+        super(type) + 'php'
       end
     end
   end

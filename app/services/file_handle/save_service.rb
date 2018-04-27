@@ -34,6 +34,11 @@ module FileHandle
       @result_file_name ||= define_filename('result')
     end
 
+    private def define_filename(type)
+      file_name = task.file_name.split('.')[0]
+      "#{TEMP_FOLDER}#{task.id}.#{type}.#{file_name}.#{task.to}."
+    end
+
     private def position_translation(position)
       temp_value = position.temp_value
       position.phrases.each do |phrase|

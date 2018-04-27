@@ -3,8 +3,7 @@ module FileHandle
     # Saving service for IOs
     class IosService < FileHandle::SaveService
       private def define_filename(type)
-        file_name = task.file_name.split('.')[0]
-        "#{TEMP_FOLDER}#{task.id}.#{type}.#{file_name}.#{task.to}.strings"
+        super(type) + 'strings'
       end
     end
   end
