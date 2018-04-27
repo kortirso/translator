@@ -2,11 +2,7 @@ module FileHandle
   module Upload
     # FileUploader for *.strings from IOs
     class IosService < FileHandle::UploadService
-      # private section
-      private def post_initialize(_args)
-        prepare_file
-        @uploaded_file = task.file_content
-      end
+      include FileHandle::Upload::Concerns::Stringable
 
       private def locale
         @locale ||= file_name.split('.').size == 2 ? 'en' : file_name.split('.')[1]

@@ -4,7 +4,6 @@ module FileHandle
   module Upload
     # FileUploader for *.json from ReactJS
     class ReactService < FileHandle::UploadService
-      # private section
       private def post_initialize(_args)
         prepare_file
         @uploaded_file = JSON.parse(task.file_content)

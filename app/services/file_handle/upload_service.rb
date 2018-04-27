@@ -15,9 +15,7 @@ module FileHandle
     end
 
     # subclasses may override
-    private def post_initialize(_args)
-      nil
-    end
+    private def post_initialize(_args); end
 
     private def check_file; end
 

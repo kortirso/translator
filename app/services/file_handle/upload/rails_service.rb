@@ -5,7 +5,6 @@ module FileHandle
   module Upload
     # FileUploader for *.yml
     class RailsService < FileHandle::UploadService
-      # private section
       private def post_initialize(_args)
         prepare_file
         @uploaded_file = YAML.safe_load(task.file_content)
