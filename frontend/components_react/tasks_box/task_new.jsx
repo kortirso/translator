@@ -1,4 +1,5 @@
 import React from 'react'
+import SelectBox from 'components_react/tasks_box/select_box'
 
 const extensions = {'Ruby on Rails': '.yml', 'ReactJS': '.json', 'Laravel': '.json', '.NET': '.resx', 'iOS': '.strings', 'Android': '.xml', 'Yii': '.php'}
 
@@ -25,16 +26,16 @@ export default class TaskNew extends React.Component {
     }
   }
 
-  _handleFramework(event) {
-    this.setState({framework: event.target.value, extension: extensions[event.target.value]})
+  _handleFramework(value) {
+    this.setState({framework: value, extension: extensions[value]})
   }
 
   _handleLocaleFrom(event) {
     this.setState({localeFrom: event.target.value})
   }
 
-  _handleLocaleTo(event) {
-    this.setState({localeTo: event.target.value})
+  _handleLocaleTo(value) {
+    this.setState({localeTo: value})
   }
 
   _handleUploadFile(event) {
@@ -66,10 +67,7 @@ export default class TaskNew extends React.Component {
         <div className='task_form_fields grid-x'>
           <div className='cell small-12 medium-6'>
             <p>Выберите фреймворк</p>
-            <select defaultValue={true} className='input_field' onChange={this._handleFramework.bind(this)}>
-              <option disabled value></option>
-              {this._prepareFrameworks()}
-            </select>
+            <SelectBox options={this._prepareFrameworks()} onChangeValue={this._handleFramework.bind(this)} />
           </div>
           <div className='cell small-12 medium-6'>
             <p>Загрузите файл для локализации</p>
@@ -82,17 +80,11 @@ export default class TaskNew extends React.Component {
           </div>
           <div className='cell small-12 medium-6'>
             <p>Язык оригинала</p>
-            <select defaultValue={true} className='input_field' onChange={this._handleLocaleFrom.bind(this)}>
-              <option value>Автоопределение</option>
-              {this._prepareLocales()}
-            </select>
+            <SelectBox options={this._prepareLocales()} withoutDisabling='Автоопределение' onChangeValue={this._handleLocaleTo.bind(this)} />
           </div>
           <div className='cell small-12 medium-6'>
             <p>Язык перевода</p>
-            <select defaultValue={true} className='input_field' onChange={this._handleLocaleTo.bind(this)}>
-              <option disabled value></option>
-              {this._prepareLocales()}
-            </select>
+            <SelectBox options={this._prepareLocales()} onChangeValue={this._handleLocaleTo.bind(this)} />
           </div>
           <div className='cell small-12 medium-2 medium-offset-10'>
             <button type='submit' className='button'>{this.props.strings.localize}</button>

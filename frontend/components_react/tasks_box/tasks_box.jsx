@@ -43,7 +43,7 @@ export default class TasksBox extends React.Component {
   _fetchTasksList() {
     $.ajax({
       method: 'GET',
-      url: 'tasks.json',
+      url: '/?format=json',
       success: (data) => {
         this.setState({tasksList: data.tasks, locales: data.locales, frameworks: data.frameworks})
       }
