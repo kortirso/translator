@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get 'omniauth/:provider' => 'users/omniauth#localized', as: :localized_omniauth
     devise_for :users, skip: :omniauth_callbacks, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
-    resources :tasks, only: %i[index create update destroy]
+    resources :tasks, only: %i[create update destroy]
 
     scope path: '/formats' do
       get '/' => 'formats#index', as: :formats
