@@ -62,23 +62,24 @@ export default class TaskNew extends React.Component {
   }
 
   render() {
+    const strings = this.props.strings
     return (
       <form className='task_form' onSubmit={this._handleSubmit.bind(this)}>
         <div className='task_form_fields grid-x'>
-          <SelectBox label='Выберите фреймворк' options={this._prepareFrameworks()} onChangeValue={this._handleFramework.bind(this)} />
+          <SelectBox label={strings.framework} options={this._prepareFrameworks()} onChangeValue={this._handleFramework.bind(this)} />
           <div className='cell small-12 medium-6'>
-            <p>Загрузите файл для локализации</p>
+            <p>{strings.loadFile}</p>
             <div className='file_uploader'>
               <label>
                 <input type='file' accept={this.state.extension} onChange={this._handleUploadFile.bind(this)} disabled={this.state.framework == null} />
-                <span>{this.state.fileName || this.props.strings.select}</span>
+                <span>{this.state.fileName || strings.select}</span>
               </label>
             </div>
           </div>
-          <SelectBox label='Язык оригинала' options={this._prepareLocales()} withoutDisabling='Автоопределение' onChangeValue={this._handleLocaleFrom.bind(this)} />
-          <SelectBox label='Язык перевода' options={this._prepareLocales()} onChangeValue={this._handleLocaleTo.bind(this)} />
+          <SelectBox label={strings.original} options={this._prepareLocales()} withoutDisabling={strings.auto} onChangeValue={this._handleLocaleFrom.bind(this)} />
+          <SelectBox label={strings.translation} options={this._prepareLocales()} onChangeValue={this._handleLocaleTo.bind(this)} />
           <div className='cell small-12 medium-3 medium-offset-9'>
-            <button type='submit' className='button'>{this.props.strings.localize}</button>
+            <button type='submit' className='button'>{strings.localize}</button>
           </div>
         </div>
       </form>

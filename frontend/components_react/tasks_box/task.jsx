@@ -10,12 +10,6 @@ class Task extends React.Component {
     if (this.props.task.status == 'done') return <a download={this.props.task.result_file_name} className='button' href={this.props.task.link_to_file}>{this.props.strings.download}</a>
   }
 
-  _checkTranslation() {
-    let locale = '';
-    if (this.props.strings.language != 'en') locale = '/' + this.props.strings.language
-    if (this.props.task.status == 'done') return <a href={locale + '/tasks/' + this.props.task.id}>{this.props.strings.goto}</a>
-  }
-
   _handleDelete(event) {
     event.preventDefault
     this.props.onDelete(this.props.task)

@@ -83,7 +83,7 @@ export default class TasksBox extends React.Component {
     const tasks = this._prepareTasksList()
     return (
       <div id='existed_tasks'>
-        <h2>Existed tasks with translations</h2>
+        <h2>{strings.tasks}</h2>
         <section>
           <table className='stack'>
             <thead>
@@ -114,7 +114,7 @@ export default class TasksBox extends React.Component {
     return (
       <main>
         <section className='block' id='new_file_block'>
-          <h2>Начните работу прямо сейчас</h2>
+          <h2>{strings.start}</h2>
           <TaskNew frameworks={this.state.frameworks} locales={this.state.locales} strings={strings} addTask={this._addTask.bind(this)} />
         </section>
         {this._prepareTasksBox()}
