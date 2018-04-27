@@ -30,8 +30,8 @@ export default class TaskNew extends React.Component {
     this.setState({framework: value, extension: extensions[value]})
   }
 
-  _handleLocaleFrom(event) {
-    this.setState({localeFrom: event.target.value})
+  _handleLocaleFrom(value) {
+    this.setState({localeFrom: value})
   }
 
   _handleLocaleTo(value) {
@@ -65,10 +65,7 @@ export default class TaskNew extends React.Component {
     return (
       <form className='task_form' onSubmit={this._handleSubmit.bind(this)}>
         <div className='task_form_fields grid-x'>
-          <div className='cell small-12 medium-6'>
-            <p>Выберите фреймворк</p>
-            <SelectBox options={this._prepareFrameworks()} onChangeValue={this._handleFramework.bind(this)} />
-          </div>
+          <SelectBox label='Выберите фреймворк' options={this._prepareFrameworks()} onChangeValue={this._handleFramework.bind(this)} />
           <div className='cell small-12 medium-6'>
             <p>Загрузите файл для локализации</p>
             <div className='file_uploader'>
@@ -78,14 +75,8 @@ export default class TaskNew extends React.Component {
               </label>
             </div>
           </div>
-          <div className='cell small-12 medium-6'>
-            <p>Язык оригинала</p>
-            <SelectBox options={this._prepareLocales()} withoutDisabling='Автоопределение' onChangeValue={this._handleLocaleTo.bind(this)} />
-          </div>
-          <div className='cell small-12 medium-6'>
-            <p>Язык перевода</p>
-            <SelectBox options={this._prepareLocales()} onChangeValue={this._handleLocaleTo.bind(this)} />
-          </div>
+          <SelectBox label='Язык оригинала' options={this._prepareLocales()} withoutDisabling='Автоопределение' onChangeValue={this._handleLocaleFrom.bind(this)} />
+          <SelectBox label='Язык перевода' options={this._prepareLocales()} onChangeValue={this._handleLocaleTo.bind(this)} />
           <div className='cell small-12 medium-2 medium-offset-10'>
             <button type='submit' className='button'>{this.props.strings.localize}</button>
           </div>

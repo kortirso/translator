@@ -12,10 +12,13 @@ class SelectBox extends React.Component {
 
   render() {
     return (
-      <select defaultValue={true} className='input_field' onChange={this._onChange.bind(this)}>
-        {this._checkDefaultValue()}
-        {this.props.options}
-      </select>
+      <div className='cell small-12 medium-6'>
+        <p>{this.props.label}</p>
+        <select defaultValue={true} className='input_field' onChange={this._onChange.bind(this)}>
+          {this._checkDefaultValue()}
+          {this.props.options}
+        </select>
+      </div>
     )
   }
 }
