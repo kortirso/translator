@@ -1,48 +1,45 @@
+---
 en:
-  login_through: Login through
+  login_through: Entrance via
   meta:
     keywords: translator, localization, development, internationalization, i18n, l10n, translation tool, ruby on rails, android, react, .NET, yml, xml, json, resx, strings
-    description: LangTool is a automatic localization tool for developers
-  nav:
-    yandex: 'Translated by '
-    yandex_link: «Yandex.Translator»
-    change_locale: Switch language
+    description: LangTool - computer-assisted translation web app
   index:
     header:
       h1: LangTool
-      p: Easy localizations for developers!
-    help:
-      ul: We help developers on the following platforms
+      p: Free service for automatic localization of your applications
     how:
-      ul: How can you localize?
-      li1: choose file for localization
-      li2: select translation's direction
-      li3: run translating
-      li4: wait a few seconds / minutes
-      li5: download result file
-    footer:
-      h: Contact us
-      p: If you have questions or feedback
-      account: ACCOUNT
+      head1: 1. Create a task
+      p1: Select the framework you want, download the file, choose the translation direction
+      head2: 2. Automatic translation
+      p2: Wait for the automatic translation
+      head3: 3. Download the result
+      p3: Download the generated localization file
+    base:
+      ul: The basic features of the system
+      li1: Automatic translation of localization files
+      li2: There are no restrictions on the amount of the transfer
+    extended:
+      ul: Benefits for registered users
+      li1: Viewing and editing files (in development)
+  footer:
+    h: Contacts
+    p: If you have questions, feedback or suggestions
+    help: Help
+    formats: File formats
+    yandex: 'Translated by service '
+    yandex_link: «Yandex.Translator»
   buttons:
-    logout: Logout
-    login: Login
-    signup: Register
+    logout: SignOut
+    login: SignIn
+    signup: SignUp
   modals:
-    auth: Authentication
+    hello: Good day
+    welcome: Welcome
+    auth: SignIn
     reg: Registration
     pass: Password
-    username: Username
     confirm: Confirm password
-    enter: Login
-    minimal: Minimum password length - 6 characters
-  tasks:
-    localize: Localize
-  task:
-    title: Here you can see the translations of words and phrases from your file
-    need_login: Logged users can edit translations
-    for_logged: You can edit translations, after saving the results the resulting file will be re-formed.
-    translations: Possible translations
-  contribution:
-    header: Assistance to professional translators
-    text: Web service LangTool functions due to the automatic translation of texts using Yandex.Translator. But to improve the translation quality required of professional translators. If you have the ability, desire and opportunity to help the project, you can send inquiry to receive the rights to translate and confirm translations.
+    enter: SignIn
+    minimal: Minimum password length is 10 characters
+    remember: Remember me

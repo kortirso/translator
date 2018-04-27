@@ -1,48 +1,45 @@
+---
 fr:
-  login_through: Se connecter via
+  login_through: L'entrée par le
   meta:
-    keywords: traducteur, localisation, développement, internationalisation, i18n, l10n, outil de traduction, ruby on rails, android, react, yml, xml, json, resx, strings
-    description: LangTool - outil de localisation automatique pour les développeurs
-  nav:
-    yandex: 'Traduit par '
-    yandex_link: «Yandex.Traducteur»
-    change_locale: Changement de langue
+    keywords: le traducteur, la localisation, le développement, l'internationalisation, i18n, l10n, l'outil de traduction, ruby on rails, android, react, .NET, php, xml, json, resx, strings
+    description: LangTool - système automatique de localisation pour les développeurs
   index:
     header:
       h1: LangTool
-      p: Facile localisations pour les développeurs!
-    help:
-      ul: Nous aidons les développeurs sur les plates-formes suivantes
+      p: Service gratuit pour de la localisation automatique de vos applications
     how:
-      ul: Comment pouvez-vous localiser?
-      li1: choisissez fichier pour la localisation
-      li2: sélectionner la traduction de direction
-      li3: exécuter la traduction
-      li4: attendez quelques secondes / minutes
-      li5: télécharger le fichier résultat
-    footer:
-      h: Contacts
-      p: Si vous avez des questions ou des commentaires
-      account: COMPTE
+      head1: 1. Créez une tâche
+      p1: Sélectionnez le framework, téléchargez le fichier, sélectionnez la direction de la traduction
+      head2: 2. Traduction automatique
+      p2: Attendez la fin de la traduction automatique
+      head3: 3. Téléchargez le résultat
+      p3: Téléchargez formé локализационный fichier
+    base:
+      ul: Les fonctionnalités de base du système
+      li1: Traduction automatique локализационных de fichiers
+      li2: Pas de restrictions sur le volume de la traduction
+    extended:
+      ul: Les avantages pour les utilisateurs enregistrés
+      li1: Afficher et modifier les fichiers traduits (en cours de développement)
+  footer:
+    h: Contacts
+    p: Si vous avez des questions, commentaires ou suggestions
+    help: Aide
+    formats: Formats de fichiers
+    yandex: 'Traduit du service '
+    yandex_link: «Yandex.Le traducteur»
   buttons:
-    logout: Déconnecter
-    login: S'identifier
-    signup: Registre
+    logout: Sortie
+    login: Entrée
+    signup: Inscription
   modals:
-    auth: Authentification
+    hello: Bonjour
+    welcome: Bienvenue
+    auth: Entrée
     reg: Inscription
-    pass: Mot de passe
-    username: Nom d'utilisateur
-    confirm: Confirmer le mot de passe
-    enter: S'identifier
-    minimal: Minimale du mot de passe de la longueur de 6 caractères
-  tasks:
-    localize: Localiser
-  task:
-    title: Ici vous pouvez voir les traductions de mots et de phrases de votre fichier
-    need_login: Connecté, les utilisateurs peuvent modifier les traductions
-    for_logged: Vous pouvez modifier les traductions, après avoir enregistré les résultats, le fichier résultant sera réformé.
-    translations: Traductions possibles
-  contribution:
-    header: L'Assistance à des traducteurs professionnels
-    text: Service Web LangTool fonctionne en raison de la traduction automatique de textes utilisant Yandex.Translator. Mais pour améliorer la qualité de la traduction requise des traducteurs professionnels. Si vous avez la capacité, le désir et l'opportunité d'aider le projet, vous pouvez envoyer une demande pour recevoir les droits de traduction et de confirmation des traductions.
+    pass: Le mot de passe
+    confirm: Confirmation du mot de passe
+    enter: Entrée
+    minimal: Longueur minimale du mot de passe de 10 caractères
+    remember: Se souvenir de moi

@@ -1,48 +1,45 @@
+---
 da:
-  login_through: Log ind gennem
+  login_through: Indgang via
   meta:
-    keywords: oversætter, lokalisering, udvikling, internationalisering, i18n, l10n, oversættelsesværktøj, ruby on rails, android, react .NET, yml, xml, json, resx, strings
-    description: LangTool er et oversættelsesværktøj til udviklere og webstedsejere
-  nav:
-    yandex: 'Oversat service '
-    yandex_link: '"Yandex.Oversætter"'
-    change_locale: Skift sprog
+    keywords: oversætter, lokalisering, udvikling, internationalisering, i18n, l10n, oversættelse værktøj, ruby on rails, android, reagere, .NET, yml, xml, json, resx, strygere
+    description: LangTool - automatisk lokalisering for udviklere
   index:
     header:
       h1: LangTool
-      p: Nem lokaliseringer for udviklere!
-    help:
-      ul: Vi hjælper udviklere på følgende platforme
+      p: Gratis service for automatisk lokalisering af dine applikationer
     how:
-      ul: Hvordan kan du lokalisere?
-      li1: vælg fil til lokalisering
-      li2: vælg oversættelse retning
-      li3: køre oversættelse
-      li4: vent nogle få sekunder / minutter
-      li5: download resultat fil
-    footer:
-      h: Kontakter
-      p: Hvis du har spørgsmål eller feedback
-      account: KONTO
+      head1: 1. Oprette en opgave
+      p1: Vælge den ramme, du ønsker, skal du hente filen, skal du vælge den oversættelse retning
+      head2: 2. Automatisk oversættelse
+      p2: Vent til automatisk oversættelse
+      head3: 3. Download resultatet
+      p3: Download den genererede lokalisering fil
+    base:
+      ul: De grundlæggende funktioner i systemet,
+      li1: Automatisk oversættelse af lokalisering filer
+      li2: Der er ingen begrænsninger på mængden af overførslen
+    extended:
+      ul: Fordele for registrerede brugere
+      li1: Visning og redigering af filer (under udvikling)
+  footer:
+    h: Kontakter
+    p: Hvis du har spørgsmål, feedback eller forslag
+    help: Hjælp
+    formats: Filformater
+    yandex: 'Oversat service '
+    yandex_link: «Yandex.Oversætter»
   buttons:
-    logout: Log ud
-    login: Log på
-    signup: Tilmeld
+    logout: Udgang
+    login: Indgang
+    signup: Tilmelding
   modals:
-    auth: Godkendelse
+    hello: God dag
+    welcome: Velkommen
+    auth: Indgang
     reg: Tilmelding
     pass: Password
-    username: Kaldenavn
     confirm: Bekræft adgangskode
-    enter: Log på
-    minimal: Mindste password længde - 6 tegn
-  tasks:
-    localize: At lokalisere
-  task:
-    title: Her kan du se oversættelserne af ord og sætninger fra din fil
-    need_login: Autoriserede brugere kan redigere oversættelser
-    for_logged: Du kan redigere oversættelser, efter at resultaterne er gemt, vil den resulterende fil blive omformet.
-    translations: Mulige oversættelser
-  contribution:
-    header: Bistand til professionelle oversættere
-    text: Web service LangTool funktioner på grund af den automatiske oversættelse af tekster ved hjælp af Yandex.Oversætter. Men til at forbedre oversættelseskvaliteten, der kræves af en professionel oversætter. Hvis du har den evne, lyst og mulighed for at bidrage til projektet, kan du sende en forespørgsel til at få rettighederne til at oversætte og bekræfte oversættelser.
+    enter: Indgang
+    minimal: Mindste password længde er 10 tegn
+    remember: Husk mig

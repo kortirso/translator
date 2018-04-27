@@ -77,7 +77,7 @@ export default class TaskNew extends React.Component {
           </div>
           <SelectBox label='Язык оригинала' options={this._prepareLocales()} withoutDisabling='Автоопределение' onChangeValue={this._handleLocaleFrom.bind(this)} />
           <SelectBox label='Язык перевода' options={this._prepareLocales()} onChangeValue={this._handleLocaleTo.bind(this)} />
-          <div className='cell small-12 medium-2 medium-offset-10'>
+          <div className='cell small-12 medium-3 medium-offset-9'>
             <button type='submit' className='button'>{this.props.strings.localize}</button>
           </div>
         </div>
