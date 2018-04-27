@@ -18,7 +18,7 @@ class TasksController < ApplicationController
 
   def create
     task = Task.new(task_params.merge(personable: Current.person))
-    if task.save
+    if task.save!
       render json: task, status: 201
     else
       render json: { error: 'Task creation error' }, status: 409
@@ -36,7 +36,7 @@ class TasksController < ApplicationController
   end
 
   private def task_params
-    resp = params.permit(:file, :framework, :to).to_h
+    resp = params.permit(:file, :framework, :from, :to).to_h
     resp['framework'] = Framework.find_by(name: resp[:framework])
     resp
   end

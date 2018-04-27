@@ -3,7 +3,7 @@ import Task from 'components_react/tasks_box/task'
 import TaskNew from 'components_react/tasks_box/task_new'
 import LocalizedStrings from 'react-localization'
 import I18nData from './i18n_data.json'
-const $ = require("jquery")
+const $ = require('jquery')
 
 let strings = new LocalizedStrings(I18nData)
 
@@ -79,39 +79,34 @@ export default class TasksBox extends React.Component {
   }
 
   _prepareTasksBox() {
-    if (this.state.tasksList.length > 0) {
-      const tasks = this._prepareTasksList()
-      return (
-        <div className='cell small-10 small-offset-1 end'>
-          <h2>Existed tasks for translation</h2>
-          <section className='block'>
-            <table className='stack'>
-              <thead>
-                <tr>
-                  <th>{strings.file}</th>
-                  <th>{strings.direction}</th>
-                  <th>{strings.status}</th>
-                  <th></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {tasks}
-              </tbody>
-            </table>
-          </section>
-        </div>
-      )
-    } else {
-      return false
-    }
+    if(this.state.tasksList.length <= 0) return false 
+    const tasks = this._prepareTasksList()
+    return (
+      <div id='existed_tasks'>
+        <h2>Existed tasks with translations</h2>
+        <section>
+          <table className='stack'>
+            <thead>
+              <tr>
+                <th>{strings.file}</th>
+                <th>{strings.direction}</th>
+                <th>{strings.status}</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {tasks}
+            </tbody>
+          </table>
+        </section>
+      </div>
+    )
   }
 
   _prepareTasksList() {
     return this.state.tasksList.map((task) => {
-      return (
-        <Task task={task} strings={strings} key={task.id} onDelete={this._deleteTask.bind(this)} />
-      )
+      return <Task task={task} strings={strings} key={task.id} onDelete={this._deleteTask.bind(this)} />
     })
   }
 

@@ -8,7 +8,8 @@ export default class TaskNew extends React.Component {
     this.state = {
       framework: null,
       extension: null,
-      locale: null,
+      localeFrom: '',
+      localeTo: '',
       data: {},
       fileName: ''
     }
@@ -16,9 +17,10 @@ export default class TaskNew extends React.Component {
 
   _handleSubmit(event) {
     event.preventDefault();
-    if (this.state.fileName != '' && this.state.locale != null) {
+    if (this.state.fileName != '' && this.state.localeTo != '') {
       let data = this.state.data
-      data.append('to', this.state.locale)
+      data.append('from', this.state.localeFrom)
+      data.append('to', this.state.localeTo)
       this.props.addTask(data)
     }
   }
@@ -27,8 +29,12 @@ export default class TaskNew extends React.Component {
     this.setState({framework: event.target.value, extension: extensions[event.target.value]})
   }
 
-  _handleLocale(event) {
-    this.setState({locale: event.target.value})
+  _handleLocaleFrom(event) {
+    this.setState({localeFrom: event.target.value})
+  }
+
+  _handleLocaleTo(event) {
+    this.setState({localeTo: event.target.value})
   }
 
   _handleUploadFile(event) {
@@ -76,14 +82,14 @@ export default class TaskNew extends React.Component {
           </div>
           <div className='cell small-12 medium-6'>
             <p>Язык оригинала</p>
-            <select defaultValue={true} className='input_field' onChange={this._handleLocale.bind(this)}>
+            <select defaultValue={true} className='input_field' onChange={this._handleLocaleFrom.bind(this)}>
               <option value>Автоопределение</option>
               {this._prepareLocales()}
             </select>
           </div>
           <div className='cell small-12 medium-6'>
             <p>Язык перевода</p>
-            <select defaultValue={true} className='input_field' onChange={this._handleLocale.bind(this)}>
+            <select defaultValue={true} className='input_field' onChange={this._handleLocaleTo.bind(this)}>
               <option disabled value></option>
               {this._prepareLocales()}
             </select>
