@@ -2,21 +2,24 @@ footer
   .footer
     .grid-x
       .cell.small-12.medium-4
-        h4= t('index.footer.h')
-        p= t('index.footer.p')
+        h4= t('footer.h')
+        p= t('footer.p')
         p.links
           = link_to '', 'https://www.facebook.com/kortirso', target: '_blank', class: 'icon social facebook'
           = link_to '', 'https://vk.com/kortirso', target: '_blank', class: 'icon social vk'
           = link_to '', 'https://twitter.com/langtool', target: '_blank', class: 'icon social twitter'
       .cell.small-12.medium-4
-        h4 Help
-        p= link_to 'File Formats', formats_path(locale: params[:locale])
+        h4= t('footer.help')
+        p= link_to t('footer.formats'), formats_path(locale: params[:locale])
       .coders.cell.small-12.medium-4
         = link_to image_tag(asset_pack_path('images/Logo-hvid.png')), 'https://junglecoders.com/', target: '_blank'
         p By Anton Bogdanov
   .bottom_footer
     .grid-x
-      .cell.small-12.medium-6.large-4.large-offset-4
+      .cell.small-12.medium-6.large-4
+        = t('footer.yandex')
+        = link_to t('footer.yandex_link'), 'https://translate.yandex.ru/'
+      .cell.small-12.medium-6.large-4
         span LangTool 0.6 © 2018
       .cell.small-12.medium-6.large-4
         .locals
