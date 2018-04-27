@@ -2,8 +2,6 @@ module FileHandle
   module Fragment
     # Rebuild sentence for translation from Laravel
     class LaravelService < FileHandle::FragmentService
-      include FileHandle::Fragment::Base
-
       def perform_phrase(phrase)
         {
           sentence: "_###{phrase}##_",

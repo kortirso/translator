@@ -2,8 +2,6 @@ module FileHandle
   module Fragment
     # Rebuild sentence for translation from .NET
     class NetService < FileHandle::FragmentService
-      include FileHandle::Fragment::Base
-
       def perform_phrase(phrase)
         {
           sentence: "_###{phrase}##_",

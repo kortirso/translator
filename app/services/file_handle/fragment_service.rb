@@ -1,6 +1,8 @@
 module FileHandle
   # Split sentences, remove untranslated things
   class FragmentService
+    include FileHandle::Fragment::Base
+
     attr_reader :task, :locale_from
 
     def initialize(args = {})

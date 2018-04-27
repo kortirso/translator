@@ -2,8 +2,6 @@ module FileHandle
   module Fragment
     # Rebuild sentence for translation from Rails
     class RailsService < FileHandle::FragmentService
-      include FileHandle::Fragment::Base
-
       def perform_phrase(phrase)
         # remove tags
         splitted_sentence = phrase.split(REGEXP_YML_TAGS)

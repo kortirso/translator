@@ -2,8 +2,6 @@ module FileHandle
   module Fragment
     # Rebuild sentence for translation from IOS
     class IosService < FileHandle::FragmentService
-      include FileHandle::Fragment::Base
-
       def perform_phrase(phrase)
         # remove formats
         splitted_sentence = phrase.split(REGEXP_FORMATS)

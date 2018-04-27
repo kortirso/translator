@@ -2,8 +2,6 @@ module FileHandle
   module Fragment
     # Rebuild sentence for translation from Android
     class AndroidService < FileHandle::FragmentService
-      include FileHandle::Fragment::Base
-
       def perform_phrase(phrase)
         # remove variables
         splitted_sentence = phrase.split(REGEXP_XML_VARIABLES)
