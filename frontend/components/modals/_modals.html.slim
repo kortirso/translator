@@ -19,8 +19,8 @@
     .small-12.columns= f.password_field :password, autocomplete: 'off', placeholder: "#{t('modals.pass')}"
     .small-12.columns= f.password_field :password_confirmation, autocomplete: 'off', placeholder: "#{t('modals.confirm')}"
     .small-12.columns
-      = check_box_tag :remember_me, '1'
-      = label_tag :remember_me, 'Remember me'
+      = check_box_tag :remember, '1'
+      = label_tag :remember, 'Remember me'
     .small-12.columns= f.submit t('buttons.signup'), class: 'button', id: 'registration'
     .small-12.columns= link_to '', localized_omniauth_path(:facebook), title: "#{t('login_through')} Facebook", class: 'icon social facebook'
   button.close-button aria-label=('Close modal') data-close='' type='button'

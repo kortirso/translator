@@ -19,12 +19,16 @@ module CookiesHelper
   # returns logged user, creates/returns guest, logges remembered person
   def current_person
     return current_user if user_signed_in?
-    return create_guest if cookies.signed[:person_type] != 'User' && cookies.signed[:person_type] != 'Guest'
-    person = cookies.signed[:person_type].constantize.find_by(id: cookies.signed[:person_id])
+    person = current_person_in_cookies
     return create_guest unless person.try(:authenticated?, cookies[:remember_token])
     return person if person.is_a?(Guest)
     sign_in(person)
     @current_user = person
+  end
+
+  def current_person_in_cookies
+    return nil if cookies.signed[:person_type] != 'User' && cookies.signed[:person_type] != 'Guest'
+    cookies.signed[:person_type].constantize.find_by(id: cookies.signed[:person_id])
   end
 
   # Create guest user
