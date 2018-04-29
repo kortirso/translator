@@ -25,3 +25,11 @@ Locale.create(code: 'sl', country_code: 'SI', names: { en: 'Slovenian', ru: 'С�
 Locale.create(code: 'sr', country_code: 'RS', names: { en: 'Serbian', ru: 'Сербский', da: 'Serbisk', fr: 'Serbe', de: 'Serbisch', es: 'Serbio', pt: 'Sérvio', el: 'Σερβικά', uk: 'Сербський', nl: 'Servisch' })
 Locale.create(code: 'sv', country_code: 'SE', names: { en: 'Swedish', ru: 'Шведский', da: 'Svensk', fr: 'Suédois', de: 'Schwedisch', es: 'Sueco', pt: 'Sueco', el: 'Σουηδικά', uk: 'Щведський', nl: 'Zweeds' })
 Locale.create(code: 'hr', country_code: 'HR', names: { en: 'Croatian', ru: 'Хорватский', da: 'Kroatisk', fr: 'Croate', de: 'Kroatisch', es: 'Croata', pt: 'Croata', el: 'Κροατικά', uk: 'Хорватська', nl: 'Kroatisch' })
+
+Framework.create(name: 'Ruby on Rails', extension: 'yml', service: 'RailsService')
+Framework.create(name: 'ReactJS', extension: 'json', service: 'ReactService')
+Framework.create(name: 'Laravel', extension: 'json', service: 'LaravelService')
+Framework.create(name: '.NET', extension: 'resx', service: 'NetService')
+Framework.create(name: 'iOS', extension: 'strings', service: 'IosService')
+Framework.create(name: 'Android', extension: 'xml', service: 'AndroidService')
+Framework.create(name: 'Yii', extension: 'php', service: 'YiiService')
