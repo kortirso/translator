@@ -1,0 +1,45 @@
+---
+nl:
+  login_through: Entree via
+  meta:
+    keywords: de vertaler, de lokalisatie, de ontwikkeling, de internationalisering, de i18n-l10n, vertaling tool, ruby on rails, android, reageren, .NETTO, yml, xml, json, resx, strings
+    description: LangTool - automatische lokalisatie voor ontwikkelaars
+  index:
+    header:
+      h1: LangTool
+      p: Gratis service voor automatische lokalisatie van uw applicaties
+    how:
+      head1: 1. Een taak maken
+      p1: Selecteer het kader dat u wilt downloaden van het bestand, kies de vertaling richting
+      head2: 2. Automatische vertaling
+      p2: Wacht totdat het automatische vertaling
+      head3: 3. Het resultaat downloaden
+      p3: Download de gegenereerde lokalisatiebestand
+    base:
+      ul: De basis-functies van het systeem
+      li1: Automatische vertaling van lokalisatie-bestanden
+      li2: Er zijn geen beperkingen op het bedrag van de overdracht
+    extended:
+      ul: Voordelen voor geregistreerde gebruikers
+      li1: Bekijken en bewerken van de bestanden (in ontwikkeling)
+  footer:
+    h: Contacten
+    p: Heb je vragen, feedback of suggesties
+    help: Help
+    formats: Bestandsformaten
+    yandex: 'Vertaald service '
+    yandex_link: "Yandex.Vertaler"
+  buttons:
+    logout: Uitgang
+    login: Entree
+    signup: Registratie
+  modals:
+    hello: Goede dag
+    welcome: Welkom
+    auth: Entree
+    reg: Registratie
+    pass: Wachtwoord
+    confirm: Wachtwoord bevestigen
+    enter: Entree
+    minimal: Minimum wachtwoord lengte is 10 karakters
+    remember: Onthoud mij

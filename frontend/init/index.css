@@ -85,41 +85,6 @@ button.button,
   }
 }
 
-.flag {
-  display: inline-block;
-  width: 25px;
-  height: 17px;
-  background: url(../images/flags.png);
-
-  &.flag_ru {
-    background-position: 0 0;
-  }
-
-  &.flag_en {
-    background-position: 0 -16px;
-  }
-
-  &.flag_de {
-    background-position: 0 -32px;
-  }
-
-  &.flag_da {
-    background-position: 0 -48px;
-  }
-
-  &.flag_pt {
-    background-position: 0 -64px;
-  }
-
-  &.flag_es {
-    background-position: 0 -80px;
-  }
-
-  &.flag_fr {
-    background-position: 0 -96px;
-  }
-}
-
 .icon {
   display: inline-block;
   background: url(../images/icons.png);

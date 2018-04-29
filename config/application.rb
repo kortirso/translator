@@ -18,7 +18,7 @@ module Translator
 
     ActiveModelSerializers.config.adapter = :json
 
-    I18n.available_locales = %i[en ru da de es pt fr]
+    I18n.available_locales = %i[en ru da de es pt fr uk nl el]
     config.i18n.default_locale = :en
 
     config.active_record.schema_format = :ruby

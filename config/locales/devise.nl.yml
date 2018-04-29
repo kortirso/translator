@@ -1,0 +1,64 @@
+# Meer vertalingen: https://github.com/plataformatec/devise/wiki/I18n
+
+nl:
+  devise:
+    confirmations:
+      confirmed: "Uw e-mailadres is bevestigd."
+      send_instructions: "U ontvangt binnen enkele minuten via e-mail instructies om uw account te bevestigen."
+      send_paranoid_instructions: "Als uw e-mailadres bestaat in de database, ontvangt u binnen enkele minuten via e-mail instructies om uw account te bevestigen."
+    failure:
+      already_authenticated: "U bent reeds ingelogd."
+      inactive: "Uw account is nog niet geactiveerd."
+      invalid: "Ongeldig %{authentication_keys} of wachtwoord."
+      locked: "Uw account is vergrendeld."
+      last_attempt: "U hebt nog één poging over voordat uw account vergrendeld wordt."
+      not_found_in_database: "Ongeldig %{authentication_keys} of wachtwoord."
+      timeout: "Uw sessie is verlopen. Log alstublieft opnieuw in om door te gaan."
+      unauthenticated: "U dient in te loggen om door te gaan."
+      unconfirmed: "U dient eerst uw account te bevestigen."
+    mailer:
+      confirmation_instructions:
+        subject: "Bevestiging e-mailadres"
+      reset_password_instructions:
+        subject: "Wachtwoord resetten"
+      unlock_instructions:
+        subject: "Ontgrendelinstructies"
+      email_changed:
+        subject: "E-mailadres gewijzigd"
+      password_change:
+        subject: "Wachtwoord gewijzigd"
+    omniauth_callbacks:
+      failure: "Kon niet aanmelden met uw %{kind}-account, omdat \"%{reason}\"."
+      success: "Successvol aangemeld met uw %{kind}-account."
+    passwords:
+      no_token: "U kunt deze pagina enkel benaderen vanuit een wachtwoord-reset-e-mail. Als u vanuit zo'n e-mail komt, vergewis u er dan van dat u de volledige URL gebruikt hebt."
+      send_instructions: "U ontvangt via e-mail instructies om uw wachtwoord te resetten."
+      send_paranoid_instructions: "Als uw e-mailadres bij ons bekend is, ontvangt u binnen enkele minuten via e-mail instructies om een nieuw wachtwoord in te stellen."
+      updated: "Uw wachtwoord is gewijzigd. U bent nu ingelogd."
+      updated_not_active: "Uw wachtwoord is gewijzigd."
+    registrations:
+      destroyed: "Uw account is verwijderd."
+      signed_up: "Welkom! U bent inschreven."
+      signed_up_but_inactive: "U bent inschreven. U kon nog niet ingelogd worden, omdat uw account nog niet geactiveerd is."
+      signed_up_but_locked: "U bent inschreven. U kon nog niet ingelogd worden, omdat uw account vergrendeld is."
+      signed_up_but_unconfirmed: "U ontvangt via e-mail instructies om uw account te activeren. Volg de link in de mail om uw account te activeren."
+      update_needs_confirmation: "U hebt uw e-mailadres succesvol gewijzigd, maar we moeten uw nieuwe e-mailadres nog verifiëren. Controleer uw e-mail en volg de link in de mail om uw adres te verifiëren."
+      updated: "Uw accountgegevens zijn opgeslagen."
+    sessions:
+      signed_in: "U bent succesvol ingelogd."
+      signed_out: "U bent succesvol uitgelogd."
+      already_signed_out: "U bent succesvol uitgelogd."
+    unlocks:
+      send_instructions: "U ontvangt via e-mail instructies om uw account te ontgrendelen."
+      send_paranoid_instructions: "Als uw e-mailadres bij ons bekend is, ontvangt u via e-mail instructies om uw account te ontgrendelen."
+      unlocked: "Uw account is ontgrendeld. U kunt nu weer inloggen."
+  errors:
+    messages:
+      already_confirmed: "is reeds bevestigd, probeer in te loggen"
+      confirmation_period_expired: "moet bevestigd worden binnen %{period}, vraag alstublieft een nieuw aan"
+      expired: "is verlopen, vraag alstublieft een nieuw aan"
+      not_found: "niet gevonden"
+      not_locked: "is niet vergrendeld"
+      not_saved:
+        one: "Door 1 fout kan deze %{resource} niet opslagen worden:"
+        other: "Door %{count} fouten kan deze %{resource} niet opslagen worden:"

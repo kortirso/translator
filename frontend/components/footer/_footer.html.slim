@@ -23,5 +23,5 @@ footer
         span LangTool 0.6 © 2018
       .cell.small-12.medium-6.large-4
         .locals
-          - %w(en ru da de es pt fr).each do |locale|
+          - I18n.available_locales.each do |locale|
             = link_to '', change_locale(locale), class: "flag flag_#{locale}"
