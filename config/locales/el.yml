@@ -32,12 +32,12 @@ el:
   buttons:
     logout: Παραγωγή
     login: Είσοδος
-    signup: Check-in
+    signup: Φόρμα εγγραφής
   modals:
     hello: Καλησπέρα
     welcome: Καλώς ήρθατε
     auth: Είσοδος
-    reg: Check-in
+    reg: Φόρμα εγγραφής
     pass: Τον κωδικό πρόσβασης
     confirm: Επιβεβαίωση κωδικού πρόσβασης
     enter: Είσοδος

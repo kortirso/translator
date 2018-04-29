@@ -16,8 +16,8 @@
     "auto":"Auto detection"
   },
   "ru": {
-    "select": "Выбрать файл",
-    "localize": "Локализовать",
+    "select":"Выбрать файл",
+    "localize":"Локализовать",
     "file":"Файл",
     "direction":"Направление",
     "status":"Статус",
@@ -110,5 +110,53 @@
     "original":"Langue d'origine",
     "translation":"Langue de la traduction",
     "auto":"Détection automatique"
+  },
+  "el":{
+    "select":"Επιλέξτε Το Αρχείο",
+    "localize":"Εντοπίσουν",
+    "file":"Αρχείο",
+    "direction":"Κατεύθυνση",
+    "status":"Κατάσταση",
+    "download":"Κατεβάστε το",
+    "error":"Σφάλμα",
+    "tasks":"Υπάρχουσες εργασίες με τις μεταφράσεις",
+    "start":"Ξεκινήστε τώρα",
+    "framework":"Επιλέξτε ένα πλαίσιο",
+    "loadFile":"Ανεβάστε το αρχείο για τον εντοπισμό",
+    "original":"Πρωτότυπη γλώσσα",
+    "translation":"Γλώσσα της μετάφρασης",
+    "auto":"Αυτόματη ανίχνευση"
+  },
+  "uk":{
+    "select":"Виберіть Файл",
+    "localize":"Локалізувати",
+    "file":"Файл",
+    "direction":"Напрямок",
+    "status":"Статус",
+    "download":"Скачати",
+    "error":"Помилка",
+    "tasks":"Існуючі завдання з перекладами",
+    "start":"Почніть прямо зараз",
+    "framework":"Виберіть структуру",
+    "loadFile":"Завантажити файл для локалізації",
+    "original":"Мова оригіналу",
+    "translation":"Мова перекладу",
+    "auto":"Автоматичне виявлення "
+  },
+  "nl":{
+    "select":"Selecteer Bestand",
+    "localize":"Lokaliseren",
+    "file":"Bestand",
+    "direction":"Richting",
+    "status":"Status",
+    "download":"Downloaden",
+    "error":"Fout",
+    "tasks":"Bestaande taken met vertalingen",
+    "start":"Ga nu aan de slag",
+    "framework":"Selecteer een kader",
+    "loadFile":"Upload het bestand voor lokalisatie",
+    "original":"Oorspronkelijke taal",
+    "translation":"Taal van de vertaling",
+    "auto":"Automatische detectie"
   }
 }
