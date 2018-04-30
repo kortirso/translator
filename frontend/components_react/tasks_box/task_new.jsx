@@ -47,6 +47,11 @@ export default class TaskNew extends React.Component {
     this.setState({data: data, fileName: event.target.files[0].name})
   }
 
+  _checkButton() {
+    if(this.state.framework != null && this.state.localeTo != '' && this.state.fileName != '') return 'button'
+    return 'button disabled'
+  }
+
   render() {
     const strings = this.props.strings
     return (
@@ -65,7 +70,7 @@ export default class TaskNew extends React.Component {
           <SelectBox label={strings.original} locales={this.props.locales} selected={this.state.localeFromFull} withoutDisabling={strings.auto} onChangeValue={this._handleLocaleFrom.bind(this)} />
           <SelectBox label={strings.translation + ' *'} locales={this.props.locales} selected={this.state.localeToFull} onChangeValue={this._handleLocaleTo.bind(this)} />
           <div className='cell small-12 medium-3 medium-offset-9'>
-            <button type='submit' className='button'>{strings.localize}</button>
+            <button type='submit' className={this._checkButton()}>{strings.localize}</button>
           </div>
         </div>
       </form>
