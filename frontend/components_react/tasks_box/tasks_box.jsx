@@ -19,7 +19,7 @@ export default class TasksBox extends React.Component {
   }
 
   componentWillMount() {
-    this._fetchTasksList()
+    this._fetchPageData()
     this._runTimer()
     strings.setLanguage(this.props.locale)
   }
@@ -48,6 +48,17 @@ export default class TasksBox extends React.Component {
   }
 
   _fetchTasksList() {
+    $.ajax({
+      method: 'GET',
+      url: '/tasks.json',
+      success: (data) => {
+        this.setState({tasksList: data.tasks})
+      }
+    })
+    this._checkCompleting()
+  }
+
+  _fetchPageData() {
     $.ajax({
       method: 'GET',
       url: '/?format=json',

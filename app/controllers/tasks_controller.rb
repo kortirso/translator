@@ -3,6 +3,10 @@ class TasksController < ApplicationController
   before_action :find_task, only: %i[update destroy]
   before_action :check_task_status, only: %i[destroy]
 
+  def index
+    render json: { tasks: ActiveModel::Serializer::CollectionSerializer.new(find_tasks, each_serializer: TaskSerializer) }, status: 200
+  end
+
   def create
     task = Task.new(task_params.merge(personable: Current.person))
     if task.save!
@@ -26,6 +30,10 @@ class TasksController < ApplicationController
     resp = params.permit(:file, :framework, :from, :to).to_h
     resp['framework'] = Framework.find_by(name: resp[:framework])
     resp
+  end
+
+  private def find_tasks
+    Current.person.tasks.order(id: :desc).with_attached_result_file
   end
 
   private def find_task

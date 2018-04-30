@@ -1,4 +1,16 @@
 RSpec.describe TasksController, type: :controller do
+  describe 'GET #index' do
+    it 'renders json with tasks' do
+      get :index, params: { locale: 'en', format: :json }
+
+      resp = JSON.parse(response.body)
+
+      expect(resp['tasks']).to_not eq nil
+      expect(resp['locales']).to eq nil
+      expect(resp['frameworks']).to eq nil
+    end
+  end
+
   describe 'POST #create' do
     let!(:framework) { create :framework }
     let(:request) { post :create, params: { locale: 'en', file: Rack::Test::UploadedFile.new("#{Rails.root}/spec/test_files/ru.yml"), framework: framework.name, to: 'en' } }
