@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
       format.json do
         render json: {
           tasks: ActiveModel::Serializer::CollectionSerializer.new(find_tasks, each_serializer: TaskSerializer),
-          locales: ActiveModel::Serializer::CollectionSerializer.new(Locale.order(code: :asc), each_serializer: LocaleSerializer),
+          locales: Locale.list,
           frameworks: ActiveModel::Serializer::CollectionSerializer.new(Framework.order(name: :asc), each_serializer: FrameworkSerializer)
         }, status: 200
       end

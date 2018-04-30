@@ -47,17 +47,13 @@ export default class TaskNew extends React.Component {
 
   _prepareFrameworks() {
     return this.props.frameworks.map((framework) => {
-      return (
-        <option value={framework.name} key={framework.id}>{framework.name}</option>
-      )
+      return <option value={framework.name} key={framework.id}>{framework.name}</option>
     })
   }
 
   _prepareLocales() {
-    return this.props.locales.map((locale) => {
-      return (
-        <option value={locale.code} key={locale.id}>{locale.names[this.props.strings._language]}</option>
-      )
+    return this.props.locales.map((locale, index) => {
+      return <option value={locale[1]} key={index}>{locale[0]}</option>
     })
   }
 

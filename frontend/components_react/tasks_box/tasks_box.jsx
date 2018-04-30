@@ -61,7 +61,7 @@ export default class TasksBox extends React.Component {
   _fetchPageData() {
     $.ajax({
       method: 'GET',
-      url: '/?format=json',
+      url: `/${this.props.locale}?format=json`,
       success: (data) => {
         this.setState({tasksList: data.tasks, locales: data.locales, frameworks: data.frameworks})
       }
@@ -97,7 +97,6 @@ export default class TasksBox extends React.Component {
   }
 
   _prepareTasksBox() {
-    console.log(this.state.intervalId)
     if(this.state.tasksList.length <= 0) return false 
     const tasks = this._prepareTasksList()
     return (
