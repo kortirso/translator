@@ -13,7 +13,8 @@ export default class TasksBox extends React.Component {
     this.state = {
       tasksList: [],
       locales: [],
-      frameworks: []
+      frameworks: [],
+      intervalId: null
     }
   }
 
@@ -24,12 +25,18 @@ export default class TasksBox extends React.Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.state.intervalId)
+    this._stopTimer()
   }
 
   _runTimer() {
+    if(this.state.intervalId != null) return false
     this._timer = setInterval(() => this._fetchTasksList(), 5000)
     this.setState({intervalId: this._timer})
+  }
+
+  _stopTimer() {
+    clearInterval(this.state.intervalId)
+    this.setState({intervalId: null})
   }
 
   _checkCompleting() {
@@ -37,7 +44,7 @@ export default class TasksBox extends React.Component {
     this.state.tasksList.map((task) => {
       if (task.status == 'verification' || task.status == 'active') amount = amount + 1
     })
-    if(amount == 0) clearInterval(this.state.intervalId)
+    if(amount == 0) this._stopTimer()
   }
 
   _fetchTasksList() {
@@ -79,6 +86,7 @@ export default class TasksBox extends React.Component {
   }
 
   _prepareTasksBox() {
+    console.log(this.state.intervalId)
     if(this.state.tasksList.length <= 0) return false 
     const tasks = this._prepareTasksList()
     return (
