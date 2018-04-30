@@ -13,6 +13,6 @@ class WelcomeController < ApplicationController
   end
 
   private def find_tasks
-    Current.person.tasks.order(id: :desc)
+    Current.person.tasks.order(id: :desc).with_attached_result_file
   end
 end
