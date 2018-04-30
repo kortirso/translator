@@ -34,6 +34,6 @@ class TasksController < ApplicationController
   end
 
   private def check_task_status
-    render_not_found unless @task.completed?
+    render_not_found unless @task.completed? || @task.failed?
   end
 end

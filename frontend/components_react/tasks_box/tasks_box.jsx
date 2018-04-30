@@ -100,7 +100,6 @@ export default class TasksBox extends React.Component {
                 <th>{strings.direction}</th>
                 <th>{strings.status}</th>
                 <th></th>
-                <th></th>
               </tr>
             </thead>
             <tbody>

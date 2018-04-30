@@ -1,13 +1,9 @@
 import React from 'react'
 
 class Task extends React.Component {
-  _checkStatus() {
-    if (this.props.task.status == 'failed') return <span>{this.props.strings.error}: {this.props.task.error_message}</span>
-    else return this.props.task.status
-  }
-
-  _checkDownloading() {
-    if (this.props.task.status == 'done') return <a download={this.props.task.result_file_name} className='button' href={this.props.task.link_to_file}>{this.props.strings.download}</a>
+  _checkStatus(task) {
+    if (task.status == 'failed') return <span>{this.props.strings.error}: {task.error_message}</span>
+    return task.status
   }
 
   _handleDelete(event) {
@@ -16,13 +12,20 @@ class Task extends React.Component {
   }
 
   render() {
+    const task = this.props.task
     return (
-      <tr className='task' id={'task_' + this.props.task.id}>
-        <td>{this.props.task.result_file_name}</td>
-        <td>{this.props.task.from}-{this.props.task.to}</td>
-        <td className={this.props.task.status}>{this._checkStatus()}</td>
-        <td>{this._checkDownloading()}</td>
-        <td><a onClick={this._handleDelete.bind(this)}>X</a></td>
+      <tr className='task' id={'task_' + task.id}>
+        <td>{task.result_file_name}</td>
+        <td>{task.from}-{task.to}</td>
+        <td className={task.status}>{this._checkStatus(task)}</td>
+        <td>
+          {task.status == 'done' &&
+            <a download={task.result_file_name} className='button' href={task.link_to_file}>{this.props.strings.download}</a>
+          }
+          {(task.status == 'done' || task.status == 'failed') &&
+            <a className='button alert' onClick={this._handleDelete.bind(this)}>X</a>
+          }
+        </td>
       </tr>
     )
   }

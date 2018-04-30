@@ -77,6 +77,10 @@ header {
       tr {
         th {
           font-weight: 400;
+
+          &:nth-last-of-type(1) {
+            width: 30%;
+          }
         }
       }
     }
@@ -86,6 +90,11 @@ header {
         td {
           .button {
             margin: 0;
+            margin-right: 5px;
+          }
+
+          &:nth-last-of-type(1) {
+            text-align: right;
           }
         }
       }
