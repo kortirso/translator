@@ -1,6 +1,6 @@
 class CreateLocales < ActiveRecord::Migration[5.1]
     def change
-        #execute 'create extension hstore'
+        execute 'create extension hstore'
         create_table :locales do |t|
             t.string :code
             t.string :country_code
