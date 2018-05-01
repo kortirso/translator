@@ -59,9 +59,11 @@ export default class TasksBox extends React.Component {
   }
 
   _fetchPageData() {
+    let url = `/${this.props.locale}?format=json`
+    if(this.props.locale == 'en') url = `/?format=json`
     $.ajax({
       method: 'GET',
-      url: `/${this.props.locale}?format=json`,
+      url: url,
       success: (data) => {
         this.setState({tasksList: data.tasks, locales: data.locales, frameworks: data.frameworks})
       }
