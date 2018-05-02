@@ -6,88 +6,457 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
+
 <url>
   <loc>https://langtool.tech/</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://langtool.tech/users/sign_in</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/users/sign_up</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/tasks</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/ru/tasks</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/da/tasks</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/de/tasks</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/es/tasks</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/pt/tasks</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/fr/tasks</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/ru/users/sign_in</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/da/users/sign_in</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/de/users/sign_in</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/es/users/sign_in</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/pt/users/sign_in</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/fr/users/sign_in</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/ru/users/sign_up</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/da/users/sign_up</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/de/users/sign_up</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/es/users/sign_up</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/pt/users/sign_up</loc>
-</url>
-<url>
-  <loc>https://langtool.tech/fr/users/sign_up</loc>
+  <loc>https://langtool.tech/formats</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://langtool.tech/ru</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://langtool.tech/da</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://langtool.tech/de</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://langtool.tech/es</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://langtool.tech/pt</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://langtool.tech/fr</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
+<url>
+  <loc>https://langtool.tech/uk</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/nl</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/el</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/formats/rails</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/formats/android</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/formats/ios</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/formats/net</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/formats/react</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/formats/laravel</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/formats/yii</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/ru/formats</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/da/formats</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/de/formats</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/es/formats</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/pt/formats</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/fr/formats</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/uk/formats</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/nl/formats</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/el/formats</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/ru/formats/rails</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/da/formats/rails</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/de/formats/rails</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/es/formats/rails</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/pt/formats/rails</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/fr/formats/rails</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/uk/formats/rails</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/nl/formats/rails</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/el/formats/rails</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/ru/formats/android</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/da/formats/android</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/de/formats/android</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/es/formats/android</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/pt/formats/android</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/fr/formats/android</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/uk/formats/android</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/nl/formats/android</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/el/formats/android</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/ru/formats/ios</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/da/formats/ios</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/de/formats/ios</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/es/formats/ios</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/pt/formats/ios</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/fr/formats/ios</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/uk/formats/ios</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/nl/formats/ios</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/el/formats/ios</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/ru/formats/net</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/da/formats/net</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/de/formats/net</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/es/formats/net</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/pt/formats/net</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/fr/formats/net</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/uk/formats/net</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/nl/formats/net</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/el/formats/net</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/ru/formats/react</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/da/formats/react</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/de/formats/react</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/es/formats/react</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/pt/formats/react</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/fr/formats/react</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/uk/formats/react</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/nl/formats/react</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/el/formats/react</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/ru/formats/laravel</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/da/formats/laravel</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/de/formats/laravel</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/es/formats/laravel</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/pt/formats/laravel</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/fr/formats/laravel</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/uk/formats/laravel</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/nl/formats/laravel</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/el/formats/laravel</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/ru/formats/yii</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/da/formats/yii</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/de/formats/yii</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/es/formats/yii</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/pt/formats/yii</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/fr/formats/yii</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/uk/formats/yii</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/nl/formats/yii</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://langtool.tech/el/formats/yii</loc>
+  <lastmod>2018-05-02T02:32:03+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
 </urlset>
