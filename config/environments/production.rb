@@ -69,7 +69,7 @@ Rails.application.configure do
     authentication: :plain
   }
 
-  config.action_mailer.default_url_options = { host: 'langtool.tech', port: 443 }
+  config.action_mailer.default_url_options = { host: 'https://langtool.tech' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
