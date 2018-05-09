@@ -36,26 +36,26 @@ RSpec.describe FileHandle::Save::AndroidService do
 
   describe '.temporary_file_name' do
     it 'returns new file name with locale' do
-      expect(saver.send(:temporary_file_name)).to eq "#{Rails.root}/public/uploads/tmp/#{task.id}.temp.strings.#{task.to}.xml"
+      expect(saver.send(:temporary_file_name)).to eq "#{FileHandle::SaveService::TEMP_FOLDER}#{task.id}.temp.strings.#{task.to}.xml"
     end
   end
 
   describe '.result_file_name' do
     it 'returns new file name with locale' do
-      expect(saver.send(:result_file_name)).to eq "#{Rails.root}/public/uploads/tmp/#{task.id}.result.strings.#{task.to}.xml"
+      expect(saver.send(:result_file_name)).to eq "#{FileHandle::SaveService::TEMP_FOLDER}#{task.id}.result.strings.#{task.to}.xml"
     end
   end
 
   describe '.define_filename' do
     context 'for temporary file' do
       it 'returns new temp file name with locale' do
-        expect(saver.send(:define_filename, 'temp')).to eq "#{Rails.root}/public/uploads/tmp/#{task.id}.temp.strings.#{task.to}.xml"
+        expect(saver.send(:define_filename, 'temp')).to eq "#{FileHandle::SaveService::TEMP_FOLDER}#{task.id}.temp.strings.#{task.to}.xml"
       end
     end
 
     context 'for result file' do
       it 'returns new result file name with locale' do
-        expect(saver.send(:define_filename, 'result')).to eq "#{Rails.root}/public/uploads/tmp/#{task.id}.result.strings.#{task.to}.xml"
+        expect(saver.send(:define_filename, 'result')).to eq "#{FileHandle::SaveService::TEMP_FOLDER}#{task.id}.result.strings.#{task.to}.xml"
       end
     end
   end
