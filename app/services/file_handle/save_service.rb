@@ -1,7 +1,7 @@
 module FileHandle
   # Base class for saving files
   class SaveService
-    TEMP_FOLDER = "#{Rails.root}/public/uploads/tmp/".freeze
+    TEMP_FOLDER = "#{Rails.root}/tmp/".freeze
 
     attr_reader :task, :locale_to
 
