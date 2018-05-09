@@ -40,7 +40,7 @@ class Word < ApplicationRecord
 
   # returns all WORD objects for specific word through translations
   private def translations
-    interpretations.collect { |interpretation| interpretation.translation(id) }
+    interpretations.collect { |interpretation| interpretation.translation(id) }.compact
   end
 
   # returns all TRANSLATE objects for specific word
