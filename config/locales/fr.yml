@@ -43,6 +43,7 @@ fr:
     enter: Entrée
     minimal: Longueur minimale du mot de passe de 10 caractères
     remember: Se souvenir de moi
+    confirmation: Après l'inscription, un message sera envoyé à votre courrier pour confirmer votre compte
   formats:
     header: Prise en charge des formats de fichiers
     paragraph: Description des formats de fichiers pris en charge par le système LangTool

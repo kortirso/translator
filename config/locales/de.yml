@@ -43,6 +43,7 @@ de:
     enter: Eingang
     minimal: Minimale Passwortlänge von 10 Zeichen
     remember: Erinnere dich an mich
+    confirmation: Nach der Registrierung wird eine Nachricht an Ihre E-Mail gesendet, um Ihr Konto zu bestätigen
   formats:
     header: Unterstützte Dateiformate
     paragraph: Beschreibung von Dateiformaten, die unterstützt werden vom System LangTool

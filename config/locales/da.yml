@@ -43,6 +43,7 @@ da:
     enter: Indgang
     minimal: Mindste password længde er 10 tegn
     remember: Husk mig
+    confirmation: Efter registrering sendes en besked til din mail for at bekræfte din konto
   formats:
     header: Understøttede filformater
     paragraph: Beskrivelse af filformater, der understøttes af systemet LangTool

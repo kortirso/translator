@@ -43,6 +43,7 @@ pt:
     enter: Entrada
     minimal: O comprimento mínimo de uma senha de 10 caracteres
     remember: Lembrar-me
+    confirmation: Após o registro, uma mensagem será enviada ao seu e-mail para confirmar sua conta
   formats:
     header: Formatos de arquivo suportados
     paragraph: Descrição de formatos de arquivos suportados pelo sistema LangTool

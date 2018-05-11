@@ -19,6 +19,8 @@
       em= t('modals.minimal')
     p= f.password_field :password_confirmation, autocomplete: 'off', placeholder: t('modals.confirm')
     p
+      em= t('modals.confirmation')
+    p
       = check_box_tag :remember, '1'
       = label_tag :remember, t('modals.remember')
     p= f.submit t('buttons.signup'), class: 'button', id: 'registration'

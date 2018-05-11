@@ -43,6 +43,7 @@ en:
     enter: SignIn
     minimal: Minimum password length is 10 characters
     remember: Remember me
+    confirmation: After registration, a message will be sent to your mail to confirm your account
   formats:
     header: Supported file formats
     paragraph: Description of the file formats that are supported by the system LangTool

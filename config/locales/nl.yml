@@ -43,6 +43,7 @@ nl:
     enter: Entree
     minimal: Minimum wachtwoord lengte is 10 karakters
     remember: Onthoud mij
+    confirmation: Na registratie wordt een bericht naar uw e-mail gestuurd om uw account te bevestigen
   formats:
     header: Ondersteunde bestandsformaten
     paragraph: Beschrijving van de bestandsindelingen die worden ondersteund door het systeem LangTool

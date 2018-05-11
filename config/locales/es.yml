@@ -43,6 +43,7 @@ es:
     enter: La entrada
     minimal: La longitud mínima de la contraseña de 10 caracteres
     remember: Recuérdame
+    confirmation: Después del registro, se enviará un mensaje a su correo para confirmar su cuenta
   formats:
     header: Formatos de archivo compatibles
     paragraph: Descripción de los formatos de archivo que son compatibles con el sistema de LangTool
