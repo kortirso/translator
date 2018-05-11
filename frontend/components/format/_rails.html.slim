@@ -1,10 +1,10 @@
 .inside_block
   header
-    h1 Файлы для Ruby on Rails
-    p Описание формата файлов .yml
+    h1= t('formats.common.for', framework: 'Ruby on Rails')
+    p= t('formats.common.caption', extension: '.yml')
   section.format
-    p Язык оригинала для файла определяется по содержимому файла.
-    p Типичная структура файла .yml представлена ниже.
+    p= t('formats.common.lang_detect_by_body')
+    p= t('formats.common.typical', extension: '.yml')
     pre
       |en:
       br/
@@ -19,10 +19,10 @@
       |   footer:
       br/
       |     header: Contacts
-    p Переведены будут только текстовые данные, находящиеся в парах ключ/значение, элементы массива переводятся по отдельности.
+    p= t('formats.rails.translated')
     ul
-      | Элементы, которые не переводятся:
-      li переменные,
-      li тэги,
-      li спецсимволы,
-      li комментарии.
+      = t('formats.common.untranslated.header')
+      li= t('formats.common.untranslated.variables', ender: ',')
+      li= t('formats.common.untranslated.tags', ender: ',')
+      li= t('formats.common.untranslated.special', ender: ',')
+      li= t('formats.common.untranslated.comments', ender: '.')

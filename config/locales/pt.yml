@@ -43,3 +43,29 @@ pt:
     enter: Entrada
     minimal: O comprimento mínimo de uma senha de 10 caracteres
     remember: Lembrar-me
+  formats:
+    header: Formatos de arquivo suportados
+    paragraph: Descrição de formatos de arquivos suportados pelo sistema LangTool
+    common:
+      for: Arquivos para %{framework}
+      platform: Arquivos para aplicativos baseados em %{framework}
+      caption: Descrição do formato do arquivo %{extension}
+      lang_detect_by_body: A língua de origem para o arquivo é determinado pelo conteúdo de um arquivo.
+      typical: A estrutura típica do arquivo %{extension} veja abaixo.
+      untranslated:
+        header: 'Itens que não são traduzidos:'
+        variables: variáveis%{ender}
+        tags: tags%{ender}
+        special: спецсимволы%{ender}
+        comments: comentários%{ender}
+        keys: chaves%{ender}
+    rails:
+      translated: Transferidos são apenas informações de texto estão em pares de chave/valor, os elementos da matriz são traduzidos separadamente.
+    android:
+      lang_detect_by_name_html: A língua de origem para o arquivo identificado pelo nome do arquivo de. Por exemplo, o nome do arquivo pode ser <span class='italic'>%{name_1}</span> ou <span class='italic'>%{name_1}</span>.
+      translated: 'Transferidos são apenas informações de texto estão nas tags:'
+      special_tags: itens adicionais аттрибутом translatable='false'.
+    net:
+      translated: Transferidos são apenas informações de texto estão nas tags value
+    ios:
+      translated: Transferidos são apenas informações de texto estão em pares de chave/valor

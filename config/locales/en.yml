@@ -43,3 +43,29 @@ en:
     enter: SignIn
     minimal: Minimum password length is 10 characters
     remember: Remember me
+  formats:
+    header: Supported file formats
+    paragraph: Description of the file formats that are supported by the system LangTool
+    common:
+      for: Files for %{framework}
+      platform: Files for applications based on %{framework}
+      caption: Description of the file format %{extension}
+      lang_detect_by_body: The original language for a file is determined by file content.
+      typical: A typical file structure %{extension} presented below.
+      untranslated:
+        header: 'Items that are not translated:'
+        variables: variables%{ender}
+        tags: tags%{ender}
+        special: special characters%{ender}
+        comments: comments%{ender}
+        keys: keys%{ender}
+    rails:
+      translated: Are transferred only text data, located in pairs key/value, the array elements are transferred separately.
+    android:
+      lang_detect_by_name_html: The original language file is defined by file name. For example, the file name can be <span class='italic'>%{name_1}</span> or <span class='italic'>%{name_1}</span>.
+      translated: 'Are transferred only text data stored in the tags:'
+      special_tags: items with optional attribute translatable='false'.
+    net:
+      translated: Are transferred only text data stored in the tag value
+    ios:
+      translated: Are transferred only text data stored in pairs of key/value

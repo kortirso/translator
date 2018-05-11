@@ -1,15 +1,10 @@
 .inside_block
   header
-    h1 Файлы для Yii
-    p Описание формата файлов .php
+    h1= t('formats.common.for', framework: 'Yii')
+    p= t('formats.common.caption', extension: '.php')
   section.format
-    p
-      | Язык оригинала для файла определяется по названию файла.
-      |  Например, имя файла может быть 
-      span.italic= 'app.php'
-      |  или 
-      span.italic= 'app.es.php.'
-    p Типичная структура файла .php представлена ниже.
+    p= t('formats.android.lang_detect_by_name_html', name_1: 'app.php', name_2: 'app.es.php')
+    p= t('formats.common.typical', extension: '.php')
     pre
       |return [
       br/
@@ -18,4 +13,4 @@
       |   'original message 2' => 'translated message 2',
       br/
       |];
-    p Переведены будут только текстовые данные, находящиеся в парах ключ/значение.
+    p= t('formats.ios.translated')

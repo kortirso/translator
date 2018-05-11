@@ -1,15 +1,10 @@
 .inside_block
   header
-    h1 Файлы для .NET
-    p Описание формата файлов .resx
+    h1= t('formats.common.for', framework: '.NET')
+    p= t('formats.common.caption', extension: '.resx')
   section.format
-    p
-      | Язык оригинала для файла определяется по названию файла.
-      |  Например, имя файла может быть 
-      span.italic= 'UIStrings.resx'
-      |  или 
-      span.italic= 'UIStrings.da-DK.resx.'
-    p Типичная структура файла .resx представлена ниже.
+    p= t('formats.android.lang_detect_by_name_html', name_1: 'UIStrings.resx', name_2: 'UIStrings.da-DK.resx')
+    p= t('formats.common.typical', extension: '.resx')
     pre
       |<&zwj;root>
       br/
@@ -20,4 +15,4 @@
       |   <&zwj;/data>
       br/
       |<&zwj;/root>
-    p Переведены будут только текстовые данные, находящиеся в тэгах value
+    p= t('formats.net.translated')

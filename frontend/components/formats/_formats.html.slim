@@ -1,7 +1,7 @@
 .inside_block
   header
-    h1 Поддерживаемые форматы файлов
-    p Описание форматов файлов, которые поддерживаются системой LangTool
+    h1= t('formats.header')
+    p= t('formats.paragraph')
   section.block.formats
     .framework
       = link_to format_path(:rails) do

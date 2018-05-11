@@ -43,3 +43,29 @@ es:
     enter: La entrada
     minimal: La longitud mínima de la contraseña de 10 caracteres
     remember: Recuérdame
+  formats:
+    header: Formatos de archivo compatibles
+    paragraph: Descripción de los formatos de archivo que son compatibles con el sistema de LangTool
+    common:
+      for: Los archivos de %{framework}
+      platform: Los archivos de las aplicaciones en la base de %{framework}
+      caption: Descripción de formato de archivo %{extension}
+      lang_detect_by_body: El idioma original para el archivo se define el contenido de un archivo.
+      typical: La típica estructura de un archivo %{extension} se presenta a continuación.
+      untranslated:
+        header: 'Los elementos que no se traducen:'
+        variables: las variables%{ender}
+        tags: etiquetas%{ender}
+        special: caracteres especiales%{ender}
+        comments: comentarios%{ender}
+        keys: las llaves%{ender}
+    rails:
+      translated: Traducido serán sólo los datos de texto que se encuentran en pares clave/valor, los elementos de la matriz se traducen por separado.
+    android:
+      lang_detect_by_name_html: El idioma original para el archivo se define por nombre de archivo. Por ejemplo, el nombre de archivo puede ser <span class='italic'>%{name_1}</span> o <span class='italic'>%{name_1}</span>.
+      translated: 'Traducido serán sólo los datos de texto que se encuentran en las etiquetas de:'
+      special_tags: elementos adicionales a los аттрибутом translatable='false'.
+    net:
+      translated: Traducido serán sólo los datos de texto que se encuentran en las etiquetas de value
+    ios:
+      translated: Traducido serán sólo los datos de texto que se encuentran en pares clave/valor

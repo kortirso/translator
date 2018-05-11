@@ -43,3 +43,29 @@ fr:
     enter: Entrée
     minimal: Longueur minimale du mot de passe de 10 caractères
     remember: Se souvenir de moi
+  formats:
+    header: Prise en charge des formats de fichiers
+    paragraph: Description des formats de fichiers pris en charge par le système LangTool
+    common:
+      for: Fichiers pour %{framework}
+      platform: Fichiers pour les applications à base de %{framework}
+      caption: Description de format de fichier %{extension}
+      lang_detect_by_body: La langue d'origine du fichier est déterminé par le contenu d'un fichier.
+      typical: La structure typique du fichier %{extension} ci-dessous.
+      untranslated:
+        header: 'Les éléments qui ne sont pas traduits:'
+        variables: les variables%{ender}
+        tags: étiquettes%{ender}
+        special: caractères spéciaux%{ender}
+        comments: commentaires%{ender}
+        keys: les clés%{ender}
+    rails:
+      translated: Traduits seront uniquement les données contenues dans les paires clé/valeur, les éléments d'un tableau sont traduits séparément.
+    android:
+      lang_detect_by_name_html: La langue d'origine du fichier est déterminé par le nom de fichier. Par exemple, le nom de fichier peut être <span class='italic'>%{name_1}</span> ou <span class='italic'>%{name_1}</span>.
+      translated: 'Traduits seront uniquement les données contenues dans les balises:'
+      special_tags: des éléments supplémentaires аттрибутом translatable='false'.
+    net:
+      translated: Traduits seront uniquement les données contenues dans les balises value
+    ios:
+      translated: Traduits seront uniquement les données contenues dans les paires clé/valeur

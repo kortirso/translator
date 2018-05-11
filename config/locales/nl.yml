@@ -43,3 +43,29 @@ nl:
     enter: Entree
     minimal: Minimum wachtwoord lengte is 10 karakters
     remember: Onthoud mij
+  formats:
+    header: Ondersteunde bestandsformaten
+    paragraph: Beschrijving van de bestandsindelingen die worden ondersteund door het systeem LangTool
+    common:
+      for: Bestanden voor %{framework}
+      platform: Bestanden voor toepassingen gebaseerd op %{framework}
+      caption: De beschrijving van het bestand formaat %{extension}
+      lang_detect_by_body: De oorspronkelijke taal van een bestand wordt bepaald door de inhoud van het bestand.
+      typical: Een typische file-structuur %{extension} hieronder gepresenteerd.
+      untranslated:
+        header: 'Items die niet zijn vertaald:'
+        variables: variabelen%{ender}
+        tags: tags%{ender}
+        special: speciale tekens%{ender}
+        comments: opmerkingen%{ender}
+        keys: toetsen%{ender}
+    rails:
+      translated: Zijn overgebracht alleen tekst, gegevens, gelegen in paren sleutel/waarde-de array-elementen worden overgedragen apart.
+    android:
+      lang_detect_by_name_html: De originele taal-bestand is gedefinieerd door de bestand naam. Bijvoorbeeld, het bestand kan worden <span class='italic'>%{name_1}</span> of <span class='italic'>%{name_1}</span>.
+      translated: 'Worden overgedragen, alleen tekst of gegevens die zijn opgeslagen in de tags:'
+      special_tags: items met optionele kenmerk vertaalbaar='false'.
+    net:
+      translated: Worden overgedragen, alleen tekst of gegevens die zijn opgeslagen in de tag waarde
+    ios:
+      translated: Worden overgedragen, alleen tekst of gegevens die zijn opgeslagen in paren van sleutel/waarde

@@ -43,3 +43,29 @@ da:
     enter: Indgang
     minimal: Mindste password længde er 10 tegn
     remember: Husk mig
+  formats:
+    header: Understøttede filformater
+    paragraph: Beskrivelse af filformater, der understøttes af systemet LangTool
+    common:
+      for: Filer %{framework}
+      platform: Filer for programmer baseret på %{framework}
+      caption: Beskrivelse af fil-format %{extension}
+      lang_detect_by_body: De oprindelige sprog til en fil, der er bestemt af fil indhold.
+      typical: En typisk fil struktur %{extension} præsenteret nedenfor.
+      untranslated:
+        header: 'Elementer, der er ikke oversat:'
+        variables: variabler%{ender}
+        tags: tags%{ender}
+        special: specielle tegn%{ender}
+        comments: kommentarer%{ender}
+        keys: nøgler%{ender}
+    rails:
+      translated: Overføres kun, tekst, data, der ligger i par nøgle/værdi, array-elementer overføres separat.
+    android:
+      lang_detect_by_name_html: De oprindelige sprog fil er defineret af filnavnet. For eksempel filnavnet, kan være <span class='italic'>%{name_1}</span> eller <span class='italic'>%{name_1}</span>.
+      translated: 'Overføres kun tekst-data, der er gemt i tags:'
+      special_tags: poster med valgfri attribut translatable='false'.
+    net:
+      translated: Overføres kun tekst-data, der er gemt i tag-værdi
+    ios:
+      translated: Overføres kun tekst-data, der er gemt i par af nøgle/værdi

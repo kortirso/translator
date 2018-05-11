@@ -43,3 +43,29 @@ de:
     enter: Eingang
     minimal: Minimale Passwortlänge von 10 Zeichen
     remember: Erinnere dich an mich
+  formats:
+    header: Unterstützte Dateiformate
+    paragraph: Beschreibung von Dateiformaten, die unterstützt werden vom System LangTool
+    common:
+      for: Dateien für %{framework}
+      platform: Dateien für Anwendungen auf Basis %{framework}
+      caption: Beschreibung extension des formats der Datei %{extension}
+      lang_detect_by_body: Sprache der Vorlage für die Datei bestimmt den Inhalt der Datei.
+      typical: Die typische Struktur der Datei %{extension} vorgestellt unten.
+      untranslated:
+        header: 'Elemente, die nicht übersetzt werden:'
+        variables: Variablen%{ender}
+        tags: Tags%{ender}
+        special: Sonderzeichen%{ender}
+        comments: Kommentare%{ender}
+        keys: Schlüssel%{ender}
+    rails:
+      translated: Übersetzt werden nur die Textdaten, die in Paaren Schlüssel/Wert, die Elemente des Arrays werden einzeln.
+    android:
+      lang_detect_by_name_html: Sprache der Vorlage für die Datei bestimmt über den Dateinamen. Zum Beispiel kann der name der Datei <span class='italic'>%{name_1}</span> oder <span class='italic'>%{name_1}</span>.
+      translated: 'Übersetzt werden nur die Textdaten, die in den Tags:'
+      special_tags: Elemente mit optionalem аттрибутом übersetzbar='false'.
+    net:
+      translated: Übersetzt werden nur die Textdaten, die im value-Tags
+    ios:
+      translated: Übersetzt werden nur die Textdaten, die in Paaren Schlüssel/Wert

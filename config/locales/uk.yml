@@ -43,3 +43,29 @@ uk:
     enter: Вхід
     minimal: Мінімальна довжина пароля - 10 символів
     remember: Запам'ятати мене
+  formats:
+    header: Підтримувані формати файлів
+    paragraph: Опис форматів файлів, які підтримуються системою LangTool
+    common:
+      for: Файли для %{framework}
+      platform: Файли для застосунків на базі %{framework}
+      caption: Опис формату файлів %{extension}
+      lang_detect_by_body: Мова оригіналу для файлу визначається по вмісту файлу.
+      typical: Типова структура файлу %{extension} представлена нижче.
+      untranslated:
+        header: 'Елементи, які не переводяться:'
+        variables: змінні%{ender}
+        tags: теги%{ender}
+        special: спецсимволи%{ender}
+        comments: коментарі%{ender}
+        keys: ключі%{ender}
+    rails:
+      translated: Переведені будуть тільки текстові дані, що знаходяться в парах ключ/значення, елементи масиву переводяться окремо.
+    android:
+      lang_detect_by_name_html: Мова оригіналу для файлу визначається за назвою файлу. Наприклад, ім'я файлу може бути <span class='italic'>%{name_1}</span> або <span class='italic'>%{name_1}</span>.
+      translated: 'Переведені будуть тільки текстові дані, що знаходяться в тегах:'
+      special_tags: елементи з додатковим атрибутів translatable='false'.
+    net:
+      translated: Переведені будуть тільки текстові дані, що знаходяться в тегах value
+    ios:
+      translated: Переведені будуть тільки текстові дані, що знаходяться в парах ключ/значення

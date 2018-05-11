@@ -1,15 +1,10 @@
 .inside_block
   header
-    h1 Файлы для приложений на базе Android
-    p Описание формата файлов .xml
+    h1= t('formats.common.platform', framework: 'Android')
+    p= t('formats.common.caption', extension: '.xml')
   section.format
-    p
-      | Язык оригинала для файла определяется по названию файла.
-      |  Например, имя файла может быть 
-      span.italic= 'strings.xml'
-      |  или 
-      span.italic= 'strings.es.xml.'
-    p Типичная структура файла .xml представлена ниже.
+    p= t('formats.android.lang_detect_by_name_html', name_1: 'strings.xml', name_2: 'strings.es.xml')
+    p= t('formats.common.typical', extension: '.xml')
     pre
       |<&zwj;resources>
       br/
@@ -33,13 +28,13 @@
       br/
       |<&zwj;/resources>
     ul
-      | Переведены будут только текстовые данные, находящиеся в тэгах:
+      = t('formats.android.translated')
       li string,
       li string-array, item,
       li plurals, item.
     ul
-      | Элементы, которые не переводятся:
-      li переменные,
-      li тэги,
-      li спецсимволы,
-      li= "элементы с дополнительным аттрибутом translatable='false'."
+      = t('formats.common.untranslated.header')
+      li= t('formats.common.untranslated.variables', ender: ',')
+      li= t('formats.common.untranslated.tags', ender: ',')
+      li= t('formats.common.untranslated.special', ender: ',')
+      li= t('formats.android.special_tags')
