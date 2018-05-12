@@ -1,3 +1,36 @@
-h1 {
-  font-weight: 300;
+#workspace_tasks {
+  h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: 400;
+  }
+
+  table {
+    thead {
+      tr {
+        th {
+          font-weight: 400;
+
+          &:nth-last-of-type(1) {
+            width: 30%;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          .button {
+            margin: 0;
+            margin-right: 5px;
+          }
+
+          &:nth-last-of-type(1) {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
 }
