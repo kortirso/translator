@@ -1,1 +1,8 @@
 .navigation_workspace
+  h1= link_to 'MAIN PAGE', root_path(locale: params[:locale])
+  ul.menu.vertical
+    li= link_to 'Tasks', workspace_path(locale: params[:locale]), class: "#{'active' if path == :workspace}"
+  .locals
+    p Change Locale
+    - I18n.available_locales.each do |locale|
+      = link_to '', change_locale(locale), class: "flag flag_#{locale}"
