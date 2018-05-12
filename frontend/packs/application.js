@@ -9,8 +9,12 @@ import "components/metrics/metrics";
 import "components/registrations/registrations";
 import "components/sessions/sessions";
 
+import "components/workspace_panel/workspace_panel";
+import "components/navigation_workspace/navigation_workspace";
+
 import "components/welcome/welcome";
 import "components/formats/formats";
+import "components/workspace/workspace";
 
 import Rails from "rails-ujs";
 
