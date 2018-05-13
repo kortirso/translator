@@ -13,7 +13,7 @@ class TaskSerializer < ActiveModel::Serializer
   end
 
   class FullData < self
-    attributes :file_name, :framework_name, :sentences_amount, :link_to_source_file
+    attributes :file_name, :framework_name, :sentences_amount, :link_to_source_file, :created_at, :updated_at
 
     def framework_name
       object.framework.name
@@ -26,6 +26,14 @@ class TaskSerializer < ActiveModel::Serializer
     def link_to_source_file
       return nil unless object.file.attached?
       rails_blob_url(object.file, disposition: 'attachment', only_path: true)
+    end
+
+    def created_at
+      object.created_at.strftime('%Y.%m.%d %H:%M')
+    end
+
+    def updated_at
+      object.updated_at.strftime('%Y.%m.%d %H:%M')
     end
   end
 end

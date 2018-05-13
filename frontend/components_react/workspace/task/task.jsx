@@ -66,6 +66,14 @@ export default class Task extends React.Component {
                 <td>{task.sentences_amount}</td>
               </tr>
               <tr>
+                <td>Created at</td>
+                <td>{task.created_at}</td>
+              </tr>
+              <tr>
+                <td>Updated at</td>
+                <td>{task.updated_at}</td>
+              </tr>
+              <tr>
                 <td>Controls</td>
                 <td>
                   <a download={task.file_name} className='button small expanded' href={task.link_to_source_file}>Download source file</a>
