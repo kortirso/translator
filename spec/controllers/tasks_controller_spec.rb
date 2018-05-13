@@ -102,7 +102,7 @@ RSpec.describe TasksController, type: :controller do
 
       context 'try delete his completed task' do
         let!(:task) { create :task, :done, personable: @current_user }
-        let(:request){ delete :destroy, params: { id: task.id, locale: 'en' } }
+        let(:request) { delete :destroy, params: { id: task.id, locale: 'en' } }
 
         it 'destroys task' do
           expect { request }.to change { Task.count }.by(-1)

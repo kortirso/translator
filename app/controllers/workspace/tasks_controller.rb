@@ -3,6 +3,7 @@ module Workspace
     skip_before_action :verify_authenticity_token, only: %i[destroy]
     before_action :authenticate_user!
     before_action :find_task, only: %i[show destroy]
+    before_action :check_task_status, only: %i[destroy]
 
     def index
       respond_to do |format|
@@ -38,6 +39,10 @@ module Workspace
     private def find_task
       @task = Current.person.tasks.find_by(id: params[:id])
       render_not_found if @task.nil?
+    end
+
+    private def check_task_status
+      render_not_found unless @task.completed? || @task.failed?
     end
   end
 end
