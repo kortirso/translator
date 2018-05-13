@@ -30,13 +30,32 @@
     border: 1px solid #ddd;
     border-radius: 2px;
     margin-bottom: 10px;
+    padding-bottom: 10px;
 
     .value {
-      width: 50%;
-      padding: 0 10px;
+      width: 40%;
+      padding: 0 0 0 10px;
+      position: relative;
 
       textarea {
         resize: none;
+        margin: 0;
+      }
+
+      .save_changes {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 0;
+      }
+    }
+
+    .controls {
+      width: 20%;
+      padding: 0 10px;
+
+      .button {
+        margin-bottom: 5px;
       }
     }
   }

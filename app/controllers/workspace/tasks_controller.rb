@@ -2,8 +2,9 @@ module Workspace
   class TasksController < ApplicationController
     skip_before_action :verify_authenticity_token, only: %i[destroy]
     before_action :authenticate_user!
-    before_action :find_task, only: %i[show destroy]
+    before_action :find_task, only: %i[show destroy phrase]
     before_action :check_task_status, only: %i[destroy]
+    before_action :find_phrase, only: %i[phrase]
 
     def index
       respond_to do |format|
@@ -32,6 +33,10 @@ module Workspace
       redirect_to workspace_tasks_path, status: 303
     end
 
+    def phrase
+      render json: @phrase, locale: @task.to, status: 200
+    end
+
     private def find_tasks
       Current.person.tasks.order(id: :desc).with_attached_result_file
     end
@@ -43,6 +48,10 @@ module Workspace
 
     private def check_task_status
       render_not_found unless @task.completed? || @task.failed?
+    end
+
+    private def find_phrase
+      @phrase = @task.phrases.find_by(position_id: params[:position_id])
     end
   end
 end

@@ -12,7 +12,7 @@ export default class Task extends React.Component {
     this.state = {
       task: {},
       positions: [],
-      editable: false
+      editMode: false
     }
   }
 
@@ -41,9 +41,9 @@ export default class Task extends React.Component {
   }
 
   _preparePositions() {
-    if(!this.state.editable) return false
+    if(!this.state.editMode) return false
     return this.state.positions.map((position) => {
-      return <Position position={position} key={position.id} />
+      return <Position taskId={this.props.task_id} position={position} key={position.id} />
     })
   }
 
@@ -52,8 +52,8 @@ export default class Task extends React.Component {
     return (
       <main id='task'>
         <h2>Task#{task.id}</h2>
-        <a className='button small' onClick={() => this.setState({editable: !this.state.editable})}>Edit translations</a>
-        {!this.state.editable &&
+        <a className='button small' onClick={() => this.setState({editMode: !this.state.editMode})}>Edit translations</a>
+        {!this.state.editMode &&
           <table className='statistics'>
             <tbody>
               <tr>
