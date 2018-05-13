@@ -21,6 +21,8 @@
     tbody {
       tr {
         td {
+          padding: 2px 5px;
+
           .button {
             margin: 0;
             margin-right: 5px;

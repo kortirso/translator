@@ -20,8 +20,9 @@ Rails.application.routes.draw do
       get '/:format_name' => 'formats#show', as: :format
     end
 
-    scope path: '/workspace' do
-      get '/' => 'workspace#index', as: :workspace
+    namespace :workspace do
+      get '/' => 'tasks#index', as: :tasks
+      resources :tasks, only: %i[show]
     end
 
     namespace :api do

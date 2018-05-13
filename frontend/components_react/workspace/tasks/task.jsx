@@ -20,10 +20,13 @@ export default class Task extends React.Component {
         <td className={task.status}>{this._checkStatus(task)}</td>
         <td>
           {task.status == 'done' &&
-            <a download={task.result_file_name} className='button' href={task.link_to_file}>{this.props.strings.download}</a>
+            <span>
+              <a className='button small' href={`workspace/tasks/${task.id}`}>Edit</a>
+              <a download={task.result_file_name} className='button small' href={task.link_to_file}>{this.props.strings.download}</a>
+            </span>
           }
           {(task.status == 'done' || task.status == 'failed') &&
-            <a className='button alert' onClick={this._handleDelete.bind(this)}>X</a>
+            <a className='button small alert' onClick={this._handleDelete.bind(this)}>X</a>
           }
         </td>
       </tr>

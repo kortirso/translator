@@ -14,7 +14,8 @@ import "components/navigation_workspace/navigation_workspace";
 
 import "components/welcome/welcome";
 import "components/formats/formats";
-import "components/workspace/workspace";
+import "components/workspace/tasks/tasks";
+import "components/workspace/task/task";
 
 import Rails from "rails-ujs";
 

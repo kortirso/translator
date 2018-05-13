@@ -1,4 +1,4 @@
-RSpec.describe WorkspaceController, type: :controller do
+RSpec.describe TasksController, type: :controller do
   describe 'GET #index' do
     it_behaves_like 'Workspace Auth'
 

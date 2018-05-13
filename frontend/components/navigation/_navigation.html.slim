@@ -8,7 +8,7 @@ nav
         .top-bar-right
           ul.menu
             - if user_signed_in?
-              li= link_to 'Workspace', workspace_path(locale: params[:locale]), class: 'modal_link'
+              li= link_to 'Workspace', workspace_tasks_path(locale: params[:locale]), class: 'modal_link'
               li= link_to t('buttons.logout'), destroy_user_session_path, method: :delete, class: 'modal_link'
             - else
               li
