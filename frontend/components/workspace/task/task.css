@@ -7,5 +7,19 @@
 
   .statistics {
     max-width: 450px;
+
+    tbody {
+      td {
+        padding: 7px 10px;
+
+        .button {
+          margin-bottom: 3px;
+
+          &:nth-last-of-type(1) {
+            margin: 0;
+          }
+        }
+      }
+    }
   }
 }

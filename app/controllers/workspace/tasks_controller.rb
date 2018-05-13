@@ -1,7 +1,8 @@
 module Workspace
   class TasksController < ApplicationController
+    skip_before_action :verify_authenticity_token, only: %i[destroy]
     before_action :authenticate_user!
-    before_action :find_task, only: %i[show]
+    before_action :find_task, only: %i[show destroy]
 
     def index
       respond_to do |format|
@@ -14,7 +15,21 @@ module Workspace
       end
     end
 
-    def show; end
+    def show
+      respond_to do |format|
+        format.html
+        format.json do
+          render json: {
+            task: TaskSerializer::FullData.new(@task)
+          }, status: 200
+        end
+      end
+    end
+
+    def destroy
+      @task.destroy
+      redirect_to workspace_tasks_path, status: 303
+    end
 
     private def find_tasks
       Current.person.tasks.order(id: :desc).with_attached_result_file

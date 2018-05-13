@@ -21,12 +21,12 @@ export default class Task extends React.Component {
         <td>
           {task.status == 'done' &&
             <span>
-              <a className='button small' href={`workspace/tasks/${task.id}`}>View</a>
+              <a className='button small' href={`workspace/tasks/${task.id}`}>View task</a>
               <a download={task.result_file_name} className='button small' href={task.link_to_file}>{this.props.strings.download}</a>
             </span>
           }
           {(task.status == 'done' || task.status == 'failed') &&
-            <a className='button small alert' onClick={this._handleDelete.bind(this)}>X</a>
+            <a className='button small alert' onClick={this._handleDelete.bind(this)}>Delete task</a>
           }
         </td>
       </tr>

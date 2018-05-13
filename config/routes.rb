@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
     namespace :workspace do
       get '/' => 'tasks#index', as: :tasks
-      resources :tasks, only: %i[show]
+      resources :tasks, only: %i[show destroy]
     end
 
     namespace :api do
