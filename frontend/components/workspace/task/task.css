@@ -4,4 +4,8 @@
     margin-bottom: 15px;
     font-weight: 400;
   }
+
+  .statistics {
+    max-width: 450px;
+  }
 }

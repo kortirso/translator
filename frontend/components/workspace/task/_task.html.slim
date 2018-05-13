@@ -1,2 +1,19 @@
 #task
   h2= "Task##{@task.id}"
+  table.statistics
+    tbody
+      tr
+        td Framework
+        td= @task.framework.name
+      tr
+        td Original language
+        td= @task.from
+      tr
+        td Language of translation
+        td= @task.to
+      tr
+        td Status
+        td= @task.status
+      tr
+        td Amount of sentences
+        td= @task.positions.size

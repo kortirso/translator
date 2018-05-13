@@ -21,7 +21,7 @@ export default class Task extends React.Component {
         <td>
           {task.status == 'done' &&
             <span>
-              <a className='button small' href={`workspace/tasks/${task.id}`}>Edit</a>
+              <a className='button small' href={`workspace/tasks/${task.id}`}>View</a>
               <a download={task.result_file_name} className='button small' href={task.link_to_file}>{this.props.strings.download}</a>
             </span>
           }
