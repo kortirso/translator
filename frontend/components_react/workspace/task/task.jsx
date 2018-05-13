@@ -1,4 +1,5 @@
 import React from 'react'
+import Position from 'components_react/workspace/task/position'
 import LocalizedStrings from 'react-localization'
 import I18nData from '../../tasks_box/i18n_data.json'
 const $ = require('jquery')
@@ -9,7 +10,9 @@ export default class Task extends React.Component {
   constructor() {
     super()
     this.state = {
-      task: {}
+      task: {},
+      positions: [],
+      editable: false
     }
   }
 
@@ -23,7 +26,7 @@ export default class Task extends React.Component {
       method: 'GET',
       url: `${this.props.task_id}.json`,
       success: (data) => {
-        this.setState({task: data.task})
+        this.setState({task: data.task, positions: data.task.positions})
       }
     })
   }
@@ -37,12 +40,20 @@ export default class Task extends React.Component {
     })
   }
 
+  _preparePositions() {
+    if(!this.state.editable) return false
+    return this.state.positions.map((position) => {
+      return <Position position={position} key={position.id} />
+    })
+  }
+
   render() {
     const task = this.state.task
     return (
-      <main>
-        <div id='task'>
-          <h2>Task#{task.id}</h2>
+      <main id='task'>
+        <h2>Task#{task.id}</h2>
+        <a className='button small' onClick={() => this.setState({editable: !this.state.editable})}>Edit translations</a>
+        {!this.state.editable &&
           <table className='statistics'>
             <tbody>
               <tr>
@@ -83,7 +94,8 @@ export default class Task extends React.Component {
               </tr>
             </tbody>
           </table>
-        </div>
+        }
+        {this._preparePositions()}
       </main>
     )
   }

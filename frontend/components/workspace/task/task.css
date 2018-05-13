@@ -22,4 +22,22 @@
       }
     }
   }
+
+  .position {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    margin-bottom: 10px;
+
+    .value {
+      width: 50%;
+      padding: 0 10px;
+
+      textarea {
+        resize: none;
+      }
+    }
+  }
 }

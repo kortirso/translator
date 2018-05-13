@@ -14,6 +14,7 @@ class TaskSerializer < ActiveModel::Serializer
 
   class FullData < self
     attributes :file_name, :framework_name, :sentences_amount, :link_to_source_file, :created_at, :updated_at
+    has_many :positions
 
     def framework_name
       object.framework.name
