@@ -12,7 +12,7 @@ module Workspace
 
     private def find_phrase
       @phrase = Phrase.find_by(id: params[:id])
-      render_not_found if @phrase.nil?
+      render json: { error: 'Phrase does not exist' }, status: 404 if @phrase.nil?
     end
 
     private def phrase_params

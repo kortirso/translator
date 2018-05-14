@@ -11,7 +11,7 @@ module Workspace
 
     private def find_position
       @position = Position.find_by(id: params[:id])
-      render_not_found if @position.nil?
+      render json: { error: 'Position does not exist' }, status: 404 if @position.nil?
     end
 
     private def position_params
