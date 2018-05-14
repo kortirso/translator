@@ -26,7 +26,7 @@ export default class Phrase extends React.Component {
       url: `../phrases/${this.props.phrase.id}.json`,
       data: {phrase: {current_value: value}},
       success: (data) => {
-        console.log(data)
+        this.props.updatePosition(data.position)
       }
     })
   }
@@ -39,7 +39,7 @@ export default class Phrase extends React.Component {
         <textarea readOnly defaultValue={phrase.word.text} rows='3' />
         <label>Current value for translation</label>
         <div className='text_area'>
-          <textarea value={this.state.currentValue} rows='3' onChange={(text) => this.setState({currentValue: text})} />
+          <textarea value={this.state.currentValue} rows='3' onChange={(event) => this.setState({currentValue: event.target.value})} />
           <a className='button small save_phrase' onClick={this._updatePhrase.bind(this, this.state.currentValue)}>Save</a>
         </div>
         <h4>Possible translations</h4>

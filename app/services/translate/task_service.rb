@@ -9,8 +9,9 @@ module Translate
     end
 
     def translate
-      task.phrases_for_translation.uniq.each { |word| translate_word(word) }
+      task.phrases.each { |phrase| translate_word(phrase.word.text) }
       word_service.save_new_words
+      task.positions.each(&:update_phrases_value)
     end
 
     private def translate_word(word)

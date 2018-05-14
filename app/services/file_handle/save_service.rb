@@ -39,17 +39,17 @@ module FileHandle
       "#{TEMP_FOLDER}#{task.id}.#{type}.#{file_name}.#{task.to}."
     end
 
-    private def position_translation(position)
-      temp_value = position.temp_value
+    private def position_translation(position, text_value = '')
+      temp = position.temp_value
       position.phrases.each do |phrase|
         replace = phrase.word.select_translations(locale: locale_to).keys.first
         if replace.present?
-          temp_value.gsub!("_###{phrase.id}##_", replace)
+          text_value = temp.gsub("_###{phrase.id}##_", replace)
           phrase.update(current_value: replace)
         end
       end
-      position.update(translator_value: temp_value, current_value: temp_value)
-      temp_value
+      position.update(temp_value: temp, translator_value: text_value, current_value: text_value, phrases_value: text_value)
+      temp
     end
   end
 end

@@ -23,7 +23,6 @@ export default class Position extends React.Component {
       method: 'GET',
       url: `${this.props.taskId}/phrases/${this.state.position.id}.json`,
       success: (data) => {
-        console.log(data)
         this.setState({phrases: data.phrases, additionalMode: true})
       }
     })
@@ -31,8 +30,12 @@ export default class Position extends React.Component {
 
   _renderPhrases() {
     return this.state.phrases.map((phrase) => {
-      return <Phrase phrase={phrase} key={phrase.id} />
+      return <Phrase phrase={phrase} key={phrase.id} updatePosition={this._updatePosition.bind(this)} />
     })
+  }
+
+  _updatePosition(position) {
+    this.setState({position: position})
   }
 
   render() {
@@ -54,6 +57,14 @@ export default class Position extends React.Component {
           <label>Controls</label>
           <a className='button small' onClick={() => this.setState({editMode: !this.state.editMode})}>Change edit mode</a>
           <a className='button small' onClick={this._fetchPhrases.bind(this)}>Show additional information</a>
+        </div>
+        <div className='value'>
+          <label>Value builded from phrases</label>
+          <textarea readOnly value={position.phrases_value} rows='3' />
+        </div>
+        <div className='value'>
+          <label>Translator value</label>
+          <textarea readOnly value={position.translator_value} rows='3' />
         </div>
         {this.state.additionalMode &&
           <div className='additional'>

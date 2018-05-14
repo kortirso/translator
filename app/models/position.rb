@@ -9,9 +9,13 @@ class Position < ApplicationRecord
 
   has_many :phrases, dependent: :destroy
 
-  validates :task, :base_value, :temp_value, presence: true
+  validates :task, :base_value, presence: true
 
-  def update_phrases_value
-
+  def update_phrases_value(text_value = '')
+    temp = temp_value
+    phrases.each do |phrase|
+      text_value = temp.gsub("_###{phrase.id}##_", phrase.current_value)
+    end
+    update(phrases_value: text_value)
   end
 end
