@@ -131,4 +131,28 @@ RSpec.describe Workspace::TasksController, type: :controller do
       delete :destroy, params: { id: 999, locale: 'en' }
     end
   end
+
+  describe 'GET #phrases' do
+    it_behaves_like 'Workspace Auth'
+
+    context 'logged user' do
+      sign_in_user
+      let!(:task) { create :task, personable: @current_user }
+      before { get :phrases, params: { id: task.id, position_id: 999, locale: 'en' } }
+
+      it 'returns status 200' do
+        expect(response.status).to eq 200
+      end
+
+      it 'and returns phrases for task' do
+        resp = JSON.parse(response.body)
+
+        expect(resp['phrases']).to_not eq nil
+      end
+    end
+
+    def do_request
+      get :phrases, params: { id: 999, position_id: 999, locale: 'en' }
+    end
+  end
 end
