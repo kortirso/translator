@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       resources :tasks, only: %i[show destroy]
       get '/tasks/:id/phrases/:position_id' => 'tasks#phrases'
       resources :phrases, only: %i[update]
+      resources :positions, only: %i[update]
     end
 
     namespace :api do

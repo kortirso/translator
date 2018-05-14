@@ -15,17 +15,29 @@ export default class Position extends React.Component {
   }
 
   _saveCurrentValue() {
-    this.setState({editMode: false})
+    $.ajax({
+      method: 'PATCH',
+      url: `../positions/${this.props.position.id}.json`,
+      data: {position: {current_value: this.state.currentValue}},
+      success: (data) => {
+        this.setState({position: data.position, editMode: false})
+      }
+    })
+    
   }
 
   _fetchPhrases() {
-    $.ajax({
-      method: 'GET',
-      url: `${this.props.taskId}/phrases/${this.state.position.id}.json`,
-      success: (data) => {
-        this.setState({phrases: data.phrases, additionalMode: true})
-      }
-    })
+    if(this.state.additionalMode) {
+      this.setState({additionalMode: false})
+    } else {
+      $.ajax({
+        method: 'GET',
+        url: `${this.props.taskId}/phrases/${this.state.position.id}.json`,
+        success: (data) => {
+          this.setState({phrases: data.phrases, additionalMode: true})
+        }
+      })
+    }
   }
 
   _renderPhrases() {
@@ -56,7 +68,7 @@ export default class Position extends React.Component {
         <div className='controls'>
           <label>Controls</label>
           <a className='button small' onClick={() => this.setState({editMode: !this.state.editMode})}>Change edit mode</a>
-          <a className='button small' onClick={this._fetchPhrases.bind(this)}>Show additional information</a>
+          <a className='button small' onClick={this._fetchPhrases.bind(this)}>Show/Hide additional information</a>
         </div>
         <div className='value'>
           <label>Value builded from phrases</label>
