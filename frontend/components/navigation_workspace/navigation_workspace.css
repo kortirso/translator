@@ -1,0 +1,49 @@
+.navigation_workspace {
+  width: 250px;
+  min-height: 100%;
+  background: #eee;
+  position: fixed;
+
+  h1 {
+    a {
+      font-size: 24px;
+      padding-left: 15px;
+      color: #2f3340;
+    }
+  }
+
+  ul {
+    border-top: 1px solid #ddd;
+
+    li {
+      border-bottom: 1px solid #ddd;
+
+      a {
+        padding: 20px 15px;
+        color: #2f3340;
+
+        &.active {
+          background: #dfdfdf;
+        }
+
+        &:hover {
+          background: #d4d4d4;
+        }
+      }
+    }
+  }
+
+  .locals {
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    width: 150px;
+    text-align: center;
+
+    a {
+      border: 1px solid #aaa;
+      margin-right: 5px;
+      opacity: 0.75;
+    }
+  }
+}

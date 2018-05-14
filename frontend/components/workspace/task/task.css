@@ -1,0 +1,116 @@
+#task {
+  h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: 400;
+  }
+
+  .statistics {
+    max-width: 450px;
+
+    tbody {
+      td {
+        padding: 7px 10px;
+
+        .button {
+          margin-bottom: 3px;
+
+          &:nth-last-of-type(1) {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .position {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+
+    .value {
+      width: 40%;
+      padding: 0 0 0 10px;
+      position: relative;
+
+      textarea {
+        resize: none;
+        margin: 0;
+      }
+
+      .save_changes {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 0;
+      }
+    }
+
+    .controls {
+      width: 20%;
+      padding: 0 10px;
+
+      .button {
+        margin-bottom: 5px;
+      }
+    }
+
+    .additional {
+      padding: 10px;
+      width: 100%;
+      margin-top: 20px;
+
+      h3 {
+        font-weight: 300;
+      }
+
+      .phrases {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .phrase {
+          width: 49%;
+          margin-right: 1%;
+          padding-bottom: 20px;
+          border-bottom: 1px solid #eee;
+          margin-top: 15px;
+
+          .text_area {
+            position: relative;
+
+            .save_phrase {
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              margin: 0;
+            }
+          }
+
+          textarea {
+            resize: none;
+          }
+
+          h4 {
+            font-weight: 300;
+          }
+
+          .translation {
+            position: relative;
+
+            .choose_phrase {
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

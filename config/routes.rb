@@ -20,6 +20,14 @@ Rails.application.routes.draw do
       get '/:format_name' => 'formats#show', as: :format
     end
 
+    namespace :workspace do
+      get '/' => 'tasks#index', as: :tasks
+      resources :tasks, only: %i[show destroy]
+      get '/tasks/:id/phrases/:position_id' => 'tasks#phrases'
+      resources :phrases, only: %i[update]
+      resources :positions, only: %i[update]
+    end
+
     namespace :api do
       namespace :v1 do
       end

@@ -29,7 +29,7 @@ module FileHandle
 
     private def create_position(args = {})
       temp_value = args[:temp_value]
-      position = task.positions.create(base_value: args[:base_value], temp_value: temp_value)
+      position = task.positions.create(base_value: args[:base_value])
       args[:phrases].each do |phrase|
         word = Word.create_or_find_by(text: phrase, locale: locale_from)
         phrase_new = Phrase.create(word: word, position: position, current_value: phrase)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_22_133730) do
+ActiveRecord::Schema.define(version: 2018_05_14_031544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2018_04_22_133730) do
     t.text "temp_value", default: "", null: false
     t.text "translator_value", default: "", null: false
     t.text "current_value", default: "", null: false
+    t.text "phrases_value", default: "", null: false
     t.index ["task_id"], name: "index_positions_on_task_id"
   end
 

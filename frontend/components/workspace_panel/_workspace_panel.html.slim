@@ -1,0 +1,5 @@
+.workspace
+  = render 'components/navigation_workspace/navigation_workspace', path: path
+  .inside
+    = yield
+= render 'components/metrics/metrics' if Rails.env.production?
