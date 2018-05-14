@@ -1,4 +1,5 @@
 import React from 'react'
+import Phrase from 'components_react/workspace/task/phrase'
 const $ = require('jquery')
 
 export default class Position extends React.Component {
@@ -8,7 +9,8 @@ export default class Position extends React.Component {
       position: props.position,
       currentValue: props.position.current_value,
       editMode: false,
-      additionalMode: false
+      additionalMode: false,
+      phrases: []
     }
   }
 
@@ -19,11 +21,17 @@ export default class Position extends React.Component {
   _fetchPhrases() {
     $.ajax({
       method: 'GET',
-      url: `${this.props.taskId}/phrase/${this.state.position.id}.json`,
+      url: `${this.props.taskId}/phrases/${this.state.position.id}.json`,
       success: (data) => {
         console.log(data)
-        this.setState({phrase: data.phrase, additionalMode: true})
+        this.setState({phrases: data.phrases, additionalMode: true})
       }
+    })
+  }
+
+  _renderPhrases() {
+    return this.state.phrases.map((phrase) => {
+      return <Phrase phrase={phrase} key={phrase.id} />
     })
   }
 
@@ -49,7 +57,11 @@ export default class Position extends React.Component {
         </div>
         {this.state.additionalMode &&
           <div className='additional'>
-
+            <h3>Composite phrases</h3>
+            <p>You can change translation for each separate part of the sentence without special characters</p>
+            <div className='phrases'>
+              {this._renderPhrases()}
+            </div>
           </div>
         }
       </div>
