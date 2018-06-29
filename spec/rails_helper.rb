@@ -6,6 +6,8 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'sidekiq/testing'
 require 'webmock/rspec'
+require 'capybara/rails'
+require 'capybara/rspec'
 
 Sidekiq::Testing.fake!
 
@@ -20,8 +22,10 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.include Devise::Test::ControllerHelpers, type: :controller
-  config.extend ControllerMacros, type: :controller
   config.include OmniauthMacros, type: :controller
+  config.include Capybara::DSL
+
+  config.extend ControllerMacros, type: :controller
 
   include Warden::Test::Helpers
   Warden.test_mode!
@@ -30,7 +34,7 @@ RSpec.configure do |config|
   end
 
   config.before :all do
-    WebMock.enable!
+    WebMock.disable_net_connect!(allow_localhost: true)
   end
 
   config.before(:suite) do
