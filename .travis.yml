@@ -22,6 +22,7 @@ install: bundle install --jobs=3 --retry=3
 script:
   - bundle exec rake db:migrate RAILS_ENV=test
   - bundle exec rake db:test:prepare
+  - bundle exec yarn install
   - bundle exec rails webpacker:compile RAILS_ENV=test
   - bundle exec rspec
 services:
