@@ -41,10 +41,6 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
-    # Compile our JavaScript
-    `bin/webpack`
-    # Load our JavaScript
-    Webpacker::Manifest.load
   end
 
   config.around(:each) do |example|
