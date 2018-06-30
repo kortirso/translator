@@ -1,11 +1,13 @@
 dist: trusty
 language: ruby
 rvm: 2.5.1
+sudo: required
 env:
   global:
     CC_TEST_REPORTER_ID=980243e873d152344af902979fdbd7790fab9dfb0abbd552030f80585599a3bd
 addons:
   postgresql: 9.6
+  chrome: stable
 after_success:
   - bundle exec codeclimate-test-reporter
 before_script:
