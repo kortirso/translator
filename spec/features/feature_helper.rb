@@ -24,8 +24,6 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
-    `bin/webpack`
-    Webpacker::Manifest.load
   end
 
   config.before(:each) do

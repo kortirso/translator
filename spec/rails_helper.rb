@@ -29,6 +29,7 @@ RSpec.configure do |config|
 
   include Warden::Test::Helpers
   Warden.test_mode!
+
   config.after :each do
     Warden.test_reset!
   end
@@ -40,6 +41,10 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
+    # Compile our JavaScript
+    `bin/webpack`
+    # Load our JavaScript
+    Webpacker::Manifest.load
   end
 
   config.around(:each) do |example|
